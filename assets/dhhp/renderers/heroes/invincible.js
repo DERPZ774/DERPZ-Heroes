@@ -15,7 +15,7 @@ function initEffects(renderer) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
-    addAnimation(renderer, "iron_man.FLIGHT", "dhhp:flight/iron_man.anim.json")
+    addAnimation(renderer, "iron_man.FLIGHT", "fiskheroes:flight/iron_man.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));
             data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
