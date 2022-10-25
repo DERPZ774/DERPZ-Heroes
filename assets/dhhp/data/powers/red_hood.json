@@ -1,0 +1,27 @@
+{
+    "name": "Red Hood",
+    "modifiers": {
+        "fiskheroes:equipment": {
+            "equipment": {
+                "fiskheroes:smoke_pellet": {
+                    "cooldown": 400,
+                    "uses": 2
+                }
+            }
+        },
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:energy_blast": {
+            "damageProfile": {
+                "damage": 8.0,
+                "types": {
+                    "BULLET": 1.0
+                }
+            },
+            "isExplosive": false,
+            "cooldownTime": 9,
+            "soundEvents": {
+                "SHOOT": "dhhp:gun_shoot"
+            }
+        }
+    }
+}

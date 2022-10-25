@@ -1,0 +1,7 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "dhhp:shock.escrima",
+    "condition": "dhhp:dyn/escrima_lightning_timer",
+    "loop": true,
+    "volume": 0.4
+}  

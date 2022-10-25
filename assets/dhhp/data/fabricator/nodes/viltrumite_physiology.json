@@ -1,0 +1,27 @@
+{
+    "display": {
+    "name": "Viltrumite Physiology",
+    "icon": {
+        "texture":  "dhhp:textures/gui/nodes/viltrum.png"
+    }
+    },
+    "requirements": [
+    ],
+    "price": {
+    "XP_LEVELS": 10
+    },
+    "criteria": {
+        "golden_apple": {
+        "trigger": "fiskheroes:item_crafted",
+        "description": {
+            "translate": "Craft a Golden Apple"
+        },
+        "condition": {
+            "variables": {
+            "item": "ITEM_BEING_CRAFTED"
+            },
+            "check": "item.name() == 'minecraft:golden_apple'"
+        }
+        }
+    }
+}

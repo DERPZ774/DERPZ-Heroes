@@ -1,0 +1,12 @@
+{
+    "suit": "dhhp:scarlet_spider",
+    "requirements": [
+      "fiskheroes:tier6_7",
+      "fiskheroes:spiderverse",
+      "fiskheroes:traversal2",
+      "fiskheroes:regeneration2",
+      "fiskheroes:melee",
+      "fiskheroes:ranged2",
+      "fiskheroes:object_manipulation"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "suit": "dhhp:invincible",
+    "requirements": [
+        "fiskheroes:tier8_9",
+        "fiskheroes:flight",
+        "fiskheroes:defense2",
+        "fiskheroes:melee2",
+        "dhhp:viltrumite_physiology"
+    ]
+}

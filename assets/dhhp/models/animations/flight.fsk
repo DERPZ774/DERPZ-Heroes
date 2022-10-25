@@ -1,0 +1,33 @@
+;{data2} = 2.71828^({data}-({data}-0.6)^4*(64)^1.35 -0.75)
+;{data} = 2.71828^({data}-({data}-0.3)^4*(64)^1.8 -0.3)
+;{data} = 2.71828^({data}-({data}-0.3)^4*(64)^1.8 -0.25)
+
+{vel} = sqrt({motX}^2 + {motZ}^2)
+{x} = curve(min({vel}, 1))
+{x1} = 1 - {x}
+{m} = curve(clamp(-{motX}, 0, 2) / 2)
+
+{body_posY} @ {data} -> {head_posY}
+
+
+{rightArm_posY} @ {data} -> {body_posY} + 2
+{leftArm_posY} @ {data} -> {body_posY} + 2
+{rightArm_posZ} @ {data} -> {body_posZ} + 0.75
+{leftArm_posZ} @ {data} -> {body_posZ} + 0.75
+
+{rightLeg_posY} @ {data} -> {body_posY} + 11.50
+{leftLeg_posY} @ {data} -> {body_posY} + 11.50
+{rightLeg_posZ} @ {data} -> {body_posZ} + 3.20
+{leftLeg_posZ} @ {data} -> {body_posZ} + 3.20
+
+{body_rotX} @ {data} -> (pi/180) * 15.65
+
+{rightArm_rotX} @ {data} -> (pi/180) * 18.25
+{leftArm_rotX} @ {data} -> (pi/180) * 18.25
+
+
+{rightLeg_rotX} @ {data} -> (pi/180) * 20.87
+{leftLeg_rotX} @ {data} -> (pi/180) * 18.26
+
+out "pivot" (0, 0.783333333, 0)
+out "rotate" (-20{x}{data}, 1, 0, 0)

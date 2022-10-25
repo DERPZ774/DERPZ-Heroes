@@ -1,0 +1,6 @@
+{shape1_posY} += 4.5
+{shape1_posX} += 0.0
+{shape1_posZ} -= 10.0
+
+{page3_rotZ} -= 0.87pi*{data}
+{page4_rotZ} -= 0.87pi*{data}

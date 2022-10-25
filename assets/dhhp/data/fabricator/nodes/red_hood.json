@@ -1,0 +1,10 @@
+{
+    "suit": "dhhp:red_hood",
+    "requirements": [
+        "fiskheroes:tier6_7",
+        "fiskheroes:defense",
+        "fiskheroes:melee",
+        "fiskheroes:ranged2",
+        "fiskheroes:object_manipulation"
+    ]
+}

@@ -1,0 +1,15 @@
+{data} = curve {data}
+
+
+{cape_1_rotX} @ {data} -> 15'
+{cape_2_rotX} @ {data} -> 1'
+{cape_3_rotX} @ {data} -> 4'
+{cape_4_rotX} @ {data} -> 2'
+{cape_5_rotX} @ {data} -> 3'
+{cape_6_rotX} @ {data} -> 4'
+{cape_7_rotX} @ {data} -> 2'
+{cape_8_rotX} @ {data} -> 3'
+{cape_9_rotX} @ {data} -> 4'
+{cape_10_rotX} @ {data} -> 5'
+{cape_11_rotX} @ {data} -> 6'
+{cape_12_rotX} @ {data} -> 8'

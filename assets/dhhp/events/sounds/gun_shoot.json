@@ -1,0 +1,5 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "dhhp:shoot.gun",
+    "volume": 0.6
+}  

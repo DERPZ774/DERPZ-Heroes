@@ -1,0 +1,198 @@
+{
+    "name": "Lord Of Order",
+    "modifiers": {
+        "fiskheroes:transformation": {
+            "key": "HELMET_TRANSFORM",
+            "transformation": {
+                "toggleData": "dhhp:dyn/helmet",
+                "timerData": "dhhp:dyn/helmet_timer",
+                "time": 20
+            },
+            "soundEvents": {
+        "ENABLE": "dhhp:fate_transform"
+        }
+        },
+        "fiskheroes:regeneration": {
+            "factor": 6
+        },
+        "fiskheroes:potion_immunity": {
+            "potionEffects": [
+                9,
+                19,
+                20
+            ]
+        },
+        "fiskheroes:charged_beam": {
+            "damageProfile": {
+                "damage": 8.0,
+                "types": {
+                    "ENERGY": 1.0,
+                    "FIRE": 0.25,
+                    "MAGIC": 0.75
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 20
+                }
+            },
+            "chargeTime": 35,
+            "duration": 25,
+            "cooldownTime": 40,
+            "range": 32.0,
+            "radius": 0.2,
+            "soundEvents": {
+                "CHARGE": "fiskheroes:mysterio_charged_beam_charge",
+                "SHOOT": [
+                    "fiskheroes:mysterio_charged_beam_loop",
+                    "fiskheroes:mysterio_charged_beam_start"
+                ],
+                "SHOOT_STOP": [
+                    "fiskheroes:mysterio_charged_beam_stop1",
+                    "fiskheroes:mysterio_charged_beam_stop2"
+                ]
+            }
+        },
+        "fiskheroes:damage_resistance|cold": {
+            "damageType": "COLD",
+            "factor": 0.5
+        },
+        "fiskheroes:energy_projection": {
+            "damageProfile": {
+                "damage": 3.0,
+                "types": {
+                    "ENERGY": 1.0,
+                    "FIRE": 0.25,
+                    "MAGIC": 0.75
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 80
+                }
+            },
+            "range": 10.0,
+            "radius": 0.1,
+            "soundEvents": {
+                "SHOOT": "fiskheroes:cosmic_beam"
+            }
+        },
+        "fiskheroes:teleportation": {
+            "canReachMoon": true,
+            "range": 128.0,
+            "soundEvents": {
+                "TELEPORT": "fiskheroes:breach"
+            }
+        },
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:arrow_catching": {},
+        "fiskheroes:spellcasting": {
+            "spells": {
+                "fiskheroes:whip": {
+                    "sequence": "wssds",
+                    "cooldown": 50,
+                    "damageProfile": {
+                        "damage": 5.0,
+                        "types": {
+                            "MAGIC": 1.0,
+                            "FIRE": 1.0
+                        }
+                    },
+                    "whipBurn": {
+                        "frequency": 20,
+                        "damageProfile": {
+                            "damage": 0.5,
+                            "types": {
+                                "MAGIC": 1.0,
+                                "FIRE": 1.0
+                            },
+                            "properties": {
+                                "REDUCE_KNOCKBACK": 1.0
+                            }
+                        }
+                    }
+                },
+                "fiskheroes:atmospheric": {
+                    "sequence": "awds",
+                    "cooldown": 20,
+                    "pushPower": 1.0,
+                    "damageProfile": {
+                        "damage": 2.0,
+                        "types": {
+                            "MAGIC": 1.0
+                        }
+                    }
+                },
+                "fiskheroes:earth_swallowing": {
+                    "sequence": "wwadsw",
+                    "cooldown": 800,
+                    "range": 48.0,
+                    "radius": 6.0,
+                    "damageProfile": {
+                        "damage": 14.0,
+                        "types": {
+                            "MAGIC": 1.0
+                        }
+                    }
+                },
+                "fiskheroes:duplication": {
+                    "sequence": "adadaswad",
+                    "cooldown": 1200,
+                    "quantity": 5
+                }
+            },
+            "soundEvents": {
+                "CAST": "fiskheroes:spell_cast",
+                "CAST_FAIL": "fiskheroes:spell_fail"
+            }
+        },
+        "fiskheroes:damage_resistance|electricity": {
+            "damageType": "ELECTRICITY",
+            "factor": 0.5
+        },
+        "fiskheroes:shield": {
+            "shield": {
+                "health": 200.0,
+                "regeneration": 15.0,
+                "recoveryDelay": 100,
+                "cooldown": 240
+            },
+            "coverage": {
+                "yawRadius": 180.0,
+                "pitchRadius": 180.0,
+                "yawOffset": 0.0,
+                "pitchOffset": 0.0
+            },
+            "knockback": 0.0,
+            "isToggle": false,
+            "soundEvents": {
+                "BLOCK_START": "fiskheroes:anti_forcefield",
+                "DEFLECT": "fiskheroes:anti_forcefield_deflect"
+            }
+        },
+        "fiskheroes:damage_immunity": {
+            "damageType": "EXPLOSION"
+        },
+        "fiskheroes:fire_immunity": {},
+        "fiskheroes:flight": {},
+        "fiskheroes:water_breathing": {},
+        "fiskheroes:cooldown": {
+            "cooldown": {
+                "toggleData": "dhhp:dyn/helmet",
+                "cooldownData": "dhhp:dyn/helmet_cooldown",
+                "duration": 11600,
+                "recovery": 1.5
+            }
+        }
+    },
+    "hud": [
+        {
+            "type": "PROGRESS",
+            "texture": "dhhp:textures/gui/bars/ankh_transformation.png",
+            "data": "dhhp:dyn/helmet_cooldown"
+        },
+        {
+            "type": "CIRCLE",
+            "color": "fiskheroes:charged_beam",
+            "data": "fiskheroes:beam_charge"
+        }
+    ]
+}

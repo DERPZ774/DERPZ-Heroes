@@ -1,0 +1,110 @@
+{
+    "name": "DERPZ Heroes",
+    "watermark": "&9&LDHHP",
+    "domain": "dhhp",
+    "description": "Simp-pack for Skar",
+    "packFormat": 1,
+    "sounds": {
+        "download": {
+            "repository": "DERPZ774/Sounds",
+            "version": 0
+        },
+        "range": {
+            "shoot.gun": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "reload.gun": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "transform.fate": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "shock.escrima": {
+                "distance": 25.0,
+                "target": "ONLY_SELF"
+            },
+            "blade.bone": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "blade.bone.retract": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "shock.start.escrima": {
+                "distance": 25.0,
+                "target": "ONLY_SELF"
+            },
+            "holster.gun": {
+                "distance": 25.0,
+                "target": "ONLY_SELF"
+            },
+            "punch.escrima": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "think.mark": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "vine.boom": {
+                "distance": 25.0,
+                "target": "ONLY_SELF"
+            }
+        }
+    },
+    "dataVars": {
+        "helmet": "BOOLEAN",
+        "helmet_timer": "FLOAT_INTERP",
+        "helmet_cooldown": "FLOAT",
+        "rock": "BOOLEAN",
+        "rock_timer": "FLOAT_INTERP",
+        "mjonir": "BOOLEAN",
+        "mjonir_timer": "FLOAT_INTERP",
+        "dna_shield": "BOOLEAN",
+        "dna_shield_timer": "FLOAT_INTERP",
+        "dna_shield_cooldown": "FLOAT",
+        "escrima": "BOOLEAN",
+        "escrima_timer": "FLOAT_INTERP",
+        "escrima_lightning": "BOOLEAN",
+        "escrima_lightning_timer": "FLOAT_INTERP",
+        "escrima_lightning_cooldown": "FLOAT",
+        "powered": "BOOLEAN",
+        "power_timer": "FLOAT_INTERP",
+        "power_cooldown": "FLOAT",
+        "invisibility_cooldown": "FLOAT",
+        "punch_cooldown": "FLOAT",
+        "water": "BOOLEAN",
+        "water_timer": "FLOAT_INTERP",
+        "water_cooldown": "FLOAT",
+        "water_weapon": "BYTE",
+        "water_weapon_timer_on": "FLOAT_INTERP",
+        "water_weapon_toggle": "BOOLEAN",
+        "water_weapon_timer": "FLOAT_INTERP"
+    },
+    "damageTypes": {
+        "WATER": "Water"
+    },
+    "alts": {
+        "dhhp:thor_mcu": {
+            "rgb": {
+                "name": "\u00A74R\u00A7aG\u00A79B\u00A7r",
+                "vanity": "achievement.fiskheroes.secret"
+            }
+        },
+        "dhhp:superman_kc": {
+            "kfc": {
+                "name": "The Colonel",
+                "armor": {
+                    "CHESTPLATE": "Apron"
+                }
+            },
+            "black_suit": {
+                "name": "Black Suit"
+            }
+        }
+    }
+}

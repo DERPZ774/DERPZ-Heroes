@@ -1,0 +1,37 @@
+{
+    "parent": "fiskheroes:spider_man",
+    "resources": {
+    "layer1": "dhhp:marvel/scarlet_spider_layer1",
+    "layer2": "dhhp:marvel/scarlet_spider_layer2",
+    "bone": "dhhp:marvel/bone_blade"
+    },
+    "custom": {
+    "fiskheroes:shield": {
+        "applicable": ["CHESTPLATE"],
+        "texture": "bone",
+        "offset": [-1.05, 9.0, 0.0],
+        "rotation": [0.0, 0.0, 0.0],
+        "curve": [0.0, 0.0],
+        "mirror": true,
+        "large": false,
+        "data": "fiskheroes:blade_timer"
+    },
+    "fiskheroes:booster|hands": {
+        "applicable": ["CHESTPLATE"],
+        "icon": "fiskheroes:repulsor_layer_%s",
+        "anchor": "rightArm",
+        "offset": [1.0, 10.0, 0.0],
+        "rotation": [0.0, 0.0, 180.0],
+        "scale": [4.8, 1.5],
+        "opacity": 1.0,
+        "mirror": false,
+        "hideFirstPerson": false,
+        "data": "(1 - entity.getInterpolatedData('fiskheroes:punch_charge')) * entity.getInterpolatedData('fiskheroes:punchmode_timer')",
+        "conditionals": ["vars:PUNCH"]
+    }
+    },
+    "vars": {
+        "PUNCH": "entity.getData('fiskheroes:punchmode')"
+    }
+} 
+

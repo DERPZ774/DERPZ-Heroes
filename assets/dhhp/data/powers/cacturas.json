@@ -1,0 +1,57 @@
+{
+    "name": "The sexiest pollinator of the cactus-verse",
+    "value": 100,
+    "modifiers": {
+        "fiskheroes:super_speed": {
+            "canUseTreadmill": true
+        },
+        "fiskheroes:slow_motion": {},
+        "fiskheroes:arrow_catching": {},
+        "fiskheroes:regeneration": {
+            "factor": 4
+        },
+        "fiskheroes:potion_immunity": {
+            "potionEffects": [
+                9,
+                19,
+                20
+            ]
+        },
+        "fiskheroes:size_manipulation": {
+		},
+        "fiskheroes:fire_immunity": {
+		},
+        "fiskheroes:cactus_recruitment": {
+		},
+        "fiskheroes:spike_burst": {
+		},
+        "fiskheroes:thorns": {
+            "damageProfile": {
+                "THORNS": 1.0
+            },
+            "factor": 0.25
+        },
+        "fiskheroes:damage_immunity": {
+            "damageType": "THORNS"
+        },
+        "fiskheroes:regeneration|dry": {
+            "factor": 3
+        },
+        "fiskheroes:regeneration|wet": {
+            "factor": 6
+        },
+        "fiskheroes:water_breathing": {
+		},
+        "fiskheroes:damage_resistance": {
+            "damageType": "FIRE"
+        },
+        "fiskheroes:propelled_flight": {
+		},
+        "fiskheroes:lightning_cast": {
+		},
+        "fiskheroes:fireball": {
+		},
+        "fiskheroes:flame_blast": {
+		}
+    }
+}

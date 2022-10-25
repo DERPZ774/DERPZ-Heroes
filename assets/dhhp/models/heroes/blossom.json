@@ -1,0 +1,42 @@
+{
+  "parent": "fiskheroes:hero_speedster",
+  "resources": {
+    "layer1": "dhhp:other/blossom_layer1",
+    "layer2": "dhhp:other/blossom_layer2"
+  },
+  "custom": {
+    "fiskheroes:charged_beam": {
+      "color": "0xf53071",
+      "beams": [
+        {
+          "offset": [1.5, 2.5],
+          "size": [1.0, 1.0]
+        },
+        {
+          "offset": [-1.5, 2.5],
+          "size": [1.0, 1.0]
+        }
+      ]
+    },
+    "fiskheroes:trail": {
+      "type": "dhhp:blur_blossom",
+      "conditionals": ["vars:SPEEDING"]
+    },
+    "fiskheroes:energy_bolt": {
+      "color": "0xf53071"
+    },
+    "fiskheroes:overlay": {
+      "applicable": ["CHESTPLATE"],
+      "texture": ["null","hands"],
+      "opacity": 0.8,
+      "data": "fiskheroes:cryo_charge"
+    },
+    "fiskheroes:particles": {
+      "particleType": "fiskheroes:killer_frost_ice",
+      "conditionals": ["vars:CHARGING"]
+    }
+  },
+  "vars": {
+    "CHARGING": "entity.getData('fiskheroes:cryo_charging')"
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "particles": [
+    {
+        "type": "ETERNIUM_AURA",
+        "anchor": "rightArm",
+        "amount": 4,
+        "offset": {
+        "tp": [0.0, -0.2, 1.0],
+        "fp": [-0.65, -0.81, -0.25]
+        },
+        "motion": [0.0, -0.25, 0.0],
+        "randOffset": [0.1, 0.0, 0.1],
+        "randMotion": [0.05, 0.0, 0.05],
+        "mirror": "!entity.getData('fiskheroes:aiming')",
+        "lockFPRot": true,
+        "lockFPYaw": true
+    }
+    ]
+}

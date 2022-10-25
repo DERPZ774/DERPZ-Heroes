@@ -1,0 +1,3 @@
+{data} = sin(pi(1 - {data}))^5
+{shape9_rotY} += 2pi*{data}
+{shape9_posY} += 2pi*{data}

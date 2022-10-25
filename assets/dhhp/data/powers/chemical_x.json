@@ -1,0 +1,42 @@
+{
+    "name": "Chemical-X Mutation",
+    "value": 18,
+    "modifiers": {
+        "fiskheroes:super_speed": {
+            "canUseTreadmill": false
+        },
+        "fiskheroes:arrow_catching": {},
+        "fiskheroes:regeneration": {
+            "factor": 2
+        },
+        "fiskheroes:potion_immunity": {
+            "potionEffects": [
+                9,
+                19,
+                20
+            ]
+        },
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:fire_immunity": {},
+        "fiskheroes:damage_immunity": {
+            "damageType": "EXPLOSION"
+        },
+        "fiskheroes:damage_resistance": {
+            "damageType": "COLD"
+        },
+        "fiskheroes:water_breathing": {},
+        "fiskheroes:gliding": {
+            "isPowered": true,
+            "isControlled": true
+        },
+        "fiskheroes:charged_beam": {},
+        "fiskheroes:energy_blast": {}
+    },
+    "hud": [
+        {
+            "type": "CIRCLE",
+            "color": "fiskheroes:charged_beam",
+            "data": "fiskheroes:beam_charge"
+        }
+    ]
+}

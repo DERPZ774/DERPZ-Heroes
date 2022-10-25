@@ -1,0 +1,58 @@
+{
+    "name": "Viltrumite Physiology",
+    "modifiers": {
+        "fiskheroes:super_speed": {
+            "canUseTreadmill": false
+        },
+        "fiskheroes:slow_motion": {},
+        "fiskheroes:arrow_catching": {},
+        "fiskheroes:regeneration": {
+            "factor": 3
+        },
+        "fiskheroes:potion_immunity": {
+            "potionEffects": [
+                9,
+                19,
+                20
+            ]
+        },
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:fire_immunity": {},
+        "fiskheroes:damage_immunity": {
+            "damageType": "EXPLOSION"
+        },
+        "fiskheroes:damage_resistance": {
+            "damageType": "COLD"
+        },
+        "fiskheroes:ground_smash": {},
+
+        "fiskheroes:controlled_flight": {
+            "speed": 0.1,
+            "boostSpeed": 0.25,
+            "canBoost": true,
+            "collision": {
+                "blocks": {
+                    "stopFlying": false,
+                    "takeDamage": true
+                },
+                "entities": {
+                    "stopFlying": false,
+                    "dealDamage": true
+                }
+            },
+            "knockback": 0.4,
+            "soundEvents": {
+
+            }
+        },
+        "fiskheroes:teleportation": {
+            "canReachMoon": true,
+            "range": 128.0
+        },
+        "fiskheroes:water_breathing": {},
+        "fiskheroes:damage_weakness": {
+            "damageType": "SOUND",
+            "factor": 4.0
+        }
+    }
+}

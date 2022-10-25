@@ -1,0 +1,7 @@
+{
+    "attributes": {
+    "DAMAGE_REDUCTION": [2, 4],
+    "PUNCH_DAMAGE": [2, 4],
+    "WEAPON_DAMAGE": [2, 3]
+    }
+}

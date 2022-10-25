@@ -1,0 +1,112 @@
+{
+    "parent": "fiskheroes:hero_speedster",
+    "resources": {
+    "layer1": "dhhp:dc/superman_layer1",
+    "layer2": "dhhp:dc/superman_layer2",
+    "cape": "dhhp:dc/superman_cape"
+    },
+    "fixHatLayer": ["HELMET", "CHESTPLATE"],
+    "animations": {
+    "HEAT_VISION": "fiskheroes:ocular_beam",
+    "CHARGED_BEAM": null,
+	"WEBSWING_DIVE": "fiskheroes:swing_dive"
+},
+"custom": {
+    "fiskheroes:model|cape": {
+        "applicable": ["CHESTPLATE"],
+        "modelType": "dhhp:cape",
+        "texture": "cape",
+        "anchor": "body",
+        "opacity": 1.0,
+        "animations": [
+          {
+            "animation": "dhhp:cape",
+            "data":"((Math.abs(entity.motionX())) || (Math.abs(entity.motionY())) || ((Math.abs(entity.motionZ()))))*1.2"
+          }
+        ],
+        "conditionals": ["vars:CAPE_FLYING"]
+    },
+    "fiskheroes:particles|sonic_boom": {
+    "particleType": "dhhp:sonic_boom",
+	"conditionals": ["vars:SONIC_BOOM"]
+    },
+    "fiskheroes:cape": {
+        "applicable": ["CHESTPLATE"],
+        "texture": "cape",
+        "length": 24,
+        "conditionals": ["vars:CAPE"]
+    },
+	"fiskheroes:trail": {
+    "type": "dhhp:superman_trail",
+    "conditionals": ["vars:FLY_2_ARM_BACK"]
+    },
+    "fiskheroes:heat_vision": {
+    "color": "0xff2200",
+    "anchor": "head",
+    "beams": [
+        {
+            "firstPerson": [2.2, 0.0, 2.0],
+            "offset": [2.2, -3.3, -4.0],
+            "size": [1.0, 0.5]
+        }
+    ],
+    "mirror": true,
+    "renderer": "dhhp:superman_heat_vision",
+    "particleType": "fiskheroes:impact_heat_vision"
+    },
+	
+	"fiskheroes:charged_beam": {
+    "color": "0xff2200",
+    "anchor": "head",
+    "beams": [
+        {
+            "firstPerson": [2.2, 0.0, 2.0],
+            "offset": [2.2, -3.3, -4.0],
+            "size": [1.0, 0.5]
+        }
+    ],
+    "mirror": true,
+    "renderer": "dhhp:superman_heat_vision_2",
+    "particleType": "fiskheroes:impact_charged_beam"
+    },
+	
+    "fiskheroes:particles|eyes": {
+    "particleType": "dhhp:superman_dceu_eyes",
+    "conditionals": ["vars:POWERED"]
+	},
+    "fiskheroes:animation|normal": {
+    "animation": "dhhp:flight",
+    "data": "1 - entity.getInterpolatedData('fiskheroes:wing_animation_timer')",
+	"conditionals": ["vars:FLY_NORMAL"]
+    },
+    "fiskheroes:animation|glide_1": {
+    "animation": "dhhp:glide_superman_classic",
+    "data": "fiskheroes:glide_flying_timer",
+	"conditionals": ["vars:FLY_CLASSIC"]
+	},
+
+    "fiskheroes:animation|glide_2": {
+    "animation": "dhhp:glide_superman",
+    "data": "fiskheroes:glide_flying_timer",
+	"conditionals": ["vars:FLY_1_ARM_BACK"]
+	},
+
+    "fiskheroes:animation|glide_3": {
+    "animation": "dhhp:glide_superman_fast",
+    "data": "fiskheroes:glide_flying_timer",
+	"conditionals": ["vars:FLY_2_ARM_BACK"]
+	}
+	
+},
+"vars": {
+    "CAPE": "!entity.getData('fiskheroes:glide_flying')",
+    "CAPE_FLYING": "entity.getData('fiskheroes:glide_flying')",
+    "POWERED": "entity.getData('dhhp:dyn/power_timer') > 0",
+	"FLY_NORMAL": "!entity.getData('fiskheroes:gliding') && !entity.isOnGround()",
+	"FLY_GLIDE": "entity.getData('fiskheroes:gliding')",
+	"FLY_CLASSIC": "((Math.abs(entity.motionX())) <=3.5 ) || ((Math.abs(entity.motionY())) <=3.5) || ((Math.abs(entity.motionZ())) <=3.5)",
+	"FLY_1_ARM_BACK": "(((Math.abs(entity.motionX())) >= 4 ) && ((Math.abs(entity.motionX())) <= 6.28 )) || (((Math.abs(entity.motionY()))  >= 4) && ((Math.abs(entity.motionY())) <= 6.28 )) || (((Math.abs(entity.motionZ()))  >= 4) && ((Math.abs(entity.motionZ())) <= 6.28 ))",
+	"FLY_2_ARM_BACK": "((Math.abs(entity.motionX())) >=6.28 ) || ((Math.abs(entity.motionY())) >=6.28) || ((Math.abs(entity.motionZ())) >=6.28)",
+	"SONIC_BOOM": "(((Math.abs(entity.motionX())) >= 6.0 ) && ((Math.abs(entity.motionX())) <= 6.38 )) || (((Math.abs(entity.motionY()))  >= 6.0) && ((Math.abs(entity.motionY())) <= 6.38 )) || (((Math.abs(entity.motionZ()))  >= 6.00) && ((Math.abs(entity.motionZ())) <= 6.38 ))" 
+}
+}

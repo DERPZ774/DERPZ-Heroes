@@ -1,0 +1,27 @@
+{
+    "display": {
+    "name": "Kryptonian Physiology",
+    "icon": {
+        "texture":  "dhhp:textures/gui/nodes/kryptonian.png"
+    }
+    },
+    "requirements": [
+    ],
+    "price": {
+    "XP_LEVELS": 10
+    },
+    "criteria": {
+        "achievement": {
+        "trigger": "fiskheroes:block_broken_by_player",
+        "description": {
+            "translate": "Break Lunar Titanium Ore"
+        },
+        "condition": {
+            "variables": {
+            "block": "BLOCK_BEING_BROKEN"
+            },
+            "check": "block.name() == 'fiskheroes:lunar_titanium_ore'"
+        }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "suit": "dhhp:doctorfate",
+    "requirements": [
+        "fiskheroes:tier10",
+        "fiskheroes:flight",
+        "fiskheroes:defense3",
+        "fiskheroes:melee2",
+        "fiskheroes:ranged3",
+        "fiskheroes:cosmic",
+        "fiskheroes:sorcery"
+    ]
+}

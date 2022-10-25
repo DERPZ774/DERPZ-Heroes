@@ -1,0 +1,11 @@
+{
+    "suit": "dhhp:superboy",
+    "requirements": [
+        "fiskheroes:tier8_9",
+        "fiskheroes:flight",
+        "fiskheroes:defense2",
+        "fiskheroes:melee2",
+        "fiskheroes:ranged2",
+        "dhhp:kryptonian_physiology"
+    ]
+}

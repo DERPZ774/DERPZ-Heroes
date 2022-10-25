@@ -1,0 +1,140 @@
+{
+    "name": "Kryptonian Physiology",
+    "modifiers": {
+        "fiskheroes:transformation": {
+            "key": "POWER",
+            "transformation": {
+                "toggleData": "dhhp:dyn/powered",
+                "timerData": "dhhp:dyn/power_timer",
+                "time": 4
+            }
+        },
+        "fiskheroes:cooldown": {
+            "cooldown": {
+                "toggleData": "dhhp:dyn/powered",
+                "cooldownData": "dhhp:dyn/power_cooldown",
+                "duration": 1200,
+                "recovery": 2.0
+            }
+        },
+        "fiskheroes:heat_vision": {
+            "damageProfile": {
+                "damage": 7.0,
+                "types": {
+                    "ENERGY": 1.0,
+                    "FIRE": 1.0
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 140
+                }
+            },
+            "range": 32.0,
+            "radius": 0.1,
+            "soundEvents": {
+                "SHOOT": "fiskheroes:heat_vision"
+            }
+        },
+        "fiskheroes:charged_beam": {
+            "damageProfile": {
+                "damage": 11.0,
+                "types": {
+                    "ENERGY": 1.0,
+                    "FIRE": 0.5
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 200
+                }
+            },
+            "chargeTime": 20,
+            "duration": 100,
+            "cooldownTime": 40,
+            "range": 32.0,
+            "radius": 0.4,
+            "soundEvents": {
+                "SHOOT": [
+                    "fiskheroes:manta_beam_start",
+                    "fiskheroes:manta_beam_loop"
+                ],
+                "SHOOT_STOP": "fiskheroes:manta_beam_stop",
+                "CHARGE": "fiskheroes:manta_beam_charge"
+            }
+        },
+        "fiskheroes:controlled_flight": {
+            "speed": 0.1,
+            "boostSpeed": 0.25,
+            "canBoost": true,
+            "collision": {
+                "blocks": {
+                    "stopFlying": false,
+                    "takeDamage": true
+                },
+                "entities": {
+                    "stopFlying": false,
+                    "dealDamage": true
+                }
+            },
+            "knockback": 0.4,
+            "soundEvents": {
+
+            }
+        },
+        "fiskheroes:potion_immunity": {
+            "potionEffects": [
+                "minecraft:nausea",
+                "minecraft:poison",
+                "minecraft:wither"
+            ]
+        },
+        "fiskheroes:water_breathing": {},
+        "fiskheroes:damage_immunity": {
+            "damageType": "EXPLOSION"
+        },
+        "fiskheroes:fire_immunity": {},
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:healing_factor": {
+            "delay": 150
+        },
+        "fiskheroes:slow_motion": {
+            "isToggle": true
+        },
+        "fiskheroes:super_speed|normal": {
+            "canUseTreadmill": false
+        },
+        "fiskheroes:super_speed|sun": {
+            "canUseTreadmill": false
+        },
+
+        "fiskheroes:hover": {},
+        "fiskheroes:leaping": {
+            "leapAmount": [
+                2.0,
+                1.0
+            ]
+        },
+        "fiskheroes:teleportation": {
+            "canReachMoon": true,
+            "range": 128.0
+        },
+        "fiskheroes:damage_weakness|sound": {
+            "damageType": "SOUND",
+            "factor": 2.0
+        },
+        "fiskheroes:damage_weakness|magic": {
+            "damageType": "MAGIC",
+            "factor": 3.0
+        }
+    },
+    "hud": [{
+            "type": "CIRCLE",
+            "color": "fiskheroes:charged_beam",
+            "data": "fiskheroes:beam_charge"
+        },
+        {
+            "type": "PROGRESS",
+            "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
+            "data": "dhhp:dyn/power_cooldown"
+        }
+    ]
+}

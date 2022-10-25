@@ -1,0 +1,11 @@
+{
+    "suit": "dhhp:thragg",
+    "requirements": [
+        "fiskheroes:tier8_9",
+        "fiskheroes:flight",
+        "fiskheroes:defense3",
+        "fiskheroes:melee2",
+        "dhhp:viltrumite_physiology"
+    ]
+    
+}

@@ -1,0 +1,43 @@
+{
+    "parent": "fiskheroes:hero_basic",
+    "resources": {
+        "layer1": "dhhp:dc/red_hood_layer1",
+        "layer2": "dhhp:dc/red_hood_layer2",
+        "gun": "dhhp:dc/red_hood_gun",
+        "lights": "dhhp:dc/red_hood_lights"
+    },
+    "lights": {
+        "vars:OPEN": {
+            "true": "lights"
+        }
+},
+    "custom": {
+        "fiskheroes:model|gun1": {
+            "applicable": ["CHESTPLATE"],
+            "modelType": "dhhp:gun",
+            "texture": ["gun"],
+            "anchor": "rightArm",
+            "opacity": 1.0,
+            "conditionals": ["vars:GUN"]
+        },
+        "fiskheroes:model|gun2": {
+            "applicable": ["CHESTPLATE"],
+            "modelType": "dhhp:gun_left",
+            "texture": ["gun"],
+            "anchor": "leftArm",
+            "opacity": 1.0,
+            "conditionals": ["vars:GUN"]
+        },
+        "fiskheroes:animation": {
+            "animation": "dhhp:aim_left",
+            "data": "entity.getInterpolatedData('fiskheroes:aiming_timer')"
+        },
+        "fiskheroes:energy_bolt": {
+            "color": "0x404040"
+            }
+        },
+        "vars": {
+            "OPEN": "entity.isAlive() || entity.isDisplayStand()",
+            "GUN": "entity.getHeldItem().isEmpty() && entity.getData('fiskheroes:aiming') || entity.isDisplayStand()"
+        }
+}

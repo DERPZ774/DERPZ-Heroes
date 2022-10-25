@@ -1,0 +1,5 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "dhhp:punch.escrima",
+    "condition": "dhhp:dyn/escrima_lightning_timer"
+}  

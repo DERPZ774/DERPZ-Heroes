@@ -1,0 +1,71 @@
+{
+  "parent": "fiskheroes:hero_basic",
+  "resources": {
+    "layer1": "dhhp:dc/nightwing_layer1",
+    "layer2": "dhhp:dc/nightwing_layer2",
+    "lights": "dhhp:dc/nightwing_eyes",
+    "escrima": "dhhp:dc/nightwing_escrima",
+    "escrima2": "dhhp:dc/nightwing_escrima2",
+    "escrima_lights": "dhhp:dc/nightwing_escrima_lights"
+  },
+  "lights": {
+    "vars:OPEN": {
+      "true": "lights"
+    }
+  },
+  "custom": {
+    "fiskheroes:model|escrima1": {
+      "applicable": ["CHESTPLATE"],
+      "modelType": "dhhp:escrima",
+      "texture": ["escrima", "null"],
+      "anchor": "rightArm",
+      "opacity": 1.0,
+      "conditionals": ["vars:ESCRIMA"]
+    },
+    "fiskheroes:model|escrima2": {
+      "applicable": ["CHESTPLATE"],
+      "modelType": "dhhp:escrima2",
+      "texture": ["escrima", "null"],
+      "anchor": "leftArm",
+      "opacity": 1.0,
+      "conditionals": ["vars:ESCRIMA"]
+    },
+    "fiskheroes:model|escrima1light": {
+      "applicable": ["CHESTPLATE"],
+      "modelType": "dhhp:escrima",
+      "texture": ["escrima2", "escrima_lights"],
+      "anchor": "rightArm",
+      "opacity": 1.0,
+      "conditionals": ["vars:LIGHT"]
+    },
+    "fiskheroes:model|escrima2light": {
+      "applicable": ["CHESTPLATE"],
+      "modelType": "dhhp:escrima2",
+      "texture": ["escrima2", "escrima_lights"],
+      "anchor": "leftArm",
+      "opacity": 1.0,
+      "conditionals": ["vars:LIGHT"]
+    },
+    "fiskheroes:model|back": {
+      "applicable": ["CHESTPLATE"],
+      "modelType": "dhhp:escrima_back",
+      "texture": ["escrima"],
+      "anchor": "body",
+      "opacity": 1.0,
+      "conditionals": ["vars:BACK"]
+    },
+    "fiskheroes:lightning_attack": {
+      "color": "0x0000FF"
+    },
+    "fiskheroes:animation": {
+      "animation": "dhhp:escrima",
+      "data": "dhhp:dyn/escrima_timer"
+    }
+  },
+  "vars": {
+    "OPEN": "entity.isAlive() || entity.isDisplayStand()",
+    "ESCRIMA": "entity.getData('dhhp:dyn/escrima_timer') == 1 && (entity.getHeldItem().isEmpty())",
+    "LIGHT": "entity.getData('dhhp:dyn/escrima_lightning') && (entity.getHeldItem().isEmpty())",
+    "BACK": "entity.getData('dhhp:dyn/escrima_timer') < 1 || entity.isDisplayStand()"
+  }
+}

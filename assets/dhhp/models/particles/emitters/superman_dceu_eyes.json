@@ -1,0 +1,14 @@
+{
+  "particles": [
+    {
+      "condition": "!firstPerson && entity.getData('fiskheroes:beam_shooting')",
+      "type": "ENERGY_SMOKE",
+      "anchor": "head",
+      "amount": 1,
+      "offset": [2.8, -4.5, -4.0],
+      "randOffset": [0.06, 0.06, 0.0],
+      "motion": [1.0, 0.13, 0.0],
+      "mirror": true
+    }
+  ]
+}

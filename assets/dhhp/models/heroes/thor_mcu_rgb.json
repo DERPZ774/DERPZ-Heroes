@@ -1,0 +1,67 @@
+{
+    "parent": "dhhp:thor_mcu",
+    "resources": {
+        "layer1": "dhhp:marvel/thor_layer1",
+        "layer2": "dhhp:marvel/thor_layer2",
+        "cape": "dhhp:marvel/thor_cape",
+        "worthy": "dhhp:marvel/mjonir"
+    },
+    "custom": {
+        "fiskheroes:trail|red": {
+        "effectId": "RGB_RED",
+        "type": "dhhp:rgb_red",
+        "conditionals": ["vars:MJONIR"]
+        },
+        "fiskheroes:trail|green": {
+            "effectId": "RGB_GREEN",
+            "type": "dhhp:rgb_green",
+            "conditionals": ["vars:MJONIR"]
+        },
+        "fiskheroes:trail|yellow": {
+            "effectId": "RGB_YELLOW",
+            "type": "dhhp:rgb_yellow",
+            "conditionals": ["vars:MJONIR"]
+        },
+        "fiskheroes:trail|cyan": {
+            "effectId": "RGB_CYAN",
+            "type": "dhhp:rgb_cyan",
+            "conditionals": ["vars:MJONIR"]
+        },
+        "fiskheroes:trail|magenta": {
+            "effectId": "RGB_MAGENTA",
+            "type": "dhhp:rgb_magenta",
+            "conditionals": ["vars:MJONIR"]
+        },
+        "fiskheroes:trail|magenta_charge": {
+            "effectId": "RGB_MAGENTA_CHARGE",
+            "type": "dhhp:rgb_magenta_charge",
+            "conditionals": ["vars:CHARGE"]
+        },
+        "fiskheroes:trail|cyan_charge": {
+            "effectId": "RGB_CYAN_CHARGE",
+            "type": "dhhp:rgb_cyan_charge",
+            "conditionals": ["vars:CHARGE"]
+        },
+        "fiskheroes:trail|yellow_charge": {
+            "effectId": "RGB_YELLOW_CHARGE",
+            "type": "dhhp:rgb_yellow_charge",
+            "conditionals": ["vars:CHARGE"]
+        },
+        "fiskheroes:trail|green_charge": {
+            "effectId": "RGB_GREEN_CHARGE",
+            "type": "dhhp:rgb_green_charge",
+            "conditionals": ["vars:CHARGE"]
+        },
+        "fiskheroes:trail|red_charge": {
+            "effectId": "RGB_RED_CHARGE",
+            "type": "dhhp:rgb_red_charge",
+            "conditionals": ["vars:CHARGE"]
+        }
+    },
+    "itemIcons": {
+        "HELMET": "thor_mcu_0",
+        "CHESTPLATE": "thor_mcu_1",
+        "LEGGINGS": "thor_mcu_2",
+        "BOOTS": "thor_mcu_3"
+    }
+}

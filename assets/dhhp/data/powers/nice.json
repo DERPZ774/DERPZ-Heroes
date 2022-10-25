@@ -1,0 +1,10 @@
+{
+    "name": "Everything Nice",
+    "value": 3,
+    "modifiers": {
+        "fiskheroes:lightning_cast": {
+        },
+        "fiskheroes:sonic_waves": {
+        }
+    }
+}

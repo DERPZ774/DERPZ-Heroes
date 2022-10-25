@@ -1,0 +1,10 @@
+{
+    "suit": "dhhp:nightwing",
+    "requirements": [
+        "fiskheroes:tier4_5",
+        "fiskheroes:defense",
+        "fiskheroes:melee2",
+        "fiskheroes:object_manipulation",
+        "fiskheroes:traversal"
+    ]
+}

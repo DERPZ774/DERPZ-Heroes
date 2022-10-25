@@ -1,0 +1,12 @@
+{
+  "texture": "dhhp:dc/doctorfate/doctor_fate_cape_<TIMER>",
+  "getters": {
+    "TIMER": {
+      "key": "entity.isDisplayStand() ? 22 : (Math.ceil(22 * entity.getInterpolatedData('dhhp:dyn/helmet_timer')) | 0)",
+      "values": {
+        "min": 0,
+        "max": 22
+      }
+    }
+  }
+}

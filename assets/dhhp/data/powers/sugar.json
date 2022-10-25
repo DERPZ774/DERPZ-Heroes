@@ -1,0 +1,23 @@
+{
+    "name": "Sugar",
+    "value": 10,
+    "modifiers": {
+        "fiskheroes:cryo_charge": {
+		},
+        "fiskheroes:icicles": {
+            "damageProfile": {
+                "COLD": 0.5,
+                "SHARP": 0.8
+            },
+            "quantity": 5,
+            "spread": 0.5
+        }
+    },
+    "hud": [
+        {
+            "type": "CHARGE",
+            "texture": "fiskheroes:textures/gui/bars/cryo_charge.png",
+            "data": "fiskheroes:cryo_charge"
+        }
+    ]
+}

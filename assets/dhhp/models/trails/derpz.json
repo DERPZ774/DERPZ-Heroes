@@ -1,0 +1,27 @@
+{
+    "fade": 10,
+    "lightning": {
+        "color": "0x1133ED",
+        "density": 4,
+        "differ": 0.75,
+        "opacity": 1
+    },
+    "particles": {
+        "texture": "dhhp:textures/saber.png",
+        "motion": 0.4,
+        "speed": 0.95,
+        "fade": 33,
+        "density": 2,
+        "differ": 3,
+        "opacity": 1,
+        "scale": 0.2
+    },
+    "flicker": {
+        "color": "0x1133ED",
+        "density": 6,
+        "frequency": 0.6,
+        "length": 0.2,
+        "spread": 1.2,
+        "opacity": 1.0
+    }
+}

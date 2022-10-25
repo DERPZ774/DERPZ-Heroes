@@ -1,0 +1,37 @@
+{
+    "parent": "fiskheroes:hero_basic",
+    "resources": {
+        "layer1": "dhhp:marvel/galactus_layer1",
+        "layer2": "dhhp:marvel/galactus_layer2",
+        "helmet": "dhhp:marvel/galactus_helm"
+    },
+    "custom": {
+        "fiskheroes:energy_projection": {
+        "color": "0x730483",
+        "useHands": true,
+        "beams": [
+            {
+            "offset": [0.0, -5.0],
+            "size": [4.0, 4.0]
+            }
+        ],
+        "renderer": "dhhp:doctorfate_beam"
+        },
+        "fiskheroes:trail": {
+            "type": "dhhp:galactus"
+        },
+        "fiskheroes:teleportation": {
+            "particles": "dhhp:galactus"
+        },
+        "fiskheroes:model": {
+            "applicable": ["HELMET"],
+            "modelType": "dhhp:galactus",
+            "texture": "helmet",
+            "anchor": "head",
+            "opacity": 1.0
+},
+"fiskheroes:particles": {
+    "particleType": "dhhp:galactus"
+}
+}
+}

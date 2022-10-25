@@ -1,0 +1,14 @@
+{
+    "suit": "dhhp:superman_kc",
+    "requirements": [
+        "fiskheroes:tier8_9",
+        "fiskheroes:flight",
+        "fiskheroes:defense3",
+        "fiskheroes:melee3",
+        "fiskheroes:ranged2",
+        "dhhp:kryptonian_physiology"
+    ],
+    "display": {
+    "description": "A Step Up"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "name": "Spice",
+    "value": 5,
+    "modifiers": {
+        "fiskheroes:earthquake": {},
+        "fiskheroes:ground_smash": {}
+    }
+}

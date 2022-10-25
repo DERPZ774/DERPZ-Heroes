@@ -1,0 +1,29 @@
+{
+  "parent": "fiskheroes:hero_speedster",
+  "resources": {
+    "layer1": "dhhp:other/cacturas_layer1",
+    "layer2": "dhhp:other/cacturas_layer2",
+    "cape": "dhhp:other/cacturas_cape"
+  },
+  "fixHatLayer": [
+    "CHESTPLATE"
+  ],
+  "custom": {
+    "fiskheroes:trail": {
+      "type": "dhhp:lightning_cacturas",
+      "conditionals": [
+        "vars:SPEEDING"
+      ]
+    },
+    "fiskheroes:cape": {
+      "applicable": [
+        "CHESTPLATE"
+      ],
+      "texture": "cape",
+      "length": 24,
+      "conditionals": [
+        "vars:CAPE"
+      ]
+    }
+  }
+}

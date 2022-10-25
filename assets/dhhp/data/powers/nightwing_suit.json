@@ -1,0 +1,81 @@
+{
+  "name": "Nightwing Suit",
+  "modifiers": {
+    "fiskheroes:equipment": {
+      "equipment": {
+        "fiskheroes:batarang": {
+          "cooldown": 13,
+          "uses": 2,
+          "damageProfile": {
+            "damage": 8.0,
+            "types": {
+              "SHURIKEN": 1.0
+            },
+            "properties": {
+              "DAMAGE_DROPOFF": 0.6,
+              "HIT_COOLDOWN": 0
+            }
+          }
+        },
+        "fiskheroes:smoke_pellet": {
+          "cooldown": 400,
+          "uses": 2
+        }
+      }
+    },
+    "fiskheroes:projectile_immunity": {},
+    "fiskheroes:lightning_cast": {
+      "damageProfile": {
+        "damage": 10.0,
+        "types": {
+          "ELECTRICITY": 1.0
+        },
+        "properties": {
+          "COOK_ENTITY": true,
+          "LIGHTNING_STRIKE": 0.15
+        }
+      },
+      "range": 1.0,
+      "chainRadius": 3.0,
+      "cooldownTime": 30
+    },
+    "fiskheroes:transformation|escrima": {
+      "key": "ESCRIMA_TOGGLE",
+      "transformation": {
+      "toggleData": "dhhp:dyn/escrima",
+      "timerData": "dhhp:dyn/escrima_timer",
+      "time": 10
+      },
+      "soundEvents": {
+        "ENABLE": "fiskheroes:utility_belt_switch",
+        "DISABLE": "fiskheroes:utility_belt_switch"
+      }
+  },
+  "fiskheroes:transformation|lightning": {
+    "key": "ESCRIMA_LIGHTNING",
+    "transformation": {
+    "toggleData": "dhhp:dyn/escrima_lightning",
+    "timerData": "dhhp:dyn/escrima_lightning_timer",
+    "time": 0
+    },
+    "soundEvents": {
+      "ENABLE": "dhhp:escrima_shock_idle"
+    }
+},
+"fiskheroes:cooldown": {
+  "cooldown": {
+      "toggleData": "dhhp:dyn/escrima_lightning",
+      "cooldownData": "dhhp:dyn/escrima_lightning_cooldown",
+      "duration": 200,
+      "recovery": 1.5
+  }
+}
+},
+"hud": [
+  {
+      "type": "PROGRESS",
+      "texture": "dhhp:textures/gui/bars/escrima_lightning.png",
+      "data": "dhhp:dyn/escrima_lightning_cooldown"
+  }
+]
+}

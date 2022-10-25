@@ -1,0 +1,3 @@
+{data} = sin(pi(1 - {data}))^5
+{shape2_rotY} -= 0.80 {data}
+{shape5_rotY} += 0.80 {data}

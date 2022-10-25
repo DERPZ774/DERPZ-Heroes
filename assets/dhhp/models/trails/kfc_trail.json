@@ -1,0 +1,19 @@
+{
+    "fade": 4,
+    "lightning": {
+      "color": "0xc9e5f1",
+      "density": 4,
+      "differ": 0.3,
+      "opacity": 0.3
+    },
+  "particles": {
+    "texture": "dhhp:textures/chicken.png",
+    "motion": 0.3,
+    "speed": 0.8,
+    "fade": 10,
+    "density": 1,
+    "differ": 1,
+    "opacity": 1,
+    "scale": 0.2
+  }
+}

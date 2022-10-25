@@ -1,0 +1,40 @@
+{
+  "name": "God Complex",
+  "value": 100000000,
+  "modifiers": {
+    "fiskheroes:regeneration": {
+      "factor": 100000000000
+    },
+    "fiskheroes:fire_immunity": {},
+    "fiskheroes:arrow_catching": {},
+    "fiskheroes:projectile_immunity": {},
+    "fiskheroes:damage_resistance": {
+      "damageType": "ELECTRICITY"
+    },
+    "fiskheroes:water_breathing": {},
+    "fiskheroes:flight": {},
+    "fiskheroes:intangibility": {
+      "isAbsolute": false
+    },
+    "fiskheroes:hover": {},
+    "fiskheroes:lightning_cast": {
+      "damageProfile": {
+        "damage": 1000000000.0,
+        "types": {
+          "ELECTRICITY": 10000.0
+        },
+        "properties": {
+          "COOK_ENTITY": true,
+          "LIGHTNING_STRIKE": 1000.15
+        }
+      },
+      "range": 1000.0,
+      "chainRadius": 80.0,
+      "cooldownTime": 0
+    },
+    "fiskheroes:energy_manipulation": {},
+    "fiskheroes:super_speed": {
+      "canUseTreadmill": false
+    }
+  }
+}
