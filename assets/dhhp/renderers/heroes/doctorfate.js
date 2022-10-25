@@ -5,7 +5,7 @@ loadTextures({
     "helm": "dhhp:dc/doctorfate/doctorfate_helmet",
     "lights_helmet": "dhhp:dc/doctorfate/doctorfate_helmet_lights",
     "lights": "dhhp:dc/doctorfate/dr_fate_body_lights",
-    "cape": "dhhp:dc/doctorfate/doctor_fate_cape",
+    "cape": "dhhp:dc/doctorfate/doctor_fate_cape_xor.tx.json",
     "model1": "dhhp:dc/doctorfate/ankh_texture1",
     "medallion": "dhhp:dc/doctorfate/medallion"
 });
@@ -13,6 +13,7 @@ loadTextures({
 var cape;
 
 var utils = implement("fiskheroes:external/utils");
+var capes = implement("fiskheroes:external/capes");
 
 var ankh;
 var ankh_beam;
@@ -39,8 +40,11 @@ function init(renderer) {
 }
 
 function initEffects(renderer) {
-    cape = renderer.createEffect("fiskheroes:cape");
-    cape.texture.set("cape");
+    var physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 0.9;
+    physics.maxFlare = 0.2;
+    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    cape.effect.texture.set("cape");
 
     var magic = renderer.bindProperty("fiskheroes:spellcasting");
     magic.colorGeneric.set(0x1f75d5);
@@ -104,8 +108,8 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "HELMET") {
-        cape.length = entity.isDisplayStand() ? 24 : entity.getData("dhhp:dyn/helmet_timer") * 24;
-        cape.render();
+        cape.length = entity.isDisplayStand() ? 24 : entity.getData("dhhp:dyn/helmet_timer") * 24
+        cape.render(entity);
 
         if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.isDisplayStand()) {
             ankh.setScale(0.1);

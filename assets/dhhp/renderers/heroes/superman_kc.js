@@ -7,12 +7,12 @@ loadTextures({
 
 var cape;
 
-var cape_fix;
 
 var boom_trail;
 
 var utils = implement("fiskheroes:external/utils");
 var flight = implement("dhhp:external/flight");
+var capes = implement("fiskheroes:external/capes");
 
 function init(renderer) {
     parent.init(renderer);
@@ -22,15 +22,11 @@ function init(renderer) {
 }
 
 function initEffects(renderer) {
-    cape = renderer.createEffect("fiskheroes:cape");
-    cape.texture.set("cape");
-    cape.length = 24;
-
-    var model_cape = renderer.createResource("MODEL", "dhhp:cape");
-    model_cape.bindAnimation("dhhp:cape").setData((entity, data) => data.load(((Math.abs(entity.motionX())) || (Math.abs(entity.motionY())) || ((Math.abs(entity.motionZ())))) * 1.2));
-    model_cape.texture.set("cape");
-    cape_fix = renderer.createEffect("fiskheroes:model").setModel(model_cape);
-    cape_fix.anchor.set("body");
+    var physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 0.9;
+    physics.maxFlare = 0.2;
+    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    cape.effect.texture.set("cape");
 
 
     utils.bindParticles(renderer, "dhhp:superman_dceu_eyes")
@@ -71,11 +67,7 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
-        if (entity.getData("fiskheroes:glide_flying")) {
-            cape_fix.render();
-        } else {
-            cape.render();
-        }
+            cape.render(entity);
     }
 }
 

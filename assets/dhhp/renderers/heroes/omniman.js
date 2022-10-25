@@ -9,6 +9,7 @@ var cape;
 
 var utils = implement("fiskheroes:external/utils");
 var flight = implement("dhhp:external/flight");
+var capes = implement("fiskheroes:external/capes");
 
 function init(renderer) {
     parent.init(renderer);
@@ -18,9 +19,11 @@ function init(renderer) {
 }
 
 function initEffects(renderer) {
-    cape = renderer.createEffect("fiskheroes:cape");
-    cape.texture.set("cape");
-    cape.length = 24;
+    var physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 0.9;
+    physics.maxFlare = 0.2;
+    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    cape.effect.texture.set("cape");
 
     flight.bindFlightTrail(renderer);
     flight.bindFlightParticle(renderer);
@@ -46,7 +49,7 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
-        cape.render();
+        cape.render(entity);
     }
 }
 
