@@ -5,7 +5,6 @@ loadTextures({
     "helm": "dhhp:dc/doctorfate/doctorfate_helmet",
     "lights_helmet": "dhhp:dc/doctorfate/doctorfate_helmet_lights",
     "lights": "dhhp:dc/doctorfate/dr_fate_body_lights",
-    "cape": "dhhp:dc/doctorfate/doctor_fate_cape_xor.tx.json",
     "model1": "dhhp:dc/doctorfate/ankh_texture1",
     "medallion": "dhhp:dc/doctorfate/medallion"
 });
@@ -66,7 +65,7 @@ function initEffects(renderer) {
     ankh_shield = renderer.createEffect("fiskheroes:model").setModel(model_ankh);
     ankh_shield.anchor.set("head");
 
-    
+
     var forcefield = renderer.bindProperty("fiskheroes:forcefield");
     forcefield.color.set(0x1f75d5);
     forcefield.setShape(36, 18).setOffset(0.0, 6.0, 0.0).setScale(1.75);
@@ -102,7 +101,7 @@ function initAnimations(renderer) {
 
     addAnimation(renderer, "fate.BEAM", "dhhp:dr").setData(entity => {
         var charge = entity.getInterpolatedData("fiskheroes:beam_charge");
-        return  entity.getData("fiskheroes:beam_charging") ? Math.min(charge * 3, 1) : Math.max(charge * 5 - 4, 0);
+        return entity.getData("fiskheroes:beam_charging") ? Math.min(charge * 3, 1) : Math.max(charge * 5 - 4, 0);
     });
 }
 
