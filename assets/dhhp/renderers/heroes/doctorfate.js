@@ -5,6 +5,7 @@ loadTextures({
     "helm": "dhhp:dc/doctorfate/doctorfate_helmet",
     "lights_helmet": "dhhp:dc/doctorfate/doctorfate_helmet_lights",
     "lights": "dhhp:dc/doctorfate/dr_fate_body_lights",
+    "cape": "dhhp:dc/doctorfate/doctor_fate_cape_xor.tx.json",
     "model1": "dhhp:dc/doctorfate/ankh_texture1",
     "medallion": "dhhp:dc/doctorfate/medallion"
 });
@@ -18,6 +19,7 @@ var ankh;
 var ankh_beam;
 var ankh_shield;
 var model_ankh;
+var physics;
 
 function init(renderer) {
     parent.init(renderer);
@@ -39,9 +41,21 @@ function init(renderer) {
 }
 
 function initEffects(renderer) {
-    var physics = renderer.createResource("CAPE_PHYSICS", null);
-    physics.weight = 0.9;
-    physics.maxFlare = 0.2;
+    physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 1.2;
+    physics.maxFlare = 0.25;
+    physics.flareDegree = 0.5;
+    physics.flareFactor = 0.5;
+    physics.flareElasticity = 4;
+    physics.setTickHandler(entity => {
+        var f = 1 - entity.getData("fiskheroes:flight_timer");
+        f = 1 - f * f * f;
+        physics.headingAngle = 90 - f * 20;
+        physics.restAngle = f * 40;
+        physics.restFlare = f * 0.7;
+        physics.idleFlutter = 0.15 + 0.25 * f;
+        physics.flutterSpeed = f * 0.3;
+    });
     cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
     cape.effect.texture.set("cape");
 
@@ -103,11 +117,15 @@ function initAnimations(renderer) {
         var charge = entity.getInterpolatedData("fiskheroes:beam_charge");
         return entity.getData("fiskheroes:beam_charging") ? Math.min(charge * 3, 1) : Math.max(charge * 5 - 4, 0);
     });
+
+    utils.addFlightAnimation(renderer, "fate.FLIGHT", "fiskheroes:flight/levitate.anim.json", (entity, data) => {
+        data.load(entity.getInterpolatedData("fiskheroes:flight_timer"));
+    })
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "HELMET") {
-        cape.length = entity.isDisplayStand() ? 24 : entity.getData("dhhp:dyn/helmet_timer") * 24
+        var f = entity.getInterpolatedData("fiskheroes:flight_timer");
         cape.render(entity);
 
         if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.isDisplayStand()) {

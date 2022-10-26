@@ -9,8 +9,8 @@
                 "time": 20
             },
             "soundEvents": {
-        "ENABLE": "dhhp:fate_transform"
-        }
+                "ENABLE": "dhhp:fate_transform"
+            }
         },
         "fiskheroes:regeneration": {
             "factor": 6
@@ -172,7 +172,6 @@
             "damageType": "EXPLOSION"
         },
         "fiskheroes:fire_immunity": {},
-        "fiskheroes:flight": {},
         "fiskheroes:water_breathing": {},
         "fiskheroes:cooldown": {
             "cooldown": {
@@ -181,10 +180,14 @@
                 "duration": 11600,
                 "recovery": 1.5
             }
+        },
+        "fiskheroes:controlled_flight": {
+            "speed": 0.08,
+            "boostSpeed": 0.12,
+            "canBoost": false
         }
     },
-    "hud": [
-        {
+    "hud": [{
             "type": "PROGRESS",
             "texture": "dhhp:textures/gui/bars/ankh_transformation.png",
             "data": "dhhp:dyn/helmet_cooldown"
