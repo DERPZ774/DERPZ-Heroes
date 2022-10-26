@@ -8,7 +8,7 @@ loadTextures({
     "model1": "dhhp:dc/doctorfate/ankh_texture1",
     "medallion": "dhhp:dc/doctorfate/medallion",
     /* this is for the cape.effect.length
-    "cape": "dhhp:dc/doctorfate/doctor_fate_cape", */
+    "cape": "dhhp:dc/doctorfate/doctor_fate_cape" */
     /* this is for the xor cape, comment(and uncomment the one above) this out if you want to use cape.effect.length() */
     "cape": "dhhp:dc/doctorfate/doctor_fate_cape_xor.tx.json"
 });
