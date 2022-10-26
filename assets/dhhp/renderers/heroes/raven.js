@@ -2,7 +2,21 @@ extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "dhhp:dc/raven/raven_layer1",
     "layer2": "dhhp:dc/raven/raven_layer2",
+    "cape": "dhhp:dc/raven/raven_cape1"
 });
+
+var cape;
+
+var utils = implement("fiskheroes:external/utils");
+var capes = implement("fiskheroes:external/capes");
+
+function initEffects(renderer) {
+    var physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 0.9;
+    physics.maxFlare = 0.2;
+    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    cape.effect.texture.set("cape");
+}
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
@@ -12,4 +26,10 @@ function initAnimations(renderer) {
             data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
         })
         .priority = -10;
+}
+
+function render(entity, renderLayer, isFirstPersonArm) {
+    if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
+        cape.render(entity);
+    }
 }
