@@ -22,7 +22,7 @@ function init(renderer) {
 function initEffects(renderer) {
     physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.weight = 1.2;
-    physics.maxFlare = 0.4;
+    physics.maxFlare = 0.3;
     physics.flareDegree = 1.5;
     physics.flareFactor = 1.5;
     physics.flareElasticity = 8;
@@ -33,7 +33,7 @@ function initEffects(renderer) {
         physics.restAngle = f * 40;
         physics.restFlare = f * 0.7;
         physics.idleFlutter = 0.15 + 0.25 * f;
-        physics.flutterSpeed = f * 0.3;
+        physics.flutterSpeed = f * 0.4;
     });
 
     cape = capes.create(renderer, 24, "fiskheroes:cape_default.mesh.json");

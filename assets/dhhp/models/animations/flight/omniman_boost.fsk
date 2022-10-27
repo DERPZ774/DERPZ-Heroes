@@ -2,7 +2,7 @@
 {rightArm_rotX} += 2'{data_1} + {x}
 {rightArm_rotZ} += 158'{data_1}
 {rightArm_posX} += -67'{data_1} + {x}
-{leftArm_rotX} += 2'{data_1} + {x}
+{leftArm_rotX} += -2'{data_1} + {x}
 {leftArm_rotZ} += -158'{data_1}
 {leftArm_posX} += 67'{data_1} + {x}
 {rightLeg_rotX} += 15'{data_1} + 0.3{x}
