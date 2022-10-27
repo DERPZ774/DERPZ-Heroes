@@ -4,11 +4,11 @@ loadTextures({
     "suit": "dhhp:dc/doctorfate/doctor_fate_suit.tx.json",
     "helm": "dhhp:dc/doctorfate/doctorfate_helmet",
     "lights_helmet": "dhhp:dc/doctorfate/doctorfate_helmet_lights",
-    "lights": "dhhp:dc/doctorfate/dr_fate_body_lights",    
+    "lights": "dhhp:dc/doctorfate/dr_fate_body_lights",
     "model1": "dhhp:dc/doctorfate/ankh_texture1",
     "medallion": "dhhp:dc/doctorfate/medallion",
     /* this is for the cape.effect.length
-    "cape": "dhhp:dc/doctorfate/doctor_fate_cape" */
+    "cape": "dhhp:dc/doctorfate/doctor_fate_cape" 
     /* this is for the xor cape, comment(and uncomment the one above) this out if you want to use cape.effect.length() */
     "cape": "dhhp:dc/doctorfate/doctor_fate_cape_xor.tx.json"
 });
@@ -46,7 +46,7 @@ function init(renderer) {
 function initEffects(renderer) {
     physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.weight = 1.2;
-    physics.maxFlare = 0.25;
+    physics.maxFlare = 0.45;
     physics.flareDegree = 0.5;
     physics.flareFactor = 0.5;
     physics.flareElasticity = 4;
@@ -59,7 +59,8 @@ function initEffects(renderer) {
         physics.idleFlutter = 0.15 + 0.25 * f;
         physics.flutterSpeed = f * 0.3;
     });
-    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+
+    cape = capes.create(renderer, 24, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
 
     var magic = renderer.bindProperty("fiskheroes:spellcasting");
@@ -129,7 +130,12 @@ function initAnimations(renderer) {
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "HELMET") {
         var f = entity.getInterpolatedData("fiskheroes:flight_timer");
-        cape.render(entity);
+        cape.render({
+            "wind": 1 + 0.3 * f,
+            "windFactor": 1 - 0.7 * f,
+            "flutter": physics.getFlutter(entity),
+            "flare": physics.getFlare(entity)
+        });
         //cape.effect.length = entity.isDisplayStand() ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24
 
         if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.isDisplayStand()) {

@@ -6,6 +6,7 @@ loadTextures({
 });
 
 var cape;
+var physics;
 
 
 var boom_trail;
@@ -22,10 +23,23 @@ function init(renderer) {
 }
 
 function initEffects(renderer) {
-    var physics = renderer.createResource("CAPE_PHYSICS", null);
-    physics.weight = 0.9;
-    physics.maxFlare = 0.2;
-    cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
+    physics = renderer.createResource("CAPE_PHYSICS", null);
+    physics.weight = 1.2;
+    physics.maxFlare = 0.8;
+    physics.flareDegree = 1.5;
+    physics.flareFactor = 1.25;
+    physics.flareElasticity = 8;
+    physics.setTickHandler(entity => {
+        var f = 1 - entity.getData("fiskheroes:flight_timer");
+        f = 1 - f * f * f;
+        physics.headingAngle = 90 - f * 20;
+        physics.restAngle = f * 40;
+        physics.restFlare = f * 0.7;
+        physics.idleFlutter = 0.15 + 0.25 * f;
+        physics.flutterSpeed = f * 0.3;
+    });
+
+    cape = capes.create(renderer, 24, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
 
 
@@ -51,7 +65,7 @@ function initEffects(renderer) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
-    addAnimation(renderer, "iron_man.FLIGHT", "fiskheroes:flight/iron_man.anim.json")
+    addAnimation(renderer, "superman.FLIGHT", "dhhp:flight/superman_flight.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));
             data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
@@ -67,7 +81,13 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
-            cape.render(entity);
+        var f = entity.getInterpolatedData("fiskheroes:flight_timer");
+        cape.render({
+            "wind": 1 + 0.3 * f,
+            "windFactor": 1 - 0.7 * f,
+            "flutter": physics.getFlutter(entity),
+            "flare": physics.getFlare(entity)
+        });
     }
 }
 
