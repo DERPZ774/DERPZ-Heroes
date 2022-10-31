@@ -83,7 +83,10 @@
         "water_weapon": "BYTE",
         "water_weapon_timer_on": "FLOAT_INTERP",
         "water_weapon_toggle": "BOOLEAN",
-        "water_weapon_timer": "FLOAT_INTERP"
+        "water_weapon_timer": "FLOAT_INTERP",
+        "jump": "BOOLEAN",
+        "jump_timer": "FLOAT_INTERP",
+        "jump_animation": "FLOAT_INTERP"
     },
     "damageTypes": {
         "WATER": "Water"

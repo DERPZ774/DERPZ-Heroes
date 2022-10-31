@@ -52,9 +52,14 @@ function initEffects(renderer) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
+    renderer.removeCustomAnimation("basic.PROP_FLIGHT")
 
     addAnimationWithData(renderer, "nightwing.ESCRIMA", "dhhp:escrima", "dhhp:dyn/escrima_timer");
     addAnimationWithData(renderer, "nightwing.HOLD", "dhhp:fpc_weapon", "dhhp:dyn/escrima_timer");
+
+    addAnimation(renderer, "nightwing.DOUBLE_JUMP", "fiskheroes:swing_roll5")
+    .setData((entity,data) => data.load(entity.getData("dhhp:dyn/jump_timer") >= 1.0 ? Math.min(Math.max(entity.getInterpolatedData("dhhp:dyn/jump_animation") / 2, 0), 1) : 0));
+
 
 }
 
