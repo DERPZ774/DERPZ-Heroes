@@ -69,8 +69,7 @@
         "duration": 200,
         "recovery": 1.5
       }
-    },
-    "fiskheroes:propelled_flight": {}
+    }
   },
   "hud": [{
       "type": "PROGRESS",
