@@ -72,5 +72,3 @@ function render(entity, renderLayer, isFirstPersonArm) {
         });
     }
 }
-
-//todo flight anims

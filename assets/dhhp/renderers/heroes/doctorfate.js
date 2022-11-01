@@ -7,10 +7,7 @@ loadTextures({
     "lights": "dhhp:dc/doctorfate/dr_fate_body_lights",
     "model1": "dhhp:dc/doctorfate/ankh_texture1",
     "medallion": "dhhp:dc/doctorfate/medallion",
-    /* this is for the cape.effect.length */
     "cape": "dhhp:dc/doctorfate/doctor_fate_cape"
-    /* this is for the xor cape, comment(and uncomment the one above) this out if you want to use cape.effect.length() 
-    "cape": "dhhp:dc/doctorfate/doctor_fate_cape_xor.tx.json" */
 });
 
 var cape;
@@ -130,14 +127,14 @@ function initAnimations(renderer) {
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "HELMET") {
         var f = entity.getInterpolatedData("fiskheroes:flight_timer");
-        var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer")
+        var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
         cape.render({
             "wind": timer < 1 ? timer : 1 + 0.3 * f,
             "windFactor": 1 - 0.7 * f,
             "flutter": physics.getFlutter(entity),
             "flare": physics.getFlare(entity)
         });
-        cape.effect.length = entity.isDisplayStand() ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24
+        cape.effect.length = entity.isDisplayStand() ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24;
 
         if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.isDisplayStand()) {
             ankh.setScale(0.1);
