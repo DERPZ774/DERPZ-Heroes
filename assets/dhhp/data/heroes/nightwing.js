@@ -1,5 +1,5 @@
-var jumpMin = 0.7
-var jumpMax = 1.3
+var jumpMin = 0.8
+var jumpMax = 1.4
 function init(hero) {
     hero.setName("Nightwing");
     hero.setTier(5);
@@ -43,6 +43,7 @@ function init(hero) {
     hero.setTickHandler((entity, manager) => {
         if (!entity.isOnGround() && !entity.getData("dhhp:dyn/jump")) {
             manager.setData(entity, "dhhp:dyn/jump", true)
+            manager.setData(entity, "dhhp:dyn/choose_jump_animation", Math.floor(Math.random() * 3))
 
         }
         if (entity.isOnGround() && entity.getData("dhhp:dyn/jump")) {

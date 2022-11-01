@@ -87,7 +87,8 @@
         "jump": "BOOLEAN",
         "double_jump": "BOOLEAN",
         "jump_timer": "FLOAT_INTERP",
-        "jump_animation": "FLOAT_INTERP"
+        "jump_animation": "FLOAT_INTERP",
+        "choose_jump_animation": "INTEGER"
     },
     "damageTypes": {
         "WATER": "Water"
