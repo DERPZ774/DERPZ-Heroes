@@ -14,7 +14,6 @@ function init(hero) {
 
     hero.addAttribute("PUNCH_DAMAGE", 4.5, 0);
     hero.addAttribute("WEAPON_DAMAGE", 2.5, 0);
-    //   hero.addAttribute("JUMP_HEIGHT", 1.5, 0);
     hero.addAttribute("FALL_RESISTANCE", 6.0, 0);
     hero.addAttribute("SPRINT_SPEED", 0.45, 1);
 
@@ -58,11 +57,15 @@ function init(hero) {
         }
 
         // jump animation
+        if (entity.getData("dhhp:dyn/jump_timer") >= 1.0 && entity.getData("fiskheroes:jetpacking") && !entity.getData("dhhp:dyn/double_jump")) {
+            manager.setData(entity, "dhhp:dyn/double_jump", true)
+        }
         if (entity.getData("dhhp:dyn/jump_timer") >= 1.0) {
             manager.setData(entity, "dhhp:dyn/jump_animation", entity.getData("dhhp:dyn/jump_animation") + 0.1)
         }
         else if (entity.getData("dhhp:dyn/jump_timer") == 0.0 && entity.getData("dhhp:dyn/jump_animation") != 0.0) {
             manager.setData(entity, "dhhp:dyn/jump_animation", 0.0)
+            manager.setData(entity, "dhhp:dyn/double_jump", false)
         }
     });
 }
