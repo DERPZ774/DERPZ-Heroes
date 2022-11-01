@@ -67,6 +67,8 @@ function init(hero) {
             manager.setData(entity, "dhhp:dyn/jump_animation", 0.0)
             manager.setData(entity, "dhhp:dyn/double_jump", false)
         }
+        
+        //todo Randomized acrobatic animations
     });
 }
 
