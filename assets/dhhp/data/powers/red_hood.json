@@ -9,19 +9,6 @@
                 }
             }
         },
-        "fiskheroes:projectile_immunity": {},
-        "fiskheroes:energy_blast": {
-            "damageProfile": {
-                "damage": 8.0,
-                "types": {
-                    "BULLET": 1.0
-                }
-            },
-            "isExplosive": false,
-            "cooldownTime": 9,
-            "soundEvents": {
-                "SHOOT": "dhhp:gun_shoot"
-            }
-        }
+        "fiskheroes:projectile_immunity": {}
     }
 }

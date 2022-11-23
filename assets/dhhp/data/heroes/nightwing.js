@@ -1,3 +1,5 @@
+var jumpMin = 0.8
+var jumpMax = 1.4
 function init(hero) {
     hero.setName("Nightwing");
     hero.setTier(5);
@@ -57,7 +59,8 @@ function init(hero) {
 
         if (entity.getData("dhhp:dyn/jump_timer") >= 0.2) {
             manager.setData(entity, "dhhp:dyn/jump_animation", entity.getData("dhhp:dyn/jump_animation") + 0.1)
-        } else if (entity.getData("dhhp:dyn/jump_timer") == 0.0 && entity.getData("dhhp:dyn/jump_animation") != 0.0) {
+        }
+        else if (entity.getData("dhhp:dyn/jump_timer") == 0.0 && entity.getData("dhhp:dyn/jump_animation") != 0.0) {
             manager.setData(entity, "dhhp:dyn/jump_animation", 0.0)
         }
         

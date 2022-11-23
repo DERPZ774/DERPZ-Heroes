@@ -8,6 +8,7 @@ function init(hero) {
     hero.setBoots("item.superhero_armor.piece.boots");
     hero.addEquipment("fiskheroes:grappling_gun");
     hero.addPrimaryEquipment("fiskheroes:grappling_gun", true);
+    hero.addPrimaryEquipment("fiskheroes:desert_eagle{Dual:1}", true, item => item.nbt().getBoolean("Dual"));
 
     hero.addPowers("dhhp:red_hood");
     hero.addAttribute("FALL_RESISTANCE", 6.0, 0);
@@ -16,19 +17,11 @@ function init(hero) {
     hero.addAttribute("PUNCH_DAMAGE", 6.5, 0);
     hero.addAttribute("JUMP_HEIGHT", 0.8, 0);
 
-    hero.addKeyBind("AIM", "key.aim", 1);
+    hero.addKeyBind("AIM", "key.aim", -1);
+    hero.addKeyBind("GUN_RELOAD", "key.reload", 1);
     hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 2);
 
-    hero.setHasPermission(hasPermission);
-    hero.supplyFunction("canAim", canAim);
-    hero.addSoundEvent("AIM_START", "dhhp:gun_reload");
-    hero.addSoundEvent("AIM_STOP", "dhhp:gun_holster");
-}
-
-function hasPermission(entity, permission) {
-    return permission == "USE_GRAPPLING_GUN";
-}
-
-function canAim(entity) {
-    return entity.getHeldItem().isEmpty();
+    hero.setKeyBindEnabled((entity, keyBind) => keyBind != "GUN_RELOAD" || entity.getHeldItem().isGun() && !entity.getData("fiskheroes:aiming"));
+    hero.setHasPermission((entity, permission) => permission == "USE_GUN");
+    hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun());
 }

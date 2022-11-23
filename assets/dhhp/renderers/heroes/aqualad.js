@@ -29,7 +29,7 @@ function initEffects(renderer) {
     var beam = renderer.createResource("BEAM_RENDERER", "dhhp:water_beam");
 
     lines_water = utils.createLines(renderer, beam, color, [
-        { "start": [0.5, 0.5, 1], "end": [1.1, 1.1, 1.8], "size": [4.0, 4.0] },
+        { "start": [0.5, 0.5, 1], "end": [1.1, 1.1, 1.8], "size": [4.0, 4.0] }, //coords
     ]);
 
     lines_water.anchor.set("rightArm");
