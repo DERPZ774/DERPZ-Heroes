@@ -1,5 +1,6 @@
 var jumpMin = 0.8
 var jumpMax = 1.4
+
 function init(hero) {
     hero.setName("Nightwing");
     hero.setTier(5);
@@ -41,6 +42,7 @@ function init(hero) {
     });
     hero.addSoundEvent("PUNCH", "dhhp:punch_escrima");
 
+    /*
     hero.setTickHandler((entity, manager) => {
         if (!entity.isOnGround() && !entity.getData("dhhp:dyn/jump") && entity.motionY() > 0.05) {
             manager.setData(entity, "dhhp:dyn/jump", true)
@@ -66,7 +68,9 @@ function init(hero) {
         
         //todo Randomized acrobatic animations
     });
+    */
 }
+
 
 function hasPermission(entity, permission) {
     return permission == "USE_GRAPPLING_GUN";
@@ -115,11 +119,11 @@ function isModifierEnabled(entity, modifier) {
 
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
-    case "ESCRIMA_TOGGLE":
-        return ((entity.getHeldItem().isEmpty()) && (!entity.getData("dhhp:dyn/escrima_lightning")));
-    case "ESCRIMA_LIGHTNING":
-        return (entity.getData("dhhp:dyn/escrima") && (entity.getHeldItem().isEmpty()));
-    default:
-        return true;
+        case "ESCRIMA_TOGGLE":
+            return ((entity.getHeldItem().isEmpty()) && (!entity.getData("dhhp:dyn/escrima_lightning")));
+        case "ESCRIMA_LIGHTNING":
+            return (entity.getData("dhhp:dyn/escrima") && (entity.getHeldItem().isEmpty()));
+        default:
+            return true;
     }
 }

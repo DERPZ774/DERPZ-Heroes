@@ -22,6 +22,6 @@ function init(hero) {
     hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 2);
 
     hero.setKeyBindEnabled((entity, keyBind) => keyBind != "GUN_RELOAD" || entity.getHeldItem().isGun() && !entity.getData("fiskheroes:aiming"));
-    hero.setHasPermission((entity, permission) => permission == "USE_GUN");
+    hero.setHasPermission((entity, permission) => permission == "USE_GUN" || permission == "USE_GRAPPLING_GUN");
     hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun());
 }

@@ -3,7 +3,7 @@ loadTextures({
     "layer1": "dhhp:dc/red_hood_layer1",
     "layer2": "dhhp:dc/red_hood_layer2",
     "lights": "dhhp:dc/red_hood_lights",
-    "gun": "fiskheroes:deadpool_xmen_gun"
+    "gun": "dhhp:dc/desert_eagle_red_hood"
 
 });
 
