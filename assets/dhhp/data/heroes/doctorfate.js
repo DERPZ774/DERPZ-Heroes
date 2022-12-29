@@ -1,4 +1,5 @@
 function init(hero) {
+
     hero.setName("Doctor Fate");
     hero.setTier(10);
     hero.setHelmet("Helmet");
@@ -56,41 +57,30 @@ function getProfile(entity) {
 }
 
 function isModifierEnabled(entity, modifier) {
-    if (modifier.name() == "fiskheroes:regeneration") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:potion_immunity") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:charged_beam") {
-        return (entity.getData("dhhp:dyn/helmet")) && (!entity.getData("fiskheroes:shield")) && (!entity.getData("fiskheroes:energy_projection"));
-    } else if (modifier.name() == "fiskheroes:damage_resistance") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:energy_projection") {
-        return (entity.getData("dhhp:dyn/helmet")) && (!entity.getData("fiskheroes:shield"));
-    } else if (modifier.name() == "fiskheroes:teleportation") {
-        return (entity.getData("dhhp:dyn/helmet")) && (!entity.getData("fiskheroes:shield"));
-    } else if (modifier.name() == "fiskheroes:projectile_immunity") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:arrow_catching") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:spellcasting") {
-        return (entity.getData("dhhp:dyn/helmet")) && (!entity.getData("fiskheroes:shield"));
-    } else if (modifier.name() == "fiskheroes:damage_immunity") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:fire_immunity") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:controlled_flight") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:shield") {
-        return (entity.getData("dhhp:dyn/helmet"));
-    } else if (modifier.name() == "fiskheroes:water_breathing") {
-        return (entity.getData("dhhp:dyn/helmet")) && (entity.getData("fiskheroes:shield"));
+    if (modifier.name() != "fiskheroes:transformation" && modifier.name() != "fiskheroes:cooldown" && !entity.getData("dhhp:dyn/helmet")) {
+        return false;
     }
-    return true;
+    switch (modifier.name()) {
+        case "fiskheroes:charged_beam":
+            return !entity.getData("fiskheroes:shield") && !entity.getData("fiskheroes:energy_projection");
+        case "fiskheroes:energy_projection":
+            return !entity.getData("fiskheroes:shield");
+        case "fiskheroes:teleportation":
+            return !entity.getData("fiskheroes:shield");
+        case "fiskheroes:spellcasting":
+            return !entity.getData("fiskheroes:shield");
+        case "fiskheroes:shield":
+            return !entity.getData("fiskheroes:flying");
+        case "fiskheroes:water_breathing":
+            return entity.getData("fiskheroes:shield");
+        default:
+            return true;
+    }
 }
 
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
-        case "STEEL_TRANSFORM":
+        case "HELMET_TRANSFORM":
             return (!entity.getData("dhhp:dyn/helmet"));
         case "SPELL_MENU":
             return (entity.getData("dhhp:dyn/helmet"));
@@ -101,7 +91,7 @@ function isKeyBindEnabled(entity, keyBind) {
         case "CHARGED_BEAM":
             return (entity.getData("dhhp:dyn/helmet"));
         case "SHIELD":
-            return (entity.getData("dhhp:dyn/helmet"));
+            return (entity.getData("dhhp:dyn/helmet") && !entity.getData("fiskheroes:flying"));
         default:
             return true;
     }

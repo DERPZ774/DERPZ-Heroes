@@ -7,8 +7,6 @@ loadTextures({
     "suit": "dhhp:dc/superman_zod_suit"
 });
 
-var chicken;
-
 function init(renderer) {
     parent.init(renderer);
     renderer.setTexture((entity, renderLayer) => {
@@ -24,6 +22,4 @@ function init(renderer) {
 
 function initEffects(renderer) {
     parent.initEffects(renderer);
-    chicken = utils.bindTrail(renderer, "dhhp:kfc_trail");
-    chicken.setCondition(entity => entity.getData("fiskheroes:speeding"));
 }

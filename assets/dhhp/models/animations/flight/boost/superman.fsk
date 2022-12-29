@@ -1,6 +1,6 @@
 {x} = min({vel}, 1){data_1}{d1}{d} / 2.5
 {rightArm_rotX} += 2'{data_1} + {x}
-{rightArm_rotZ} += 158'{data_1}
+{rightArm_rotZ} += 170'{data_1}
 {rightArm_posX} += -67'{data_1} + {x}
 {leftArm_rotX} += 15'{data_1} - {x}
 {leftArm_rotZ} -= 10'{data_1}

@@ -17,6 +17,8 @@ var capes = implement("fiskheroes:external/capes");
 
 var ankh;
 var ankh_beam;
+var ankh_beam2;
+var ankh_beam3;
 var ankh_shield;
 var model_ankh;
 var physics;
@@ -76,6 +78,8 @@ function initEffects(renderer) {
     model_ankh.bindAnimation("dhhp:dr_ankh").setData((entity, data) => data.load(entity.getData("fiskheroes:beam_charging") ? entity.loop(70) : 0));
     ankh_beam = renderer.createEffect("fiskheroes:model").setModel(model_ankh);
     ankh_beam.anchor.set("head");
+    ankh_beam2 = ankh_beam;
+    ankh_beam3 = ankh_beam2;
 
     ankh_shield = renderer.createEffect("fiskheroes:model").setModel(model_ankh);
     ankh_shield.anchor.set("head");
@@ -98,25 +102,31 @@ function initEffects(renderer) {
         .setCondition(entity => (entity.getData("fiskheroes:shield_blocking")));
 
     //Energy Beam
-    utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:doctorfate_beam", "body", 0x1f75d5, [
+    var beam = renderer.createResource("BEAM_RENDERER", "dhhp:doctorfate_beam");
+    var color = 0x1f75d5;
+
+    utils.bindBeam(renderer, "fiskheroes:energy_projection", beam, "body", color, [
         { "firstPerson": [0.0, 6.0, 0.0], "offset": [0.0, 5.0, -4.0], "size": [4.0, 4.0] }
     ]);
 
     //ankh beam
-    utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:doctorfate_beam", "body", 0x1f75d5, [
-        { "firstPerson": [0.0, 6.0, 0.0], "offset": [0.0, 5.0, -4.0], "size": [1.5, 1.5] }
-    ]);
+    utils.bindBeam(renderer, "fiskheroes:charged_beam", beam, "rightArm", color, [
+        { "firstPerson": [-3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5] },
+        { "firstPerson": [3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5], "anchor": "leftArm" }
+    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_energy_projection"));
 }
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.BLOCKING");
+    renderer.removeCustomAnimation("basic.CHARGED_BEAM");
+    renderer.removeCustomAnimation("basic.AIMING");
 
     addAnimationWithData(renderer, "basic.BLOCKING", "dhhp:dr_block", "fiskheroes:shield_blocking_timer");
 
-    addAnimation(renderer, "fate.BEAM", "dhhp:dr").setData(entity => {
+    addAnimation(renderer, "basic.AIMING", "fiskheroes:dual_aiming").setData((entity, data) => {
         var charge = entity.getInterpolatedData("fiskheroes:beam_charge");
-        return entity.getData("fiskheroes:beam_charging") ? Math.min(charge * 3, 1) : Math.max(charge * 5 - 4, 0);
+        data.load(Math.max(entity.getInterpolatedData("fiskheroes:aiming_timer"), entity.getData("fiskheroes:beam_charging") ? Math.min(charge * 3, 1) : Math.max(charge * 5 - 4, 0)));
     });
 
     utils.addFlightAnimation(renderer, "fate.FLIGHT", "fiskheroes:flight/levitate.anim.json", (entity, data) => {
@@ -144,9 +154,17 @@ function render(entity, renderLayer, isFirstPersonArm) {
 
         if (entity.getData("fiskheroes:beam_charging")) {
             model_ankh.texture.set(null, "model1");
-            ankh_beam.opacity = 0.8;
-            ankh_beam.setOffset(0, -8.5, -12.0);
+            ankh_beam.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+            ankh_beam.setOffset(-25, 0, 20.0); //bottom 1
             ankh_beam.render();
+
+            ankh_beam2.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+            ankh_beam2.setOffset(0, -25, 25.0); //top/middle
+            ankh_beam2.render();
+
+            ankh_beam3.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+            ankh_beam3.setOffset(25, 0, 20.0); //bottom 2
+            ankh_beam3.render();
         }
 
         if (entity.getData("fiskheroes:shield_blocking")) {

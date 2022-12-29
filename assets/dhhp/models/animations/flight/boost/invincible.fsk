@@ -1,15 +1,15 @@
 {x} = min({vel}, 1){data_1}{d1}{d} / 2.5
-{rightArm_rotX} += 40'{data_1} + {x}
-{rightArm_rotZ} += 18'{data_1} + {x}
-{leftArm_rotX} += 40'{data_1} + {x}
-{leftArm_rotZ} += -18'{data_1} + {x}
+{rightArm_rotX} += 30'{data_1}
+{rightArm_rotZ} += 14'{data_1}
+{leftArm_rotX} += 30'{data_1}
+{leftArm_rotZ} += -14'{data_1} 
 {rightLeg_rotX} += 42'{data_1} 
-{rightLeg_rotZ} += 0.08{data_1} + 0.25{x}
-{rightLeg_rotY} += 4.5'{data_1} + {x}
+{rightLeg_rotZ} += 0.08{data_1} + 0.07{x}
+{rightLeg_rotY} += 4.5'{data_1}
 {rightLeg_posZ} -= 3.5{data_1}
 {rightLeg_posY} -= 1.5{data_1}
 {leftLeg_rotX} += 20'{data_1}
-{leftLeg_rotZ} += -5.08'{data_1} + 0.25{x}
+{leftLeg_rotZ} += -5.08'{data_1} + 0.07{x}
 
 {d} *= {data_1} / 1'
 {x} = min({vel} / 2, 1) / 2

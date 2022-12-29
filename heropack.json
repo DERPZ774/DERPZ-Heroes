@@ -4,6 +4,7 @@
     "domain": "dhhp",
     "description": "Simp-pack for Skar",
     "packFormat": 1,
+    "minVersion": "2.1.0",
     "sounds": {
         "download": {
             "repository": "DERPZ774/Sounds",
