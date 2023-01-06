@@ -57,11 +57,12 @@ function initAnimations(renderer) {
         return entity.getInterpolatedData("dhhp:dyn/water_weapon_timer") * (1 - entity.getInterpolatedData("fiskheroes:energy_projection_timer"));
     });
 
-    var anim = addAnimation(renderer, "aqualad.SWIM", "dhhp:swim_aqualad");
-
-    anim.setData(entity => {
-        return entity.getInterpolatedData("fiskheroes:gliding_timer") ? entity.loop(50) : 0;
-    });
+    addAnimation(renderer, "raven.FLIGHT", "dhhp:flight/raven_flight.anim.json")
+        .setData((entity, data) => {
+            data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));
+            data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
+        })
+        .priority = -10;
 
     addAnimationWithData(renderer, "basic.ENERGY_PROJ", "fiskheroes:dual_aiming_fpcorr", "fiskheroes:energy_projection_timer");
     addAnimationWithData(renderer, "aqualad.WEAPON", "dhhp:escrima", "dhhp:dyn/water_weapon_timer");

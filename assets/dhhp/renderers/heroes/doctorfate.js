@@ -45,7 +45,7 @@ function init(renderer) {
 function initEffects(renderer) {
     physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.weight = 1.2;
-    physics.maxFlare = 0.45;
+    physics.maxFlare = 0.65;
     physics.flareDegree = 0.5;
     physics.flareFactor = 0.5;
     physics.flareElasticity = 4;
@@ -75,7 +75,7 @@ function initEffects(renderer) {
     ankh.anchor.set("body");
 
     model_ankh = renderer.createResource("MODEL", "dhhp:ankh")
-    model_ankh.bindAnimation("dhhp:dr_ankh").setData((entity, data) => data.load(entity.getData("fiskheroes:beam_charging") ? entity.loop(70) : 0));
+    model_ankh.bindAnimation("dhhp:dr_ankh").setData((entity, data) => data.load(entity.getData("fiskheroes:beam_charging") ? entity.loop(76) : 0));
     ankh_beam = renderer.createEffect("fiskheroes:model").setModel(model_ankh);
     ankh_beam.anchor.set("head");
     ankh_beam2 = ankh_beam;
@@ -152,7 +152,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
             ankh.render();
         }
 
-        if (entity.getData("fiskheroes:beam_charging")) {
+
             model_ankh.texture.set(null, "model1");
             ankh_beam.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
             ankh_beam.setOffset(-25, 0, 20.0); //bottom 1
@@ -165,7 +165,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
             ankh_beam3.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
             ankh_beam3.setOffset(25, 0, 20.0); //bottom 2
             ankh_beam3.render();
-        }
+        
 
         if (entity.getData("fiskheroes:shield_blocking")) {
             model_ankh.texture.set(null, "model1");

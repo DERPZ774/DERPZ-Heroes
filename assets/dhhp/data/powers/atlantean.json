@@ -1,8 +1,7 @@
 {
     "name": "Atlantean Physiology",
     "modifiers": {
-        "fiskheroes:water_breathing": {
-        },
+        "fiskheroes:water_breathing": {},
         "fiskheroes:potion_immunity": {
             "potionEffects": [
                 "minecraft:nausea",
@@ -25,12 +24,11 @@
         "fiskheroes:regeneration": {
             "factor": 4
         },
-        "fiskheroes:projectile_immunity": {
-        },
-        "fiskheroes:gliding|basic": {
-            "isPowered": true,
-            "isControlled": true,
-            "boostSpeed": 0.25
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:controlled_flight": {
+            "speed": 0.08,
+            "boostSpeed": 0.12,
+            "canBoost": true
         }
     }
 }

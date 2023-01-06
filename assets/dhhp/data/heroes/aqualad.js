@@ -120,7 +120,7 @@ function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:energy_projection":
             return entity.getData('dhhp:dyn/water_weapon_toggle') && (water) > 0.5 || entity.getData('dhhp:dyn/water_weapon_toggle') && entity.isWet();
-        case "fiskheroes:gliding":
+        case "fiskheroes:controlled_flight":
             return entity.isInWater();
         case "fiskheroes:lightning_cast":
             return (water > 0 || entity.isWet()) && !entity.getData('dhhp:dyn/water_weapon_toggle');
