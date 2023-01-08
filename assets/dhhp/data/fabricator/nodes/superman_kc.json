@@ -6,9 +6,10 @@
         "fiskheroes:defense3",
         "fiskheroes:melee3",
         "fiskheroes:ranged2",
-        "dhhp:kryptonian_physiology"
+        "dhhp:kryptonian_physiology",
+        "dhhp:derpzheroes"
     ],
     "display": {
-    "description": "A Step Up"
+        "description": "A Step Up"
     }
 }

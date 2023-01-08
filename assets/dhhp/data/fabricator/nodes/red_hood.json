@@ -5,6 +5,7 @@
         "fiskheroes:defense",
         "fiskheroes:melee",
         "fiskheroes:ranged2",
-        "fiskheroes:object_manipulation"
+        "fiskheroes:object_manipulation",
+        "dhhp:derpzheroes"
     ]
 }

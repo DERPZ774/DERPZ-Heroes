@@ -57,7 +57,7 @@ function initAnimations(renderer) {
         return entity.getInterpolatedData("dhhp:dyn/water_weapon_timer") * (1 - entity.getInterpolatedData("fiskheroes:energy_projection_timer"));
     });
 
-    addAnimation(renderer, "raven.FLIGHT", "dhhp:flight/raven_flight.anim.json")
+    addAnimation(renderer, "aqualad.SWIM", "dhhp:flight/aqualad_swim.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));
             data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));

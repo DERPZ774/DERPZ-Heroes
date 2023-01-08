@@ -5,6 +5,7 @@
         "fiskheroes:defense",
         "fiskheroes:melee2",
         "fiskheroes:object_manipulation",
-        "fiskheroes:traversal"
+        "fiskheroes:traversal",
+        "dhhp:derpzheroes"
     ]
 }
