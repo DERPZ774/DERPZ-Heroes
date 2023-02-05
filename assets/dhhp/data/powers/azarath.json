@@ -1,6 +1,5 @@
 {
     "name": "Azarath Metrion Zinthos",
-    "value": 25,
     "modifiers": {
         "fiskheroes:regeneration": {
             "factor": 4
@@ -9,7 +8,7 @@
             "potionEffects": [9, 19, 20]
         },
         "fiskheroes:charged_beam": {},
-        "fiskheroes:energy_blast": {},
+
         "fiskheroes:energy_projection": {},
         "fiskheroes:controlled_flight": {
             "speed": 0.1,

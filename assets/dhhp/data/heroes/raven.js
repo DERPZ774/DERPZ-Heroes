@@ -15,13 +15,11 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", -0.25, 1);
     hero.addAttribute("SPRINT_SPEED", 0.25, 1);
 
-    hero.addKeyBind("AIM", "key.aim", -1);
     hero.addKeyBind("ENERGY_PROJECTION", "Shadow Projection", 1);
     hero.addKeyBind("CHARGED_BEAM", "Shadow Beam", 1);
     hero.addKeyBind("SPELL_MENU", "Spell Book", 2);
     hero.addKeyBind("SHIELD", "Wing Shielding", 3);
     hero.addKeyBind("SHADOWDOME", "Darkness", 4);
-    hero.addKeyBind("HOVER", "key.hover", 4);
     hero.addKeyBind("STEEL_TRANSFORM", "Daughter Of Trigon", 5);
 
     hero.addAttributeProfile("STEEL", duaghter_of_trigon);
@@ -69,23 +67,17 @@ function isKeyBindEnabled(entity, keyBind) {
 function isModifierEnabled(entity, modifier) {
     if (modifier.name() == "fiskheroes:regeneration") {
         return entity.getData("fiskheroes:dyn/steeled");
-    }
-    else if (modifier.name() == "fiskheroes:potion_immunity") {
+    } else if (modifier.name() == "fiskheroes:potion_immunity") {
         return (entity.getData("fiskheroes:dyn/steeled"));
-    }
-    else if (modifier.name() == "fiskheroes:charged_beam") {
+    } else if (modifier.name() == "fiskheroes:charged_beam") {
         return (!entity.getData("fiskheroes:dyn/steeled")) && (!entity.getData("fiskheroes:shield"));
-    }
-    else if (modifier.name() == "fiskheroes:energy_projection") {
+    } else if (modifier.name() == "fiskheroes:energy_projection") {
         return (entity.getData("fiskheroes:dyn/steeled")) && (!entity.getData("fiskheroes:shield"));
-    }
-    else if (modifier.name() == "fiskheroes:lightning_cast") {
+    } else if (modifier.name() == "fiskheroes:lightning_cast") {
         return (entity.getData("fiskheroes:dyn/steeled")) && (!entity.getData("fiskheroes:shield"));
-    }
-    else if (modifier.name() == "fiskheroes:hover") {
+    } else if (modifier.name() == "fiskheroes:hover") {
         return !entity.isOnGround();
-    }
-    else if (modifier.name() == "fiskheroes:shadowdome") {
+    } else if (modifier.name() == "fiskheroes:shadowdome") {
         return (entity.isOnGround()) && (!entity.getData("fiskheroes:beam_charging"));
     }
     return true;

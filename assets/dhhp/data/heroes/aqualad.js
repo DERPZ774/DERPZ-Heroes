@@ -21,7 +21,7 @@ function init(hero) {
     hero.addKeyBindFunc("func_CYCLE_WEAPON", cycleWeaponKey, "Cycle Weapon", 3);
     hero.addKeyBindFunc("func_CYCLE_WEAPON1", cycleWeaponKey1, "Cycle Weapon Swords (1/3)", 3);
     hero.addKeyBindFunc("func_CYCLE_WEAPON2", cycleWeaponKey1, "Cycle Weapon Mace (2/3)", 3);
-    hero.addKeyBindFunc("func_CYCLE_WEAPON3", cycleWeaponKey1, "Cycle Weapon Whips (3/3)", 3);
+    hero.addKeyBindFunc("func_CYCLE_WEAPON3", cycleWeaponKey1, "Cycle Weapon Whips (3/3)", 3); //make one Cycle Weapon Mace ("variable" + /3)
 
     hero.addKeyBind("ENERGY_PROJECTION", "Water Projection", 4);
 
