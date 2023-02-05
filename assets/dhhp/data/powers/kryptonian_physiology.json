@@ -9,6 +9,25 @@
                 "time": 4
             }
         },
+        "fiskheroes:energy_projection": {
+            "damageProfile": {
+              "damage": 2.5,
+              "types": {
+                "COLD": 1.0
+              },
+              "properties": {
+                "COOK_ENTITY": true,
+                "HEAT_TRANSFER": 80
+              }
+            },
+            "range": 10.0,
+            "radius": 0.1,
+            "soundEvents": {
+              "BEAM_AMBIENT": "dhhp:freeze_breath"
+            }
+        },
+        "fiskheroes:propelled_flight": {
+          },
         "fiskheroes:cooldown": {
             "cooldown": {
                 "toggleData": "dhhp:dyn/powered",
@@ -19,7 +38,7 @@
         },
         "fiskheroes:heat_vision": {
             "damageProfile": {
-                "damage": 7.0,
+                "damage": 9,
                 "types": {
                     "ENERGY": 1.0,
                     "FIRE": 1.0
@@ -125,7 +144,11 @@
             "damageType": "MAGIC",
             "factor": 3.0
         }
-    },
+        },
+    "dhhp:damage_weakness|kryptonite": {
+        "damageType": "KRYPTONITE",
+        "factor": 3.0
+         },
     "hud": [{
             "type": "CIRCLE",
             "color": "fiskheroes:charged_beam",

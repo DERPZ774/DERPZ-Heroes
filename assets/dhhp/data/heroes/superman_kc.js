@@ -25,6 +25,7 @@ function init(hero) {
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);
     hero.addKeyBind("POWER", "Solar Absorption", 3);
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 4);
+    hero.addKeyBind("ENERGY_PROJECTION", "Freeze Breath", 5)
 
     hero.setHasProperty(hasProperty);
     hero.addAttributeProfile("ACTIVE", activeProfile);
@@ -49,6 +50,17 @@ function init(hero) {
         flying &= !entity.as("PLAYER").isUsingItem();
         manager.incrementData(entity, "fiskheroes:dyn/booster_r_timer", 2, flying && item.isEmpty() && !entity.isPunching() && entity.getData("fiskheroes:aiming_timer") == 0);
         manager.incrementData(entity, "fiskheroes:dyn/booster_l_timer", 2, flying && !item.doesNeedTwoHands());
+
+        if (!entity.isOnGround()) {
+            manager.setInteger(entity.getWornChestplate().nbt(), "airTime", entity.getWornChestplate().nbt().getInteger("airTime") + 1)
+        }
+        if (entity.getData("fiskheroes:jetpacking") == true && entity.isSprinting()) {
+            manager.setData(entity, "fiskheroes:flying", true)
+        }
+        if (entity.getData("fiskheroes:flying") || entity.isOnGround()) {
+            manager.setInteger(entity.getWornChestplate().nbt(), "airTime", 0);
+        }
+
 
         //landing.tick(entity, manager);
     });
@@ -102,6 +114,8 @@ function isModifierEnabled(entity, modifier) {
             return entity.posY() >= 350;
         case "fiskheroes:charged_beam":
             return entity.getData("dhhp:dyn/powered");
+            case "fiskheroes:propelled_flight":
+            return !entity.getData("fiskheroes:flying") && entity.getWornChestplate().nbt().getInteger("airTime") == 5 && entity.rotPitch() < -10;    
         default:
             return true;
     }

@@ -54,6 +54,10 @@
             "vine.boom": {
                 "distance": 25.0,
                 "target": "ONLY_SELF"
+            },
+            "freeze.breath": {
+                "distance": 25.0,
+                "target": "ALL"
             }
         }
     },
@@ -92,7 +96,8 @@
         "choose_jump_animation": "INTEGER"
     },
     "damageTypes": {
-        "WATER": "Water"
+        "WATER": "Water",
+        "KRYPTONITE": "Kryptonite"
     },
     "alts": {
         "dhhp:thor_mcu": {

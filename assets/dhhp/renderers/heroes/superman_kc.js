@@ -50,7 +50,6 @@ function initEffects(renderer) {
     flight.bindFlightParticle(renderer);
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
 
-
     utils.bindBeam(renderer, "fiskheroes:heat_vision", "dhhp:superman_heat_vision", "head", 0xff2200, [
         { "firstPerson": [2.2, 0.0, 2.0], "offset": [1.4, -3.3, -4.0], "size": [1.0, 0.5] },
         { "firstPerson": [-2.2, 0.0, 2.0], "offset": [-1.4, -3.3, -4.0], "size": [1.0, 0.5] }
@@ -60,11 +59,17 @@ function initEffects(renderer) {
         { "firstPerson": [2.2, 0.0, 2.0], "offset": [1.4, -3.3, -4.0], "size": [1.0, 0.5] },
         { "firstPerson": [-2.2, 0.0, 2.0], "offset": [-1.4, -3.3, -4.0], "size": [1.0, 0.5] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
+    
+    utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:freeze_breath", "head", 0x90ffff, [
+        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.5, -4.0], "size": [4.0, 4.0] }
+    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:freeze_impact"));
 
 }
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
+    renderer.removeCustomAnimation("basic.ENERGY_PROJ");
+    renderer.removeCustomAnimation("basic.PROP_FLIGHT");
     addAnimation(renderer, "superman.FLIGHT", "dhhp:flight/superman_flight.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));
