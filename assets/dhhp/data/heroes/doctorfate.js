@@ -4,6 +4,7 @@ function init(hero) {
     hero.setTier(10);
     hero.setHelmet("Helmet");
     hero.addPowers("dhhp:lord_of_order");
+
     hero.addAttribute("PUNCH_DAMAGE", 3.0, 0);
 
     hero.addKeyBind("CHARGED_BEAM", "Order Beam", 1);
