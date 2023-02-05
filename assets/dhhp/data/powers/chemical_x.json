@@ -32,8 +32,7 @@
         "fiskheroes:charged_beam": {},
         "fiskheroes:energy_blast": {}
     },
-    "hud": [
-        {
+    "hud": [{
             "type": "CIRCLE",
             "color": "fiskheroes:charged_beam",
             "data": "fiskheroes:beam_charge"

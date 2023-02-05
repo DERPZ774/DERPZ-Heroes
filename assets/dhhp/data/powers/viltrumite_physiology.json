@@ -42,7 +42,8 @@
             },
             "knockback": 0.4,
             "soundEvents": {
-
+                "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
+                "BOOST": ["fiskheroes:flight_boost", "fiskheroes:flight_boost_super"]
             }
         },
         "fiskheroes:teleportation": {

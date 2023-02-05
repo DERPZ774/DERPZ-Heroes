@@ -11,7 +11,7 @@
             "factor": 4
         },
         "fiskheroes:potion_immunity": {
-            "potionEffects": [9,19,20]
+            "potionEffects": [9, 19, 20]
         },
         "fiskheroes:fire_immunity": {},
         "fiskheroes:eternium_weakness": {},
@@ -26,9 +26,9 @@
             "leapAmount": [0.75, 0.15]
         },
         "fiskheroes:size_manipulation": {
-        "isInstant": false,
-        "minSize": 1.5,
-        "maxSize": 19.0
+            "isInstant": false,
+            "minSize": 1.5,
+            "maxSize": 19.0
         },
         "fiskheroes:water_breathing": {},
         "fiskheroes:flight": {},

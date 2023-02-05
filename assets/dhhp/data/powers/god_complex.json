@@ -1,6 +1,5 @@
 {
   "name": "God Complex",
-  "value": 100000000,
   "modifiers": {
     "fiskheroes:regeneration": {
       "factor": 100000000000

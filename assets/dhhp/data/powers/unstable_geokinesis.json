@@ -2,10 +2,8 @@
   "name": "Unstable Geokinesis",
   "value": 15,
   "modifiers": {
-    "fiskheroes:earthquake": {
-    },
-    "fiskheroes:ground_smash": {
-    },
+    "fiskheroes:earthquake": {},
+    "fiskheroes:ground_smash": {},
     "fiskheroes:transformation": {
       "key": "EAT_BACON",
       "transformation": {
@@ -36,11 +34,10 @@
     "fiskheroes:flight": {},
     "fiskheroes:hover": {}
   },
-    "hud": [
-      {
-        "type": "PROGRESS",
-        "texture": "dhhp:textures/gui/bars/derpz_1.png",
-        "data": "fiskheroes:dyn/steel_cooldown"
-      }
-    ]
+  "hud": [{
+      "type": "PROGRESS",
+      "texture": "dhhp:textures/gui/bars/derpz_1.png",
+      "data": "fiskheroes:dyn/steel_cooldown"
+    }
+  ]
 }

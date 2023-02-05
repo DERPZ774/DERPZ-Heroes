@@ -184,15 +184,18 @@
         "fiskheroes:controlled_flight": {
             "speed": 0.08,
             "boostSpeed": 0.12,
-            "canBoost": false
+            "canBoost": false,
+            "soundEvents": {
+                "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
+                "BOOST": "fiskheroes:flight_boost"
+            }
         }
     },
     "hud": [{
             "type": "PROGRESS",
             "texture": "dhhp:textures/gui/bars/ankh_transformation.png",
             "data": "dhhp:dyn/helmet_cooldown"
-        },
-        {
+        }, {
             "type": "CIRCLE",
             "color": "fiskheroes:charged_beam",
             "data": "fiskheroes:beam_charge"

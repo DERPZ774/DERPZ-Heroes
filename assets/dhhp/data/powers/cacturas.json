@@ -17,14 +17,10 @@
                 20
             ]
         },
-        "fiskheroes:size_manipulation": {
-		},
-        "fiskheroes:fire_immunity": {
-		},
-        "fiskheroes:cactus_recruitment": {
-		},
-        "fiskheroes:spike_burst": {
-		},
+        "fiskheroes:size_manipulation": {},
+        "fiskheroes:fire_immunity": {},
+        "fiskheroes:cactus_recruitment": {},
+        "fiskheroes:spike_burst": {},
         "fiskheroes:thorns": {
             "damageProfile": {
                 "THORNS": 1.0
@@ -40,18 +36,13 @@
         "fiskheroes:regeneration|wet": {
             "factor": 6
         },
-        "fiskheroes:water_breathing": {
-		},
+        "fiskheroes:water_breathing": {},
         "fiskheroes:damage_resistance": {
             "damageType": "FIRE"
         },
-        "fiskheroes:propelled_flight": {
-		},
-        "fiskheroes:lightning_cast": {
-		},
-        "fiskheroes:fireball": {
-		},
-        "fiskheroes:flame_blast": {
-		}
+        "fiskheroes:propelled_flight": {},
+        "fiskheroes:lightning_cast": {},
+        "fiskheroes:fireball": {},
+        "fiskheroes:flame_blast": {}
     }
 }

@@ -3,12 +3,11 @@
     "modifiers": {
         "fiskheroes:blade": {
             "soundEvents": {
-            "ENABLE": "dhhp:bone_blade",
-            "DISABLE": "dhhp:bone_blade_retract"
+                "ENABLE": "dhhp:bone_blade",
+                "DISABLE": "dhhp:bone_blade_retract"
             }
         },
-        "fiskheroes:invisibility": {
-        },
+        "fiskheroes:invisibility": {},
         "fiskheroes:damage_immunity": {
             "damageType": "SOUND"
         },
@@ -17,34 +16,33 @@
             "soundEvents": {
                 "ENABLE": "fiskheroes:flame_on",
                 "DISABLE": "fiskheroes:flame_off"
-                }
+            }
         },
         "fiskheroes:cooldown": {
             "cooldown": {
-            "toggleData": "fiskheroes:invisible",
-            "cooldownData": "dhhp:dyn/invisibility_cooldown",
-            "duration": 100,
-            "recovery": 1.0
+                "toggleData": "fiskheroes:invisible",
+                "cooldownData": "dhhp:dyn/invisibility_cooldown",
+                "duration": 100,
+                "recovery": 1.0
             }
         },
         "fiskheroes:cooldown|punch": {
             "cooldown": {
-            "toggleData": "fiskheroes:punchmode",
-            "cooldownData": "dhhp:dyn/punch_cooldown",
-            "duration": 400,
-            "recovery": 1.0
+                "toggleData": "fiskheroes:punchmode",
+                "cooldownData": "dhhp:dyn/punch_cooldown",
+                "duration": 400,
+                "recovery": 1.0
             }
         }
-    }, "hud": [
-        {
-        "type": "PROGRESS",
-        "texture": "dhhp:textures/gui/bars/scar_invis.png",
-        "data": "dhhp:dyn/invisibility_cooldown"
-        },
-        {
+    },
+    "hud": [{
+            "type": "PROGRESS",
+            "texture": "dhhp:textures/gui/bars/scar_invis.png",
+            "data": "dhhp:dyn/invisibility_cooldown"
+        }, {
             "type": "PROGRESS",
             "texture": "dhhp:textures/gui/bars/fire_transformation.png",
             "data": "dhhp:dyn/punch_cooldown"
-            }
+        }
     ]
 }

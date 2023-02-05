@@ -1,70 +1,68 @@
 {
-    "name": "Modified Kryptonian Physiology",
-    "modifiers": {
-      "fiskheroes:flight": {
-        "speed": 0.1
-      },
-      "fiskheroes:heat_vision": {
-        "damageProfile": {
-          "damage": 7.0,
-          "types": {
-            "FIRE": 1.0
-          },
-          "properties": {
-            "COOK_ENTITY": true,
-            "HEAT_TRANSFER": 140
-          }
+  "name": "Modified Kryptonian Physiology",
+  "modifiers": {
+    "fiskheroes:flight": {
+      "speed": 0.1
+    },
+    "fiskheroes:heat_vision": {
+      "damageProfile": {
+        "damage": 7.0,
+        "types": {
+          "FIRE": 1.0
         },
-        "range": 32.0,
-        "radius": 0.1,
-        "soundEvents": {
-          "SHOOT": "fiskheroes:heat_vision"
+        "properties": {
+          "COOK_ENTITY": true,
+          "HEAT_TRANSFER": 140
         }
       },
-      "fiskheroes:transformation": {
-        "key": "DNA_SHIELD",
-        "transformation": {
-          "toggleData": "dhhp:dyn/dna_shield",
-          "timerData": "dhhp:dyn/dna_shield_timer",
-          "time": 15
-        },
-        "soundEvents": {
-          "ENABLE": "fiskheroes:utility_belt_switch",
-          "DISABLE": "fiskheroes:utility_belt_switch"
-        }
-        },
-      "fiskheroes:cooldown": {
-        "cooldown": {
-          "toggleData": "dhhp:dyn/dna_shield",
-          "cooldownData": "dhhp:dyn/dna_shield_cooldown",
-          "duration": 6000,
-          "recovery": 3.0
-        }
+      "range": 32.0,
+      "radius": 0.1,
+      "soundEvents": {
+        "SHOOT": "fiskheroes:heat_vision"
+      }
+    },
+    "fiskheroes:transformation": {
+      "key": "DNA_SHIELD",
+      "transformation": {
+        "toggleData": "dhhp:dyn/dna_shield",
+        "timerData": "dhhp:dyn/dna_shield_timer",
+        "time": 15
       },
-      "fiskheroes:leaping": {
-        "leapAmount": [1.5, 0.8]
-      },
-      "fiskheroes:super_speed": {
-        "canUseTreadmill": false
+      "soundEvents": {
+        "ENABLE": "fiskheroes:utility_belt_switch",
+        "DISABLE": "fiskheroes:utility_belt_switch"
+      }
+    },
+    "fiskheroes:cooldown": {
+      "cooldown": {
+        "toggleData": "dhhp:dyn/dna_shield",
+        "cooldownData": "dhhp:dyn/dna_shield_cooldown",
+        "duration": 6000,
+        "recovery": 3.0
+      }
+    },
+    "fiskheroes:leaping": {
+      "leapAmount": [1.5, 0.8]
+    },
+    "fiskheroes:super_speed": {
+      "canUseTreadmill": false
     },
     "fiskheroes:slow_motion": {},
     "fiskheroes:arrow_catching": {},
     "fiskheroes:regeneration": {
-        "factor": 2
-      
+      "factor": 2
+
     },
     "fiskheroes:ground_smash": {},
     "fiskheroes:damage_weakness": {
       "damageType": "SOUND",
       "factor": 2.0
-  }
+    }
   },
-    "hud": [
-      {
-          "type": "PROGRESS",
-          "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
-          "data": "dhhp:dyn/dna_shield_cooldown"
-      }
+  "hud": [{
+      "type": "PROGRESS",
+      "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
+      "data": "dhhp:dyn/dna_shield_cooldown"
+    }
   ]
-  }
-
+}

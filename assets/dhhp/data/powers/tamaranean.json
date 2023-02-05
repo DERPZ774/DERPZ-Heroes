@@ -31,13 +31,11 @@
             }
         }
     },
-    "hud": [
-        {
+    "hud": [{
             "type": "CIRCLE",
             "color": "fiskheroes:charged_beam",
             "data": "fiskheroes:beam_charge"
-        },
-        {
+        }, {
             "type": "PROGRESS",
             "texture": "dhhp:textures/gui/bars/starfire.png",
             "data": "fiskheroes:dyn/steel_cooldown"

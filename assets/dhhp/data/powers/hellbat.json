@@ -31,27 +31,20 @@
             "damageType": "ELECTRICITY",
             "factor": 0.5
         },
-        "fiskheroes:energy_blast": {
-        },
-        "fiskheroes:energy_projection": {
-        },
-        "fiskheroes:arrow_catching": {
-        },
+        "fiskheroes:energy_blast": {},
+        "fiskheroes:energy_projection": {},
+        "fiskheroes:arrow_catching": {},
         "fiskheroes:damage_immunity": {
             "damageType": "EXPLOSION"
         },
-        "fiskheroes:fire_immunity": {
-        },
-        "fiskheroes:invisibility": {
-        },
+        "fiskheroes:fire_immunity": {},
+        "fiskheroes:invisibility": {},
         "fiskheroes:leaping": {
             "leapAmount": [1.5, 0.2]
         },
-        "fiskheroes:water_breathing": {
-        }
+        "fiskheroes:water_breathing": {}
     },
-    "hud": [
-        {
+    "hud": [{
             "type": "CIRCLE",
             "color": "fiskheroes:charged_beam",
             "data": "fiskheroes:beam_charge"
