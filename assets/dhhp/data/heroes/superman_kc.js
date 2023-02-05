@@ -61,12 +61,9 @@ function init(hero) {
             manager.setInteger(entity.getWornChestplate().nbt(), "airTime", 0);
         }
 
-
         //landing.tick(entity, manager);
     });
 }
-
-
 
 function activeProfile(profile) {
     profile.inheritDefaults();
@@ -88,16 +85,16 @@ function isKeyBindEnabled(entity, keyBind) {
     var y = entity.posY();
 
     switch (keyBind) {
-        case "POWER":
-            return (y) >= 350 || entity.getData("dhhp:dyn/powered");
-        case "HEAT_VISION":
-            return !entity.getData("dhhp:dyn/powered") && !entity.getData("fiskheroes:gliding");
-        case "CHARGED_BEAM":
-            return entity.getData("dhhp:dyn/powered") && !entity.getData("fiskheroes:gliding");
-        case "SUPER_SPEED":
-            return (y) <= 3000;
-        default:
-            return true
+    case "POWER":
+        return (y) >= 350 || entity.getData("dhhp:dyn/powered");
+    case "HEAT_VISION":
+        return !entity.getData("dhhp:dyn/powered") && !entity.getData("fiskheroes:gliding");
+    case "CHARGED_BEAM":
+        return entity.getData("dhhp:dyn/powered") && !entity.getData("fiskheroes:gliding");
+    case "SUPER_SPEED":
+        return (y) <= 3000;
+    default:
+        return true
     }
 }
 
@@ -108,16 +105,16 @@ function isModifierEnabled(entity, modifier) {
         return (modifier.id() == "powered" ? powered : !powered);
     }
     switch (modifier.name()) {
-        case "fiskheroes:heat_vision":
-            return !entity.getData("dhhp:dyn/powered");
-        case "fiskheroes:healing_factor":
-            return entity.posY() >= 350;
-        case "fiskheroes:charged_beam":
-            return entity.getData("dhhp:dyn/powered");
-            case "fiskheroes:propelled_flight":
-            return !entity.getData("fiskheroes:flying") && entity.getWornChestplate().nbt().getInteger("airTime") == 5 && entity.rotPitch() < -10;    
-        default:
-            return true;
+    case "fiskheroes:heat_vision":
+        return !entity.getData("dhhp:dyn/powered");
+    case "fiskheroes:healing_factor":
+        return entity.posY() >= 350;
+    case "fiskheroes:charged_beam":
+        return entity.getData("dhhp:dyn/powered");
+    case "fiskheroes:propelled_flight":
+        return entity.isSprinting() && !entity.getData("fiskheroes:flying") && entity.getWornChestplate().nbt().getInteger("airTime") == 5 && entity.rotPitch() < -10;
+    default:
+        return true;
     }
 }
 
