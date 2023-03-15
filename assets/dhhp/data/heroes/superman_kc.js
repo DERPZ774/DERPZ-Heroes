@@ -1,5 +1,5 @@
 var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
-//var landing = implement("fiskheroes:external/superhero_landing");
+var landing = implement("fiskheroes:external/superhero_landing");
 
 function SafeY(entity) {
     var complete = false;
@@ -54,7 +54,7 @@ function init(hero) {
         if (y >= 1000) {
             manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y, z, dim + 1));
             manager.setData(entity, "fiskheroes:teleport_delay", 1);
-            
+
         }
         if (entity.world().getDimension() == 2595 && !entity.getData("dhhp:dyn/teleport")) {
             manager.setData(entity, "dhhp:dyn/teleport", true);
@@ -89,7 +89,7 @@ function init(hero) {
 
 
 
-        //landing.tick(entity, manager);
+        landing.tick(entity, manager);
     });
 }
 
