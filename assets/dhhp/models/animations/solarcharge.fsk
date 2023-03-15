@@ -1,0 +1,27 @@
+{data} = curve {data}
+{rightArm_rotX} @ {data} -> 7.5'
+{rightArm_rotY} @ {data} -> 165'
+{rightArm_rotZ} @ {data} -> 86.5'
+
+{rightArm_posX} @ {data} -> -5.5
+{rightArm_posY} @ {data} -> 1.8
+{rightArm_posZ} @ {data} -> -0.05
+
+{leftArm_rotX} @ {data} -> 7.5'
+{leftArm_rotY} @ {data} -> -165'
+{leftArm_rotZ} @ {data} -> -86.5'
+
+{leftArm_posX} @ {data} -> 5.5
+{leftArm_posY} @ {data} -> 1.8
+{leftArm_posZ} @ {data} -> -0.05
+
+{leftLeg_rotX} @ {data} -> 6.5'
+{leftLeg_posY} -= 0.35{data}
+
+{rightLeg_rotX} @ {data} -> 14'
+{rightLeg_rotY} @ {data} -> 2.5'
+
+{rightLeg_posX} -= 0.115{data}
+{rightLeg_posY} -= 2.3{data}
+{rightLeg_posZ} -= 2.0{data}
+

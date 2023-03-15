@@ -6,6 +6,23 @@
                 "fiskheroes:smoke_pellet": {
                     "cooldown": 400,
                     "uses": 2
+                },
+                "fiskheroes:grenade": {
+                    "cooldown": 160,
+                    "uses": 3,
+                    "damageProfile": {
+                      "damage": 12.0,
+                      "types": {
+                      },
+                      "properties": {
+                        "EFFECTS": [
+                        ]
+                      }
+                    },
+                    "isInstant": false,
+                    "affectsUser": true,
+                    "fuseTime": 45,
+                    "radius": 8.0
                 }
             }
         },

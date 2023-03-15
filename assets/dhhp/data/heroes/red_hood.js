@@ -8,11 +8,11 @@ function init(hero) {
     hero.setBoots("item.superhero_armor.piece.boots");
     hero.addEquipment("fiskheroes:grappling_gun");
     hero.addPrimaryEquipment("fiskheroes:grappling_gun", true);
-    hero.addPrimaryEquipment("fiskheroes:desert_eagle{Dual:1}", true, item => item.nbt().getBoolean("Dual"));
+    hero.addPrimaryEquipment("fiskheroes:desert_eagle{display:{Name:\u00A7rRed Hood's Dual Pistols}, Dual:1}", true, item => item.nbt().getBoolean("Dual") &&  item.nbt().getCompoundTag("display").getString("Name") == "\u00A7rRed Hood's Dual Pistols")
 
     hero.addPowers("dhhp:red_hood");
-    hero.addAttribute("FALL_RESISTANCE", 6.0, 0);
-    hero.addAttribute("WEAPON_DAMAGE", 3.75, 0);
+    hero.addAttribute("FALL_RESISTANCE", 8.0, 0);
+    hero.addAttribute("WEAPON_DAMAGE", 4.75, 0);
     hero.addAttribute("SPRINT_SPEED", 0.10, 1);
     hero.addAttribute("PUNCH_DAMAGE", 6.5, 0);
     hero.addAttribute("JUMP_HEIGHT", 0.8, 0);

@@ -4,6 +4,6 @@
     "volume": "fiskheroes:energy_projection_timer",
     "pitch": "1.2 - 0.1 * Math.min(entity.getInterpolatedData('fiskheroes:heat_vision_length'), 2)",
     "loop": true,
-    "fadeOut": 20
+    "fadeOut": 80000
   }
   

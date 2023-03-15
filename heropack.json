@@ -93,7 +93,16 @@
         "double_jump": "BOOLEAN",
         "jump_timer": "FLOAT_INTERP",
         "jump_animation": "FLOAT_INTERP",
-        "choose_jump_animation": "INTEGER"
+        "choose_jump_animation": "INTEGER",
+        "boost_cooldown": "FLOAT",
+        "boosttoggle": "BOOLEAN",
+        "boost": "INTEGER",
+        "boost_timer": "FLOAT_INTERP",
+        "power": "BOOLEAN",
+        "hv": "BOOLEAN",
+        "hv_timer": "FLOAT_INTERP",
+        "fb": "BOOLEAN",
+        "fb_timer": "FLOAT_INTERP"
     },
     "damageTypes": {
         "WATER": "Water",

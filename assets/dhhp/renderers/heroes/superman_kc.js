@@ -25,9 +25,9 @@ function init(renderer) {
 function initEffects(renderer) {
     physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.weight = 1.2;
-    physics.maxFlare = 0.8;
+    physics.maxFlare = 0.3;
     physics.flareDegree = 1.5;
-    physics.flareFactor = 1.25;
+    physics.flareFactor = 1.5;
     physics.flareElasticity = 8;
     physics.setTickHandler(entity => {
         var f = 1 - entity.getData("fiskheroes:flight_timer");
@@ -36,7 +36,7 @@ function initEffects(renderer) {
         physics.restAngle = f * 40;
         physics.restFlare = f * 0.7;
         physics.idleFlutter = 0.15 + 0.25 * f;
-        physics.flutterSpeed = f * 0.3;
+        physics.flutterSpeed = f * 0.4;
     });
 
     cape = capes.create(renderer, 24, "fiskheroes:cape_default.mesh.json");
@@ -59,7 +59,7 @@ function initEffects(renderer) {
         { "firstPerson": [2.2, 0.0, 2.0], "offset": [1.4, -3.3, -4.0], "size": [1.0, 0.5] },
         { "firstPerson": [-2.2, 0.0, 2.0], "offset": [-1.4, -3.3, -4.0], "size": [1.0, 0.5] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
-    
+
     utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:freeze_breath", "head", 0x90ffff, [
         { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.5, -4.0], "size": [4.0, 4.0] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:freeze_impact"));
@@ -79,6 +79,12 @@ function initAnimations(renderer) {
 
     addAnimationWithData(renderer, "iron_man.LAND", "fiskheroes:superhero_landing", "fiskheroes:dyn/superhero_landing_timer")
         .priority = -8;
+
+    addAnimation(renderer, "superman.charge", "dhhp:solarcharge")
+        .setData((entity, data) => {
+            data.load(0, entity.getInterpolatedData("dhhp:dyn/power_timer"));
+        })
+        .priority = 10;
 
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);

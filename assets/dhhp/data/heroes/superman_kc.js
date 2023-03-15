@@ -20,12 +20,13 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", -0.75, 1);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
-    hero.addKeyBind("HEAT_VISION", "key.heatVision", 1);
+    hero.addKeyBind("HEAT_VISION", "\u00A7lHeat Vision", 1);
     hero.addKeyBind("CHARGED_BEAM", "key.heatVision", 1);
-    hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);
-    hero.addKeyBind("POWER", "Solar Absorption", 3);
+    hero.addKeyBind("ENERGY_PROJECTION", "Freeze Breath", 2);
+    hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 3);
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 4);
-    hero.addKeyBind("ENERGY_PROJECTION", "Freeze Breath", 5)
+    hero.addKeyBind("CHARGE", "Absorb Solar Energy (Hold)", 5);
+    hero.addKeyBindFunc("func_CHARGE", charge, "Absorb Solar Energy", 5);
 
     hero.setHasProperty(hasProperty);
     hero.addAttributeProfile("ACTIVE", activeProfile);
@@ -38,8 +39,8 @@ function init(hero) {
         var y = entity.posY();
         var z = entity.posZ();
         var dim = entity.world().getDimension();
-        if (y > 3000) {
-            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y, z, dim + 1));
+        if (y >= 1000) {
+            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y - 50, z, dim + 1));
             manager.setData(entity, "fiskheroes:teleport_delay", 1);
         }
 
@@ -61,8 +62,20 @@ function init(hero) {
             manager.setInteger(entity.getWornChestplate().nbt(), "airTime", 0);
         }
 
+        if (entity.getData("dhhp:dyn/power_cooldown") < 0.00005 && entity.getData("dhhp:dyn/powered") == true) {
+            manager.setData(entity, "dhhp:dyn/power_cooldown", 0.00008)
+        }
+
+
+
         //landing.tick(entity, manager);
     });
+}
+
+function charge(entity, manager) {
+    manager.setData(entity, "dhhp:dyn/powered", true);
+    manager.setData(entity, "dhhp:dyn/power_cooldown", 1);
+    return true;
 }
 
 function activeProfile(profile) {
@@ -75,46 +88,56 @@ function activeProfile(profile) {
 }
 
 function getAttributeProfile(entity) {
-    if (entity.getData("dhhp:dyn/powered")) {
+    var powered = entity.getData("dhhp:dyn/powered");
+    if (entity.getData("dhhp:dyn/power_cooldown") < 1 && entity.getData("dhhp:dyn/power_cooldown") > 0 && powered) {
         return "ACTIVE";
     }
     return null;
 }
 
 function isKeyBindEnabled(entity, keyBind) {
+    var powered = entity.getData("dhhp:dyn/powered");
     var y = entity.posY();
+    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
 
     switch (keyBind) {
-    case "POWER":
-        return (y) >= 350 || entity.getData("dhhp:dyn/powered");
-    case "HEAT_VISION":
-        return !entity.getData("dhhp:dyn/powered") && !entity.getData("fiskheroes:gliding");
-    case "CHARGED_BEAM":
-        return entity.getData("dhhp:dyn/powered") && !entity.getData("fiskheroes:gliding");
-    case "SUPER_SPEED":
-        return (y) <= 3000;
-    default:
-        return true
+        case "CHARGE":
+            return !boostflight && (y) >= 200 && entity.world().getDimension() == 2595;
+        case "func_CHARGE":
+            return !boostflight && (y) >= 200 && entity.getData("dhhp:dyn/powered") == false && entity.world().getDimension() == 2595;
+        case "HEAT_VISION":
+            return !boostflight && entity.getData("dhhp:dyn/power_cooldown") < 1 && entity.getData("dhhp:dyn/power_cooldown") > 0 && powered;
+        case "CHARGED_BEAM":
+            return !boostflight && entity.getData("dhhp:dyn/power_cooldown") == 1 || (!boostflight && !powered);
+        case "SUPER_SPEED":
+            return !boostflight && (y) <= 400 && !entity.getData("fiskheroes:flying");
+        case "ENERGY_PROJECTION":
+            return !boostflight && entity.world().getDimension() == 0 || entity.world().getDimension() == -1 || entity.world().getDimension() == 1;
+        default:
+            return true;
     }
 }
 
 function isModifierEnabled(entity, modifier) {
+    var powered = entity.getData("dhhp:dyn/powered");
 
     if (modifier.name() == "fiskheroes:gliding") {
-        var powered = entity.getData("dhhp:dyn/powered");
         return (modifier.id() == "powered" ? powered : !powered);
     }
+
+    switch (modifier.id()) {
+        case "suit_idle":
+            return !entity.getData("dhhp:dyn/power") && powered && entity.getData("fiskheroes:heat_vision") == false;
+        case "suit_charge":
+            return entity.getData("dhhp:dyn/power") && powered;
+        case "hv":
+            return !entity.getData("dhhp:dyn/power") && powered && entity.getData("fiskheroes:heat_vision") == true;
+    }
     switch (modifier.name()) {
-    case "fiskheroes:heat_vision":
-        return !entity.getData("dhhp:dyn/powered");
-    case "fiskheroes:healing_factor":
-        return entity.posY() >= 350;
-    case "fiskheroes:charged_beam":
-        return entity.getData("dhhp:dyn/powered");
-    case "fiskheroes:propelled_flight":
-        return entity.isSprinting() && !entity.getData("fiskheroes:flying") && entity.getWornChestplate().nbt().getInteger("airTime") == 5 && entity.rotPitch() < -10;
-    default:
-        return true;
+        case "fiskheroes:healing_factor":
+            return entity.posY() >= 350;
+        default:
+            return true;
     }
 }
 

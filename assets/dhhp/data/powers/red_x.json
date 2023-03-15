@@ -1,0 +1,14 @@
+{
+    "name": "Red X",
+    "modifiers": {
+        "fiskheroes:equipment": {
+            "equipment": {
+                "fiskheroes:smoke_pellet": {
+                    "cooldown": 400,
+                    "uses": 2
+                }
+            }
+        },
+        "fiskheroes:projectile_immunity": {}
+    }
+}

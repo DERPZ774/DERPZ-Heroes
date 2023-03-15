@@ -1,87 +1,144 @@
 {
     "name": "Kryptonian Physiology",
     "modifiers": {
-        "fiskheroes:transformation": {
-            "key": "POWER",
+        "fiskheroes:transformation|charge": {
+            "key": "CHARGE",
             "transformation": {
-                "toggleData": "dhhp:dyn/powered",
+                "toggleData": "dhhp:dyn/power",
                 "timerData": "dhhp:dyn/power_timer",
-                "time": 4
+                "time": 10
+            },
+            "isToggle": false
+        },
+        "fiskheroes:cooldown|suit_idle": {
+            "cooldown": {
+                "toggleData": "true",
+                "cooldownData": "dhhp:dyn/power_cooldown",
+                "duration": 12000,
+                "recovery": 0.0
+            }
+        },
+        "fiskheroes:cooldown|suit_charge": {
+            "cooldown": {
+                "toggleData": "false",
+                "cooldownData": "dhhp:dyn/power_cooldown",
+                "duration": 6000,
+                "recovery": 72
+            }
+        },
+        "fiskheroes:cooldown|hv": {
+            "cooldown": {
+                "toggleData": "true",
+                "cooldownData": "dhhp:dyn/power_cooldown",
+                "duration": 600,
+                "recovery": 0.0
+            }
+        },
+        "fiskheroes:cooldown|boost": {
+            "cooldown": {
+                "toggleData": "false",
+                "cooldownData": "dhhp:dyn/boost_cooldown",
+                "duration": 600,
+                "recovery": 0
+            }
+        },
+        "fiskheroes:cooldown|boostCharge": {
+            "cooldown": {
+                "toggleData": "false",
+                "cooldownData": "dhhp:dyn/boost_cooldown",
+                "duration": 600,
+                "recovery": 1
             }
         },
         "fiskheroes:energy_projection": {
             "damageProfile": {
-                "damage": 2.5,
+                "damage": 1.5,
                 "types": {
-                    "COLD": 1.0
+                    "COLD": 3.5
                 },
                 "properties": {
-                    "COOK_ENTITY": true,
-                    "HEAT_TRANSFER": 80
+                    "HIT_COOLDOWN": 10,
+                    "REDUCE_KNOCKBACK": 0.3,
+                    "EFFECTS": [{
+                            "id": "minecraft:slowness",
+                            "duration": 30,
+                            "amplifier": 1,
+                            "chance": 1
+                        },
+                        {
+                            "id": "minecraft:mining_fatigue",
+                            "duration": 30,
+                            "amplifier": 1,
+                            "chance": 1
+                        },
+                        {
+                            "id": "fiskheroes:disable_speed",
+                            "duration": 60,
+                            "amplifier": 1,
+                            "chance": 1
+                        }
+                    ]
                 }
             },
-            "range": 10.0,
-            "radius": 0.1,
+            "range": 5.5,
+            "radius": 0.15,
             "soundEvents": {
                 "BEAM_AMBIENT": "dhhp:freeze_breath"
             }
         },
         "fiskheroes:propelled_flight": {},
-        "fiskheroes:cooldown": {
-            "cooldown": {
-                "toggleData": "dhhp:dyn/powered",
-                "cooldownData": "dhhp:dyn/power_cooldown",
-                "duration": 1200,
-                "recovery": 2.0
-            }
-        },
         "fiskheroes:heat_vision": {
             "damageProfile": {
-                "damage": 9,
+                "damage": 4.5,
+                "types": {
+                    "ENERGY": 2.25,
+                    "FIRE": 2.25
+                },
+                "properties": {
+                    "REDUCE_KNOCKBACK": 0.15,
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 100,
+                    "HIT_COOLDOWN": 10
+                }
+            },
+            "range": 32.0,
+            "radius": 0.2,
+            "soundEvents": {
+                "SHOOT": [
+                    "fiskheroes:heat_vision"
+                ]
+            }
+        },
+        "fiskheroes:charged_beam": {
+            "damageProfile": {
+                "damage": 3.5,
                 "types": {
                     "ENERGY": 1.0,
                     "FIRE": 1.0
                 },
                 "properties": {
+                    "REDUCE_KNOCKBACK": 0.15,
                     "COOK_ENTITY": true,
-                    "HEAT_TRANSFER": 140
-                }
-            },
-            "range": 32.0,
-            "radius": 0.1,
-            "soundEvents": {
-                "SHOOT": "fiskheroes:heat_vision"
-            }
-        },
-        "fiskheroes:charged_beam": {
-            "damageProfile": {
-                "damage": 11.0,
-                "types": {
-                    "ENERGY": 1.0,
-                    "FIRE": 0.5
-                },
-                "properties": {
-                    "COOK_ENTITY": true,
-                    "HEAT_TRANSFER": 200
+                    "HEAT_TRANSFER": 100,
+                    "HIT_COOLDOWN": 10
                 }
             },
             "chargeTime": 20,
-            "duration": 100,
-            "cooldownTime": 40,
+            "duration": 70,
+            "cooldownTime": 35,
             "range": 32.0,
-            "radius": 0.4,
+            "radius": 0.15,
             "soundEvents": {
                 "SHOOT": [
                     "fiskheroes:manta_beam_start",
-                    "fiskheroes:manta_beam_loop"
-                ],
-                "SHOOT_STOP": "fiskheroes:manta_beam_stop",
-                "CHARGE": "fiskheroes:manta_beam_charge"
+                    "fiskheroes:manta_beam_loop",
+                    "fiskheroes:heat_vision"
+                ]
             }
         },
         "fiskheroes:controlled_flight": {
             "speed": 0.1,
-            "boostSpeed": 0.40,
+            "boostSpeed": 0.20,
             "canBoost": true,
             "collision": {
                 "blocks": {
@@ -99,6 +156,7 @@
                 "BOOST": ["fiskheroes:flight_boost", "fiskheroes:flight_boost_super"]
             }
         },
+
         "fiskheroes:potion_immunity": {
             "potionEffects": [
                 "minecraft:nausea",
@@ -127,14 +185,11 @@
 
         "fiskheroes:hover": {},
         "fiskheroes:leaping": {
-            "leapAmount": [
-                2.0,
-                1.0
-            ]
+            "leapAmount": [2.0, 1.0]
         },
         "fiskheroes:teleportation": {
             "canReachMoon": true,
-            "range": 128.0
+            "range": 100000.0
         },
         "fiskheroes:damage_weakness|sound": {
             "damageType": "SOUND",
@@ -150,13 +205,16 @@
         "factor": 3.0
     },
     "hud": [{
-            "type": "CIRCLE",
-            "color": "fiskheroes:charged_beam",
-            "data": "fiskheroes:beam_charge"
-        }, {
-            "type": "PROGRESS",
-            "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
-            "data": "dhhp:dyn/power_cooldown"
-        }
-    ]
+        "type": "CIRCLE",
+        "color": "fiskheroes:charged_beam",
+        "data": "fiskheroes:beam_charge"
+    }, {
+        "type": "CHARGE",
+        "texture": "dhhp:textures/gui/bars/solar_bar.png",
+        "data": "if (entity.getData('dhhp:dyn/powered') == true) {1 - entity.getData('dhhp:dyn/power_cooldown')}"
+    }, {
+        "type": "PROGRESS",
+        "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
+        "data": "dhhp:dyn/boost_cooldown"
+    }]
 }
