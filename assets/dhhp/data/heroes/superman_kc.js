@@ -1,6 +1,18 @@
 var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
 //var landing = implement("fiskheroes:external/superhero_landing");
 
+function SafeY(entity) {
+    var complete = false;
+    for (var i = 0; complete == false; i++) {
+        if (entity.world().getBlock(entity.pos().add(0, i + 3, 0)) == "minecraft:air" &&
+            entity.world().getBlock(entity.pos().add(0, i + 4, 0)) == "minecraft:air") {
+            complete = true;
+            return entity.posY() + i + 4;
+        }
+
+    }
+}
+
 function init(hero) {
     hero.setName("Superman");
     hero.setTier(9);
@@ -40,8 +52,17 @@ function init(hero) {
         var z = entity.posZ();
         var dim = entity.world().getDimension();
         if (y >= 1000) {
-            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y - 50, z, dim + 1));
+            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y, z, dim + 1));
             manager.setData(entity, "fiskheroes:teleport_delay", 1);
+            
+        }
+        if (entity.world().getDimension() == 2595 && !entity.getData("dhhp:dyn/teleport")) {
+            manager.setData(entity, "dhhp:dyn/teleport", true);
+        }
+        if (entity.world().getDimension() == 0 && entity.getData("dhhp:dyn/teleport")) {
+            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(Math.floor(entity.posX()), SafeY(entity), Math.floor(entity.posZ()), 0));
+            manager.setData(entity, "fiskheroes:teleport_delay", 1);
+            manager.setData(entity, "dhhp:dyn/teleport", false);
         }
 
         var flying = entity.getData("fiskheroes:flying");
@@ -136,6 +157,8 @@ function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:healing_factor":
             return entity.posY() >= 350;
+        case "fiskheroes:propelled_flight":
+            return entity.isSprinting();
         default:
             return true;
     }
