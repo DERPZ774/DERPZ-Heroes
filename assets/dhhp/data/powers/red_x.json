@@ -9,6 +9,26 @@
                 }
             }
         },
-        "fiskheroes:projectile_immunity": {}
-    }
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:transformation|charge_teleport": {
+          "key": "CHARGE_TELEPORT",
+          "transformation": {
+            "toggleData": "dhhp:dyn/charge_teleport",
+            "timerData": "dhhp:dyn/charge_teleport_timer",
+            "time": 20
+          },
+          "isToggle": false
+        },
+        "fiskheroes:teleportation": {
+            "canReachMoon": false,
+            "range": 20.0
+        }
+    },
+    "hud": [
+      {
+        "type": "CIRCLE",
+        "color": "0x800000",
+        "data": "dhhp:dyn/charge_teleport_timer"
+      }
+    ]
 }

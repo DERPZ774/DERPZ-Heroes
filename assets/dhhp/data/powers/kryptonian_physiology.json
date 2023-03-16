@@ -64,14 +64,12 @@
                             "duration": 30,
                             "amplifier": 1,
                             "chance": 1
-                        },
-                        {
+                        }, {
                             "id": "minecraft:mining_fatigue",
                             "duration": 30,
                             "amplifier": 1,
                             "chance": 1
-                        },
-                        {
+                        }, {
                             "id": "fiskheroes:disable_speed",
                             "duration": 60,
                             "amplifier": 1,
@@ -205,16 +203,17 @@
         "factor": 3.0
     },
     "hud": [{
-        "type": "CIRCLE",
-        "color": "fiskheroes:charged_beam",
-        "data": "fiskheroes:beam_charge"
-    }, {
-        "type": "CHARGE",
-        "texture": "dhhp:textures/gui/bars/solar_bar.png",
-        "data": "if (entity.getData('dhhp:dyn/powered') == true) {1 - entity.getData('dhhp:dyn/power_cooldown')}"
-    }, {
-        "type": "PROGRESS",
-        "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
-        "data": "dhhp:dyn/boost_cooldown"
-    }]
+            "type": "CIRCLE",
+            "color": "fiskheroes:charged_beam",
+            "data": "fiskheroes:beam_charge"
+        }, {
+            "type": "CHARGE",
+            "texture": "dhhp:textures/gui/bars/solar_bar.png",
+            "data": "if (entity.getData('dhhp:dyn/powered') == true) {1 - entity.getData('dhhp:dyn/power_cooldown')}"
+        }, {
+            "type": "PROGRESS",
+            "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
+            "data": "dhhp:dyn/boost_cooldown"
+        }
+    ]
 }

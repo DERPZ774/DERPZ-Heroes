@@ -103,7 +103,10 @@
         "hv_timer": "FLOAT_INTERP",
         "fb": "BOOLEAN",
         "fb_timer": "FLOAT_INTERP",
-        "teleport": "BOOLEAN"
+        "teleport": "BOOLEAN",
+        "charge_teleport": "BOOLEAN",
+        "charge_teleport_cooldown": "BOOLEAN",
+        "charge_teleport_timer": "FLOAT_INTERP"
     },
     "damageTypes": {
         "WATER": "Water",

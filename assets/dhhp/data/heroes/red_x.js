@@ -17,8 +17,34 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 0.45, 1);
 
     hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 1);
+    hero.addKeyBind("CHARGE_TELEPORT", "Charge Teleport", 2);
+    hero.addKeyBind("TELEPORT", "Teleport", 2);
 
+    hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setHasPermission(hasPermission);
+
+    hero.setTickHandler((entity, manager) => {
+        if (entity.getData("dhhp:dyn/charge_teleport_timer") == 0 && entity.getData("dhhp:dyn/charge_teleport_cooldown")) {
+            manager.setData(entity, "dhhp:dyn/charge_teleport_cooldown", false)
+        }
+        if (entity.getData("dhhp:dyn/charge_teleport_timer") == 1 && !entity.getData("dhhp:dyn/charge_teleport_cooldown")) {
+            manager.setData(entity, "dhhp:dyn/charge_teleport", true)
+            if (entity.getData("fiskheroes:teleport_timer") > 0) {
+                manager.setData(entity, "dhhp:dyn/charge_teleport_cooldown", true)
+            }
+        }
+    });
+}
+
+function isKeyBindEnabled(entity, keyBind) {
+    switch (keyBind) {
+    case "CHARGE_TELEPORT":
+        return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") < 1;
+    case "TELEPORT":
+        return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") == 1;
+    default:
+        return true;
+    }
 }
 
 function hasPermission(entity, permission) {
