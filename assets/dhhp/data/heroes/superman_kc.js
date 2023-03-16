@@ -1,17 +1,5 @@
 var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
-var landing = implement("fiskheroes:external/superhero_landing");
-
-function SafeY(entity) {
-    var complete = false;
-    for (var i = 0; complete == false; i++) {
-        if (entity.world().getBlock(entity.pos().add(0, i + 3, 0)) == "minecraft:air" &&
-            entity.world().getBlock(entity.pos().add(0, i + 4, 0)) == "minecraft:air") {
-            complete = true;
-            return entity.posY() + i + 4;
-        }
-
-    }
-}
+var utils = implement("dhhp:external/utils");
 
 function init(hero) {
     hero.setName("Superman");
@@ -47,49 +35,11 @@ function init(hero) {
     hero.setModifierEnabled(isModifierEnabled);
 
     hero.setTickHandler((entity, manager) => {
-        var x = entity.posX();
-        var y = entity.posY();
-        var z = entity.posZ();
-        var dim = entity.world().getDimension();
-        if (y >= 1000) {
-            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y, z, dim + 1));
-            manager.setData(entity, "fiskheroes:teleport_delay", 1);
-
-        }
-        if (entity.world().getDimension() == 2595 && !entity.getData("dhhp:dyn/teleport")) {
-            manager.setData(entity, "dhhp:dyn/teleport", true);
-        }
-        if (entity.world().getDimension() == 0 && entity.getData("dhhp:dyn/teleport")) {
-            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(Math.floor(entity.posX()), SafeY(entity), Math.floor(entity.posZ()), 0));
-            manager.setData(entity, "fiskheroes:teleport_delay", 1);
-            manager.setData(entity, "dhhp:dyn/teleport", false);
-        }
-
-        var flying = entity.getData("fiskheroes:flying");
-        manager.incrementData(entity, "fiskheroes:dyn/booster_timer", 2, flying);
-
-        var item = entity.getHeldItem();
-        flying &= !entity.as("PLAYER").isUsingItem();
-        manager.incrementData(entity, "fiskheroes:dyn/booster_r_timer", 2, flying && item.isEmpty() && !entity.isPunching() && entity.getData("fiskheroes:aiming_timer") == 0);
-        manager.incrementData(entity, "fiskheroes:dyn/booster_l_timer", 2, flying && !item.doesNeedTwoHands());
-
-        if (!entity.isOnGround()) {
-            manager.setInteger(entity.getWornChestplate().nbt(), "airTime", entity.getWornChestplate().nbt().getInteger("airTime") + 1)
-        }
-        if (entity.getData("fiskheroes:jetpacking") == true && entity.isSprinting()) {
-            manager.setData(entity, "fiskheroes:flying", true)
-        }
-        if (entity.getData("fiskheroes:flying") || entity.isOnGround()) {
-            manager.setInteger(entity.getWornChestplate().nbt(), "airTime", 0);
-        }
+        utils.all(entity, manager, "fiskheroes:modifier.teleportation.breach", 1000);
 
         if (entity.getData("dhhp:dyn/power_cooldown") < 0.00005 && entity.getData("dhhp:dyn/powered") == true) {
             manager.setData(entity, "dhhp:dyn/power_cooldown", 0.00008)
         }
-
-
-
-        landing.tick(entity, manager);
     });
 }
 

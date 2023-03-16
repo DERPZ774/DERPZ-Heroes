@@ -1,6 +1,4 @@
-//var landing = implement("fiskheroes:external/superhero_landing");
-var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
-
+var utils = implement("dhhp:external/utils");
 function init(hero) {
     hero.setName("Invincible");
     hero.setVersion("Invincible");
@@ -30,24 +28,8 @@ function init(hero) {
     hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
-        var x = entity.posX();
-        var y = entity.posY();
-        var z = entity.posZ();
-        var dim = entity.world().getDimension();
-        if (y > 3000) {
-            manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y, z, dim + 1));
-            manager.setData(entity, "fiskheroes:teleport_delay", 1);
-        }
-
-        var flying = entity.getData("fiskheroes:flying");
-        manager.incrementData(entity, "fiskheroes:dyn/booster_timer", 2, flying);
-
-        var item = entity.getHeldItem();
-        flying &= !entity.as("PLAYER").isUsingItem();
-        manager.incrementData(entity, "fiskheroes:dyn/booster_r_timer", 2, flying && item.isEmpty() && !entity.isPunching() && entity.getData("fiskheroes:aiming_timer") == 0);
-        manager.incrementData(entity, "fiskheroes:dyn/booster_l_timer", 2, flying && !item.doesNeedTwoHands());
-
-        //landing.tick(entity, manager);
+        utils.flight_booster(entity, manager)
+        utils.moon_teleport(entity, manager, 3000)
     });
 }
 
