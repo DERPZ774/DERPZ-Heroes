@@ -12,13 +12,14 @@ function init(hero) {
 
     hero.addAttribute("PUNCH_DAMAGE", 4.5, 0);
     hero.addAttribute("WEAPON_DAMAGE", 2.5, 0);
-    hero.addAttribute("FALL_RESISTANCE", 6.0, 0);
-    hero.addAttribute("JUMP_HEIGHT", 1.0, 0);
+    hero.addAttribute("FALL_RESISTANCE", 7.0, 0);
+    hero.addAttribute("JUMP_HEIGHT", 2.0, 0);
     hero.addAttribute("SPRINT_SPEED", 0.45, 1);
 
-    hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 1);
-    hero.addKeyBind("CHARGE_TELEPORT", "Charge Teleport", 2);
-    hero.addKeyBind("TELEPORT", "Teleport", 2);
+    hero.addKeyBind("CHARGE_TELEPORT", "Charge Teleport", 1);
+    hero.addKeyBind("TELEPORT", "Teleport", 1);
+    hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 2);
+    hero.addKeyBind("SPELL_MENU", "Illusion Tech", 3);
 
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setHasPermission(hasPermission);
@@ -38,12 +39,12 @@ function init(hero) {
 
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
-    case "CHARGE_TELEPORT":
-        return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") < 1;
-    case "TELEPORT":
-        return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") == 1;
-    default:
-        return true;
+        case "CHARGE_TELEPORT":
+            return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") < 1;
+        case "TELEPORT":
+            return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") == 1;
+        default:
+            return true;
     }
 }
 

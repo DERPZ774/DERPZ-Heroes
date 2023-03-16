@@ -6,29 +6,58 @@
                 "fiskheroes:smoke_pellet": {
                     "cooldown": 400,
                     "uses": 2
+                },
+                "fiskheroes:grenade": {
+                    "cooldown": 200,
+                    "uses": 1,
+                    "damageProfile": {
+                        "damage": 15.0,
+                        "types": {
+                            "EXPLOSION": 1.0
+                        },
+                        "properties": {
+                            "EFFECTS": [{
+                                "id": "fiskheroes:tutridium",
+                                "duration": 100,
+                                "amplifier": 1
+                            }]
+                        }
+                    },
+
+                    "isInstant": false,
+                    "affectsUser": false,
+                    "fuseTime": 50,
+                    "radius": 8.0
                 }
             }
         },
         "fiskheroes:projectile_immunity": {},
         "fiskheroes:transformation|charge_teleport": {
-          "key": "CHARGE_TELEPORT",
-          "transformation": {
-            "toggleData": "dhhp:dyn/charge_teleport",
-            "timerData": "dhhp:dyn/charge_teleport_timer",
-            "time": 20
-          },
-          "isToggle": false
+            "key": "CHARGE_TELEPORT",
+            "transformation": {
+                "toggleData": "dhhp:dyn/charge_teleport",
+                "timerData": "dhhp:dyn/charge_teleport_timer",
+                "time": 20
+            },
+            "isToggle": false
         },
         "fiskheroes:teleportation": {
             "canReachMoon": false,
-            "range": 20.0
+            "range": 40.0
+        },
+        "fiskheroes:spellcasting": {
+            "spells": {
+                "fiskheroes:duplication": {
+                    "sequence": "adds",
+                    "cooldown": 1200,
+                    "quantity": 4
+                }
+            }
         }
     },
-    "hud": [
-      {
+    "hud": [{
         "type": "CIRCLE",
         "color": "0x800000",
         "data": "dhhp:dyn/charge_teleport_timer"
-      }
-    ]
+    }]
 }
