@@ -1,4 +1,5 @@
 var utils = implement("dhhp:external/utils");
+
 function init(hero) {
     hero.setName("Invincible");
     hero.setVersion("Invincible");
@@ -25,7 +26,6 @@ function init(hero) {
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setHasProperty(hasProperty);
-    hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
         utils.flight_booster(entity, manager)
@@ -37,15 +37,6 @@ function hasProperty(entity, property) {
     return property == "BREATHE_SPACE";
 }
 
-function isKeyBindEnabled(entity, keyBind) {
-    ///var moon = entity.world().getDimension() == 4;
-    switch (keyBind) {
-        case "HOVER":
-            return !entity.getData("fiskheroes:gliding");
-        default:
-            return true
-    }
-}
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {

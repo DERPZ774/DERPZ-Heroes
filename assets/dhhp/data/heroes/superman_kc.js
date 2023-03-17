@@ -108,7 +108,7 @@ function isModifierEnabled(entity, modifier) {
         case "fiskheroes:healing_factor":
             return entity.posY() >= 350;
         case "fiskheroes:propelled_flight":
-            return entity.isSprinting();
+            return entity.isSprinting() && !entity.getData("fiskheroes:flying");
         default:
             return true;
     }
