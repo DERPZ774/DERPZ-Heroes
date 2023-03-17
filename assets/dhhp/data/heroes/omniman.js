@@ -28,8 +28,8 @@ function init(hero) {
     hero.addSoundEvent("MASK_OPEN", "dhhp:think_mark");
 
     hero.setTickHandler((entity, manager) => {
-        utils.flight_booster(entity, manager)
-        utils.moon_teleport(entity, manager, 3000)
+        utils.flight_booster_tick(entity, manager)
+        utils.moon_teleport_tick(entity, manager, 3000)
     });
 }
 

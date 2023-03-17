@@ -25,19 +25,20 @@ function SafeY(entity) {
     }
 }
 
-function flight_auto(entity, manager) {
-    if (!entity.isOnGround()) {
-        manager.setInteger(entity.getWornChestplate().nbt(), "airTime", entity.getWornChestplate().nbt().getInteger("airTime") + 1)
-    }
+function flight_auto_tick(entity, manager) {
     if (entity.getData("fiskheroes:jetpacking") == true && entity.isSprinting()) {
         manager.setData(entity, "fiskheroes:flying", true)
     }
-    if (entity.getData("fiskheroes:flying") || entity.isOnGround()) {
-        manager.setInteger(entity.getWornChestplate().nbt(), "airTime", 0);
-    }
 }
 
-function flight_booster(entity, manager) {
+function flight_auto_modifier(entity, modifier, pitch) {
+    if (modifier.name() == "fiskheroes:propelled_flight") {
+        return entity.isSprinting() && !entity.getData("fiskheroes:flying") && entity.rotPitch() < pitch;
+    }
+    return true
+}
+
+function flight_booster_tick(entity, manager) {
     var flying = entity.getData("fiskheroes:flying");
     manager.incrementData(entity, "fiskheroes:dyn/booster_timer", 2, flying);
 
@@ -47,8 +48,7 @@ function flight_booster(entity, manager) {
     manager.incrementData(entity, "fiskheroes:dyn/booster_l_timer", 2, flying && !item.doesNeedTwoHands());
 }
 
-
-function moon_teleport(entity, manager, moon) {
+function moon_teleport_tick(entity, manager, moon) {
     var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
     var x = entity.posX();
     var y = entity.posY();
@@ -69,11 +69,10 @@ function moon_teleport(entity, manager, moon) {
     }
 }
 
-function all(entity, manager, sound, moon) {
-    flight_auto(entity, manager)
-    flight_booster(entity, manager)
-    moon_teleport(entity, manager, moon)
+function all_tick(entity, manager, sound, moon) {
+    flight_auto_tick(entity, manager)
+    flight_booster_tick(entity, manager)
+    moon_teleport_tick(entity, manager, moon)
     landing_tick(entity, manager, sound)
 
 }
-
