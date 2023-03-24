@@ -20,6 +20,8 @@ function init(hero) {
     hero.addKeyBind("TELEPORT", "Teleport", 1);
     hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 2);
     hero.addKeyBind("SPELL_MENU", "Illusion Tech", 3);
+    hero.addKeyBind("BLADE", "X Blade", 4);
+
 
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setHasPermission(hasPermission);
@@ -47,6 +49,7 @@ function isKeyBindEnabled(entity, keyBind) {
             return true;
     }
 }
+
 
 function hasPermission(entity, permission) {
     return permission == "USE_GRAPPLING_GUN";

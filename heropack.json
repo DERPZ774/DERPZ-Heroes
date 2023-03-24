@@ -58,6 +58,30 @@
             "freeze.breath": {
                 "distance": 25.0,
                 "target": "ALL"
+            },
+            "hero.landing": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "blade.x": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "blade.x.retract": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "impact.x": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "sticky.x": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "teleport.x": {
+                "distance": 25.0,
+                "target": "ALL"
             }
         }
     },

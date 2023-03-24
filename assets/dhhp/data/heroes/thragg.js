@@ -22,14 +22,11 @@ function init(hero) {
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);
     hero.addKeyBind("GROUND_SMASH", "key.groundSmash", 3);
 
-
     hero.setModifierEnabled(isModifierEnabled);
     hero.setHasProperty(hasProperty);
-    hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
-        utils.flight_booster_tick(entity, manager)
-        utils.moon_teleport_tick(entity, manager, 3000)
+        utils.all_tick(entity, manager, "dhhp:hero.landing", 1000)
     });
 }
 
@@ -37,26 +34,12 @@ function hasProperty(entity, property) {
     return property == "BREATHE_SPACE";
 }
 
-function isKeyBindEnabled(entity, keyBind) {
-    switch (keyBind) {
-
-        case "HOVER":
-            return !entity.getData("fiskheroes:gliding");
-        default:
-            return true
-    }
-}
-
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:regeneration":
             return entity.getHealth() < 3;
-        case "fiskheroes:flight":
-            return !entity.getData("fiskheroes:gliding");
-        case "fiskheroes:hover":
-            return !entity.getData("fiskheroes:gliding");
         default:
-            return true;
+            return utils.flight_auto_modifier(entity, modifier, -10);
     }
 }
 //fix land

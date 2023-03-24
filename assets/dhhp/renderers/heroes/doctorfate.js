@@ -138,13 +138,15 @@ function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "HELMET") {
         var f = entity.getInterpolatedData("fiskheroes:flight_timer");
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
+
+        cape.effect.length = entity.isDisplayStand() ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24;
         cape.render({
             "wind": timer < 1 ? timer : 1 + 0.3 * f,
             "windFactor": 1 - 0.7 * f,
             "flutter": physics.getFlutter(entity),
             "flare": physics.getFlare(entity)
         });
-        cape.effect.length = entity.isDisplayStand() ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24;
+
 
         if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.isDisplayStand()) {
             ankh.setScale(0.1);
@@ -153,19 +155,19 @@ function render(entity, renderLayer, isFirstPersonArm) {
         }
 
 
-            model_ankh.texture.set(null, "model1");
-            ankh_beam.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-            ankh_beam.setOffset(-25, 0, 20.0); //bottom 1
-            ankh_beam.render();
+        model_ankh.texture.set(null, "model1");
+        ankh_beam.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+        ankh_beam.setOffset(-25, 0, 20.0); //bottom 1
+        ankh_beam.render();
 
-            ankh_beam2.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-            ankh_beam2.setOffset(0, -25, 25.0); //top/middle
-            ankh_beam2.render();
+        ankh_beam2.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+        ankh_beam2.setOffset(0, -25, 25.0); //top/middle
+        ankh_beam2.render();
 
-            ankh_beam3.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-            ankh_beam3.setOffset(25, 0, 20.0); //bottom 2
-            ankh_beam3.render();
-        
+        ankh_beam3.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
+        ankh_beam3.setOffset(25, 0, 20.0); //bottom 2
+        ankh_beam3.render();
+
 
         if (entity.getData("fiskheroes:shield_blocking")) {
             model_ankh.texture.set(null, "model1");

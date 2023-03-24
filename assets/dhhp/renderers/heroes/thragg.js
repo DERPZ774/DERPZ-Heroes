@@ -16,6 +16,8 @@ function initEffects(renderer) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
+    renderer.removeCustomAnimation("basic.PROP_FLIGHT");
+
     addAnimation(renderer, "omniman.FLIGHT", "dhhp:flight/omniman_flight.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));
@@ -26,6 +28,6 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "iron_man.LAND", "fiskheroes:superhero_landing", "fiskheroes:dyn/superhero_landing_timer")
         .priority = -8;
 
-    renderer.reprioritizeDefaultAnimation("PUNCH", -9);
+    renderer.reprioritizeDefaultAnimation("PUNCH", -11);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }

@@ -35,7 +35,7 @@ function init(hero) {
     hero.setModifierEnabled(isModifierEnabled);
 
     hero.setTickHandler((entity, manager) => {
-        utils.all_tick(entity, manager, "fiskheroes:modifier.teleportation.breach", 1000);
+        utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
 
         if (entity.getData("dhhp:dyn/power_cooldown") < 0.00005 && entity.getData("dhhp:dyn/powered") == true) {
             manager.setData(entity, "dhhp:dyn/power_cooldown", 0.00008)
@@ -71,7 +71,7 @@ function isKeyBindEnabled(entity, keyBind) {
     var y = entity.posY();
     var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
 
-        switch (keyBind) {
+    switch (keyBind) {
         case "CHARGE":
             return !boostflight && (y) >= 200 && entity.world().getDimension() == 2595;
         case "func_CHARGE":
@@ -86,7 +86,7 @@ function isKeyBindEnabled(entity, keyBind) {
             return !boostflight && entity.world().getDimension() == 0 || entity.world().getDimension() == -1 || entity.world().getDimension() == 1;
         default:
             return true;
-        }
+    }
 }
 
 function isModifierEnabled(entity, modifier) {
@@ -96,18 +96,18 @@ function isModifierEnabled(entity, modifier) {
         return (modifier.id() == "powered" ? powered : !powered);
     }
     switch (modifier.id()) {
-    case "suit_idle":
-        return !entity.getData("dhhp:dyn/power") && powered && entity.getData("fiskheroes:heat_vision") == false;
-    case "suit_charge":
-        return entity.getData("dhhp:dyn/power") && powered;
-    case "hv":
-        return !entity.getData("dhhp:dyn/power") && powered && entity.getData("fiskheroes:heat_vision") == true;
+        case "suit_idle":
+            return !entity.getData("dhhp:dyn/power") && powered && entity.getData("fiskheroes:heat_vision") == false;
+        case "suit_charge":
+            return entity.getData("dhhp:dyn/power") && powered;
+        case "hv":
+            return !entity.getData("dhhp:dyn/power") && powered && entity.getData("fiskheroes:heat_vision") == true;
     }
     switch (modifier.name()) {
-    case "fiskheroes:healing_factor":
-        return entity.posY() >= 350;
-    default:
-        return utils.flight_auto_modifier(entity, modifier, -10);
+        case "fiskheroes:healing_factor":
+            return entity.posY() >= 350;
+        default:
+            return utils.flight_auto_modifier(entity, modifier, -10);
     }
 }
 

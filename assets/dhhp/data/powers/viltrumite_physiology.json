@@ -18,6 +18,7 @@
         },
         "fiskheroes:projectile_immunity": {},
         "fiskheroes:fire_immunity": {},
+        "fiskheroes:propelled_flight": {},
         "fiskheroes:damage_immunity": {
             "damageType": "EXPLOSION"
         },

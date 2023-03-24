@@ -8,7 +8,7 @@
                     "uses": 2
                 },
                 "fiskheroes:grenade": {
-                    "cooldown": 200,
+                    "cooldown": 300,
                     "uses": 1,
                     "damageProfile": {
                         "damage": 15.0,
@@ -18,7 +18,7 @@
                         "properties": {
                             "EFFECTS": [{
                                 "id": "fiskheroes:tutridium",
-                                "duration": 100,
+                                "duration": 200,
                                 "amplifier": 1
                             }]
                         }
@@ -28,6 +28,33 @@
                     "affectsUser": false,
                     "fuseTime": 50,
                     "radius": 8.0
+                },
+                "fiskheroes:sticky_web": {
+                    "cooldown": 18,
+                    "uses": 12,
+                    "dissolveTime": 120,
+                    "soundEvents": {
+                        "USE": "dhhp:sticky_x"
+                    }
+                },
+                "fiskheroes:impact_web": {
+                    "cooldown": 13,
+                    "uses": 3,
+                    "damageProfile": {
+                        "damage": 5.0,
+                        "types": {
+                            "BLUNT": 0.5,
+                            "ELECTRICITY": 0.5
+                        },
+                        "properties": {
+                            "DAMAGE_DROPOFF": 0.2,
+                            "HIT_COOLDOWN": 0,
+                            "IGNITE": 1
+                        }
+                    },
+                    "soundEvents": {
+                        "USE": "dhhp:impact_x"
+                    }
                 }
             }
         },
@@ -43,7 +70,10 @@
         },
         "fiskheroes:teleportation": {
             "canReachMoon": false,
-            "range": 40.0
+            "range": 40.0,
+            "soundEvents": {
+                "TELEPORT": "dhhp:teleport_x"
+            }
         },
         "fiskheroes:spellcasting": {
             "spells": {
@@ -52,6 +82,12 @@
                     "cooldown": 1200,
                     "quantity": 4
                 }
+            }
+        },
+        "fiskheroes:blade": {
+            "soundEvents": {
+                "ENABLE": "dhhp:blade_x",
+                "DISABLE": "dhhp:blade_x_retract"
             }
         }
     },
