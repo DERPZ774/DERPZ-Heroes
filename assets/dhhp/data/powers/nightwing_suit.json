@@ -44,7 +44,7 @@
       "transformation": {
         "toggleData": "dhhp:dyn/escrima",
         "timerData": "dhhp:dyn/escrima_timer",
-        "time": 10
+        "time": 20
       },
       "soundEvents": {
         "ENABLE": "fiskheroes:utility_belt_switch",

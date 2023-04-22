@@ -1,7 +1,7 @@
 {data} = sin(pi(1 - {data}))^2
 
-{rightArm_rotX} @ {data} -> -3.2
-{rightArm_rotZ} @ {data} -> -0.3
+{rightArm_rotX} @ {data} -> -4.2
+{rightArm_rotZ} @ {data} -> -0.2
 
-{leftArm_rotX} @ {data} -> -3.2
-{leftArm_rotZ} @ {data} -> 0.3
+{leftArm_rotX} @ {data} -> -4.2
+{leftArm_rotZ} @ {data} -> 0.2
