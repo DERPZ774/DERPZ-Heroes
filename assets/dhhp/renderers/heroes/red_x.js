@@ -6,6 +6,7 @@ loadTextures({
     "cape": "dhhp:dc/redx_cape",
     "x_small": "dhhp:dc/redx_x_small",
     "x_big": "dhhp:dc/redx_x_big",
+    "x_shield": "dhhp:dc/redx_x_shield"
 
 });
 
@@ -13,6 +14,8 @@ var utils = implement("fiskheroes:external/utils");
 var capes = implement("fiskheroes:external/capes");
 
 var cape;
+var shield;
+var vibration;
 
 function init(renderer) {
     parent.init(renderer);
@@ -26,6 +29,17 @@ function initEffects(renderer) {
     webs.textureLarge.set(null, "x_big");
     //change names for textures
 
+    shield = renderer.createEffect("fiskheroes:shield");
+    shield.texture.set("x_shield");
+    shield.anchor.set("rightArm");
+    shield.large = true;
+    //shield.setCurve(25.0, 35.0);
+
+    var magic = renderer.bindProperty("fiskheroes:spellcasting");
+    magic.colorGeneric.set(0x800000);
+
+    //for the secret vibrator alt (owo)
+    vibration = renderer.createEffect("fiskheroes:vibration");
 
     var physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.maxFlare = 0.4;
@@ -55,7 +69,15 @@ function initAnimations(renderer) {
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
+    if (renderLayer == "CHESTPLATE") {
+        shield.unfold = entity.getInterpolatedData("fiskheroes:shield_timer");
+        shield.setOffset(2.9 + 1.35 * Math.min(shield.unfold * 5, 1), 5.0, 0.0);
+        shield.render();
+    }
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
         cape.render(entity);
+    }
+    if (!entity.isDisplayStand() && entity.getData("dhhp:dyn/charge_teleport_timer")) {
+        vibration.render();
     }
 }

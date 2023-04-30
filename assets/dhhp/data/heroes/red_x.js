@@ -20,11 +20,38 @@ function init(hero) {
     hero.addKeyBind("TELEPORT", "Teleport", 1);
     hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 2);
     hero.addKeyBind("SPELL_MENU", "Illusion Tech", 3);
-    hero.addKeyBind("BLADE", "X Blade", 4);
+    hero.addKeyBind("SHIELD", "X Blade", 4);
 
 
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setHasPermission(hasPermission);
+    hero.addAttributeProfile("ACTIVE", activeProfile);
+    hero.setAttributeProfile(getAttributeProfile);
+    hero.setDamageProfile(getProfile);
+    hero.addDamageProfile("SHARP", {
+        "types": {
+            "SHARP": 1.0
+        }
+    });
+
+    function activeProfile(profile) {
+        profile.inheritDefaults();
+        profile.addAttribute("PUNCH_DAMAGE", 5.5, 0);
+    }
+
+    function getAttributeProfile(entity) {
+        if (entity.getData("fiskheroes:shield")) {
+            return "ACTIVE";
+        }
+        return true;
+    }
+
+    function getProfile(entity) {
+        if (entity.getData("fiskheroes:shield")) {
+            return "SHARP";
+        }
+        return true;
+    }
 
     hero.setTickHandler((entity, manager) => {
         if (entity.getData("dhhp:dyn/charge_teleport_timer") == 0 && entity.getData("dhhp:dyn/charge_teleport_cooldown")) {

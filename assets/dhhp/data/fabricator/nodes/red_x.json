@@ -1,0 +1,11 @@
+{
+    "suit": "dhhp:red_x",
+    "requirements": [
+        "fiskheroes:tier4_5",
+        "fiskheroes:defense",
+        "fiskheroes:melee2",
+        "fiskheroes:object_manipulation",
+        "fiskheroes:traversal",
+        "dhhp:derpzheroes"
+    ]
+}
