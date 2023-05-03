@@ -18,6 +18,8 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 0.40, 1);
     hero.addAttribute("KNOCKBACK", 2.0, 0);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
+    hero.addAttribute("FALL_RESISTANCE", 1, 1);
+
 
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 1);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);

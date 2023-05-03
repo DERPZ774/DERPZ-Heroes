@@ -7,17 +7,13 @@ loadTextures({
 
 var cape;
 var physics;
-
-
 var boom_trail;
-
 var utils = implement("fiskheroes:external/utils");
 var flight = implement("dhhp:external/flight");
 var capes = implement("fiskheroes:external/capes");
 
 function init(renderer) {
     parent.init(renderer);
-
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm");
     renderer.fixHatLayer("CHESTPLATE");
 }
@@ -41,7 +37,6 @@ function initEffects(renderer) {
 
     cape = capes.create(renderer, 24, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
-
 
     utils.bindParticles(renderer, "dhhp:superman_dceu_eyes")
         .setCondition(entity => (entity.getData('dhhp:dyn/power_timer') > 0));
@@ -101,5 +96,3 @@ function render(entity, renderLayer, isFirstPersonArm) {
         });
     }
 }
-
-//new anims fix particles

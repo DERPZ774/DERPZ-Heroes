@@ -106,6 +106,8 @@ function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:healing_factor":
             return entity.posY() >= 350;
+        case "fiskheroes:super_speed":
+            return !entity.getData("fiskheroes:flying");
         default:
             return utils.flight_auto_modifier(entity, modifier, -10);
     }

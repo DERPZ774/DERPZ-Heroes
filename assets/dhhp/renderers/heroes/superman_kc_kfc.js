@@ -25,5 +25,5 @@ function init(renderer) {
 function initEffects(renderer) {
     parent.initEffects(renderer);
     chicken = utils.bindTrail(renderer, "dhhp:kfc_trail");
-    chicken.setCondition(entity => entity.getData("fiskheroes:speeding"));
+    chicken.setCondition(entity => entity.isAlive());
 }

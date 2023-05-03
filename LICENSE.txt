@@ -1,0 +1,48 @@
+
+
+License Agreement
+
+This license agreement ("Agreement") is between [DERPZ774] ("Licensor") and you ("Licensee") for the use of the Minecraft heropack created by the Licensor ("Heropack").
+
+1. Grant of License
+Subject to the terms and conditions of this Agreement, the Licensor hereby grants the Licensee a non-exclusive, non-transferable license to use the Heropack for personal, non-commercial purposes.
+
+2. Restrictions
+The Licensee shall not: 
+- Reproduce, distribute, or modify the Heropack, or any part thereof, without the prior written consent of the Licensor. 
+- Use the Heropack for any commercial purpose or in connection with any commercial enterprise.
+- Reverse engineer, decompile, disassemble, or attempt to derive the source code for the Heropack or any part thereof.
+- Remove or alter any copyright, trademark, or other proprietary notices contained in or on the Heropack.
+
+3. Termination
+This Agreement shall automatically terminate if the Licensee breaches any of its terms and conditions. Upon termination, the Licensee must immediately cease all use of the Heropack and destroy all copies of the Heropack in their possession.
+
+4. Ownership
+The Licensor retains all right, title, and interest in and to the Heropack, including all intellectual property rights therein. This Agreement does not grant the Licensee any rights to trademarks or service marks of the Licensor.
+
+5. Warranty Disclaimer
+The Heropack is provided "AS IS" without warranty of any kind, either express or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The Licensor does not warrant that the Heropack will meet the Licensee's requirements or that the operation of the Heropack will be uninterrupted or error-free.
+
+6. Limitation of Liability
+In no event shall the Licensor be liable for any indirect, special, incidental, or consequential damages arising out of or in connection with the use or inability to use the Heropack, even if the Licensor has been advised of the possibility of such damages.
+
+7. Governing Law
+This Agreement shall be governed by and construed in accordance with the laws of [United States], without giving effect to any principles of conflicts of law.
+
+8. Entire Agreement
+This Agreement constitutes the entire agreement between the Licensor and the Licensee and supersedes all prior agreements, whether oral or written, with respect to the Heropack.
+
+By downloading or using the Heropack, the Licensee agrees to be bound by the terms and conditions of this Agreement. If the Licensee does not agree to the terms and conditions of this Agreement, they must immediately cease all use of the Heropack.
+
+Terms of Use
+
+- The Heropack is provided for personal, non-commercial use only.
+- The Licensee may not sell or distribute the Heropack or any part thereof.
+- The Licensee may use this Heropack in servers as long as a link to the pack is posted somewhere viewable by server players.
+- The Licensee may use this Heropack in modpacks as long as a link to the pack is posted somewhere viewable by modpack users.
+- The Licensee may not modify or alter the Heropack without the prior written consent of the Licensor.
+- The Licensee is solely responsible for their use of the Heropack.
+- The Licensor reserves the right to modify or discontinue the Heropack at any time without notice.
+- The Licensee agrees to comply with all applicable laws and regulations in connection with their use of the Heropack.
+
+By downloading or using the Heropack, the Licensee agrees to be bound by these terms of use. If the Licensee does not agree to these terms of use, they must immediately cease all use of the Heropack.

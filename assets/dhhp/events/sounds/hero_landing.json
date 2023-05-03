@@ -1,4 +1,5 @@
 {
     "parent": "fiskheroes:sound_base",
-    "sound": "dhhp:hero.landing"
-}  
+    "sound": "dhhp:hero.landing",
+    "volume": 2
+}
