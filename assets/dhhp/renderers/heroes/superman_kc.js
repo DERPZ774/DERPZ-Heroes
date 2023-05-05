@@ -44,6 +44,7 @@ function initEffects(renderer) {
     flight.bindFlightTrail(renderer);
     flight.bindFlightParticle(renderer);
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
+    utils.addCameraShake(renderer, 0.25, 4.5, "fiskheroes:dyn/superhero_landing_timer");
 
     utils.bindBeam(renderer, "fiskheroes:heat_vision", "dhhp:superman_heat_vision", "head", 0xff2200, [
         { "firstPerson": [2.2, 0.0, 2.0], "offset": [1.4, -3.3, -4.0], "size": [1.0, 0.5] },
