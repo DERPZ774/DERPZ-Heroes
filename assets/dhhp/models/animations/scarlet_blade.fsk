@@ -1,0 +1,5 @@
+{data} = sin(curve{data}) 
+{rightArm_rotZ} @ {data} -> 10'
+{leftArm_rotZ} @ {data} -> -10'
+
+

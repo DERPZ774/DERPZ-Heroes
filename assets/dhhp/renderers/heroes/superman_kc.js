@@ -82,6 +82,8 @@ function initAnimations(renderer) {
         })
         .priority = 10;
 
+    utils.addHoverAnimation(renderer, "superman.HOVER", "fiskheroes:flight/idle/default");
+
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }

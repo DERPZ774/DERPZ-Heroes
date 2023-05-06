@@ -59,6 +59,8 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "iron_man.LAND", "fiskheroes:superhero_landing", "fiskheroes:dyn/superhero_landing_timer")
         .priority = -8;
 
+    utils.addHoverAnimation(renderer, "omniman.HOVER", "fiskheroes:flight/idle/manta");
+
     renderer.reprioritizeDefaultAnimation("PUNCH", -11);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }

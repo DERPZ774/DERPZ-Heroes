@@ -25,6 +25,7 @@ function init(hero) {
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setHasProperty(hasProperty);
+    hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000)
@@ -39,8 +40,18 @@ function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:regeneration":
             return entity.getHealth() < 3;
+        case "fiskheroes:super_speed":
+            return !entity.getData("fiskheroes:flying");
         default:
             return utils.flight_auto_modifier(entity, modifier, -10);
     }
 }
-//fix land
+
+function isKeyBindEnabled(entity, keyBind) {
+    switch (keyBind) {
+        case "SUPER_SPEED":
+            return !entity.getData("fiskheroes:flying");
+        default:
+            return true;
+    }
+}

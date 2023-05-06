@@ -116,5 +116,3 @@ function isModifierEnabled(entity, modifier) {
 function hasProperty(entity, property) {
     return property == "BREATHE_SPACE";
 }
-
-//fix landing

@@ -1,8 +1,0 @@
-
-{vel} = min(sqrt({motX}^2 + {motY}^2 + {motZ}^2), 1)
-{m} = clamp(-{motY}, -120', 120')
-{data} = curve {data}
-
-{data} *= {vel}
-{rightLeg_rotX} @ {data} -> 0.2 + {m}
-{leftLeg_rotX} @ {data} -> {m}

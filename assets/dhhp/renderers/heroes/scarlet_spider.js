@@ -30,6 +30,12 @@ function initEffects(renderer) {
     fire_hand.progress = 0;
 }
 
+function initAnimations(renderer) {
+    parent.initAnimations(renderer);
+    addAnimationWithData(renderer, "scarlet.BLADE", "dhhp:scarlet_blade", "fiskheroes:blade_timer");
+
+}
+
 function render(entity, renderLayer, isFirstPersonArm) {
 
     if (renderLayer == "CHESTPLATE") {

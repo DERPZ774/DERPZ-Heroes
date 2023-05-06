@@ -28,6 +28,9 @@ function initAnimations(renderer) {
     addAnimationWithData(renderer, "iron_man.LAND", "fiskheroes:superhero_landing", "fiskheroes:dyn/superhero_landing_timer")
         .priority = -8;
 
+    utils.addHoverAnimation(renderer, "invincible.HOVER", "fiskheroes:flight/idle/martian_comics");
+
+
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
 }

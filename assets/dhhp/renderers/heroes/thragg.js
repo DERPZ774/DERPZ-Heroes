@@ -17,8 +17,9 @@ function initEffects(renderer) {
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.PROP_FLIGHT");
+    utils.addHoverAnimation(renderer, "thragg.HOVER", "fiskheroes:flight/idle/manta");
 
-    addAnimation(renderer, "omniman.FLIGHT", "dhhp:flight/omniman_flight.anim.json")
+    addAnimation(renderer, "thragg.FLIGHT", "dhhp:flight/omniman_flight.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));
             data.load(1, entity.getInterpolatedData("fiskheroes:flight_boost_timer"));
