@@ -60,6 +60,7 @@ function initAnimations(renderer) {
         .priority = -8;
 
     utils.addHoverAnimation(renderer, "omniman.HOVER", "fiskheroes:flight/idle/manta");
+    utils.addAnimationEvent(renderer, "FLIGHT_DIVE", "fiskheroes:iron_man_dive");
 
     renderer.reprioritizeDefaultAnimation("PUNCH", -11);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);

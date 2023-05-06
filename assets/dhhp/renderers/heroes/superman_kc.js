@@ -83,6 +83,7 @@ function initAnimations(renderer) {
         .priority = 10;
 
     utils.addHoverAnimation(renderer, "superman.HOVER", "fiskheroes:flight/idle/default");
+    utils.addAnimationEvent(renderer, "FLIGHT_DIVE", "fiskheroes:iron_man_dive");
 
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);

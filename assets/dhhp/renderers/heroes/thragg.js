@@ -18,6 +18,7 @@ function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.PROP_FLIGHT");
     utils.addHoverAnimation(renderer, "thragg.HOVER", "fiskheroes:flight/idle/manta");
+    utils.addAnimationEvent(renderer, "FLIGHT_DIVE", "fiskheroes:iron_man_dive");
 
     addAnimation(renderer, "thragg.FLIGHT", "dhhp:flight/omniman_flight.anim.json")
         .setData((entity, data) => {
