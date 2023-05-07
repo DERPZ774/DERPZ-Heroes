@@ -5,10 +5,7 @@ function init(hero) {
     hero.setTier(4);
     hero.hide();
 
-    hero.setHelmet("item.superhero_armor.piece.hair");
     hero.setChestplate("item.superhero_armor.piece.chestpiece");
-    hero.setLeggings("item.superhero_armor.piece.pants");
-    hero.setBoots("item.superhero_armor.piece.boots");
 
     hero.addPowers("dhhp:chemical_x", "dhhp:sugar");
 
@@ -29,7 +26,7 @@ function init(hero) {
     hero.setRuleValueModifier(ruleModifier);
     hero.setHasProperty(hasProperty);
 
-    hero.setDefaultScale(0.75);
+    hero.setDefaultScale(0.47);
 }
 
 function hasProperty(entity, property) {
@@ -39,14 +36,11 @@ function hasProperty(entity, property) {
 function isModifierEnabled(entity, modifier) {
     if (modifier.name() == "fiskheroes:regeneration") {
         return (entity.getHealth()) < 3;
-    }
-    else if (modifier.name() == "fiskheroes:cryo_charge") {
+    } else if (modifier.name() == "fiskheroes:cryo_charge") {
         return (!entity.getData("fiskheroes:aiming"));
-    }
-    else if (modifier.name() == "fiskheroes:ice_punch") {
+    } else if (modifier.name() == "fiskheroes:ice_punch") {
         return (!entity.getData("fiskheroes:aiming"));
-    }
-    else if (modifier.name() == "fiskheroes:icicles") {
+    } else if (modifier.name() == "fiskheroes:icicles") {
         return (!entity.getData("fiskheroes:aiming"));
     }
     return true;
@@ -59,8 +53,7 @@ function canAim(entity) {
 function ruleModifier(entity, rule) {
     if (rule.name() == "fiskheroes:cooldown_energyblast") {
         return 20.0;
-    }
-    else if (rule.name() == "fiskheroes:dmg_laserbolt") {
+    } else if (rule.name() == "fiskheroes:dmg_laserbolt") {
         return 2.0;
     }
     return null;

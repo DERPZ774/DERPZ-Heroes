@@ -5,10 +5,7 @@ function init(hero) {
     hero.setTier(4);
     hero.hide();
 
-    hero.setHelmet("item.superhero_armor.piece.hair");
     hero.setChestplate("item.superhero_armor.piece.chestpiece");
-    hero.setLeggings("item.superhero_armor.piece.pants");
-    hero.setBoots("item.superhero_armor.piece.boots");
 
     hero.addPowers("dhhp:chemical_x", "dhhp:spice");
 
@@ -27,7 +24,7 @@ function init(hero) {
     hero.supplyFunction("canAim", canAim);
     hero.setRuleValueModifier(ruleModifier);
     hero.setHasProperty(hasProperty);
-    hero.setDefaultScale(0.75);
+    hero.setDefaultScale(0.47);
 }
 
 function hasProperty(entity, property) {
@@ -41,8 +38,7 @@ function canAim(entity) {
 function ruleModifier(entity, rule) {
     if (rule.name() == "fiskheroes:cooldown_energyblast") {
         return 23.5;
-    }
-    else if (rule.name() == "fiskheroes:dmg_laserbolt") {
+    } else if (rule.name() == "fiskheroes:dmg_laserbolt") {
         return 2.0;
     }
     return null;

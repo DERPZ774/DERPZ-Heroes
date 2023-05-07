@@ -1,0 +1,26 @@
+;positioning
+;{head_posX} = 0
+;{head_posY} = -8
+;{head_posZ} = 0
+
+;{body_posX} = 0
+;{body_posY} = -3
+;{body_posZ} = 0
+
+;{rightArm_posX} = -5
+;{rightArm_posY} = -1
+;{rightArm_posZ} = 0
+
+;{leftArm_posX} = 5
+;{leftArm_posY} = -1
+;{leftArm_posZ} = 0
+
+;{rightLeg_posX} = -2.7
+;{rightLeg_posY} = 9
+;{rightLeg_posZ} = 0
+
+;{leftLeg_posX} = 2.7
+;{leftLeg_posY} = 9
+;{leftLeg_posZ} = 0
+
+;{Leftarm_posY} = -1
