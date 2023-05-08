@@ -1,9 +1,9 @@
-function init(hero) {
+var utils = implement("dhhp:external/utils");
 
+function init(hero) {
     hero.setName("Blossom");
     hero.setVersion("Kid");
-    hero.setTier(4);
-    hero.hide();
+    hero.setTier(7);
 
     hero.setChestplate("item.superhero_armor.piece.chestpiece");
 
@@ -15,6 +15,7 @@ function init(hero) {
     hero.addAttribute("KNOCKBACK", 1.5, 0);
     hero.addAttribute("SPRINT_SPEED", 0.25, 1);
     hero.addAttribute("BASE_SPEED_LEVELS", 1.0, 0);
+    hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
     hero.addKeyBind("CHARGED_BEAM", "Heat Vision", 1);
     hero.addKeyBind("CHARGE_ICE", "key.chargeIce", 2);
@@ -23,10 +24,14 @@ function init(hero) {
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.supplyFunction("canAim", canAim);
-    hero.setRuleValueModifier(ruleModifier);
     hero.setHasProperty(hasProperty);
+    hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setDefaultScale(0.47);
+
+    hero.setTickHandler((entity, manager) => {
+        utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
+    });
 }
 
 function hasProperty(entity, property) {
@@ -34,27 +39,31 @@ function hasProperty(entity, property) {
 }
 
 function isModifierEnabled(entity, modifier) {
-    if (modifier.name() == "fiskheroes:regeneration") {
-        return (entity.getHealth()) < 3;
-    } else if (modifier.name() == "fiskheroes:cryo_charge") {
-        return (!entity.getData("fiskheroes:aiming"));
-    } else if (modifier.name() == "fiskheroes:ice_punch") {
-        return (!entity.getData("fiskheroes:aiming"));
-    } else if (modifier.name() == "fiskheroes:icicles") {
-        return (!entity.getData("fiskheroes:aiming"));
+    switch (modifier.name()) {
+        case "fiskheroes:regeneration":
+            return entity.getHealth() < 3;
+        case "fiskheroes:super_speed":
+            return !entity.getData("fiskheroes:flying");
+        case "fiskheroes:cryo_charge":
+            return !entity.getData("fiskheroes:aiming"); 
+        case "fiskheroes:ice_punch":
+            return !entity.getData("fiskheroes:aiming");
+        case "fiskheroes:ice_punch":
+            return !entity.getData("fiskheroes:aiming");      
+        default:
+            return utils.flight_auto_modifier(entity, modifier, -10);
     }
-    return true;
+}
+
+function isKeyBindEnabled(entity, keyBind) {
+    switch (keyBind) {
+        case "SUPER_SPEED":
+            return !entity.getData("fiskheroes:flying");
+        default:
+            return true;
+    }
 }
 
 function canAim(entity) {
     return true;
-}
-
-function ruleModifier(entity, rule) {
-    if (rule.name() == "fiskheroes:cooldown_energyblast") {
-        return 20.0;
-    } else if (rule.name() == "fiskheroes:dmg_laserbolt") {
-        return 2.0;
-    }
-    return null;
 }

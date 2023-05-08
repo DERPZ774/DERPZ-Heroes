@@ -20,7 +20,6 @@ function init(hero) {
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
     hero.addAttribute("FALL_RESISTANCE", 1, 1);
 
-
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 1);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 2);
     hero.addKeyBind("GROUND_SMASH", "key.groundSmash", 3);
@@ -37,7 +36,6 @@ function init(hero) {
 function hasProperty(entity, property) {
     return property == "BREATHE_SPACE";
 }
-
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
