@@ -14,6 +14,9 @@ function init(renderer) {
     });
 
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+    
+    utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
+    utils.addCameraShake(renderer, 0.25, 4.5, "fiskheroes:dyn/superhero_landing_timer");
 }
 
 function initEffects(renderer) {
@@ -33,6 +36,5 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {
     parent.render(entity, renderLayer);
-
     powerpuff.render(entity, renderLayer);
 }
