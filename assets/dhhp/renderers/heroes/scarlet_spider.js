@@ -33,6 +33,13 @@ function initEffects(renderer) {
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     addAnimationWithData(renderer, "scarlet.BLADE", "dhhp:scarlet_blade", "fiskheroes:blade_timer");
+    utils.addAnimationEvent(renderer, "WEBSWING_RIGHT", ["fiskheroes:swing_right", "dhhp:scarlet_swing_anim"]);
+    utils.addAnimationEvent(renderer, "WEBSWING_DEFAULT", ["fiskheroes:swing_default", "dhhp:scarlet_swing_anim_2"]);
+    utils.addAnimationEvent(renderer, "WEBSWING_DIVE", [
+        "fiskheroes:swing_dive",
+        "fiskheroes:swing_dive2",
+        "dhhp:scarlet_dive"
+    ]);
 
 }
 
@@ -50,5 +57,3 @@ function render(entity, renderLayer, isFirstPersonArm) {
 
     }
 }
-
-//flame hand,
