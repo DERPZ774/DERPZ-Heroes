@@ -1,6 +1,5 @@
 {
     "name": "Sugar",
-    "value": 10,
     "modifiers": {
         "fiskheroes:charged_beam|freeze": {
             "damageProfile": {
