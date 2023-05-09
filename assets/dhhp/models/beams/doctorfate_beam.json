@@ -1,6 +1,5 @@
 {
-    "aspects": [
-        {
+    "aspects": [{
             "type": "LASER",
             "opacity": 1.0,
             "scale": 5.0,
@@ -14,8 +13,8 @@
             "bloom": {
                 "strength": 1.0,
                 "spread": 1.0,
-                "dropoff": 15.0,
-                "quality": 10.0,
+                "dropoff": 5.0,
+                "quality": 5.0,
                 "scaleToSize": true
             }
         },
@@ -39,7 +38,7 @@
                 "strength": 0.75,
                 "spread": 3.0,
                 "dropoff": 5.0,
-                "quality": 5.0,
+                "quality": 3.0,
                 "scaleToSize": true
             }
         }

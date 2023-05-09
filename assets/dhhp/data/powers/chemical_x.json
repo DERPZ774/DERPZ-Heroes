@@ -25,8 +25,6 @@
             "damageType": "COLD"
         },
         "fiskheroes:water_breathing": {},
-        "fiskheroes:charged_beam": {},
-        "fiskheroes:energy_blast": {},
         "fiskheroes:propelled_flight": {},
         "fiskheroes:controlled_flight": {
             "speed": 0.1,
@@ -52,12 +50,33 @@
         "fiskheroes:teleportation": {
             "canReachMoon": true,
             "range": 128.0
+        },
+        "fiskheroes:heat_vision": {
+            "damageProfile": {
+                "damage": 4.5,
+                "types": {
+                    "ENERGY": 0.5,
+                    "FIRE": 0.5
+                },
+                "properties": {
+                    "REDUCE_KNOCKBACK": 0.15,
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 100,
+                    "HIT_COOLDOWN": 10
+                }
+            },
+            "range": 32.0,
+            "radius": 0.2,
+            "soundEvents": {
+                "SHOOT": [
+                    "fiskheroes:heat_vision"
+                ]
+            }
         }
     },
     "hud": [{
-            "type": "CIRCLE",
-            "color": "fiskheroes:charged_beam",
-            "data": "fiskheroes:beam_charge"
-        }
-    ]
+        "type": "CIRCLE",
+        "color": "fiskheroes:charged_beam",
+        "data": "fiskheroes:beam_charge"
+    }]
 }

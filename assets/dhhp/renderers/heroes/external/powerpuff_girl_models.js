@@ -64,8 +64,6 @@ function render(entity, renderLayer, isFirstPersonArm) {
         body.setOffset(0, -27, 0);
         body.render();
 
-
-
         l_leg.setScale(2.13);
         l_leg.setOffset(-2, -39.0, 0);
         l_leg.render();

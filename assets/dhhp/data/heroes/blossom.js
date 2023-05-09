@@ -17,10 +17,10 @@ function init(hero) {
     hero.addAttribute("BASE_SPEED_LEVELS", 1.0, 0);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
-    hero.addKeyBind("CHARGED_BEAM", "Heat Vision", 1);
-    hero.addKeyBind("CHARGE_ICE", "key.chargeIce", 2);
+    hero.addKeyBind("HEAT_VISION", "Heat Vision", 1);
+    hero.addKeyBind("CHARGED_BEAM", "Freeze Breath", 2);
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 3);
-    hero.addKeyBind("AIM", "Blaster", 4);
+    hero.addKeyBind("ENERGY_PROJECTION", "Heat Breath", 4);
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.supplyFunction("canAim", canAim);
@@ -45,11 +45,11 @@ function isModifierEnabled(entity, modifier) {
         case "fiskheroes:super_speed":
             return !entity.getData("fiskheroes:flying");
         case "fiskheroes:cryo_charge":
-            return !entity.getData("fiskheroes:aiming"); 
+            return !entity.getData("fiskheroes:aiming");
         case "fiskheroes:ice_punch":
             return !entity.getData("fiskheroes:aiming");
         case "fiskheroes:ice_punch":
-            return !entity.getData("fiskheroes:aiming");      
+            return !entity.getData("fiskheroes:aiming");
         default:
             return utils.flight_auto_modifier(entity, modifier, -10);
     }
