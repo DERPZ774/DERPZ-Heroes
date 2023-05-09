@@ -2,13 +2,12 @@ var utils = implement("dhhp:external/utils");
 
 function init(hero) {
     hero.setName("Blossom");
-    hero.setVersion("Kid");
+    hero.setVersion("PowerPuff Girls");
     hero.setTier(7);
 
     hero.setChestplate("item.superhero_armor.piece.chestpiece");
 
     hero.addPowers("dhhp:chemical_x", "dhhp:sugar");
-
     hero.addAttribute("FALL_RESISTANCE", 1.0, 1);
     hero.addAttribute("JUMP_HEIGHT", 2.0, 0);
     hero.addAttribute("PUNCH_DAMAGE", 9.0, 0);
@@ -25,7 +24,6 @@ function init(hero) {
     hero.setModifierEnabled(isModifierEnabled);
     hero.setHasProperty(hasProperty);
     hero.setKeyBindEnabled(isKeyBindEnabled);
-
     hero.setDefaultScale(0.47);
 
     hero.setTickHandler((entity, manager) => {
@@ -37,6 +35,7 @@ function hasProperty(entity, property) {
     return property == "BREATHE_SPACE";
 }
 
+//Add beam modifiers to not be used while flying if needed
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:regeneration":
