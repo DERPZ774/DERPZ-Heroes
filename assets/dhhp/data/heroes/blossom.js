@@ -23,7 +23,6 @@ function init(hero) {
     hero.addKeyBind("ENERGY_PROJECTION", "Heat Breath", 4);
 
     hero.setModifierEnabled(isModifierEnabled);
-    hero.supplyFunction("canAim", canAim);
     hero.setHasProperty(hasProperty);
     hero.setKeyBindEnabled(isKeyBindEnabled);
 
@@ -44,12 +43,6 @@ function isModifierEnabled(entity, modifier) {
             return entity.getHealth() < 3;
         case "fiskheroes:super_speed":
             return !entity.getData("fiskheroes:flying");
-        case "fiskheroes:cryo_charge":
-            return !entity.getData("fiskheroes:aiming");
-        case "fiskheroes:ice_punch":
-            return !entity.getData("fiskheroes:aiming");
-        case "fiskheroes:ice_punch":
-            return !entity.getData("fiskheroes:aiming");
         default:
             return utils.flight_auto_modifier(entity, modifier, -10);
     }
@@ -62,8 +55,4 @@ function isKeyBindEnabled(entity, keyBind) {
         default:
             return true;
     }
-}
-
-function canAim(entity) {
-    return true;
 }
