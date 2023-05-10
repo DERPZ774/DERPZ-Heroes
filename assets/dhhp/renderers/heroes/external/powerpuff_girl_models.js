@@ -49,11 +49,9 @@ function initModels(renderer) {
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-
     l_arm.setScale(2.13);
     l_arm.setOffset(-4.8, -28.7, 0);
     l_arm.render();
-
 
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
         head.setScale(2.13);

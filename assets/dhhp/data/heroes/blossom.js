@@ -35,7 +35,6 @@ function hasProperty(entity, property) {
     return property == "BREATHE_SPACE";
 }
 
-//Add beam modifiers to not be used while flying if needed
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:regeneration":
@@ -48,9 +47,17 @@ function isModifierEnabled(entity, modifier) {
 }
 
 function isKeyBindEnabled(entity, keyBind) {
+    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
+
     switch (keyBind) {
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
+        case "HEAT_VISION":
+            return !boostflight && !entity.getData("fiskheroes:flying");
+        case "CHARGED_BEAM":
+            return !boostflight && !entity.getData("fiskheroes:flying");
+        case "ENERGY_PROJECTION":
+            return !boostflight && !entity.getData("fiskheroes:flying");
         default:
             return true;
     }

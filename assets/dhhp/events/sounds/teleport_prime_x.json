@@ -1,0 +1,5 @@
+{
+    "sound": "dhhp:teleport.prime.x",
+    "condition": "dhhp:dyn/charge_teleport_prime",
+    "volume": 3.5
+}

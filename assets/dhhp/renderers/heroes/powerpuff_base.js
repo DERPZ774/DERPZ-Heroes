@@ -29,6 +29,10 @@ function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.PROP_FLIGHT");
 
+    addAnimation(renderer, "powerpuff.IDLE", "dhhp:powerpuff").setData((entity, data) => {
+        data.load(1);
+    }).priority = 0;
+
     addAnimation(renderer, "invicible.FLIGHT", "dhhp:flight/invincible_flight.anim.json")
         .setData((entity, data) => {
             data.load(0, entity.getInterpolatedData("fiskheroes:flight_timer") * (1 - entity.getInterpolatedData("fiskheroes:dyn/superhero_landing_timer")));

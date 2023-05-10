@@ -82,6 +82,18 @@
             "teleport.x": {
                 "distance": 25.0,
                 "target": "ALL"
+            },
+            "heat.breath": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "teleport.charge.x": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "teleport.prime.x": {
+                "distance": 25.0,
+                "target": "ALL"
             }
         }
     },

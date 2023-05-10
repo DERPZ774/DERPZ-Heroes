@@ -1,4 +1,5 @@
 {
     "parent": "fiskheroes:sound_base",
-    "sound": "dhhp:impact.x"
+    "sound": "dhhp:impact.x",
+    "volume": 4.5
 }

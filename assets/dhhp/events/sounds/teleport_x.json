@@ -1,4 +1,5 @@
 {
     "parent": "fiskheroes:sound_base",
-    "sound": "dhhp:teleport.x"
+    "sound": "dhhp:teleport.x",
+    "volume": 10.5
 }
