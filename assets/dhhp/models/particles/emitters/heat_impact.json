@@ -1,0 +1,16 @@
+{
+    "particles": [{
+        "type": "FLAME",
+        "anchor": "head",
+        "amount": 2,
+        "offset": {
+            "tp": [0.0, 0.0, 0.0],
+            "fp": [0.0, 0.0, 0.0]
+        },
+        "motion": [0.0, 0.0, 0.0],
+        "randOffset": [0.1, 0.1, 0.1],
+        "randMotion": [0.01, 0.0, 0.01],
+        "mirror": "!firstPerson",
+        "lockFPYaw": true
+    }]
+}

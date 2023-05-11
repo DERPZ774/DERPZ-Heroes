@@ -60,7 +60,7 @@
     },
     "hud": [{
         "type": "CIRCLE",
-        "color": "0xF43D07",
+        "color": "0x90ffff",
         "data": "fiskheroes:beam_charge"
     }]
 }
