@@ -34,7 +34,7 @@
             "range": 5.5,
             "radius": 0.15,
             "soundEvents": {
-                "BEAM_AMBIENT": "dhhp:freeze_breath"
+                "BEAM_AMBIENT": "dhhp:freeze_breath_charged"
             }
         },
         "fiskheroes:energy_projection|fire": {
