@@ -12,7 +12,7 @@ function init(renderer) {
         return "blank";
     });
 
-    renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+    renderer.showModel("HELMET", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
 
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
     utils.addCameraShake(renderer, 0.25, 4.5, "fiskheroes:dyn/superhero_landing_timer");
@@ -21,7 +21,7 @@ function init(renderer) {
 function initEffects(renderer) {
     parent.initEffects(renderer);
     utils.setOpacity(renderer, 0.99, 1.0);
-    powerpuff.initModels(renderer);
+    powerpuff = powerpuff.create(renderer);
 
     utils.bindBeam(renderer, "fiskheroes:heat_vision", "dhhp:powerpuff_heat_vision", "head", 0xFC3D2C, [
         { "firstPerson": [3.0, 0.0, 2.0], "offset": [4.5, -0.5, -4.0], "size": [4.0, 2.0] },
@@ -57,5 +57,5 @@ function initAnimations(renderer) {
 
 function render(entity, renderLayer, isFirstPersonArm) {
     parent.render(entity, renderLayer);
-    powerpuff.render(entity, renderLayer);
+    powerpuff.render(entity, renderLayer, isFirstPersonArm);
 }

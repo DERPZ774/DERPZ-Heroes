@@ -1,11 +1,11 @@
-var head;
-var body;
-var l_arm;
-var r_arm;
-var l_leg;
-var r_leg;
+function create(renderer) {
+    var head;
+    var body;
+    var l_arm;
+    var r_arm;
+    var l_leg;
+    var r_leg;
 
-function initModels(renderer) {
     //IMPORTANT DO NOT TOUCH THE ANCHORING OF THE LEFT AND RIGHT LIMBS
 
 
@@ -46,32 +46,37 @@ function initModels(renderer) {
     body = renderer.createEffect("fiskheroes:model").setModel(model_body);
     body.anchor.set("body");
 
-}
+    return {
+        render: (entity, renderLayer, isFirstPersonArm) => {
+            l_arm.setScale(2.13);
+            if (isFirstPersonArm && renderLayer == "HELMET") {
+                l_arm.setOffset(-4.8, -30.7, 0);
 
-function render(entity, renderLayer, isFirstPersonArm) {
-    l_arm.setScale(2.13);
-    l_arm.setOffset(-4.8, -28.7, 0);
-    l_arm.render();
+            }
 
-    if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
-        head.setScale(2.13);
-        head.setOffset(0, -27.05, 0);
-        head.render();
+            if (!isFirstPersonArm && renderLayer == "HELMET") {
+                l_arm.setOffset(-4.8, -28.7, 0);
+                head.setScale(2.13);
+                head.setOffset(0, -27.05, 0);
+                head.render();
 
-        body.setScale(2.13);
-        body.setOffset(0, -27, 0);
-        body.render();
+                body.setScale(2.13);
+                body.setOffset(0, -27, 0);
+                body.render();
 
-        l_leg.setScale(2.13);
-        l_leg.setOffset(-2, -39.0, 0);
-        l_leg.render();
+                l_leg.setScale(2.13);
+                l_leg.setOffset(-2, -39.0, 0);
+                l_leg.render();
 
-        r_leg.setScale(2.13);
-        r_leg.setOffset(2, -39.0, 0);
-        r_leg.render();
+                r_leg.setScale(2.13);
+                r_leg.setOffset(2, -39.0, 0);
+                r_leg.render();
 
-        r_arm.setScale(2.13);
-        r_arm.setOffset(4.8, -28.7, 0);
-        r_arm.render();
-    }
+                r_arm.setScale(2.13);
+                r_arm.setOffset(4.8, -28.7, 0);
+                r_arm.render();
+            }
+            l_arm.render();
+        }
+    };
 }

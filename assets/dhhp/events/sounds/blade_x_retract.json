@@ -1,5 +1,5 @@
 {
     "parent": "fiskheroes:sound_base",
     "sound": "dhhp:blade.x.retract",
-    "volume": 3
+    "volume": 8
 }

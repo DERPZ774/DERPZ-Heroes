@@ -5,7 +5,7 @@ function init(hero) {
     hero.setVersion("PowerPuff Girls");
     hero.setTier(7);
 
-    hero.setChestplate("item.superhero_armor.piece.chestpiece");
+    hero.setHelmet("Head");
 
     hero.addPowers("dhhp:chemical_x", "dhhp:sugar");
     hero.addAttribute("FALL_RESISTANCE", 1.0, 1);
