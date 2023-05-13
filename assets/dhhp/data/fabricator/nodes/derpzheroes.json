@@ -1,7 +1,7 @@
 {
     "display": {
         "name": "DERPZ Heroes Heropack",
-        "description": "Thank you for downloading my heropack.",
+        "description": "Thank you for downloading my heropack!",
         "icon": {
             "texture": "dhhp:textures/gui/nodes/derpzheroes.png"
         }

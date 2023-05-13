@@ -2,7 +2,7 @@
     "particles": [{
         "type": "FLAME",
         "anchor": "head",
-        "amount": 2,
+        "amount": 15,
         "offset": {
             "tp": [0.0, 0.0, 0.0],
             "fp": [0.0, 0.0, 0.0]

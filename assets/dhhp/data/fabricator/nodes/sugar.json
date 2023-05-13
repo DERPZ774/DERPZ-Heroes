@@ -13,13 +13,13 @@
         "achievement": {
             "trigger": "fiskheroes:item_consumed_by_player",
             "description": {
-                "translate": "Eat something sweet"
+                "translate": "Eat either a cookie or pumpkin pie"
             },
             "condition": {
                 "variables": {
                     "item": "ITEM_BEING_CONSUMED"
                 },
-                "check": "item.name() == 'minecraft:cookie' || item.name() == 'minecraft:pumpkin_pie' || item.name() == 'minecraft:cake'"
+                "check": "item.name() == 'minecraft:cookie' || item.name() == 'minecraft:pumpkin_pie'"
             }
         }
     }

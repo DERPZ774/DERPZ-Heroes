@@ -41,23 +41,23 @@ function isModifierEnabled(entity, modifier) {
             return entity.getHealth() < 3;
         case "fiskheroes:super_speed":
             return !entity.getData("fiskheroes:flying");
+        case "fiskheroes:charged_beam":
+            return !entity.getData("fiskheroes:energy_projection");
+        case "fiskheroes:energy_projection":
+            return !entity.getData("fiskheroes:beam_charging");
         default:
             return utils.flight_auto_modifier(entity, modifier, -10);
     }
 }
 
 function isKeyBindEnabled(entity, keyBind) {
-    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
-
     switch (keyBind) {
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
-        case "HEAT_VISION":
-            return !boostflight && !entity.getData("fiskheroes:flying");
         case "CHARGED_BEAM":
-            return !boostflight && !entity.getData("fiskheroes:flying");
+            return !entity.getData("fiskheroes:energy_projection");
         case "ENERGY_PROJECTION":
-            return !boostflight && !entity.getData("fiskheroes:flying");
+            return !entity.getData("fiskheroes:beam_charging");
         default:
             return true;
     }
