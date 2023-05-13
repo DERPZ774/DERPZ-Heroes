@@ -7,7 +7,7 @@ function init(hero) {
 
     hero.setHelmet("Head");
 
-    hero.addPowers("dhhp:chemical_x", "dhhp:sugar");
+    hero.addPowers("dhhp:chemical_x", "dhhp:nice");
     hero.addAttribute("FALL_RESISTANCE", 1.0, 1);
     hero.addAttribute("JUMP_HEIGHT", 2.0, 0);
     hero.addAttribute("PUNCH_DAMAGE", 9.0, 0);

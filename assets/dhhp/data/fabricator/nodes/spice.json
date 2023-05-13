@@ -1,0 +1,26 @@
+{
+    "display": {
+        "name": "Spice",
+        "icon": {
+            "texture": "dhhp:textures/gui/nodes/spice.png"
+        }
+    },
+    "requirements": [],
+    "price": {
+        "XP_LEVELS": 8
+    },
+    "criteria": {
+        "golden_apple": {
+            "trigger": "fiskheroes:item_crafted",
+            "description": {
+                "translate": "Craft Blaze Powder"
+            },
+            "condition": {
+                "variables": {
+                    "item": "ITEM_BEING_CRAFTED"
+                },
+                "check": "item.name() == 'minecraft:blaze_powder'"
+            }
+        }
+    }
+}

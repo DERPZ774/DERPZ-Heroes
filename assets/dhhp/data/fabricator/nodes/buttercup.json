@@ -1,0 +1,16 @@
+{
+    "suit": "dhhp:buttercup",
+    "requirements": [
+        "fiskheroes:tier6_7",
+        "fiskheroes:flight",
+        "fiskheroes:defense2",
+        "fiskheroes:melee2",
+        "fiskheroes:ranged2",
+        "dhhp:spice",
+        "dhhp:chemical_x",
+        "dhhp:derpzheroes"
+    ],
+    "display": {
+        "description": "Don't call me princess!"
+    }
+}

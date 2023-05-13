@@ -1,0 +1,26 @@
+{
+    "display": {
+        "name": "Everything Nice",
+        "icon": {
+            "texture": "dhhp:textures/gui/nodes/everything_nice.png"
+        }
+    },
+    "requirements": [],
+    "price": {
+        "XP_LEVELS": 8
+    },
+    "criteria": {
+        "achievement": {
+            "trigger": "fiskheroes:item_picked_up_by_player",
+            "description": {
+                "translate": "Pick up a Dandelion "
+            },
+            "condition": {
+                "variables": {
+                    "item": "ITEM_BEING_PICKED_UP"
+                },
+                "check": "item.displayName() == 'Dandelion'"
+            }
+        }
+    }
+}

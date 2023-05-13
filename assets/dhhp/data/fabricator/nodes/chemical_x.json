@@ -1,0 +1,26 @@
+{
+    "display": {
+        "name": "Chemical-X",
+        "icon": {
+            "texture": "dhhp:textures/gui/nodes/chemical_x.png"
+        }
+    },
+    "requirements": [],
+    "price": {
+        "XP_LEVELS": 5
+    },
+    "criteria": {
+        "achievement": {
+            "trigger": "fiskheroes:item_consumed_by_player",
+            "description": {
+                "translate": "Consume a Potion of Harming"
+            },
+            "condition": {
+                "variables": {
+                    "item": "ITEM_BEING_CONSUMED"
+                },
+                "check": "item.displayName() == 'Potion of Harming'"
+            }
+        }
+    }
+}

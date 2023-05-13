@@ -23,10 +23,10 @@ function initEffects(renderer) {
     utils.setOpacity(renderer, 0.99, 1.0);
     powerpuff = powerpuff.create(renderer);
 
-    utils.bindBeam(renderer, "fiskheroes:heat_vision", "dhhp:powerpuff_heat_vision", "head", 0xFC3D2C, [
+    utils.bindBeam(renderer, "fiskheroes:heat_vision", "dhhp:powerpuff_heat_vision", "head", 16711680, [
         { "firstPerson": [3.0, 0.0, 2.0], "offset": [4.5, -0.5, -4.0], "size": [4.0, 2.0] },
         { "firstPerson": [-3.0, 0.0, 2.0], "offset": [-4.5, -0.5, -4.0], "size": [4.0, 2.0] }
-    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
+    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_heat_vision"));
 }
 
 function initAnimations(renderer) {

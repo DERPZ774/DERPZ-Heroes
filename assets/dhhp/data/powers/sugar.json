@@ -1,66 +1,8 @@
 {
     "name": "Sugar",
+    "value": 3,
     "modifiers": {
-        "fiskheroes:charged_beam|freeze": {
-            "damageProfile": {
-                "damage": 3.5,
-                "types": {
-                    "COLD": 1.0
-                },
-                "properties": {
-                    "HIT_COOLDOWN": 10,
-                    "REDUCE_KNOCKBACK": 0.3,
-                    "EFFECTS": [{
-                        "id": "minecraft:slowness",
-                        "duration": 30,
-                        "amplifier": 1,
-                        "chance": 1
-                    }, {
-                        "id": "minecraft:mining_fatigue",
-                        "duration": 30,
-                        "amplifier": 1,
-                        "chance": 1
-                    }, {
-                        "id": "fiskheroes:disable_speed",
-                        "duration": 60,
-                        "amplifier": 1,
-                        "chance": 1
-                    }]
-                }
-            },
-            "chargeTime": 20,
-            "duration": 45,
-            "cooldownTime": 35,
-            "range": 5.5,
-            "radius": 0.15,
-            "soundEvents": {
-                "BEAM_AMBIENT": "dhhp:freeze_breath_charged"
-            }
-        },
-        "fiskheroes:energy_projection|fire": {
-            "damageProfile": {
-                "damage": 1.5,
-                "types": {
-                    "FIRE": 1.0
-                },
-                "properties": {
-                    "REDUCE_KNOCKBACK": 0.15,
-                    "COOK_ENTITY": true,
-                    "HEAT_TRANSFER": 100,
-                    "HIT_COOLDOWN": 10,
-                    "IGNITE": 1
-                }
-            },
-            "range": 5.5,
-            "radius": 0.15,
-            "soundEvents": {
-                "BEAM_AMBIENT": "dhhp:heat_breath"
-            }
-        }
-    },
-    "hud": [{
-        "type": "CIRCLE",
-        "color": "0x90ffff",
-        "data": "fiskheroes:beam_charge"
-    }]
+        "fiskheroes:lightning_cast": {},
+        "fiskheroes:sonic_waves": {}
+    }
 }

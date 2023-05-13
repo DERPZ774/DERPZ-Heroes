@@ -10,8 +10,8 @@ function initEffects(renderer) {
         { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, 6.0, -4.0], "size": [4.0, 4.0] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:freeze_impact"));
 
-    utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:freeze_breath", "head", 0xF43D07, [
-        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, 6.0, -4.0], "size": [4.0, 4.0] }
+    utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:heat_breath", "head", 0xF43D07, [
+        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, 6.0, -4.0], "size": [1.0, 1.0] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:heat_impact"));
 }
 
