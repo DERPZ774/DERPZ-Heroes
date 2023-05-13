@@ -1,0 +1,7 @@
+{
+    "inputs": [
+        "fiskheroes:flight/header",
+        "fiskheroes:flight/hover/iron_man",
+        "dhhp:flight/boost/powerpuff_boost"
+    ]
+}

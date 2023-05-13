@@ -9,7 +9,7 @@ function initEffects(renderer) {
     parent.initEffects(renderer);
     var trail = renderer.bindProperty("fiskheroes:trail");
     trail.setTrail(renderer.createResource("TRAIL", "dhhp:trail_blossom"));
-    trail.setCondition(entity => entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:flying"));
+    trail.setCondition(entity => entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:flying") && entity.isSprinting());
 
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:freeze_breath", "head", 0x90ffff, [
         { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, 6.0, -4.0], "size": [4.0, 4.0] }
