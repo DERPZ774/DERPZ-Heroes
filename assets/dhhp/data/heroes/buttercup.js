@@ -15,11 +15,10 @@ function init(hero) {
     hero.addAttribute("KNOCKBACK", 1.75, 0);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
-    hero.addKeyBind("CHARGED_BEAM", "Heat Vision", 1);
+    hero.addKeyBind("HEAT_VISION", "Heat Vision", 1);
     hero.addKeyBind("GROUND_SMASH", "key.groundSmash", 2);
     hero.addKeyBind("EARTHQUAKE", "key.earthquake", 3);
-    hero.addKeyBind("AIM", "Aim", 4);
-    hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 5);
+    hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 4);
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setHasProperty(hasProperty);
@@ -47,9 +46,17 @@ function isModifierEnabled(entity, modifier) {
 }
 
 function isKeyBindEnabled(entity, keyBind) {
+    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
+
     switch (keyBind) {
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
+        case "HEAT_VISION":
+            return !boostflight && !entity.getData("fiskheroes:flying");
+        case "EARTHQUAKE":
+            return !boostflight && !entity.getData("fiskheroes:flying");
+        case "GROUND_SMASH":
+            return !boostflight && !entity.getData("fiskheroes:flying");
         default:
             return true;
     }

@@ -16,7 +16,7 @@ function init(hero) {
     hero.addAttribute("BASE_SPEED_LEVELS", 1.0, 0);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
-    hero.addKeyBind("CHARGED_BEAM", "Heat Vision", 1);
+    hero.addKeyBind("HEAT_VISION", "Heat Vision", 1);
     hero.addKeyBind("SONIC_WAVES", "Ultrasonic scream", 2);
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 3);
 
@@ -46,9 +46,15 @@ function isModifierEnabled(entity, modifier) {
 }
 
 function isKeyBindEnabled(entity, keyBind) {
+    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
+
     switch (keyBind) {
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
+        case "HEAT_VISION":
+            return !boostflight && !entity.getData("fiskheroes:flying");
+        case "SONIC_WAVES":
+            return !boostflight && !entity.getData("fiskheroes:flying");
         default:
             return true;
     }
