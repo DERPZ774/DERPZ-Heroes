@@ -1,0 +1,5 @@
+{Hair_rotX} -= {pitch}'
+{Hair_posZ} -= 0.001{pitch}
+
+;{data} = curve {data}
+;{Hair_rotX} @ {data} -> clamp({pitch}', -5', 5')

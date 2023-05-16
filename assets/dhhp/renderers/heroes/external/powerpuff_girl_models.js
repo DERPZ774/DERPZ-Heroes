@@ -8,10 +8,12 @@ function create(renderer) {
 
     //IMPORTANT DO NOT TOUCH THE ANCHORING OF THE LEFT AND RIGHT LIMBS
 
-
     //Models
     var model_head = renderer.createResource("MODEL", "dhhp:powerpuff/head_powerpuff");
 
+    model_head.bindAnimation("dhhp:powerpuff_hair").setData((entity, data) => {
+        data.load(1);
+    });
     model_head.texture.set("texture");
     head = renderer.createEffect("fiskheroes:model").setModel(model_head);
     head.anchor.set("head");
@@ -55,10 +57,10 @@ function create(renderer) {
             }
 
             if (!isFirstPersonArm && renderLayer == "HELMET") {
-                l_arm.setOffset(-4.8, -28.7, 0);
+                l_arm.setOffset(-4.8, -32.0, 0);
                 head.setScale(2.13);
-                head.setOffset(0, -27.05, 0);
-                head.render();
+                head.setOffset(0, -34.0, 0);
+
 
                 body.setScale(2.13);
                 body.setOffset(0, -27, 0);
@@ -73,8 +75,13 @@ function create(renderer) {
                 r_leg.render();
 
                 r_arm.setScale(2.13);
-                r_arm.setOffset(4.8, -28.7, 0);
+                r_arm.setOffset(4.8, -32.0, 0);
                 r_arm.render();
+
+                if (entity.isDisplayStand()) {
+                    head.setOffset(0, -27.05, 0);
+                }
+                head.render();
             }
             l_arm.render();
         }

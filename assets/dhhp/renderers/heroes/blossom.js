@@ -12,11 +12,11 @@ function initEffects(renderer) {
     trail.setCondition(entity => entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:flying") && entity.isSprinting());
 
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:freeze_breath", "head", 0x90ffff, [
-        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, 6.0, -4.0], "size": [4.0, 4.0] }
+        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.0, -4.0], "size": [4.0, 4.0] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:freeze_impact"));
 
     utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:heat_breath", "head", 0xF43D07, [
-        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, 6.0, -4.0], "size": [1.0, 1.0] }
+        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.0, -4.0], "size": [1.0, 1.0] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:heat_impact"));
 }
 

@@ -24,8 +24,8 @@ function initEffects(renderer) {
     powerpuff = powerpuff.create(renderer);
 
     utils.bindBeam(renderer, "fiskheroes:heat_vision", "dhhp:powerpuff_heat_vision", "head", 16711680, [
-        { "firstPerson": [3.0, 0.0, 2.0], "offset": [4.5, -0.5, -4.0], "size": [4.0, 2.0] },
-        { "firstPerson": [-3.0, 0.0, 2.0], "offset": [-4.5, -0.5, -4.0], "size": [4.0, 2.0] }
+        { "firstPerson": [3.0, 0.0, 2.0], "offset": [4.5, -7.5, -4.0], "size": [4.0, 2.0] },
+        { "firstPerson": [-3.0, 0.0, 2.0], "offset": [-4.5, -7.5, -4.0], "size": [4.0, 2.0] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_heat_vision"));
 }
 
@@ -33,9 +33,9 @@ function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.PROP_FLIGHT");
 
-    /* addAnimation(renderer, "powerpuff.IDLE", "dhhp:powerpuff").setData((entity, data) => {
-         data.load(1);
-     }).priority = 0;*/
+    addAnimation(renderer, "powerpuff.IDLE", "dhhp:powerpuff").setData((entity, data) => {
+        data.load(1);
+    }).priority = 0;
 
     addAnimation(renderer, "powerpuff.FLIGHT", "dhhp:flight/powerpuff_flight.anim.json")
         .setData((entity, data) => {
