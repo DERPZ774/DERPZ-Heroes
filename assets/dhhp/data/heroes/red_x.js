@@ -22,7 +22,6 @@ function init(hero) {
     hero.addKeyBind("SPELL_MENU", "Illusion Tech", 3);
     hero.addKeyBind("SHIELD", "X Blade", 4);
 
-
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setHasPermission(hasPermission);
     hero.addAttributeProfile("ACTIVE", activeProfile);
@@ -55,12 +54,12 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         if (entity.getData("dhhp:dyn/charge_teleport_timer") == 0 && entity.getData("dhhp:dyn/charge_teleport_cooldown")) {
-            manager.setData(entity, "dhhp:dyn/charge_teleport_cooldown", false)
+            manager.setData(entity, "dhhp:dyn/charge_teleport_cooldown", false);
         }
         if (entity.getData("dhhp:dyn/charge_teleport_timer") == 1 && !entity.getData("dhhp:dyn/charge_teleport_cooldown")) {
-            manager.setData(entity, "dhhp:dyn/charge_teleport", true)
+            manager.setData(entity, "dhhp:dyn/charge_teleport", true);
             if (entity.getData("fiskheroes:teleport_timer") > 0) {
-                manager.setData(entity, "dhhp:dyn/charge_teleport_cooldown", true)
+                manager.setData(entity, "dhhp:dyn/charge_teleport_cooldown", true);
             }
         }
     });

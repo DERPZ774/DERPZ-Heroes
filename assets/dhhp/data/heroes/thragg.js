@@ -28,7 +28,7 @@ function init(hero) {
     hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
-        utils.all_tick(entity, manager, "dhhp:hero.landing", 1000)
+        utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
     });
 }
 

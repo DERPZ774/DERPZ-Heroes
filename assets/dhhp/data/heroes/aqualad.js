@@ -72,7 +72,7 @@ function whipProfile(profile) {
 
 
 function getAttributeProfile(entity) {
-    var flag = entity.getData('dhhp:dyn/water_weapon');;
+    var flag = entity.getData('dhhp:dyn/water_weapon');
     if (entity.getHeldItem().isEmpty()) {
         if (flag == 1) {
             return "WEAPON";
@@ -95,7 +95,7 @@ function getDamageProfile(entity) {
         }
         if (flag == 3) {
             if (Math.floor(Math.random() * 5) == 0) {
-                return "WHIP_PULL_CLOSER"
+                return "WHIP_PULL_CLOSER";
             }
             return "WHIP";
         }
@@ -146,7 +146,7 @@ function cycleWeaponKey1() {
 function isKeyBindEnabled(entity, keyBind) {
     var water = entity.getData("dhhp:dyn/water") || entity.isWet();
     var hand = entity.getHeldItem().isEmpty();
-    var weapon = entity.getData('dhhp:dyn/water_weapon');;
+    var weapon = entity.getData('dhhp:dyn/water_weapon');
 
     switch (keyBind) {
         case "ENERGY_PROJECTION":

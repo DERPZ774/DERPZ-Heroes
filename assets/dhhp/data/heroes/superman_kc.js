@@ -38,7 +38,7 @@ function init(hero) {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
 
         if (entity.getData("dhhp:dyn/power_cooldown") < 0.00005 && entity.getData("dhhp:dyn/powered") == true) {
-            manager.setData(entity, "dhhp:dyn/power_cooldown", 0.00008)
+            manager.setData(entity, "dhhp:dyn/power_cooldown", 0.00008);
         }
     });
 }
@@ -69,7 +69,7 @@ function getAttributeProfile(entity) {
 function isKeyBindEnabled(entity, keyBind) {
     var powered = entity.getData("dhhp:dyn/powered");
     var y = entity.posY();
-    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
+    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying");
 
     switch (keyBind) {
         case "CHARGE":

@@ -11,7 +11,7 @@ function initEffects(renderer) {
     flight.bindFlightTrail(renderer);
     flight.bindFlightParticle(renderer);
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
-    utils.addCameraShake(renderer, 0.25, 4.5, "fiskheroes:dyn/superhero_landing_timer");
+    utils.addCameraShake(renderer, 0.015, 4.5, "fiskheroes:dyn/superhero_landing_timer");
 }
 
 function initAnimations(renderer) {
