@@ -72,6 +72,8 @@ function isKeyBindEnabled(entity, keyBind) {
             return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") < 1;
         case "TELEPORT":
             return !entity.getData("dhhp:dyn/charge_teleport_cooldown") && entity.getData("dhhp:dyn/charge_teleport_timer") == 1;
+        case "SHIELD":
+            return entity.getHeldItem().isEmpty();
         default:
             return true;
     }

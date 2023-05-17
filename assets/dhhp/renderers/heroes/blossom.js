@@ -3,8 +3,6 @@ loadTextures({
     "texture": "dhhp:other/blossom"
 });
 
-
-
 function initEffects(renderer) {
     parent.initEffects(renderer);
     var trail = renderer.bindProperty("fiskheroes:trail");

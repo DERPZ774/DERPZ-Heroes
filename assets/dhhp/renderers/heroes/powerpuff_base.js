@@ -15,7 +15,7 @@ function init(renderer) {
     renderer.showModel("HELMET", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
 
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
-    utils.addCameraShake(renderer, 0.25, 4.5, "fiskheroes:dyn/superhero_landing_timer");
+    utils.addCameraShake(renderer, 0.015, 0.5, "fiskheroes:dyn/superhero_landing_timer");
 }
 
 function initEffects(renderer) {
