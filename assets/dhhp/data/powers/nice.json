@@ -31,7 +31,7 @@
             "chargeTime": 20,
             "duration": 45,
             "cooldownTime": 35,
-            "range": 5.5,
+            "range": 8.0,
             "radius": 0.15,
             "soundEvents": {
                 "BEAM_AMBIENT": "dhhp:freeze_breath_charged"
@@ -51,7 +51,7 @@
                     "IGNITE": 1
                 }
             },
-            "range": 5.5,
+            "range": 8.0,
             "radius": 0.15,
             "soundEvents": {
                 "BEAM_AMBIENT": "dhhp:heat_breath"

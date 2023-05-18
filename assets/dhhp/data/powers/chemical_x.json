@@ -64,7 +64,7 @@
                     "HIT_COOLDOWN": 10
                 }
             },
-            "range": 32.0,
+            "range": 16.0,
             "radius": 0.2,
             "soundEvents": {
                 "SHOOT": [

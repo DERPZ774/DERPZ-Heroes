@@ -41,8 +41,6 @@ function isModifierEnabled(entity, modifier) {
             return entity.getHealth() < 3;
         case "fiskheroes:super_speed":
             return !entity.getData("fiskheroes:flying");
-        case "fiskheroes:charged_beam":
-            return !entity.getData("fiskheroes:energy_projection");
         case "fiskheroes:energy_projection":
             return !entity.getData("fiskheroes:beam_charging");
         default:
