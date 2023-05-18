@@ -25,16 +25,12 @@ function init(hero) {
     hero.addKeyBind("GROUND_SMASH", "key.groundSmash", 3);
 
     hero.setModifierEnabled(isModifierEnabled);
-    hero.setHasProperty(hasProperty);
+    hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
     hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
     });
-}
-
-function hasProperty(entity, property) {
-    return property == "BREATHE_SPACE";
 }
 
 function isModifierEnabled(entity, modifier) {

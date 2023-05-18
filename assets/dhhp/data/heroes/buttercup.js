@@ -8,7 +8,7 @@ function init(hero) {
     hero.setHelmet("Head");
 
     hero.addPowers("dhhp:chemical_x", "dhhp:spice");
-    hero.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
+    hero.addAttribute("BASE_SPEED_LEVELS", 3.0, 0);
     hero.addAttribute("FALL_RESISTANCE", 1.0, 1);
     hero.addAttribute("JUMP_HEIGHT", 2.0, 0);
     hero.addAttribute("PUNCH_DAMAGE", 10.25, 0);
@@ -21,7 +21,7 @@ function init(hero) {
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 4);
 
     hero.setModifierEnabled(isModifierEnabled);
-    hero.setHasProperty(hasProperty);
+    hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setDefaultScale(0.47);
 
@@ -30,9 +30,6 @@ function init(hero) {
     });
 }
 
-function hasProperty(entity, property) {
-    return property == "BREATHE_SPACE";
-}
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {

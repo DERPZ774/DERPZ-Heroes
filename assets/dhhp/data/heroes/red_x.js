@@ -9,7 +9,6 @@ function init(hero) {
     hero.addPrimaryEquipment("fiskheroes:grappling_gun", true);
 
     hero.addPowers("dhhp:red_x");
-
     hero.addAttribute("PUNCH_DAMAGE", 4.5, 0);
     hero.addAttribute("WEAPON_DAMAGE", 2.5, 0);
     hero.addAttribute("FALL_RESISTANCE", 7.0, 0);
@@ -23,7 +22,8 @@ function init(hero) {
     hero.addKeyBind("SHIELD", "X Blade", 4);
 
     hero.setKeyBindEnabled(isKeyBindEnabled);
-    hero.setHasPermission(hasPermission);
+    hero.setHasPermission((entity, permission) => permission == "USE_GRAPPLING_GUN");
+    
     hero.addAttributeProfile("ACTIVE", activeProfile);
     hero.setAttributeProfile(getAttributeProfile);
     hero.setDamageProfile(getProfile);
@@ -76,9 +76,4 @@ function isKeyBindEnabled(entity, keyBind) {
         default:
             return true;
     }
-}
-
-
-function hasPermission(entity, permission) {
-    return permission == "USE_GRAPPLING_GUN";
 }
