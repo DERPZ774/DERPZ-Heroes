@@ -12,7 +12,6 @@ function init(hero) {
     hero.addPrimaryEquipment("fiskheroes:grappling_gun", true);
 
     hero.addPowers("dhhp:nightwing_suit");
-
     hero.addAttribute("PUNCH_DAMAGE", 4.5, 0);
     hero.addAttribute("WEAPON_DAMAGE", 2.5, 0);
     hero.addAttribute("FALL_RESISTANCE", 6.0, 0);

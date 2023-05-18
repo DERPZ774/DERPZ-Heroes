@@ -13,7 +13,7 @@ function init(hero) {
     hero.addAttribute("PUNCH_DAMAGE", 8.0, 0);
     hero.addAttribute("KNOCKBACK", 1.2, 0);
     hero.addAttribute("SPRINT_SPEED", 0.35, 1);
-    hero.addAttribute("BASE_SPEED_LEVELS", 1.0, 0);
+    hero.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
     hero.addKeyBind("HEAT_VISION", "Heat Vision", 1);
@@ -21,17 +21,13 @@ function init(hero) {
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 3);
 
     hero.setModifierEnabled(isModifierEnabled);
-    hero.setHasProperty(hasProperty);
+    hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setDefaultScale(0.47);
 
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
     });
-}
-
-function hasProperty(entity, property) {
-    return property == "BREATHE_SPACE";
 }
 
 function isModifierEnabled(entity, modifier) {

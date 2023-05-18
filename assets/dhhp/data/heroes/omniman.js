@@ -25,7 +25,7 @@ function init(hero) {
 
 
     hero.setModifierEnabled(isModifierEnabled);
-    hero.setHasProperty(hasProperty);
+    hero.setHasProperty((entity, property) => property == "BREATHE_SPACE" || property == "MASK_TOGGLE");
     hero.addSoundEvent("MASK_OPEN", "dhhp:think_mark");
     hero.setKeyBindEnabled(isKeyBindEnabled);
 
@@ -33,11 +33,6 @@ function init(hero) {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000)
     });
 }
-
-function hasProperty(entity, property) {
-    return property == "BREATHE_SPACE" || property == "MASK_TOGGLE";
-}
-
 
 function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {

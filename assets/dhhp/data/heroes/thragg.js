@@ -10,7 +10,6 @@ function init(hero) {
     hero.setBoots("item.superhero_armor.piece.boots");
 
     hero.addPowers("dhhp:viltrumite_physiology");
-
     hero.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
     hero.addAttribute("MAX_HEALTH", 8.0, 0);
     hero.addAttribute("PUNCH_DAMAGE", 12.5, 0);
@@ -24,16 +23,12 @@ function init(hero) {
     hero.addKeyBind("GROUND_SMASH", "key.groundSmash", 3);
 
     hero.setModifierEnabled(isModifierEnabled);
-    hero.setHasProperty(hasProperty);
+    hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
     hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
     });
-}
-
-function hasProperty(entity, property) {
-    return property == "BREATHE_SPACE";
 }
 
 function isModifierEnabled(entity, modifier) {

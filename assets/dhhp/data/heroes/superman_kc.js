@@ -28,7 +28,7 @@ function init(hero) {
     hero.addKeyBind("CHARGE", "Absorb Solar Energy (Hold)", 5);
     hero.addKeyBindFunc("func_CHARGE", charge, "Absorb Solar Energy", 5);
 
-    hero.setHasProperty(hasProperty);
+    hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
     hero.addAttributeProfile("ACTIVE", activeProfile);
     hero.setAttributeProfile(getAttributeProfile);
     hero.setKeyBindEnabled(isKeyBindEnabled);
@@ -111,8 +111,4 @@ function isModifierEnabled(entity, modifier) {
         default:
             return utils.flight_auto_modifier(entity, modifier, -10);
     }
-}
-
-function hasProperty(entity, property) {
-    return property == "BREATHE_SPACE";
 }

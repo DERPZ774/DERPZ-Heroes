@@ -1,10 +1,10 @@
 function init(hero) {
-
     hero.setName("Doctor Fate");
     hero.setTier(10);
-    hero.setHelmet("Helmet");
-    hero.addPowers("dhhp:lord_of_order");
 
+    hero.setHelmet("Helmet");
+
+    hero.addPowers("dhhp:lord_of_order");
     hero.addAttribute("PUNCH_DAMAGE", 3.0, 0);
 
     hero.addKeyBind("CHARGED_BEAM", "Order Beam", 1);
@@ -21,12 +21,9 @@ function init(hero) {
     hero.setDamageProfile(getProfile);
     hero.setTierOverride(getTierOverride);
     hero.setKeyBindEnabled(isKeyBindEnabled);
-    hero.setHasProperty(hasProperty);
+    hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
 }
 
-function hasProperty(entity, property) {
-    return property == "BREATHE_SPACE";
-}
 
 function getTierOverride(entity) {
     return entity.getData("dhhp:dyn/helmet") ? 10 : 0;
