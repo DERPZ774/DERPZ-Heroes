@@ -1,5 +1,6 @@
+var domain = "dhhp";
 var utils = implement("dhhp:external/utils");
-
+var shadowDome = implement(domain + ":external/ppg_boost");
 function init(hero) {
     hero.setName("Blossom");
     hero.setVersion("PowerPuff Girls");
@@ -27,7 +28,23 @@ function init(hero) {
     hero.setDefaultScale(0.47);
 
     hero.setTickHandler((entity, manager) => {
+        if (!entity.getData(domain + ":dyn/boolean")) {
+            manager.setData(entity, "fiskheroes:lightsout", true);
+            manager.setData(entity, domain + ":dyn/float", 0);
+            manager.setData(entity, domain + ":dyn/boolean", true);
+        }
+
+        shadowDome.checkBoost(entity, manager, "dhhp:boost1");
+
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
+    });
+    hero.setAttributeProfile(getAttributeProfile);
+    hero.addAttributeProfile("BOOST", profile => {
+        profile.inheritDefaults();
+        profile.addAttribute("FALL_RESISTANCE", 1, 1);
+        profile.addAttribute("JUMP_HEIGHT", 2, 0);
+        profile.addAttribute("PUNCH_DAMAGE", 6, 0);
+        profile.addAttribute("SPRINT_SPEED", 1, 0);
     });
 }
 
@@ -54,5 +71,11 @@ function isKeyBindEnabled(entity, keyBind) {
             return !entity.getData("fiskheroes:beam_charging");
         default:
             return true;
+    }
+}
+
+function getAttributeProfile(entity) {
+    if (entity.getData(domain + ":dyn/statboost")) {
+        return "BOOST"
     }
 }

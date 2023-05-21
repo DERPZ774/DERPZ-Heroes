@@ -142,7 +142,14 @@
         "teleport": "BOOLEAN",
         "charge_teleport": "BOOLEAN",
         "charge_teleport_cooldown": "BOOLEAN",
-        "charge_teleport_timer": "FLOAT_INTERP"
+        "charge_teleport_timer": "FLOAT_INTERP",
+        "statboost": "BOOLEAN",
+        "statboost_timer": "FLOAT",
+        "statboost1": "BOOLEAN",
+        "statboost2": "BOOLEAN",
+        "statboost3": "BOOLEAN",
+        "boolean": { "type": "BOOLEAN", "resetWithoutSuit": true },
+        "float": { "type": "FLOAT", "resetWithoutSuit": true }
     },
     "damageTypes": {
         "WATER": "Water",

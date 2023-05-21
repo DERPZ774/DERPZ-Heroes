@@ -29,7 +29,10 @@ In no event shall the Licensor be liable for any indirect, special, incidental, 
 7. Governing Law
 This Agreement shall be governed by and construed in accordance with the laws of [United States], without giving effect to any principles of conflicts of law.
 
-8. Entire Agreement
+8. The Santa Clause
+In the event that the Licensee "disposes" of santa claus, he must inherit the role and become santa under The Santa Clause.
+
+9. Entire Agreement
 This Agreement constitutes the entire agreement between the Licensor and the Licensee and supersedes all prior agreements, whether oral or written, with respect to the Heropack.
 
 By downloading or using the Heropack, the Licensee agrees to be bound by the terms and conditions of this Agreement. If the Licensee does not agree to the terms and conditions of this Agreement, they must immediately cease all use of the Heropack.

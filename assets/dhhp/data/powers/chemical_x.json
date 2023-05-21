@@ -1,6 +1,26 @@
 {
     "name": "Chemical-X Mutation",
     "modifiers": {
+        "fiskheroes:cooldown": {
+            "cooldown": {
+                "toggleData": "dhhp:dyn/boolean",
+                "cooldownData": "dhhp:dyn/float",
+                "duration": 100,
+                "recovery": 1000
+            }
+        },
+        "fiskheroes:transformation": {
+            "transformation": {
+                "toggleData": "dhhp:dyn/statboost",
+                "timerData": "dhhp:dyn/statboost_timer",
+                "time": 0
+            }
+        },
+        "fiskheroes:shadowdome": {
+            "chargeTime": 0,
+            "duration": 10,
+            "radius": 50
+        },
         "fiskheroes:super_speed": {
             "canUseTreadmill": false
         },
