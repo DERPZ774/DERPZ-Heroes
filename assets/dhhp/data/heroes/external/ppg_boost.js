@@ -1,7 +1,7 @@
 var MATRIX = {
-    "dhhp:boost1": [1, 2],
-    "dhhp:boost2": [0, 2],
-    "dhhp:boost3": [0, 1]
+    "dhhp:blossom": [1, 2],
+    "dhhp:bubbles": [0, 2],
+    "dhhp:buttercup": [0, 1]
 };
 
 function checkBoost(entity, manager, suit) {

@@ -33,7 +33,7 @@ function init(hero) {
             manager.setData(entity, domain + ":dyn/boolean", true);
         }
 
-        shadowDome.checkBoost(entity, manager, "dhhp:boost1");
+        shadowDome.checkBoost(entity, manager, "dhhp:buttercup");
 
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
     });
