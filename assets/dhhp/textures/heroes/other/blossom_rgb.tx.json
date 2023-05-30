@@ -1,0 +1,23 @@
+{
+    "texture": {
+      "in": "dhhp:other/blossom_rgb",
+      "transform": [
+        {
+          "operation": "HUE",
+          "supply": "<TIMER>"
+        }
+      ],
+      "out": "dhhp:generated/blossom_rgb_<TIMER>"
+    },
+    "getters": {
+      "TIMER": {
+        "key": "(entity.ticksExisted() * 4 % 360) | 0",
+        "values": {
+          "min": 0,
+          "max": 360,
+          "step": 4
+        }
+      }
+    }
+  }
+  

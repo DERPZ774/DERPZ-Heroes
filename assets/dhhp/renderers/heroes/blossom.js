@@ -5,8 +5,10 @@ loadTextures({
 
 function initEffects(renderer) {
     parent.initEffects(renderer);
+
     var trail = renderer.bindProperty("fiskheroes:trail");
-    trail.setTrail(renderer.createResource("TRAIL", "dhhp:trail_blossom"));
+
+    trail.setTrail(renderer.createResource("TRAIL", getTrailType()));
     trail.setCondition(entity => entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:flying") && entity.isSprinting());
 
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:freeze_breath", "head", 0x90ffff, [
@@ -22,3 +24,8 @@ function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.ENERGY_PROJ");
 }
+
+function getTrailType() {
+    return "dhhp:trail_blossom";
+}
+
