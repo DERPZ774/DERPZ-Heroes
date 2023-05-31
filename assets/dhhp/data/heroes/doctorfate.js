@@ -5,7 +5,9 @@ function init(hero) {
     hero.setHelmet("Helmet");
 
     hero.addPowers("dhhp:lord_of_order");
-    hero.addAttribute("PUNCH_DAMAGE", 3.0, 0);
+    hero.addAttribute("PUNCH_DAMAGE", 11.5, 0);
+    hero.addAttribute("SPRINT_SPEED", 0.4, 1);
+    hero.addAttribute("WEAPON_DAMAGE", -0.50, 1);
 
     hero.addKeyBind("CHARGED_BEAM", "Order Beam", 1);
     hero.addKeyBind("SPELL_MENU", "Wheel Of Fate", 2);
@@ -14,44 +16,27 @@ function init(hero) {
     hero.addKeyBind("HELMET_TRANSFORM", "Transform", 2);
     hero.addKeyBind("SHIELD", "Ankh Shielding", 5);
 
-    hero.addAttributeProfile("INACTIVE", inactiveProfile);
-    hero.addAttributeProfile("ACTIVE", activeProfile);
+    hero.addAttributeProfile("INACTIVE", profile => {});
     hero.setAttributeProfile(getAttributeProfile);
     hero.setModifierEnabled(isModifierEnabled);
     hero.setDamageProfile(getProfile);
-    hero.setTierOverride(getTierOverride);
+    hero.setTierOverride(entity => entity.getData("dhhp:dyn/helmet") ? 10 : 0);
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
 }
 
-
-function getTierOverride(entity) {
-    return entity.getData("dhhp:dyn/helmet") ? 10 : 0;
-}
-
-function inactiveProfile(profile) {}
-
-function activeProfile(profile) {
-    profile.addAttribute("PUNCH_DAMAGE", 11.5, 0);
-    profile.addAttribute("SPRINT_SPEED", 0.4, 1);
-    profile.addAttribute("WEAPON_DAMAGE", -0.50, 1);
-    profile.inheritDefaults();
-}
-
 function getAttributeProfile(entity) {
-    if (!entity.getData("dhhp:dyn/helmet")) {
-        return "INACTIVE";
-    } else if (entity.getData("dhhp:dyn/helmet")) {
-        return "ACTIVE";
+    if (entity.getData("dhhp:dyn/helmet")) {
+        return null;
     }
-    return true;
+    return "INACTIVE";
 }
 
 function getProfile(entity) {
     if (entity.getData("dhhp:dyn/helmet")) {
         return "MAGIC";
     }
-    return true;
+    return null;
 }
 
 function isModifierEnabled(entity, modifier) {
