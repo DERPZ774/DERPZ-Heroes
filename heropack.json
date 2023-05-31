@@ -148,6 +148,7 @@
         "statboost1": "BOOLEAN",
         "statboost2": "BOOLEAN",
         "statboost3": "BOOLEAN",
+        "gen_portal": "BOOLEAN",
         "boolean": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "float": { "type": "FLOAT", "resetWithoutSuit": true }
     },
