@@ -1,6 +1,7 @@
 {
     "name": "Smartest Man in the Universe",
     "modifiers": {
+        "fiskheroes:shape_shifting": {},
         "fiskheroes:controlled_flight": {
             "speed": 0.1,
             "boostSpeed": 0.25,
