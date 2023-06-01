@@ -32,11 +32,16 @@ function init(hero) {
 
         if (entity.getData("dhhp:dyn/gen_portal") == true) {
             var nbt = entity.getWornChestplate().nbt();
-            var line1 = "The data var is " + entity.posX() + "!";
+            var x = Math.floor(entity.posX());
+            var y = Math.floor(entity.posY());
+            var z = Math.floor(entity.posZ());
+
+            var line1 = "Player coords " + x + ", " + y + ", " + z + "!";
 
             var display = manager.newCompoundTag('{Lore:["' + line1 + '"]}');
             manager.setCompoundTag(nbt, "display", display);
         }
+        //todo Add these coords 
 
         //  var currentPos =  manager.newCompoundTag(entity.posX(), entity.posY(), entity.posZ());
         //    manager.setCompoundTag(nbt, "display", currentPos);
