@@ -6,6 +6,10 @@ function create(renderer) {
     var l_leg;
     var r_leg;
 
+    //resources
+    var model_body;
+    var model_head;
+
     //IMPORTANT DO NOT TOUCH THE ANCHORING OF THE LEFT AND RIGHT LIMBS
 
     //Models
@@ -14,7 +18,7 @@ function create(renderer) {
     model_head.bindAnimation("dhhp:powerpuff_hair").setData((entity, data) => {
         data.load(1);
     });
-    model_head.texture.set("texture");
+    // model_head.texture.set("texture");
     head = renderer.createEffect("fiskheroes:model").setModel(model_head);
     head.anchor.set("head");
 
@@ -42,14 +46,26 @@ function create(renderer) {
     r_leg = renderer.createEffect("fiskheroes:model").setModel(model_r_leg);
     r_leg.anchor.set("leftLeg");
 
-    var model_body = renderer.createResource("MODEL", "dhhp:powerpuff/body_powerpuff");
+    model_body = renderer.createResource("MODEL", "dhhp:powerpuff/body_powerpuff");
 
-    model_body.texture.set("texture");
+    // model_body.texture.set("texture");
     body = renderer.createEffect("fiskheroes:model").setModel(model_body);
     body.anchor.set("body");
 
     return {
         render: (entity, renderLayer, isFirstPersonArm) => {
+            var rgbBlossom = entity.getWornHelmet().suitType() == "dhhp:blossom/rgb";
+            var rgbBubbles = entity.getWornHelmet().suitType() == "dhhp:bubbles/rgb";
+            var rgbButtercup = entity.getWornHelmet().suitType() == "dhhp:buttercup/rgb";
+
+            if (rgbBlossom || rgbBubbles || rgbButtercup) {
+                model_body.texture.set("texture", "rgb");
+                model_head.texture.set("texture", "rgb");
+            } else {
+                model_body.texture.set("texture");
+                model_head.texture.set("texture");
+            }
+
             l_arm.setScale(2.13);
             if (isFirstPersonArm && renderLayer == "HELMET") {
                 l_arm.setOffset(-4.8, -30.7, 0);
@@ -84,6 +100,7 @@ function create(renderer) {
                 head.render();
             }
             l_arm.render();
+
         }
     };
 }

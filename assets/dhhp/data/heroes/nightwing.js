@@ -103,17 +103,20 @@ function getProfile(entity) {
     return true;
 }
 
+
 function isModifierEnabled(entity, modifier) {
-    if (modifier.name() == "fiskheroes:lightning_cast") {
-        return entity.getHeldItem().isEmpty() && (entity.getData("dhhp:dyn/escrima_lightning"));
-    } else if (modifier.name() == "fiskheroes:transformation") {
-        return entity.getHeldItem().isEmpty();
-    } else if (modifier.name() == "fiskheroes:cooldown") {
-        return entity.getHeldItem().isEmpty();
-    } else if (modifier.name() == "fiskheroes:equipment") {
-        return !entity.getData("dhhp:dyn/escrima");
+    switch (modifier.name()) {
+        case "fiskheroes:lightning_cast":
+            return entity.getHeldItem().isEmpty() && entity.getData("dhhp:dyn/escrima_lightning");
+        case "fiskheroes:transformation":
+            return entity.getHeldItem().isEmpty();
+        case "fiskheroes:cooldown":
+            return entity.getHeldItem().isEmpty();
+        case "fiskheroes:equipment":
+            return !entity.getData("dhhp:dyn/escrima");
+        default:
+            return true;
     }
-    return true;
 }
 
 function isKeyBindEnabled(entity, keyBind) {
@@ -122,6 +125,8 @@ function isKeyBindEnabled(entity, keyBind) {
             return ((entity.getHeldItem().isEmpty()) && (!entity.getData("dhhp:dyn/escrima_lightning")));
         case "ESCRIMA_LIGHTNING":
             return (entity.getData("dhhp:dyn/escrima") && (entity.getHeldItem().isEmpty()));
+        case "UTILITY_BELT":
+            return !entity.getData("dhhp:dyn/escrima");
         default:
             return true;
     }

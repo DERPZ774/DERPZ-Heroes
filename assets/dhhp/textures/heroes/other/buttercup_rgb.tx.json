@@ -1,11 +1,11 @@
 {
     "texture": {
-        "in": "dhhp:other/blossom_rgb",
+        "in": "dhhp:other/buttercup_rgb",
         "transform": [{
             "operation": "HUE",
             "supply": "<TIMER>"
         }],
-        "out": "dhhp:generated/blossom_rgb_<TIMER>"
+        "out": "dhhp:generated/buttercup_rgb_<TIMER>"
     },
     "getters": {
         "TIMER": {

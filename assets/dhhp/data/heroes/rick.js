@@ -1,4 +1,5 @@
 var DC = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
+
 function extractCoords(input) {
     var sections = input.split(" ");
     if (sections.length === 3) { // Make sure input is formatted correctly
@@ -29,6 +30,7 @@ function canUseTeleport(entity) {
     }
     return extractDest(entity).isValid();
 }
+
 function SafeY(entity) {
     var complete = false;
     for (var i = 0; complete == false; i++) {
@@ -40,9 +42,11 @@ function SafeY(entity) {
 
     }
 }
+
 function init(hero) {
     hero.setName("Rick Sanchez");
     hero.setTier(2);
+    hero.hide();
 
     hero.setHelmet("item.superhero_armor.piece.hair");
     hero.setChestplate("item.superhero_armor.piece.chestpiece");
@@ -73,7 +77,7 @@ function init(hero) {
              manager.appendTag(playerPos, target);
          }
          */
-         if (entity.getData("dhhp:dyn/boolean")) {
+        if (entity.getData("dhhp:dyn/boolean")) {
             if (entity.world().getDimension() == 2595) {
                 manager.setData(entity, "fiskheroes:teleport_dest", new DC(Math.floor(entity.posX()), Math.floor(entity.posY()), Math.floor(entity.posZ()), 0));
                 manager.setData(entity, "fiskheroes:teleport_delay", 1);
@@ -106,13 +110,13 @@ function functionTeleport(player, manager) {
 
 function isKeyBindEnabled(entity, keyBind) {
     switch (keyBind) {
-    case "Func_TELEPORT":
-        return extractDest(entity).isValid();
-    case "SHAPE_SHIFT_RESET":
-        return extractDest(entity).isValid();
-    case "SHAPE_SHIFT_RESET":
-        return extractDest(entity).isValid();
-    default:
-        return true;
+        case "Func_TELEPORT":
+            return extractDest(entity).isValid();
+        case "SHAPE_SHIFT_RESET":
+            return extractDest(entity).isValid();
+        case "SHAPE_SHIFT_RESET":
+            return extractDest(entity).isValid();
+        default:
+            return true;
     }
 }
