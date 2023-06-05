@@ -10,6 +10,7 @@ var utils = implement("fiskheroes:external/utils");
 var capes = implement("fiskheroes:external/capes");
 
 var cape;
+var physics;
 
 function initEffects(renderer) {
     flight.bindFlightTrail(renderer);
