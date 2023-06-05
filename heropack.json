@@ -8,7 +8,7 @@
     "sounds": {
         "download": {
             "repository": "DERPZ774/Sounds",
-            "version": 0
+            "version": 1
         },
         "range": {
             "shoot.gun": {
@@ -92,6 +92,10 @@
                 "target": "ALL"
             },
             "teleport.prime.x": {
+                "distance": 25.0,
+                "target": "ALL"
+            },
+            "boost.ppg": {
                 "distance": 25.0,
                 "target": "ALL"
             }

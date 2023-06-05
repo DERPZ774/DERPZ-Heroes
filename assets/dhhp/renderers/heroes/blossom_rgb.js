@@ -3,6 +3,7 @@ loadTextures({
     "rgb": "dhhp:other/blossom_rgb.tx.json"
 });
 
+/*
 function initEffects(renderer) {
     parent.initEffects(renderer);
 
@@ -14,3 +15,4 @@ function initEffects(renderer) {
 function getTrailType() {
     return "dhhp:rgb_ppg_blue", "dhhp:rgb_ppg_cyan", "dhhp:rgb_ppg_green", "dhhp:rgb_ppg_magenta", "dhhp:rgb_ppg_red", "dhhp:rgb_ppg_yellow";
 }
+*/
