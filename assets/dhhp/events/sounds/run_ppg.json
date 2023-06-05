@@ -1,0 +1,7 @@
+{
+    "parent": "fiskheroes:sound_base",
+    "sound": "dhhp:boost.ppg",
+    "condition": "entity.getData('fiskheroes:speed_sprinting')",
+    "pitch": "1.1 - Math.random() * 0.4",
+    "fadeOut": 10
+}

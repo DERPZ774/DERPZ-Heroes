@@ -1,0 +1,37 @@
+{
+    "name": "Subatomic Manipulation",
+    "modifiers": {
+        "fiskheroes:slow_motion": {},
+        "fiskheroes:arrow_catching": {},
+        "fiskheroes:regeneration": {
+            "factor": 3
+        },
+        "fiskheroes:projectile_immunity": {},
+        "fiskheroes:propelled_flight": {},
+        "fiskheroes:controlled_flight": {
+            "speed": 0.1,
+            "boostSpeed": 0.25,
+            "canBoost": true,
+            "diveSpeedRetention": 0.5,
+            "collision": {
+                "blocks": {
+                    "stopFlying": false,
+                    "takeDamage": true
+                },
+                "entities": {
+                    "stopFlying": false,
+                    "dealDamage": true
+                }
+            },
+            "knockback": 0.4,
+            "soundEvents": {
+                "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
+                "BOOST": ["fiskheroes:flight_boost", "fiskheroes:flight_boost_super"]
+            }
+        },
+        "fiskheroes:teleportation": {
+            "canReachMoon": true,
+            "range": 128.0
+        }
+    }
+}

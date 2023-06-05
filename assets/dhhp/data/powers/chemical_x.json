@@ -22,7 +22,15 @@
             "radius": 50
         },
         "fiskheroes:super_speed": {
-            "canUseTreadmill": false
+            "canUseTreadmill": false,
+            "canUseTachyons": false,
+            "soundEvents": {
+                "ENABLE": [],
+                "DISABLE": [],
+                "MOVE": [],
+                "SPRINT": ["dhhp:run_ppg"],
+                "STOP": []
+            }
         },
         "fiskheroes:arrow_catching": {},
         "fiskheroes:regeneration": {

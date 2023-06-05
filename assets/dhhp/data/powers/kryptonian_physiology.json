@@ -175,10 +175,12 @@
             "isToggle": true
         },
         "fiskheroes:super_speed|normal": {
-            "canUseTreadmill": false
+            "canUseTreadmill": false,
+            "canUseTachyons": false
         },
         "fiskheroes:super_speed|sun": {
-            "canUseTreadmill": false
+            "canUseTreadmill": false,
+            "canUseTachyons": false
         },
 
         "fiskheroes:hover": {},

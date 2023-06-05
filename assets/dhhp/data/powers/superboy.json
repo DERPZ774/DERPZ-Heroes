@@ -42,7 +42,8 @@
             "leapAmount": [1.5, 0.8]
         },
         "fiskheroes:super_speed": {
-            "canUseTreadmill": false
+            "canUseTreadmill": false,
+            "canUseTachyons": false
         },
         "fiskheroes:slow_motion": {},
         "fiskheroes:arrow_catching": {},
