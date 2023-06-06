@@ -20,8 +20,8 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", -0.75, 1);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
-    hero.addKeyBind("HEAT_VISION", "\u00A7lHeat Vision", 1);
-    hero.addKeyBind("CHARGED_BEAM", "key.heatVision", 1);
+    hero.addKeyBind("HEAT_VISION", "Heat Vision", 1);
+    hero.addKeyBind("CHARGED_BEAM", "\u00A7lHeat Vision", 1);
     hero.addKeyBind("ENERGY_PROJECTION", "Freeze Breath", 2);
     hero.addKeyBind("SLOW_MOTION", "key.slowMotion", 3);
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 4);
@@ -77,9 +77,9 @@ function isKeyBindEnabled(entity, keyBind) {
         case "func_CHARGE":
             return !boostflight && (y) >= 200 && entity.getData("dhhp:dyn/powered") == false && entity.world().getDimension() == 2595;
         case "HEAT_VISION":
-            return !boostflight && entity.getData("dhhp:dyn/power_cooldown") < 1 && entity.getData("dhhp:dyn/power_cooldown") > 0 && powered;
-        case "CHARGED_BEAM":
             return !boostflight && entity.getData("dhhp:dyn/power_cooldown") == 1 || (!boostflight && !powered);
+        case "CHARGED_BEAM":
+            return !boostflight && entity.getData("dhhp:dyn/power_cooldown") < 1 && entity.getData("dhhp:dyn/power_cooldown") > 0 && powered;
         case "SUPER_SPEED":
             return !boostflight && (y) <= 400 && !entity.getData("fiskheroes:flying");
         case "ENERGY_PROJECTION":

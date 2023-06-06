@@ -86,7 +86,7 @@
         "fiskheroes:propelled_flight": {},
         "fiskheroes:heat_vision": {
             "damageProfile": {
-                "damage": 4.5,
+                "damage": 7.0,
                 "types": {
                     "ENERGY": 2.25,
                     "FIRE": 2.25
@@ -108,7 +108,7 @@
         },
         "fiskheroes:charged_beam": {
             "damageProfile": {
-                "damage": 3.5,
+                "damage": 8.0,
                 "types": {
                     "ENERGY": 1.0,
                     "FIRE": 1.0
