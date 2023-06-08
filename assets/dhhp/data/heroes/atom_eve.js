@@ -17,6 +17,8 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 0.25, 1);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
+    hero.addKeyBind("SHIELD", "Shielding", 1);
+
     hero.setModifierEnabled(isModifierEnabled);
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000)

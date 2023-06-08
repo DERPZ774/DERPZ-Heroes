@@ -1,4 +1,4 @@
-extend("dhhp:powerpuff_base");
+extend("dhhp:blossom");
 loadTextures({
     "rgb": "dhhp:other/blossom_rgb.tx.json",
     "texture": "dhhp:other/blossom"
@@ -8,7 +8,7 @@ loadTextures({
 function initEffects(renderer) {
     parent.initEffects(renderer);
 
-    var trail = renderer.bindProperty("fiskheroes:trail");
+    /* var trail = renderer.bindProperty("fiskheroes:trail");
 
     //trail code stolen (this is a joke i got permission) from max
     var trail_1 = renderer.createResource("TRAIL", "dhhp:rgb_ppg_blue");
@@ -37,17 +37,18 @@ function initEffects(renderer) {
 
         return entity.getData("fiskheroes:speeding") || entity.getData("fiskheroes:flying") && entity.isSprinting();
     });
+*/
+    /* utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:freeze_breath", "head", 0x90ffff, [
+         { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.0, -4.0], "size": [4.0, 4.0] }
+     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:freeze_impact"));
 
-    utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:freeze_breath", "head", 0x90ffff, [
-        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.0, -4.0], "size": [4.0, 4.0] }
-    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:freeze_impact"));
-
-    utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:heat_breath", "head", 0xF43D07, [
-        { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.0, -4.0], "size": [1.0, 1.0] }
-    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:heat_impact"));
+     utils.bindBeam(renderer, "fiskheroes:energy_projection", "dhhp:heat_breath", "head", 0xF43D07, [
+         { "firstPerson": [0.0, 2.5, 0.0], "offset": [0.0, -1.0, -4.0], "size": [1.0, 1.0] }
+     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:heat_impact"));
+     */
 }
 
-function initAnimations(renderer) {
-    parent.initAnimations(renderer);
-    renderer.removeCustomAnimation("basic.ENERGY_PROJ");
-}
+// function initAnimations(renderer) {
+//     parent.initAnimations(renderer);
+//     renderer.removeCustomAnimation("basic.ENERGY_PROJ");
+// }

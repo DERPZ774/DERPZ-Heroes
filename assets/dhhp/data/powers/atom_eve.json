@@ -41,8 +41,8 @@
                 "cooldown": 240
             },
             "coverage": {
-                "yawRadius": 180.0,
-                "pitchRadius": 180.0,
+                "yawRadius": 90.0,
+                "pitchRadius": 90.0,
                 "yawOffset": 0.0,
                 "pitchOffset": 0.0
             },

@@ -11,6 +11,10 @@ var capes = implement("fiskheroes:external/capes");
 
 var cape;
 var physics;
+var shield;
+var shield_l;
+var shield_r;
+var flightRenderHands;
 
 function initEffects(renderer) {
     flight.bindFlightTrail(renderer);
@@ -34,6 +38,36 @@ function initEffects(renderer) {
 
     cape = capes.create(renderer, 12, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
+
+    var shieldRender = "dhhp:atom_eve";
+    var color = 0xCA445B;
+    //shield render
+    shield = utils.createLines(renderer, shieldRender, color, [
+        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [3.0, 60.0] }
+    ]);
+    shield.anchor.set("head");
+    shield.setOffset(0, 24, -12.0).setRotation(0.0, 90.0, -90.0).setScale(8.0);
+    // shield.setScale(16.0);
+
+    shield_l = utils.createLines(renderer, shieldRender, color, [
+        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [3.0, 60.0] }
+    ]);
+    shield_l.anchor.set("head");
+    shield_l.setOffset(-25.0, 24, -7.0).setRotation(0.0, -115.0, -90.0).setScale(8.0);
+
+    shield_r = utils.createLines(renderer, shieldRender, color, [
+        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [3.0, 60.0] }
+    ]);
+    shield_r.anchor.set("head");
+    shield_r.setOffset(25.0, 24, -7.0).setRotation(0.0, 115.0, -90.0).setScale(8.0);
+
+    flightRenderHands = utils.createLines(renderer, "dhhp:atom_eve_flight", color, [
+        { "start": [0.0, 0.0, 0.0], "end": [0.8, 0.0, 0.0], "size": [4.0, 4.0] }
+    ]);
+    flightRenderHands.anchor.set("leftArm");
+    flightRenderHands.setOffset(-1.0, 12.5, 0).setRotation(0.0, 90.0, 90.0).setScale(4.0);
+    flightRenderHands.mirror = true;
+
 
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
     utils.addCameraShake(renderer, 0.015, 4.5, "fiskheroes:dyn/superhero_landing_timer");
@@ -61,6 +95,17 @@ function initAnimations(renderer) {
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
+    var timer = entity.getInterpolatedData("fiskheroes:shield_timer");
+
+    shield.progress = timer;
+    shield.render();
+
+    shield_l.progress = timer;
+    shield_l.render();
+
+    shield_r.progress = timer;
+    shield_r.render();
+
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
         var f = entity.getInterpolatedData("fiskheroes:flight_timer");
         cape.render({
@@ -69,5 +114,10 @@ function render(entity, renderLayer, isFirstPersonArm) {
             "flutter": physics.getFlutter(entity),
             "flare": physics.getFlare(entity)
         });
+
+        flightRenderHands.progress = entity.getInterpolatedData("fiskheroes:flight_timer");
+        flightRenderHands.render();
     }
+
 }
+//Fix shield render first person
