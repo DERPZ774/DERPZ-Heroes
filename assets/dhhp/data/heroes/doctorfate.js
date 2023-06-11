@@ -8,6 +8,7 @@ function init(hero) {
     hero.addAttribute("PUNCH_DAMAGE", 11.5, 0);
     hero.addAttribute("SPRINT_SPEED", 0.4, 1);
     hero.addAttribute("WEAPON_DAMAGE", -0.50, 1);
+    hero.addAttribute("FALL_RESISTANCE", 1, 1);
 
     hero.addKeyBind("CHARGED_BEAM", "Order Beam", 1);
     hero.addKeyBind("SPELL_MENU", "Wheel Of Fate", 2);

@@ -28,14 +28,15 @@ function init(renderer) {
     renderer.setTexture((entity, renderLayer) => {
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
 
-        if (!entity.isDisplayStand()) {
+        if (!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") {
             return timer == 0 ? "helm" : timer < 1 ? "suit" : "base";
         }
         return "base";
     });
     renderer.setLights((entity, renderLayer) => {
-        var timer = entity.getData("dhhp:dyn/helmet_timer");
-        return (timer >= 1 || entity.isDisplayStand()) ? "lights" : (timer > 0 ? "lights_helmet" : null);
+        var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
+
+        return (timer >= 1 || entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") ? "lights" : (timer > 0 ? "lights_helmet" : null);
     });
 
     renderer.showModel("HELMET", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
@@ -139,7 +140,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
         var f = entity.getInterpolatedData("fiskheroes:flight_timer");
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
 
-        cape.effect.length = entity.isDisplayStand() ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24;
+        cape.effect.length = entity.is("DISPLAY") ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24;
         cape.render({
             "wind": timer < 1 ? timer : 1 + 0.3 * f,
             "windFactor": 1 - 0.7 * f,
@@ -148,7 +149,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
         });
 
 
-        if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.isDisplayStand()) {
+        if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.is("DISPLAY")) {
             ankh.setScale(0.1);
             ankh.setOffset(0, 2.0, -2.7);
             ankh.render();

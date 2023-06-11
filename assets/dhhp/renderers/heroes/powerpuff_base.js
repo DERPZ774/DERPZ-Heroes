@@ -27,6 +27,9 @@ function initEffects(renderer) {
         { "firstPerson": [3.0, 0.0, 2.0], "offset": [4.5, -7.5, -4.0], "size": [4.0, 2.0] },
         { "firstPerson": [-3.0, 0.0, 2.0], "offset": [-4.5, -7.5, -4.0], "size": [4.0, 2.0] }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_heat_vision"));
+
+    var dome = renderer.bindProperty("fiskheroes:shadowdome");
+    dome.texture.set("blank");
 }
 
 function initAnimations(renderer) {

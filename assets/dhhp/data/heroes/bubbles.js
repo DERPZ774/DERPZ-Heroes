@@ -1,6 +1,7 @@
 var domain = "dhhp";
 var utils = implement("dhhp:external/utils");
 var shadowDome = implement(domain + ":external/ppg_boost");
+
 function init(hero) {
     hero.setName("Bubbles");
     hero.setVersion("PowerPuff Girls");
@@ -18,7 +19,7 @@ function init(hero) {
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
     hero.addKeyBind("HEAT_VISION", "Heat Vision", 1);
-    hero.addKeyBind("SONIC_WAVES", "Ultrasonic scream", 2);
+    hero.addKeyBind("SONIC_WAVES", "Ultrasonic Scream", 2);
     hero.addKeyBind("SUPER_SPEED", "key.superSpeed", 3);
 
     hero.setModifierEnabled(isModifierEnabled);

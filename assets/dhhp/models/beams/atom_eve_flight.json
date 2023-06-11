@@ -22,16 +22,16 @@
             "type": "LIGHTNING",
             "opacity": 1.0,
             "scale": 0.6,
-            "amount": 4,
+            "amount": 6,
             "segments": {
                 "min": 5,
                 "spacing": 1.5
             },
-            "intensity": 0.4,
+            "intensity": 0.8,
             "changeRate": 1.0,
             "bounds": [
-                1.0,
-                1.0
+                2.0,
+                2.0
             ],
             "core": null,
             "bloom": {

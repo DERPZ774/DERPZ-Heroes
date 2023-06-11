@@ -3,7 +3,8 @@ var utils = implement("dhhp:external/utils");
 function init(hero) {
     hero.setName("Atom Eve");
     hero.setVersion("Invincible");
-    hero.setTier(3);
+    hero.setTier(7);
+    hero.hide();
 
     hero.setHelmet("item.superhero_armor.piece.hair");
     hero.setChestplate("item.superhero_armor.piece.chestpiece");
