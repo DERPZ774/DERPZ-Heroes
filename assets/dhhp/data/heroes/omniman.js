@@ -10,7 +10,6 @@ function init(hero) {
     hero.setBoots("item.superhero_armor.piece.boots");
 
     hero.addPowers("dhhp:viltrumite_physiology");
-
     hero.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
     hero.addAttribute("MAX_HEALTH", 5.0, 0);
     hero.addAttribute("PUNCH_DAMAGE", 10.5, 0);
@@ -31,6 +30,8 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000)
+        manager.setData(entity, "dhhp:dyn/buns", entity.getData("dhhp:dyn/sneak_timer") == 1 ? true : false)
+        manager.setData(entity, "dhhp:dyn/sneak_timer", !entity.isSneaking() && !entity.getData("fiskheroes:moving") ? 0 : entity.getData("dhhp:dyn/sneak_timer"))
     });
 }
 

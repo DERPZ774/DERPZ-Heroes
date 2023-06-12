@@ -2,11 +2,13 @@ extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "dhhp:other/omniman_layer1",
     "layer2": "dhhp:other/omniman_layer2",
-    "cape": "dhhp:other/omniman_cape"
+    "cape": "dhhp:other/omniman_cape",
+    "buns": "dhhp:other/buns_omniman"
 });
 
 var cape;
 var physics;
+var cheeks;
 
 var utils = implement("fiskheroes:external/utils");
 var flight = implement("dhhp:external/flight");
@@ -39,6 +41,12 @@ function initEffects(renderer) {
     cape = capes.create(renderer, 24, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
 
+    var buns = renderer.createResource("MODEL", "dhhp:buns");
+    buns.texture.set("buns");
+    cheeks = renderer.createEffect("fiskheroes:model").setModel(buns);
+    cheeks.anchor.set("body");
+
+
     flight.bindFlightTrail(renderer);
     flight.bindFlightParticle(renderer);
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
@@ -48,6 +56,12 @@ function initEffects(renderer) {
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.PROP_FLIGHT");
+
+    // addAnimationWithData(renderer, "omniman.BUNS", "dhhp:omni_buns", "dhhp:dyn/sneak_timer");
+
+    addAnimation(renderer, "omniman.BUNS", "dhhp:omni_buns").setData((entity, data) => {
+        data.load(entity.getData("dhhp:dyn/buns") ? 1 : 0);
+    }).priority = 1;
 
     addAnimation(renderer, "omniman.FLIGHT", "dhhp:flight/omniman_flight.anim.json")
         .setData((entity, data) => {
@@ -67,13 +81,19 @@ function initAnimations(renderer) {
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-    if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
-        var f = entity.getInterpolatedData("fiskheroes:flight_timer");
-        cape.render({
-            "wind": 1 + 0.3 * f,
-            "windFactor": 1 - 0.7 * f,
-            "flutter": physics.getFlutter(entity),
-            "flare": physics.getFlare(entity)
-        });
+    if (!isFirstPersonArm) {
+        if (entity.getData("dhhp:dyn/buns")) {
+            cheeks.render();
+        }
+
+        if (renderLayer == "CHESTPLATE") {
+            var f = entity.getInterpolatedData("fiskheroes:flight_timer");
+            cape.render({
+                "wind": 1 + 0.3 * f,
+                "windFactor": 1 - 0.7 * f,
+                "flutter": physics.getFlutter(entity),
+                "flare": physics.getFlare(entity)
+            });
+        }
     }
 }

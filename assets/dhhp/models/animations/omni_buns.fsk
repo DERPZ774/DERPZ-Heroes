@@ -1,0 +1,46 @@
+;{data} = curve {data}
+
+{head_posY} = 6
+{head_posZ} = -1
+
+
+{body_posY} = 6
+
+{body_rotX} = 15.5'
+
+
+{rightArm_posX} -= 0.25
+{rightArm_posY} = 8.25
+{rightArm_posZ} -= -1
+
+{rightArm_rotX} -= 95'
+{rightArm_rotY} -= 34.5'
+{rightArm_rotZ} -= -75'
+
+
+{leftArm_posX} -= -0.25
+{leftArm_posY} = 8
+{leftArm_posZ} -= 1.25
+
+{leftArm_rotX} -= 90'
+{leftArm_rotY} -= -40'
+{leftArm_rotZ} -= 75'
+
+
+
+{rightLeg_posX} -= 3.5
+{rightLeg_posY} = 12.75
+{rightLeg_posZ} -= 8
+
+{rightLeg_rotX} -= -32.5'
+{rightLeg_rotY} -= -7'
+{rightLeg_rotZ} -= 0'
+
+
+{leftLeg_posX} -= -3.5
+{leftLeg_posY} = 12.5
+{leftLeg_posZ} -= 9
+
+{leftLeg_rotX} -= -37.5'
+{leftLeg_rotY} -= 14.5'
+{leftLeg_rotZ} -= 0'

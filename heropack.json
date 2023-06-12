@@ -4,7 +4,7 @@
     "domain": "dhhp",
     "description": "A Heropack that adds many suits from DC, Marvel, and other universes!",
     "packFormat": 1,
-    "minVersion": "2.1.0",
+    "minVersion": "2.2.1",
     "sounds": {
         "download": {
             "repository": "DERPZ774/Sounds",
@@ -153,6 +153,8 @@
         "statboost2": "BOOLEAN",
         "statboost3": "BOOLEAN",
         "gen_portal": "BOOLEAN",
+        "buns": "BOOLEAN",
+        "sneak_timer": "FLOAT_INTERP",
         "boolean": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "float": { "type": "FLOAT", "resetWithoutSuit": true }
     },

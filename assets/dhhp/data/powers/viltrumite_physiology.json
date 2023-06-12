@@ -55,6 +55,14 @@
         "fiskheroes:damage_weakness": {
             "damageType": "SOUND",
             "factor": 4.0
+        },
+        "fiskheroes:cooldown|cooldown": {
+            "cooldown": {
+                "toggleData": "entity.isSneaking() && !entity.getData('fiskheroes:moving') && entity.onGround",
+                "cooldownData": "dhhp:dyn/sneak_timer",
+                "duration": 200,
+                "recovery": 1
+            }
         }
     }
 }
