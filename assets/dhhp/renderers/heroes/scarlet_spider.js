@@ -33,7 +33,7 @@ function initEffects(renderer) {
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     addAnimationWithData(renderer, "scarlet.BLADE", "dhhp:scarlet_blade", "fiskheroes:blade_timer");
-    utils.addAnimationEvent(renderer, "WEBSWING_RIGHT", ["fiskheroes:swing_right", "dhhp:scarlet_swing_anim"]);
+    utils.addAnimationEvent(renderer, "WEBSWING_RIGHT", ["fiskheroes:swing_right"]);
     utils.addAnimationEvent(renderer, "WEBSWING_DEFAULT", ["fiskheroes:swing_default"]);
     utils.addAnimationEvent(renderer, "WEBSWING_DIVE", [
         "fiskheroes:swing_dive",

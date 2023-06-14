@@ -20,6 +20,8 @@ var escrima_back2;
 var model_escrima1;
 var model_escrima2;
 
+var night_vision;
+
 function init(renderer) {
     parent.init(renderer);
     renderer.setLights((entity, renderLayer) => renderLayer == "HELMET" ? "lights" : null);
@@ -47,6 +49,10 @@ function initEffects(renderer) {
     utils.bindBeam(renderer, "fiskheroes:lightning_cast", "fiskheroes:lightning_cast", "rightArm", 0x0000FF, [
         { "firstPerson": [-8.0, 4.5, -10.0], "offset": [-0.5, 9.0, 0.0], "size": [0.75, 0.75] }
     ]);
+
+    night_vision = renderer.bindProperty("fiskheroes:night_vision");
+    night_vision.factor = 0.30;
+    night_vision.firstPersonOnly = false;
 
 }
 

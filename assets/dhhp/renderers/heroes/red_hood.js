@@ -9,6 +9,8 @@ loadTextures({
 
 var utils = implement("fiskheroes:external/utils");
 
+var night_vision;
+
 function init(renderer) {
     parent.init(renderer);
     renderer.setLights((entity, renderLayer) => renderLayer == "HELMET" ? "lights" : null);
@@ -21,4 +23,8 @@ function initEffects(renderer) {
         { "anchor": "rightLeg", "scale": 0.7, "offset": [-2.4, 0.5, 1.25], "rotation": [90.0, 0.0, 0.0] },
         { "anchor": "leftLeg", "scale": 0.7, "offset": [2.4, 0.5, 1.25], "rotation": [90.0, 0.0, 0.0] }
     ]).slotIndex = 1;
+
+    night_vision = renderer.bindProperty("fiskheroes:night_vision");
+    night_vision.factor = 0.30;
+    night_vision.firstPersonOnly = false;
 }

@@ -1,0 +1,12 @@
+;{anim} = curve min(animate2({data}, length, delay, turn on time, turn off time), 1)
+
+{data} = sin(pi(1 - {data}))^2
+
+
+{rightArm_rotX} @ {data} -> -95'
+{rightArm_rotZ} @ {data} -> 50'
+{rightArm_rotY} @ {data} -> -25'
+
+{rightArm_rotX} @ {data} -> -125'
+;{rightArm_rotY} @ {anim2} -> 25'
+{rightArm_rotZ} @ {data} -> -45'

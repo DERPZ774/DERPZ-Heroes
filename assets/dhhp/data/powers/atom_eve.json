@@ -53,6 +53,14 @@
                 "DEFLECT": "fiskheroes:anti_forcefield_deflect",
                 "DISARM": "fiskheroes:shield_disarm"
             }
+        },
+        "fiskheroes:transformation": {
+            "key": "TRANSFORM",
+            "transformation": {
+                "toggleData": "dhhp:dyn/atom",
+                "timerData": "dhhp:dyn/atom_timer",
+                "time": 12
+            }
         }
     }
 }

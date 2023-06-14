@@ -16,6 +16,7 @@ var capes = implement("fiskheroes:external/capes");
 var cape;
 var shield;
 var vibration;
+var night_vision;
 
 function init(renderer) {
     parent.init(renderer);
@@ -50,6 +51,10 @@ function initEffects(renderer) {
     cape = capes.createDefault(renderer, 24, "fiskheroes:cape_default.mesh.json", physics);
     cape.effect.texture.set("cape");
     cape.effect.width = 12;
+
+    night_vision = renderer.bindProperty("fiskheroes:night_vision");
+    night_vision.factor = 0.45;
+    night_vision.firstPersonOnly = false;
 }
 
 function initAnimations(renderer) {
