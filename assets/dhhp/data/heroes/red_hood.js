@@ -21,7 +21,27 @@ function init(hero) {
     hero.addKeyBind("GUN_RELOAD", "key.reload", 1);
     hero.addKeyBind("UTILITY_BELT", "key.utilityBelt", 2);
 
-    hero.setKeyBindEnabled((entity, keyBind) => keyBind != "GUN_RELOAD" || entity.getHeldItem().isGun() && !entity.getData("fiskheroes:aiming"));
-    hero.setHasPermission((entity, permission) => permission == "USE_GUN" || permission == "USE_GRAPPLING_GUN");
+    hero.setHasPermission(hasPermission);
+    hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun());
+}
+
+function isKeyBindEnabled(entity, keyBind) {
+    switch (keyBind) {
+        case "GUN_RELOAD": 
+            return entity.getHeldItem().isGun();
+        case "UTILITY_BELT": 
+            return !entity.getHeldItem().isGun();
+        default:
+            return true;
+	}
+}
+
+function isModifierEnabled(entity, modifier) {
+    switch (modifier.name) {
+        case "fiskheroes:equipment":
+            return entity.getHeldItem().isEmpty() && entity.getData("fiskheroes:utility_belt_type") == -1
+        case "fiskheroes:aiming": 
+            return entity.getData("fiskheroes:utility_belt_type") == -1;
+    }
 }
