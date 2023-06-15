@@ -60,15 +60,9 @@ function isModifierEnabled(entity, modifier) {
 }
 
 function isKeyBindEnabled(entity, keyBind) {
-    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
-
     switch (keyBind) {
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
-        case "HEAT_VISION":
-            return !boostflight && !entity.getData("fiskheroes:flying");
-        case "SONIC_WAVES":
-            return !boostflight && !entity.getData("fiskheroes:flying");
         default:
             return true;
     }

@@ -15,8 +15,6 @@ var physics;
 var chest;
 
 function initEffects(renderer) {
-    flight.bindFlightTrail(renderer);
-    flight.bindFlightParticle(renderer);
     atom = atom.create(renderer, utils);
 
     physics = renderer.createResource("CAPE_PHYSICS", null);
@@ -43,12 +41,16 @@ function initEffects(renderer) {
 
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
     utils.addCameraShake(renderer, 0.015, 4.5, "fiskheroes:dyn/superhero_landing_timer");
+    utils.bindCloud(renderer, "fiskheroes:telekinesis", "fiskheroes:telekinesis_monitor");
 }
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
     renderer.removeCustomAnimation("basic.PROP_FLIGHT");
     renderer.removeCustomAnimation("basic.BLOCKING");
+    renderer.removeCustomAnimation("basic.ENERGY_PROJ");
+    renderer.removeCustomAnimation("basic.CHARGED_BEAM");
+    renderer.removeCustomAnimation("basic.AIMING");
 
     addAnimation(renderer, "invicible.FLIGHT", "dhhp:flight/invincible_flight.anim.json")
         .setData((entity, data) => {
@@ -57,14 +59,13 @@ function initAnimations(renderer) {
         })
         .priority = -10;
 
-    addAnimationWithData(renderer, "iron_man.LAND", "fiskheroes:superhero_landing", "fiskheroes:dyn/superhero_landing_timer")
-        .priority = -8;
-
     utils.addHoverAnimation(renderer, "invincible.HOVER", "fiskheroes:flight/idle/martian_comics");
     utils.addAnimationEvent(renderer, "FLIGHT_DIVE", "fiskheroes:iron_man_dive");
 
     addAnimationWithData(renderer, "basic.BLOCKING", "dhhp:atom_shield", "fiskheroes:shield_blocking_timer");
     addAnimationWithData(renderer, "atom.TRANSFORM", "dhhp:atom_transform", "dhhp:dyn/atom_timer");
+    addAnimationWithData(renderer, "atom.AIMING", "fiskheroes:dual_aiming", "fiskheroes:energy_projection_timer");
+    addAnimationWithData(renderer, "atom.TELE", "fiskheroes:aiming", "fiskheroes:aiming_timer");
 
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
@@ -85,5 +86,4 @@ function render(entity, renderLayer, isFirstPersonArm) {
             chest.render();
         }
     }
-
 }

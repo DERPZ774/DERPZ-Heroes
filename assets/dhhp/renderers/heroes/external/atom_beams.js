@@ -11,7 +11,8 @@ function create(renderer, utils) {
     var color = 0xCA445B;
     var circle = renderer.createResource("SHAPE", "dhhp:atom_eve");
     var beam = renderer.createResource("BEAM_RENDERER", "dhhp:atom_transformation");
-    //shield render
+    var beamCharged = renderer.createResource("BEAM_RENDERER", "fiskheroes:cold_beam")
+        //shield render
     shield = utils.createLines(renderer, shieldRender, color, [
         { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [3.0, 60.0] }
     ]);
@@ -50,6 +51,12 @@ function create(renderer, utils) {
 
     transformation.anchor.set("body");
 
+    //Charged Beam
+    utils.bindBeam(renderer, "fiskheroes:energy_projection", beamCharged, "rightArm", color, [
+        { "firstPerson": [-3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5] },
+        { "firstPerson": [3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5], "anchor": "leftArm" }
+    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_energy_projection"));
+
     return {
         render: (entity, renderLayer, isFirstPersonArm) => {
             var timer = entity.getInterpolatedData("fiskheroes:shield_timer");
@@ -63,6 +70,7 @@ function create(renderer, utils) {
             shield_r.progress = timer;
             shield_r.render();
 
+
             if (entity.getData("dhhp:dyn/atom_timer") != 0 && entity.getData("dhhp:dyn/atom_timer") != 1) {
                 // transformation.progress = entity.getInterpolatedData("dhhp:dyn/atom_timer");
                 transformation.setOffset(0, (1 - entity.getInterpolatedData("dhhp:dyn/atom_timer") * 38 + 24), 0).setScale(40);
@@ -70,7 +78,7 @@ function create(renderer, utils) {
             }
 
             if (!isFirstPersonArm) {
-                if (renderLayer == "CHESTPLATE") {
+                if (renderLayer == "CHESTPLATE" && !entity.getData("fiskheroes:shield")) {
                     flightRenderHands.progress = entity.getInterpolatedData("fiskheroes:flight_timer");
                     flightRenderHands.render();
                 }

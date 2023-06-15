@@ -59,7 +59,43 @@
             "transformation": {
                 "toggleData": "dhhp:dyn/atom",
                 "timerData": "dhhp:dyn/atom_timer",
-                "time": 12
+                "time": 15
+            }
+        },
+        "fiskheroes:energy_projection": {
+            "damageProfile": {
+                "damage": 4.0,
+                "types": {
+                    "ENERGY": 1.0
+                },
+                "properties": {
+                    "COOK_ENTITY": true,
+                    "HEAT_TRANSFER": 80
+                }
+            },
+            "range": 10.0,
+            "radius": 0.1,
+            "soundEvents": {
+                "SHOOT": "fiskheroes:cosmic_beam"
+            }
+        },
+        "fiskheroes:telekinesis": {
+            "telekinesis": {
+                "crushMelons": true,
+                "crushThrowables": true,
+                "squeezeChickens": true,
+                "explodeCreepers": true,
+                "destroyInanimates": true
+            },
+            "canGrab": {
+                "mobs": true,
+                "items": true,
+                "projectiles": true,
+                "inanimates": true
+            },
+            "range": 10.0,
+            "soundEvents": {
+                "GRAB": ["fiskheroes:telekinesis_start", "fiskheroes:telekinesis_loop"]
             }
         }
     }

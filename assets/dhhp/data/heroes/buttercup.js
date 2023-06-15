@@ -1,6 +1,7 @@
 var domain = "dhhp";
 var utils = implement("dhhp:external/utils");
 var shadowDome = implement(domain + ":external/ppg_boost");
+
 function init(hero) {
     hero.setName("Buttercup");
     hero.setVersion("PowerPuff Girls");
@@ -60,17 +61,9 @@ function isModifierEnabled(entity, modifier) {
 }
 
 function isKeyBindEnabled(entity, keyBind) {
-    var boostflight = entity.isSprinting() && entity.getData("fiskheroes:flying")
-
     switch (keyBind) {
         case "SUPER_SPEED":
             return !entity.getData("fiskheroes:flying");
-        case "HEAT_VISION":
-            return !boostflight && !entity.getData("fiskheroes:flying");
-        case "EARTHQUAKE":
-            return !boostflight && !entity.getData("fiskheroes:flying");
-        case "GROUND_SMASH":
-            return !boostflight && !entity.getData("fiskheroes:flying");
         default:
             return true;
     }
