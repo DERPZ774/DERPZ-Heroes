@@ -1,8 +1,13 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "dhhp:other/atom_eve/atom_eve_layer1",
-    "layer2": "dhhp:other/atom_eve/atom_eve_layer2",
-    "cape": "dhhp:other/atom_eve/atom_eve_cape"
+    "boots": "dhhp:other/atom_eve/atom_eve_boots",
+    "chest": "dhhp:other/atom_eve/atom_eve_chest",
+    "mask": "dhhp:other/atom_eve/atom_eve_mask",
+    "cape": "dhhp:other/atom_eve/atom_eve_cape",
+    "cape_hair": "dhhp:other/atom_eve/atom_eve_cape_hair",
+    "suit": "dhhp:other/atom_eve/atom_eve_suit.tx.json",
+    "base": "dhhp:other/atom_eve/atom_eve_base"
 });
 
 var flight = implement("dhhp:external/flight");
@@ -14,12 +19,34 @@ var cape;
 var physics;
 var chest;
 
+function init(renderer) {
+    parent.init(renderer);
+    renderer.setTexture((entity, renderLayer) => {
+        var timer = entity.getInterpolatedData("dhhp:dyn/atom_timer");
+
+        if (!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") {
+            return timer == 0 ? "mask" : timer < 1 ? "suit" : "base";
+        }
+
+        if (renderLayer == "CHESTPLATE") {
+            return entity.getWornHelmet().suitType() == $SUIT_NAME ? "layer1" : "chest";
+        }
+        if (renderLayer == "HELMET") {
+            return entity.getWornChestplate().suitType() == $SUIT_NAME ? "layer1" : "mask";
+        }
+        return renderLayer == "BOOTS" ? "boots" : "layer1";
+    });
+
+    renderer.showModel("HELMET", "head", "headwear", "body");
+    renderer.showModel("CHESTPLATE", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
+}
+
 function initEffects(renderer) {
     atom = atom.create(renderer, utils);
 
     physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.weight = 1.2;
-    physics.maxFlare = 0.3;
+    physics.maxFlare = 0.6;
     physics.flareDegree = 1.5;
     physics.flareFactor = 1.5;
     physics.flareElasticity = 8;
@@ -84,6 +111,11 @@ function render(entity, renderLayer, isFirstPersonArm) {
                 "flare": physics.getFlare(entity)
             });
             chest.render();
+            if (entity.getEquipmentInSlot(4).nbt().getString('HeroType') == 'dhhp:atom_eve') {
+                cape.effect.texture.set("cape_hair");
+            } else {
+                cape.effect.texture.set("cape");
+            }
         }
     }
 }

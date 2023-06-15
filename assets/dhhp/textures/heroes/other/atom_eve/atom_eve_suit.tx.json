@@ -1,0 +1,20 @@
+{
+    "texture": {
+        "in": "dhhp:other/atom_eve/atom_eve_base",
+        "transform": [{
+            "operation": "XOR",
+            "supply": "dhhp:other/atom_eve/xor/atom_xor_<TIMER>"
+        }],
+        "out": "dhhp:other/atom_eve/generated/atom_xor_<TIMER>"
+    },
+    "getters": {
+        "TIMER": {
+            "key": "Math.ceil(24 * entity.getInterpolatedData('dhhp:dyn/atom_timer')) | 0",
+            "values": {
+                "min": 1,
+                "max": 24
+            }
+        }
+    },
+    "isDynamic": true
+}
