@@ -15,20 +15,20 @@ function create(renderer, utils) {
     var beamCharged = renderer.createResource("BEAM_RENDERER", "fiskheroes:cold_beam")
         //shield render
     shield = utils.createLines(renderer, shieldRender, color, [
-        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [3.0, 60.0] }
+        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [7.5, 0.25] }
     ]);
     shield.anchor.ignoreAnchor(true);;
     shield.setOffset(0, 24, -12.0).setRotation(0.0, 90.0, -90.0).setScale(8.0);
     // shield.setScale(16.0);
 
     shield_l = utils.createLines(renderer, shieldRender, color, [
-        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [3.0, 60.0] }
+        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [7.5, 0.25] }
     ]);
     shield_l.anchor.ignoreAnchor(true);
     shield_l.setOffset(-25.0, 24, -7.0).setRotation(0.0, -115.0, -90.0).setScale(8.0);
 
     shield_r = utils.createLines(renderer, shieldRender, color, [
-        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [3.0, 60.0] }
+        { "start": [0.0, 0.0, 0.0], "end": [4.6, 0.0, 0.0], "size": [7.5, 0.25] }
     ]);
     shield_r.anchor.ignoreAnchor(true);
     shield_r.setOffset(25.0, 24, -7.0).setRotation(0.0, 115.0, -90.0).setScale(8.0);

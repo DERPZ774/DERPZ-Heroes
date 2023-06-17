@@ -3,7 +3,7 @@ var utils = implement("dhhp:external/utils");
 function init(hero) {
     hero.setName("Atom Eve");
     hero.setVersion("Invincible");
-    hero.setTier(7);
+    hero.setTier(6);
 
     hero.setHelmet("item.superhero_armor.piece.hair");
     hero.setChestplate("Leotard");
@@ -16,17 +16,18 @@ function init(hero) {
     hero.addAttribute("SPRINT_SPEED", 0.25, 1);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
-    hero.addKeyBind("SHIELD", "Shielding", 1);
-    hero.addKeyBind("TRANSFORM", "Transform", 2);
-    hero.addKeyBind("ENERGY_PROJECTION", "Blast", 3);
-    hero.addKeyBind("TELEKINESIS", "key.telekinesis", 4);
-    hero.addKeyBind("AIM", "key.aim", 5);
+    hero.addKeyBind("AIM", "key.aim", 1);
+    hero.addKeyBind("ENERGY_PROJECTION", "Blast", 2);
+    hero.addKeyBind("TELEKINESIS", "key.telekinesis", 3);
+    hero.addKeyBind("SHIELD", "Shielding", 4);
+    hero.addKeyBind("TRANSFORM", "Transform", 5);
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setAttributeProfile(getAttributeProfile);
     hero.addAttributeProfile("SHIELD", shieldProfile);
     hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
+    hero.setTierOverride(entity => entity.getData("dhhp:dyn/atom") ? 6 : 2);
     hero.supplyFunction("canAim", entity => entity.getHeldItem().isEmpty() || entity.getData("fiskheroes:telekinesis"));
     hero.setTickHandler((entity, manager) => {
         // utils.all_tick(entity, manager, "dhhp:hero.landing", 1000)
@@ -72,15 +73,15 @@ function isKeyBindEnabled(entity, keyBind) {
 
     switch (keyBind) {
         case "SHIELD":
-            return !entity.getData("fiskheroes:telekinesis") && !boostFlight && !entity.getData("fiskheroes:energy_projection") && atom && entity.getHeldItem().isEmpty();
+            return !entity.getData("fiskheroes:telekinesis") && !boostFlight && !entity.getData("fiskheroes:energy_projection") && atom && entity.getHeldItem().isEmpty() && !entity.getData("fiskheroes:aiming");
         case "ENERGY_PROJECTION":
-            return !entity.getData("fiskheroes:telekinesis") && !boostFlight && atom && !entity.getData("fiskheroes:shield") && entity.getHeldItem().isEmpty();
+            return !entity.getData("fiskheroes:telekinesis") && !boostFlight && atom && !entity.getData("fiskheroes:shield") && entity.getHeldItem().isEmpty() && !entity.getData("fiskheroes:aiming");
         case "TELEKINESIS":
-            return !entity.getData("fiskheroes:energy_projection") && atom && !entity.getData("fiskheroes:shield") && !boostFlight && entity.getHeldItem().isEmpty();
+            return !entity.getData("fiskheroes:energy_projection") && atom && !entity.getData("fiskheroes:shield") && !boostFlight && entity.getHeldItem().isEmpty() && !entity.getData("fiskheroes:aiming");
         case "TRANSFORM":
-            return !entity.getData("fiskheroes:energy_projection") && !entity.getData("fiskheroes:shield") && !boostFlight && !entity.getData("fiskheroes:telekinesis");
+            return !entity.getData("fiskheroes:energy_projection") && !entity.getData("fiskheroes:shield") && !boostFlight && !entity.getData("fiskheroes:telekinesis") && !entity.getData("fiskheroes:aiming");
         case "AIM":
-            return !entity.getData("fiskheroes:energy_projection") && atom && !entity.getData("fiskheroes:shield") && !boostFlight && entity.getHeldItem().isEmpty();
+            return !entity.getData("fiskheroes:energy_projection") && atom && !entity.getData("fiskheroes:shield") && !boostFlight && entity.getHeldItem().isEmpty() && !entity.getData("fiskheroes:telekinesis");
         default:
             return true;
     }

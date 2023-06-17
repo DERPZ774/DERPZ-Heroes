@@ -1,46 +1,26 @@
 {
     "aspects": [{
-            "type": "LASER",
-            "opacity": 0.8,
-            "scale": 5.0,
-            "spin": 5.0,
-            "pulse": {
-                "length": 10.0,
-                "size": 0.75,
-                "frequency": 1.0
-            },
-            "core": null,
-            "bloom": {
-                "strength": 0.5,
-                "spread": 1.0,
-                "dropoff": 5.0,
-                "quality": 5.0,
-                "scaleToSize": true
-            }
+        "type": "LIGHTNING",
+        "opacity": 1.0,
+        "scale": 0.6,
+        "amount": 6,
+        "segments": {
+            "min": 5,
+            "spacing": 1.5
         },
-        {
-            "type": "LIGHTNING",
-            "opacity": 1.0,
-            "scale": 0.6,
-            "amount": 6,
-            "segments": {
-                "min": 5,
-                "spacing": 1.5
-            },
-            "intensity": 0.8,
-            "changeRate": 1.0,
-            "bounds": [
-                2.0,
-                2.0
-            ],
-            "core": null,
-            "bloom": {
-                "strength": 0.75,
-                "spread": 3.0,
-                "dropoff": 5.0,
-                "quality": 3.0,
-                "scaleToSize": true
-            }
+        "intensity": 0.8,
+        "changeRate": 1.0,
+        "bounds": [
+            2.0,
+            2.0
+        ],
+        "core": null,
+        "bloom": {
+            "strength": 0.75,
+            "spread": 3.0,
+            "dropoff": 5.0,
+            "quality": 1.0,
+            "scaleToSize": true
         }
-    ]
+    }]
 }
