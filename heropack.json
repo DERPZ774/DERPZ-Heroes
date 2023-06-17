@@ -157,6 +157,7 @@
         "sneak_timer": "FLOAT_INTERP",
         "atom": "BOOLEAN",
         "atom_timer": "FLOAT_INTERP",
+        "telekinesis_timer": "FLOAT_INTERP",
         "boolean": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "float": { "type": "FLOAT", "resetWithoutSuit": true }
     },

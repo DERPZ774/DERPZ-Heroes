@@ -45,8 +45,8 @@ function initEffects(renderer) {
     atom = atom.create(renderer, utils);
 
     physics = renderer.createResource("CAPE_PHYSICS", null);
-    physics.weight = 1.2;
-    physics.maxFlare = 0.6;
+    physics.weight = 0.8;
+    physics.maxFlare = 0.75;
     physics.flareDegree = 1.5;
     physics.flareFactor = 1.5;
     physics.flareElasticity = 8;
@@ -68,7 +68,7 @@ function initEffects(renderer) {
 
     utils.addCameraShake(renderer, 0.015, 1.5, "fiskheroes:flight_boost_timer");
     utils.addCameraShake(renderer, 0.015, 4.5, "fiskheroes:dyn/superhero_landing_timer");
-    utils.bindCloud(renderer, "fiskheroes:telekinesis", "fiskheroes:telekinesis_monitor");
+    utils.bindCloud(renderer, "fiskheroes:telekinesis", "dhhp:atom_eve");
 }
 
 function initAnimations(renderer) {
@@ -91,8 +91,9 @@ function initAnimations(renderer) {
 
     addAnimationWithData(renderer, "basic.BLOCKING", "dhhp:atom_shield", "fiskheroes:shield_blocking_timer");
     addAnimationWithData(renderer, "atom.TRANSFORM", "dhhp:atom_transform", "dhhp:dyn/atom_timer");
-    addAnimationWithData(renderer, "atom.AIMING", "fiskheroes:dual_aiming", "fiskheroes:energy_projection_timer");
-    addAnimationWithData(renderer, "atom.TELE", "fiskheroes:aiming", "fiskheroes:aiming_timer");
+    addAnimationWithData(renderer, "atom.AIMING", "fiskheroes:dual_aiming_fpcorr", "fiskheroes:energy_projection_timer");
+    addAnimationWithData(renderer, "atom.SHOOT", "fiskheroes:dual_aiming_fpcorr", "fiskheroes:aiming_timer");
+    addAnimationWithData(renderer, "atom.TLE", "fiskheroes:aiming_fpcorr", "dhhp:dyn/telekinesis_timer");
 
     renderer.reprioritizeDefaultAnimation("PUNCH", -9);
     renderer.reprioritizeDefaultAnimation("AIM_BOW", -9);
@@ -104,6 +105,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm) {
         if (renderLayer == "CHESTPLATE") {
             var f = entity.getInterpolatedData("fiskheroes:flight_timer");
+            cape.effect.length = entity.is("DISPLAY") ? 12 : entity.getInterpolatedData("dhhp:dyn/atom_timer") * 12;
             cape.render({
                 "wind": 1 + 0.3 * f,
                 "windFactor": 1 - 0.7 * f,

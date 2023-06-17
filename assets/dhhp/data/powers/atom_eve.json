@@ -97,6 +97,32 @@
             "soundEvents": {
                 "GRAB": ["fiskheroes:telekinesis_start", "fiskheroes:telekinesis_loop"]
             }
+        },
+        "fiskheroes:cooldown|cooldown": {
+            "cooldown": {
+                "toggleData": "fiskheroes:telekinesis",
+                "cooldownData": "dhhp:dyn/telekinesis_timer",
+                "duration": 5,
+                "recovery": 1
+            }
+        },
+        "fiskheroes:repulsor_blast": {
+            "damageProfile": {
+                "damage": 10.0,
+                "types": {
+                    "ENERGY": 1.0
+                },
+                "properties": {
+                    "ADD_KNOCKBACK": 1.0,
+                    "HIT_COOLDOWN": 0.0
+                }
+            },
+            "range": 45.0,
+            "speed": 5.0,
+            "spread": 0.5,
+            "radius": 0.2,
+            "cooldownTime": 20,
+            "soundEvents": {}
         }
     }
 }

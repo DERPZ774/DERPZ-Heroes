@@ -4,6 +4,7 @@ var shield_r;
 var flightRenderHands;
 var flightRenderLegs;
 var transformation;
+var transformHand;
 
 function create(renderer, utils) {
     var shieldRender = "dhhp:atom_eve";
@@ -51,11 +52,48 @@ function create(renderer, utils) {
 
     transformation.anchor.set("body");
 
+    //Transformation Hand
+    transformHand = utils.createLines(renderer, flightBeam, color, [
+        { "start": [0.0, 0.0, 0.0], "end": [1.0, 0.0, 0.0], "size": [4.0, 4.0] }
+    ]);
+    transformHand.anchor.set("rightArm");
+    transformHand.setOffset(-1.0, 12.5, 0).setRotation(0.0, 90.0, 180.0).setScale(4.0);
+
     //Charged Beam
     utils.bindBeam(renderer, "fiskheroes:energy_projection", beamCharged, "rightArm", color, [
         { "firstPerson": [-3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5] },
         { "firstPerson": [3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5], "anchor": "leftArm" }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_energy_projection"));
+
+    //Stolen from oli <3 (not actually stolen he gave me perms)
+    var atom_blast = renderer.createResource("BEAM_RENDERER", "dhhp:atom_eve_flight");
+
+    var constln = renderer.createResource("BEAM_CONSTELLATION", null);
+    var atom_blast_beam = constln.bindBeam({
+        "firstPerson": [-5.5, 3.75, -5.0],
+        "offset": [-0.5, 6.0, 0.0],
+        "size": [6.0, 6.0, -6.0]
+    });
+
+    var repulsor_blast = renderer.bindProperty("fiskheroes:repulsor_blast");
+    repulsor_blast.setConstellation(constln);
+    repulsor_blast.setRenderer(atom_blast);
+    repulsor_blast.color.set(color);
+
+    repulsor_blast.setCondition(entity => {
+        if (Math.random() < 0.5) {
+            repulsor_blast.setAnchor("rightArm");
+            atom_blast_beam.firstPerson.x = -5.5;
+            atom_blast_beam.offset.x = -0.5;
+        } else {
+            repulsor_blast.setAnchor("leftArm");
+            atom_blast_beam.firstPerson.x = 5.5;
+            atom_blast_beam.offset.x = 0.5;
+        }
+
+        return true;
+    });
+
 
     return {
         render: (entity, renderLayer, isFirstPersonArm) => {
@@ -75,6 +113,11 @@ function create(renderer, utils) {
                 // transformation.progress = entity.getInterpolatedData("dhhp:dyn/atom_timer");
                 transformation.setOffset(0, (1 - entity.getInterpolatedData("dhhp:dyn/atom_timer") * 38 + 24), 0).setScale(40);
                 transformation.render();
+
+                if (!entity.getData("fiskheroes:flying")) {
+                    transformHand.progress = entity.getInterpolatedData("dhhp:dyn/atom_timer");
+                    transformHand.render();
+                }
             }
 
             if (!isFirstPersonArm) {

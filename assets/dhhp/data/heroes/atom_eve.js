@@ -20,8 +20,7 @@ function init(hero) {
     hero.addKeyBind("TRANSFORM", "Transform", 2);
     hero.addKeyBind("ENERGY_PROJECTION", "Blast", 3);
     hero.addKeyBind("TELEKINESIS", "key.telekinesis", 4);
-    hero.addKeyBind("AIM", "key.aim", 4);
-
+    hero.addKeyBind("AIM", "key.aim", 5);
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);
@@ -60,6 +59,8 @@ function isModifierEnabled(entity, modifier) {
             return !entity.getData("fiskheroes:telekinesis") && !boostFlight && !entity.getData("fiskheroes:energy_projection") && atom && entity.getHeldItem().isEmpty();
         case "fiskheroes:energy_projection":
             return !entity.getData("fiskheroes:telekinesis") && !boostFlight && atom && !entity.getData("fiskheroes:shield") && entity.getHeldItem().isEmpty();
+        case "fiskheroes:repulsor_blast":
+            return !entity.getData("fiskheroes:telekinesis") && !boostFlight && atom && !entity.getData("fiskheroes:shield") && entity.getHeldItem().isEmpty() && !entity.getData("fiskheroes:energy_projection");
         default:
             return utils.flight_auto_modifier(entity, modifier, -10);
     }
