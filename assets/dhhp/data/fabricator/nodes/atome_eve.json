@@ -1,0 +1,11 @@
+{
+    "suit": "dhhp:atom_eve",
+    "requirements": [
+        "fiskheroes:tier6_7",
+        "fiskheroes:flight",
+        "fiskheroes:defense2",
+        "fiskheroes:melee2",
+        "fiskheroes:ranged2",
+        "dhhp:derpzheroes"
+    ]
+}
