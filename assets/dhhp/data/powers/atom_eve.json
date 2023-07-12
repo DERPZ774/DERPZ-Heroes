@@ -62,7 +62,8 @@
                 "time": 15
             },
             "soundEvents": {
-                "ENABLE": "dhhp:atom_eve_transform"
+                "ENABLE": "dhhp:atom_eve_transform",
+                "DISABLE": "fiskheroes:black_lightning_lightning_cast"
             }
         },
         "fiskheroes:energy_projection": {
