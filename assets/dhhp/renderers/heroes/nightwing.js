@@ -58,26 +58,12 @@ function initEffects(renderer) {
 
 function initAnimations(renderer) {
     parent.initAnimations(renderer);
-    renderer.removeCustomAnimation("basic.PROP_FLIGHT")
 
     addAnimationWithData(renderer, "nightwing.ESCRIMA", "dhhp:escrima", "dhhp:dyn/escrima_timer");
     addAnimationWithData(renderer, "nightwing.HOLD", "dhhp:fpc_weapon", "dhhp:dyn/escrima_timer");
-
-    addAnimation(renderer, "doublejump.SPRINGBOARD", "fiskheroes:swing_springboard")
-        .setData((entity, data) => data.load(entity.getData("dhhp:dyn/jump_timer") >= 0.2 ?
-            Math.min(Math.max(entity.getInterpolatedData("dhhp:dyn/jump_animation"), 0), 1) : 0))
-        .setCondition(entity => entity.getData("dhhp:dyn/choose_jump_animation") == 0);
-
-
-    addAnimation(renderer, "doublejump.ROLLFIVE", "fiskheroes:swing_roll5")
-        .setData((entity, data) => data.load(entity.getData("dhhp:dyn/jump_timer") >= 0.2 ?
-            Math.min(Math.max(entity.getInterpolatedData("dhhp:dyn/jump_animation"), 0), 1) : 0))
-        .setCondition(entity => entity.getData("dhhp:dyn/choose_jump_animation") == 1);
-
-    addAnimation(renderer, "doublejump.ROLL", "fiskheroes:swing_roll")
-        .setData((entity, data) => data.load(entity.getData("dhhp:dyn/jump_timer") >= 0.2 ?
-            Math.min(Math.max(entity.getInterpolatedData("dhhp:dyn/jump_animation"), 0), 1) : 0))
-        .setCondition(entity => entity.getData("dhhp:dyn/choose_jump_animation") == 2);
+    addAnimation(renderer, "nightwing.FLIP", "fiskheroes:falcon_dive_roll").setData((entity, data) => {
+        data.load((entity.getInterpolatedData("dhhp:dyn/jump_cooldown")));
+    });
 }
 
 

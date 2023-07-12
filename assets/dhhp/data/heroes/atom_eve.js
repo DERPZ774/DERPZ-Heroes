@@ -17,10 +17,10 @@ function init(hero) {
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 
     hero.addKeyBind("AIM", "key.aim", 1);
-    hero.addKeyBind("ENERGY_PROJECTION", "Blast", 2);
+    hero.addKeyBind("ENERGY_PROJECTION", "Atom Blast", 2);
     hero.addKeyBind("TELEKINESIS", "key.telekinesis", 3);
-    hero.addKeyBind("SHIELD", "Shielding", 4);
-    hero.addKeyBind("TRANSFORM", "Transform", 5);
+    hero.addKeyBind("SHIELD", "Shield", 4);
+    hero.addKeyBind("TRANSFORM", "Atom Transformation", 5);
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setKeyBindEnabled(isKeyBindEnabled);

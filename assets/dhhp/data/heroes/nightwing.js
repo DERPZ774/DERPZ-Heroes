@@ -1,6 +1,3 @@
-var jumpMin = 0.8
-var jumpMax = 1.4
-
 function init(hero) {
     hero.setName("Nightwing");
     hero.setTier(5);
@@ -41,33 +38,14 @@ function init(hero) {
     });
     hero.addSoundEvent("PUNCH", "dhhp:punch_escrima");
 
-    /*
+
     hero.setTickHandler((entity, manager) => {
-        if (!entity.isOnGround() && !entity.getData("dhhp:dyn/jump") && entity.motionY() > 0.05) {
-            manager.setData(entity, "dhhp:dyn/jump", true)
-            manager.setData(entity, "dhhp:dyn/choose_jump_animation", Math.floor(Math.random() * 3))
-
+        if (entity.getData("fiskheroes:flying")) {
+            manager.setData(entity, "dhhp:dyn/jump_cooldown", 1);
         }
-        if (entity.isOnGround() && entity.getData("dhhp:dyn/jump")) {
-            manager.setData(entity, "dhhp:dyn/jump", false)
-        }
-        // jump timer
-        if (entity.getData("dhhp:dyn/jump")) {
-            manager.setData(entity, "dhhp:dyn/jump_timer", entity.getData("dhhp:dyn/jump_timer") + 0.1)
-        } else if (!entity.getData("dhhp:dyn/jump") && entity.getData("dhhp:dyn/jump_timer") != 0.0) {
-            manager.setData(entity, "dhhp:dyn/jump_timer", 0.0)
-        }
-
-        if (entity.getData("dhhp:dyn/jump_timer") >= 0.2) {
-            manager.setData(entity, "dhhp:dyn/jump_animation", entity.getData("dhhp:dyn/jump_animation") + 0.1)
-        }
-        else if (entity.getData("dhhp:dyn/jump_timer") == 0.0 && entity.getData("dhhp:dyn/jump_animation") != 0.0) {
-            manager.setData(entity, "dhhp:dyn/jump_animation", 0.0)
-        }
-        
-        //todo Randomized acrobatic animations
+        manager.incrementData(entity, "dhhp:dyn/jump_cooldown", 20, false);
     });
-    */
+
 }
 
 
@@ -114,6 +92,8 @@ function isModifierEnabled(entity, modifier) {
             return entity.getHeldItem().isEmpty();
         case "fiskheroes:equipment":
             return !entity.getData("dhhp:dyn/escrima");
+        case "fiskheroes:controlled_flight":
+            return entity.isSprinting() && entity.getData("dhhp:dyn/jump_cooldown") == 0;
         default:
             return true;
     }
@@ -131,3 +111,5 @@ function isKeyBindEnabled(entity, keyBind) {
             return true;
     }
 }
+
+///ToDo: Change dbl jump with fisks

@@ -158,6 +158,7 @@
         "atom": "BOOLEAN",
         "atom_timer": "FLOAT_INTERP",
         "telekinesis_timer": "FLOAT_INTERP",
+        "jump_cooldown": "FLOAT_INTERP",
         "boolean": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "float": { "type": "FLOAT", "resetWithoutSuit": true }
     },

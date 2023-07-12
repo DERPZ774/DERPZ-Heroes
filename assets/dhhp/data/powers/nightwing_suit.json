@@ -70,10 +70,17 @@
                 "recovery": 1.5
             }
         }
+
     },
     "hud": [{
-        "type": "PROGRESS",
-        "texture": "dhhp:textures/gui/bars/escrima_lightning.png",
-        "data": "dhhp:dyn/escrima_lightning_cooldown"
-    }]
+            "type": "PROGRESS",
+            "texture": "dhhp:textures/gui/bars/escrima_lightning.png",
+            "data": "dhhp:dyn/escrima_lightning_cooldown"
+        },
+        {
+            "type": "CIRCLE",
+            "color": "fiskheroes:charged_beam",
+            "data": "dhhp:dyn/jump_cooldown"
+        }
+    ]
 }

@@ -61,8 +61,8 @@ function create(renderer, utils) {
 
     //Charged Beam
     utils.bindBeam(renderer, "fiskheroes:energy_projection", beamCharged, "rightArm", color, [
-        { "firstPerson": [-3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5] },
-        { "firstPerson": [3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5], "anchor": "leftArm" }
+        { "firstPerson": [-4.75, 3.75, , -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5] },
+        { "firstPerson": [4.75, 3.75, -8.0], "offset": [-0.5, 9.0, 0.0], "size": [1.5, 1.5], "anchor": "leftArm" }
     ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_energy_projection"));
 
     //Stolen from oli <3 (not actually stolen he gave me perms)

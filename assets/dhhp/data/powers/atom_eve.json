@@ -60,6 +60,9 @@
                 "toggleData": "dhhp:dyn/atom",
                 "timerData": "dhhp:dyn/atom_timer",
                 "time": 15
+            },
+            "soundEvents": {
+                "ENABLE": "dhhp:atom_eve_transform"
             }
         },
         "fiskheroes:energy_projection": {
@@ -76,8 +79,9 @@
             "range": 10.0,
             "radius": 0.1,
             "soundEvents": {
-                "SHOOT": "fiskheroes:cosmic_beam"
+                "BEAM_AMBIENT": "fiskheroes:mysterio_beam_loop"
             }
+
         },
         "fiskheroes:telekinesis": {
             "telekinesis": {
@@ -95,7 +99,7 @@
             },
             "range": 10.0,
             "soundEvents": {
-                "GRAB": ["fiskheroes:telekinesis_start", "fiskheroes:telekinesis_loop"]
+                "GRAB": ["fiskheroes:telekinesis_start", "fiskheroes:energy_projection"]
             }
         },
         "fiskheroes:cooldown|cooldown": {
@@ -122,7 +126,9 @@
             "spread": 0.5,
             "radius": 0.2,
             "cooldownTime": 20,
-            "soundEvents": {}
+            "soundEvents": {
+                "SHOOT": "fiskheroes:energy_blast"
+            }
         }
     }
 }
