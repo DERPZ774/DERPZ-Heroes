@@ -13,10 +13,9 @@ function init(hero) {
     hero.addPowers("dhhp:kryptonian_physiology");
 
     hero.addAttribute("FALL_RESISTANCE", 1.0, 1);
-    hero.addAttribute("PUNCH_DAMAGE", 12., 0);
+    hero.addAttribute("PUNCH_DAMAGE", 11, 0);
     hero.addAttribute("SPRINT_SPEED", 0.45, 1);
     hero.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
-    hero.addAttribute("MAX_HEALTH", 4.0, 0);
     hero.addAttribute("WEAPON_DAMAGE", -0.75, 1);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
 

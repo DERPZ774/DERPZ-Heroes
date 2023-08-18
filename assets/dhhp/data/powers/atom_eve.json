@@ -10,7 +10,7 @@
         "fiskheroes:propelled_flight": {},
         "fiskheroes:controlled_flight": {
             "speed": 0.1,
-            "boostSpeed": 0.25,
+            "boostSpeed": 0.2,
             "canBoost": true,
             "diveSpeedRetention": 0.5,
             "collision": {
@@ -68,7 +68,7 @@
         },
         "fiskheroes:energy_projection": {
             "damageProfile": {
-                "damage": 4.0,
+                "damage": 3.0,
                 "types": {
                     "ENERGY": 1.0
                 },

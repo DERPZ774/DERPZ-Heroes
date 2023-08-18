@@ -88,8 +88,8 @@
             "damageProfile": {
                 "damage": 7.0,
                 "types": {
-                    "ENERGY": 2.25,
-                    "FIRE": 2.25
+                    "ENERGY": 1.0,
+                    "FIRE": 1.0
                 },
                 "properties": {
                     "REDUCE_KNOCKBACK": 0.15,

@@ -13,7 +13,7 @@
             }
         },
         "fiskheroes:regeneration": {
-            "factor": 6
+            "factor": 2.5
         },
         "fiskheroes:potion_immunity": {
             "potionEffects": [

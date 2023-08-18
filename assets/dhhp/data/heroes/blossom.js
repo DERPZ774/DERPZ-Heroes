@@ -11,7 +11,7 @@ function init(hero) {
     hero.addPowers("dhhp:chemical_x", "dhhp:nice");
     hero.addAttribute("FALL_RESISTANCE", 1.0, 1);
     hero.addAttribute("JUMP_HEIGHT", 2.0, 0);
-    hero.addAttribute("PUNCH_DAMAGE", 9.0, 0);
+    hero.addAttribute("PUNCH_DAMAGE", 7.0, 0);
     hero.addAttribute("KNOCKBACK", 1.5, 0);
     hero.addAttribute("SPRINT_SPEED", 0.25, 1);
     hero.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);

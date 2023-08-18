@@ -11,7 +11,6 @@ function init(hero) {
 
     hero.addPowers("dhhp:viltrumite_physiology");
     hero.addAttribute("BASE_SPEED_LEVELS", 2.0, 0);
-    hero.addAttribute("MAX_HEALTH", 5.0, 0);
     hero.addAttribute("PUNCH_DAMAGE", 10.5, 0);
     hero.addAttribute("SPRINT_SPEED", 0.45, 1);
     hero.addAttribute("KNOCKBACK", 2.0, 0);

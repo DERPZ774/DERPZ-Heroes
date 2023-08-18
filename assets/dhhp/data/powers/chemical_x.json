@@ -55,7 +55,7 @@
         "fiskheroes:propelled_flight": {},
         "fiskheroes:controlled_flight": {
             "speed": 0.1,
-            "boostSpeed": 0.25,
+            "boostSpeed": 0.22,
             "canBoost": true,
             "diveSpeedRetention": 0.5,
             "collision": {
