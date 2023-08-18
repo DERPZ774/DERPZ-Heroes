@@ -2,7 +2,6 @@
     "name": "Subatomic Manipulation",
     "modifiers": {
         "fiskheroes:slow_motion": {},
-        "fiskheroes:arrow_catching": {},
         "fiskheroes:regeneration": {
             "factor": 3
         },

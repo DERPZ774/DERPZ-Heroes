@@ -201,6 +201,11 @@
             "black_suit": {
                 "name": "Black Suit"
             }
+        },
+        "dhhp:omniman": {
+            "moustache": {
+                "name": "Moustache"
+            }
         }
     }
 }
