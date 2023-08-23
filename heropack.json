@@ -2,9 +2,9 @@
     "name": "DERPZ Heroes",
     "watermark": "&9&LDHHP",
     "domain": "dhhp",
-    "description": "A Heropack that adds many suits from DC, Marvel, and other universes!",
+    "description": "A Heropack that adds many suits from many different universes!",
     "packFormat": 1,
-    "minVersion": "2.2.1",
+    "minVersion": "2.3.0",
     "sounds": {
         "download": {
             "repository": "DERPZ774/Sounds",
@@ -158,7 +158,7 @@
         "atom": "BOOLEAN",
         "atom_timer": "FLOAT_INTERP",
         "telekinesis_timer": "FLOAT_INTERP",
-        "jump_cooldown": "FLOAT_INTERP",
+        "jump_cooldown": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
         "boolean": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "float": { "type": "FLOAT", "resetWithoutSuit": true }
     },
@@ -205,6 +205,16 @@
         "dhhp:omniman": {
             "moustache": {
                 "name": "Moustache"
+            }
+        },
+        "dhhp:invincible": {
+            "omni": {
+                "name": "\u00A74Omniman\u00A7r"
+            }
+        },
+        "dhhp:red_hood": {
+            "$DEFAULT": {
+                "maskToggleTicks": 24
             }
         }
     }

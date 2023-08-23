@@ -1,0 +1,43 @@
+
+{data} = curve {data}
+;{anim} = curve min(animate2({data}, length, delay, turn on time, turn off time), 1)
+
+{anim1} = curve min(animate2({data}, 1, 0.5, 0.5, 0.0), 1)
+{anim2} = curve min(animate2({data}, 1, 0.8, 0.8, 0.0), 1)
+
+{Mask_posY} @ {anim1} -> -4
+{Mask_posZ} @ {anim1} -> -10
+
+{MaskO_posY} @ {anim1} -> -4
+{MaskO_posZ} @ {anim1} -> -10
+
+{Mask_posY} @ {anim2} -> 200
+{Mask_posZ} @ {anim2} -> 10
+
+{MaskO_posY} @ {anim2} -> 200
+{MaskO_posZ} @ {anim2} -> 10
+;===========================================;
+
+{data} = sin(pi{data})
+
+{x} = {data}sin(1.5pi{data} - pi)
+
+{head_rotX} @ {data} -> 30'
+{head_rotY} @ {data} -'> 0'
+
+{MaskBack_rotX} @ {data} -> 50'
+
+{rightArm_rotX} @ {data} -> -210'
+{rightArm_rotZ} @ {x} -> 20'
+{rightArm_rotY} @ {data} -> -7.5'
+
+{leftArm_rotX} @ {data} -> -210'
+{leftArm_rotZ} @ {x} -> -20'
+{leftArm_rotY} @ {data} -> 7.5'
+
+{rightArm_posY} += 1{x}
+{rightArm_posX} -= 0.25{data}
+{rightArm_posZ} -= 1{data}
+{leftArm_posY} += 1{x}
+{leftArm_posX} += 0.25{data}
+{leftArm_posZ} -= 1{data}

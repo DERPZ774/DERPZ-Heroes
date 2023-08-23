@@ -41,9 +41,9 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         if (entity.getData("fiskheroes:flying")) {
-            manager.setData(entity, "dhhp:dyn/jump_cooldown", 1);
+            manager.setInterpolatedData(entity, "dhhp:dyn/jump_cooldown", 1);
         }
-        manager.incrementData(entity, "dhhp:dyn/jump_cooldown", 20, false);
+        manager.incrementData(entity, "dhhp:dyn/jump_cooldown", 35, false);
     });
 
 }

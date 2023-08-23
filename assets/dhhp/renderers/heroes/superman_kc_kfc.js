@@ -19,7 +19,6 @@ function init(renderer) {
     });
 
     renderer.showModel("CHESTPLATE", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
-    renderer.fixHatLayer("CHESTPLATE");
 }
 
 function initEffects(renderer) {

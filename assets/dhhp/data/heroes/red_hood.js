@@ -23,6 +23,7 @@ function init(hero) {
 
     hero.setHasPermission((entity, permission) => permission == "USE_GUN" || permission == "USE_GRAPPLING_GUN");
     hero.setKeyBindEnabled(isKeyBindEnabled);
+    hero.setHasProperty(hasProperty);
     hero.supplyFunction("canAim", entity => entity.getHeldItem().isGun());
 }
 
@@ -38,10 +39,14 @@ function isKeyBindEnabled(entity, keyBind) {
 }
 
 function isModifierEnabled(entity, modifier) {
-    switch (modifier.name) {
+    switch (modifier.name()) {
         case "fiskheroes:equipment":
             return entity.getHeldItem().isEmpty() && entity.getData("fiskheroes:utility_belt_type") == -1
         case "fiskheroes:aiming":
             return entity.getData("fiskheroes:utility_belt_type") == -1;
     }
+}
+
+function hasProperty(entity, property) {
+    return property == "MASK_TOGGLE" || property == "BREATHE_SPACE" && !entity.getData("fiskheroes:mask_open");
 }

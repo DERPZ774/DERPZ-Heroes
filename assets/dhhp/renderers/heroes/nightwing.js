@@ -61,9 +61,11 @@ function initAnimations(renderer) {
 
     addAnimationWithData(renderer, "nightwing.ESCRIMA", "dhhp:escrima", "dhhp:dyn/escrima_timer");
     addAnimationWithData(renderer, "nightwing.HOLD", "dhhp:fpc_weapon", "dhhp:dyn/escrima_timer");
-    addAnimation(renderer, "nightwing.FLIP", "fiskheroes:falcon_dive_roll").setData((entity, data) => {
-        data.load((entity.getInterpolatedData("dhhp:dyn/jump_cooldown")));
-    });
+    addAnimation(renderer, "nightwing.FLIP", "fiskheroes:falcon_dive_roll")
+        .setData((entity, data) => {
+            var f = entity.getInterpolatedData("dhhp:dyn/jump_cooldown");
+            data.load(f > 0 ? Math.min((1 - f) * 2.5, 1) : 0);
+        });
 }
 
 

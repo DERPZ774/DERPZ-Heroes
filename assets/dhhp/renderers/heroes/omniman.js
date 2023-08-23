@@ -18,7 +18,6 @@ function init(renderer) {
     parent.init(renderer);
 
     renderer.showModel("CHESTPLATE", "head", "headwear", "body", "rightArm", "leftArm");
-    renderer.fixHatLayer("CHESTPLATE");
 }
 
 function initEffects(renderer) {
