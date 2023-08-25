@@ -6,7 +6,7 @@
             "transformation": {
                 "toggleData": "dhhp:dyn/helmet",
                 "timerData": "dhhp:dyn/helmet_timer",
-                "time": 20
+                "time": 30
             },
             "soundEvents": {
                 "ENABLE": "dhhp:fate_transform"
@@ -173,14 +173,6 @@
         },
         "fiskheroes:fire_immunity": {},
         "fiskheroes:water_breathing": {},
-        "fiskheroes:cooldown": {
-            "cooldown": {
-                "toggleData": "dhhp:dyn/helmet",
-                "cooldownData": "dhhp:dyn/helmet_cooldown",
-                "duration": 11600,
-                "recovery": 1.5
-            }
-        },
         "fiskheroes:controlled_flight": {
             "speed": 0.08,
             "boostSpeed": 0.12,
@@ -192,13 +184,12 @@
         }
     },
     "hud": [{
-            "type": "PROGRESS",
-            "texture": "dhhp:textures/gui/bars/ankh_transformation.png",
-            "data": "dhhp:dyn/helmet_cooldown"
-        }, {
-            "type": "CIRCLE",
-            "color": "fiskheroes:charged_beam",
-            "data": "fiskheroes:beam_charge"
-        }
-    ]
+        "type": "PROGRESS",
+        "texture": "dhhp:textures/gui/bars/ankh_transformation.png",
+        "data": "dhhp:dyn/helmet_cooldown"
+    }, {
+        "type": "CIRCLE",
+        "color": "fiskheroes:charged_beam",
+        "data": "fiskheroes:beam_charge"
+    }]
 }

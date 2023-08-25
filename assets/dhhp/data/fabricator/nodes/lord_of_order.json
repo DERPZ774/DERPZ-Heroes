@@ -1,0 +1,55 @@
+{
+    "display": {
+        "name": "Lord Of Order",
+        "icon": {
+            "texture": "dhhp:textures/gui/nodes/fate.png"
+        }
+    },
+    "requirements": [],
+    "price": {
+        "IRID_GOLD": 4,
+        "XP_LEVELS": 15
+    },
+    "criteria": {
+        "helmet": {
+            "trigger": "fiskheroes:tick",
+            "minSuccessCount": 36000,
+            "description": {
+                "translate": "Wear a golden helmet for 36000 ticks whilst in the end"
+            },
+            "condition": {
+                "variables": {
+                    "tick": "PLAYER_TICKING"
+                },
+                "check": "tick.getWornHelmet().name() == 'minecraft:golden_helmet' && tick.world().getDimension() == 1"
+            }
+        },
+        "temple": {
+            "trigger": "fiskheroes:location",
+            "description": {
+                "translate": "Wear a golden helmet and visit an externity nexus"
+            },
+            "condition": {
+                "variables": {
+                    "location": "LOCATION_PLAYER_IS_IN",
+                    "player": "PLAYER_IN_LOCATION"
+                },
+                "check": "location.getStructure() == 'eternity_nexus' && player.getWornHelmet().name() == 'minecraft:golden_helmet'"
+            }
+        },
+        "order": {
+            "trigger": "fiskheroes:entity_killed_by_player",
+            "minSuccessCount": 150,
+            "description": {
+                "translate": "Wear a golden helmet and keep order by killing 150 zombies"
+            },
+            "condition": {
+                "variables": {
+                    "player": "PLAYER_KILLING",
+                    "entity": "ENTITY_KILLED"
+                },
+                "check": "entity.getName() == 'Zombie' && player.getWornHelmet().name() == 'minecraft:golden_helmet'"
+            }
+        }
+    }
+}

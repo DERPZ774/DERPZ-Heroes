@@ -10,20 +10,16 @@ function init(hero) {
     hero.addAttribute("WEAPON_DAMAGE", -0.50, 1);
     hero.addAttribute("FALL_RESISTANCE", 4, 0);
 
-    hero.addKeyBind("CHARGED_BEAM", "Order Beam", 1);
-    hero.addKeyBind("SPELL_MENU", "Wheel Of Fate", 2);
-    hero.addKeyBind("TELEPORT", "key.teleport", 3);
-    hero.addKeyBind("ENERGY_PROJECTION", "Nabu's Wrath", 4);
-    hero.addKeyBind("HELMET_TRANSFORM", "Transform", 2);
-    hero.addKeyBind("SHIELD", "Ankh Shielding", 5);
-
     hero.addAttributeProfile("INACTIVE", profile => {});
     hero.setAttributeProfile(getAttributeProfile);
-    hero.setModifierEnabled(isModifierEnabled);
-    hero.setDamageProfile(getProfile);
     hero.setTierOverride(entity => entity.getData("dhhp:dyn/helmet") ? 10 : 0);
-    hero.setKeyBindEnabled(isKeyBindEnabled);
     hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
+
+    hero.setTickHandler((entity, manager) => {
+        if (!entity.getData("dhhp:dyn/helmet")) {
+            manager.setData(entity, "dhhp:dyn/helmet", true);
+        }
+    });
 }
 
 function getAttributeProfile(entity) {
@@ -33,50 +29,26 @@ function getAttributeProfile(entity) {
     return "INACTIVE";
 }
 
-function getProfile(entity) {
-    if (entity.getData("dhhp:dyn/helmet")) {
-        return "MAGIC";
-    }
-    return null;
-}
+/*
+First powerset
+Melee
+Enhanced melee mode (render two anks on the arms when)
+TP
+Beams
+Ranged spells
+Support Powerset
+slow spells
+Support 
+Healing, strength, haste, speed, etc beam
+Telekinesis to hold people down
+Defense
+shield
+Knockback spells
+lot of immunities with the removal of regen
 
-function isModifierEnabled(entity, modifier) {
-    if (modifier.name() != "fiskheroes:transformation" && modifier.name() != "fiskheroes:cooldown" && !entity.getData("dhhp:dyn/helmet")) {
-        return false;
-    }
-    switch (modifier.name()) {
-        case "fiskheroes:charged_beam":
-            return !entity.getData("fiskheroes:shield") && !entity.getData("fiskheroes:energy_projection");
-        case "fiskheroes:energy_projection":
-            return !entity.getData("fiskheroes:shield");
-        case "fiskheroes:teleportation":
-            return !entity.getData("fiskheroes:shield");
-        case "fiskheroes:spellcasting":
-            return !entity.getData("fiskheroes:shield");
-        case "fiskheroes:shield":
-            return !entity.getData("fiskheroes:flying");
-        case "fiskheroes:water_breathing":
-            return entity.getData("fiskheroes:shield");
-        default:
-            return true;
-    }
-}
-
-function isKeyBindEnabled(entity, keyBind) {
-    switch (keyBind) {
-        case "HELMET_TRANSFORM":
-            return (!entity.getData("dhhp:dyn/helmet"));
-        case "SPELL_MENU":
-            return (entity.getData("dhhp:dyn/helmet"));
-        case "TELEPORT":
-            return (entity.getData("dhhp:dyn/helmet"));
-        case "ENERGY_PROJECTION":
-            return (entity.getData("dhhp:dyn/helmet"));
-        case "CHARGED_BEAM":
-            return (entity.getData("dhhp:dyn/helmet"));
-        case "SHIELD":
-            return (entity.getData("dhhp:dyn/helmet") && !entity.getData("fiskheroes:flying"));
-        default:
-            return true;
-    }
-}
+Nabuu takeover
+you could have it so you can merge all 3 modes and start like flying with ankhs spinning around you and shit then all your keybinds become those scrambled letters
+then you glow gold and start growing in size
+then bam nabu on a timer for a short time
+the nabu takeover should happen randomly but only if the suit is max augments
+*/

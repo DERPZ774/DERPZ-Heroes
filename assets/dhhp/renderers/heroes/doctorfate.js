@@ -5,23 +5,17 @@ loadTextures({
     "helm": "dhhp:dc/doctorfate/doctorfate_helmet",
     "lights_helmet": "dhhp:dc/doctorfate/doctorfate_helmet_lights",
     "lights": "dhhp:dc/doctorfate/dr_fate_body_lights",
-    "model1": "dhhp:dc/doctorfate/ankh_texture1",
-    "medallion": "dhhp:dc/doctorfate/medallion",
-    "cape": "dhhp:dc/doctorfate/doctor_fate_cape"
+    "cape": "dhhp:dc/doctorfate/doctor_fate_cape",
+    "helmet": "dhhp:dc/doctorfate/doctorfate_helmet",
 });
-
-var cape;
 
 var utils = implement("fiskheroes:external/utils");
 var capes = implement("fiskheroes:external/capes");
 
-var ankh;
-var ankh_beam;
-var ankh_beam2;
-var ankh_beam3;
-var ankh_shield;
-var model_ankh;
+var cape;
 var physics;
+var helmet;
+var glow;
 
 function init(renderer) {
     parent.init(renderer);
@@ -29,18 +23,27 @@ function init(renderer) {
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
 
         if (!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") {
-            return timer == 0 ? "helm" : timer < 1 ? "suit" : "base";
+            return timer < 1 ? "suit" : "base";
         }
+
+        if (entity.as("DISPLAY").getDisplayType() == "HOLOGRAM") {
+            return timer == 1 ? "base" : "suit";
+        }
+
         return "base";
+
     });
     renderer.setLights((entity, renderLayer) => {
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
 
-        return (timer >= 1 || entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") ? "lights" : (timer > 0 ? "lights_helmet" : null);
+        if (entity.as("DISPLAY").getDisplayType() == "HOLOGRAM") {
+            return timer == 1 ? "lights" : timer == 1 ? "lights_helmet" : null;
+        }
+
+        return (timer >= 1 || entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") ? "lights" : (timer == 1 ? "lights_helmet" : null);
     });
 
     renderer.showModel("HELMET", "head", "headwear", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
-    renderer.fixHatLayer("HELMET");
 }
 
 function initEffects(renderer) {
@@ -69,52 +72,19 @@ function initEffects(renderer) {
     magic.colorAtmosphere.set(0x1f75d5);
     magic.colorWhip.set(0x1f75d5);
 
-    //models
-    var model_ankh_body = renderer.createResource("MODEL", "dhhp:ankh");
-    model_ankh_body.texture.set(null, "medallion");
-    ankh = renderer.createEffect("fiskheroes:model").setModel(model_ankh_body);
-    ankh.anchor.set("body");
-
-    model_ankh = renderer.createResource("MODEL", "dhhp:ankh")
-    model_ankh.bindAnimation("dhhp:dr_ankh").setData((entity, data) => data.load(entity.getData("fiskheroes:beam_charging") ? entity.loop(76) : 0));
-    ankh_beam = renderer.createEffect("fiskheroes:model").setModel(model_ankh);
-    ankh_beam.anchor.set("head");
-    ankh_beam2 = ankh_beam;
-    ankh_beam3 = ankh_beam2;
-
-    ankh_shield = renderer.createEffect("fiskheroes:model").setModel(model_ankh);
-    ankh_shield.anchor.set("head");
-
-
-    var forcefield = renderer.bindProperty("fiskheroes:forcefield");
-    forcefield.color.set(0x1f75d5);
-    forcefield.setShape(36, 18).setOffset(0.0, 6.0, 0.0).setScale(1.75);
-    forcefield.setCondition(entity => {
-        forcefield.opacity = entity.getInterpolatedData("fiskheroes:shield_blocking_timer") * 0.15;
-        return true;
+    var model = renderer.createResource("MODEL", "dhhp:helmet_model");
+    model.texture.set("helmet");
+    model.bindAnimation("dhhp:remove_helmet").setData((entity, data) => {
+        var f = 1 - entity.getInterpolatedData("dhhp:dyn/helmet_timer");
+        data.load(f < 1 ? f : 0);
     });
 
-    utils.bindCloud(renderer, "fiskheroes:teleportation", "fiskheroes:breach");
+    helmet = renderer.createEffect("fiskheroes:model").setModel(model);
+    helmet.anchor.set("head");
 
-    utils.bindParticles(renderer, "dhhp:doctorfate_ankh")
-        .setCondition(entity => (entity.getData("fiskheroes:beam_charging")));
-
-    utils.bindParticles(renderer, "dhhp:doctorfate_ankh_block")
-        .setCondition(entity => (entity.getData("fiskheroes:shield_blocking")));
-
-    //Energy Beam
-    var beam = renderer.createResource("BEAM_RENDERER", "dhhp:doctorfate_beam");
-    var color = 0x1f75d5;
-
-    utils.bindBeam(renderer, "fiskheroes:energy_projection", beam, "body", color, [
-        { "firstPerson": [0.0, 6.0, 0.0], "offset": [0.0, 5.0, -4.0], "size": [4.0, 4.0] }
-    ]);
-
-    //ankh beam
-    utils.bindBeam(renderer, "fiskheroes:charged_beam", beam, "rightArm", color, [
-        { "firstPerson": [-3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5] },
-        { "firstPerson": [3.75, 3.0, -8.0], "offset": [-0.5, 12.0, 0.0], "size": [1.5, 1.5], "anchor": "leftArm" }
-    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_energy_projection"));
+    glow = renderer.createEffect("fiskheroes:glowerlay");
+    glow.includeEffects(cape.effect);
+    glow.color.set(0xF9DA15);
 }
 
 function initAnimations(renderer) {
@@ -130,6 +100,12 @@ function initAnimations(renderer) {
         data.load(Math.max(entity.getInterpolatedData("fiskheroes:aiming_timer"), entity.getData("fiskheroes:beam_charging") ? Math.min(charge * 3, 1) : Math.max(charge * 5 - 4, 0)));
     });
 
+    addAnimation(renderer, "red_hood.HELMET", "dhhp:remove_helmet")
+        .setData((entity, data) => {
+            var f = 1 - entity.getInterpolatedData("dhhp:dyn/helmet_timer");
+            data.load(f < 1 ? f : 0);
+        });
+
     utils.addFlightAnimation(renderer, "fate.FLIGHT", "fiskheroes:flight/levitate.anim.json", (entity, data) => {
         data.load(entity.getInterpolatedData("fiskheroes:flight_timer"));
     })
@@ -140,6 +116,13 @@ function render(entity, renderLayer, isFirstPersonArm) {
         var f = entity.getInterpolatedData("fiskheroes:flight_timer");
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
 
+        glow.opacity = 1 - timer;
+        glow.render();
+
+        if (1 - timer) {
+            helmet.render();
+        }
+
         cape.effect.length = entity.is("DISPLAY") ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24;
         cape.render({
             "wind": timer < 1 ? timer : 1 + 0.3 * f,
@@ -147,36 +130,5 @@ function render(entity, renderLayer, isFirstPersonArm) {
             "flutter": physics.getFlutter(entity),
             "flare": physics.getFlare(entity)
         });
-
-
-        if (entity.getInterpolatedData("dhhp:dyn/helmet_timer") || entity.is("DISPLAY")) {
-            ankh.setScale(0.1);
-            ankh.setOffset(0, 2.0, -2.7);
-            ankh.render();
-        }
-
-
-        model_ankh.texture.set(null, "model1");
-        ankh_beam.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-        ankh_beam.setOffset(-25, 0, 20.0); //bottom 1
-        ankh_beam.render();
-
-        ankh_beam2.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-        ankh_beam2.setOffset(0, -25, 25.0); //top/middle
-        ankh_beam2.render();
-
-        ankh_beam3.opacity = entity.getInterpolatedData("fiskheroes:beam_charge");
-        ankh_beam3.setOffset(25, 0, 20.0); //bottom 2
-        ankh_beam3.render();
-
-
-        if (entity.getData("fiskheroes:shield_blocking")) {
-            model_ankh.texture.set(null, "model1");
-            ankh_shield.opacity = 0.8;
-            ankh_shield.setOffset(0, -8.5, -12.0);
-            ankh_shield.render();
-        }
     }
 }
-
-//complete rework
