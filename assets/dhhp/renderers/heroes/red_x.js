@@ -39,9 +39,6 @@ function initEffects(renderer) {
     var magic = renderer.bindProperty("fiskheroes:spellcasting");
     magic.colorGeneric.set(0x800000);
 
-    //for the secret vibrator alt (owo)
-    vibration = renderer.createEffect("fiskheroes:vibration");
-
     var physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.maxFlare = 0.4;
     physics.flareDegree = 1.5;
@@ -55,6 +52,9 @@ function initEffects(renderer) {
     night_vision = renderer.bindProperty("fiskheroes:night_vision");
     night_vision.factor = 0.45;
     night_vision.firstPersonOnly = false;
+
+    vibration = renderer.createEffect("fiskheroes:vibration");
+    vibration.includeEffects(cape.effect);
 }
 
 function initAnimations(renderer) {

@@ -159,7 +159,12 @@
         "telekinesis_timer": "FLOAT_INTERP",
         "jump_cooldown": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
         "boolean": { "type": "BOOLEAN", "resetWithoutSuit": true },
-        "float": { "type": "FLOAT", "resetWithoutSuit": true }
+        "float": { "type": "FLOAT", "resetWithoutSuit": true },
+        "fate_melee": { "type": "BOOLEAN", "resetWithoutSuit": true },
+        "fate_melee_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
+        "fate_melee_cooldown": { "type": "FLOAT", "resetWithoutSuit": true },
+        "fate_powerset": { "type": "BYTE", "resetWithoutSuit": true }
+
     },
     "damageTypes": {
         "WATER": "Water",

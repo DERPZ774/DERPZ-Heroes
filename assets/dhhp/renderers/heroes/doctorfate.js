@@ -15,19 +15,22 @@ var capes = implement("fiskheroes:external/capes");
 var cape;
 var physics;
 var helmet;
-var glow;
 
 function init(renderer) {
     parent.init(renderer);
     renderer.setTexture((entity, renderLayer) => {
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
 
-        if (!entity.is("DISPLAY") || entity.as("DISPLAY").getDisplayType() === "BOOK_PREVIEW") {
+        if (!entity.is("DISPLAY")) {
             return timer < 1 ? "suit" : "base";
         }
 
         if (entity.as("DISPLAY").getDisplayType() == "HOLOGRAM") {
             return timer == 1 ? "base" : "suit";
+        }
+
+        if (entity.as("DISPLAY").getDisplayType() != "HOLOGRAM") {
+            return "base";
         }
 
         return "base";
@@ -48,22 +51,23 @@ function init(renderer) {
 
 function initEffects(renderer) {
     physics = renderer.createResource("CAPE_PHYSICS", null);
-    physics.weight = 1.2;
-    physics.maxFlare = 0.65;
-    physics.flareDegree = 0.5;
-    physics.flareFactor = 0.5;
-    physics.flareElasticity = 4;
+    physics.weight = 1.0;
+    physics.maxFlare = 1;
+    physics.flareDegree = 1.25;
+    physics.flareFactor = 1.5;
+    physics.flareElasticity = 10;
     physics.setTickHandler(entity => {
         var f = 1 - entity.getData("fiskheroes:flight_timer");
         f = 1 - f * f * f;
-        physics.headingAngle = 90 - f * 20;
-        physics.restAngle = f * 40;
+        physics.headingAngle = 45 - f * 20;
+        physics.restAngle = f * 25;
         physics.restFlare = f * 0.7;
         physics.idleFlutter = 0.15 + 0.25 * f;
         physics.flutterSpeed = f * 0.3;
     });
 
-    cape = capes.create(renderer, 24, "fiskheroes:cape_default.mesh.json");
+
+    cape = capes.create(renderer, 26, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
 
     var magic = renderer.bindProperty("fiskheroes:spellcasting");
@@ -82,9 +86,6 @@ function initEffects(renderer) {
     helmet = renderer.createEffect("fiskheroes:model").setModel(model);
     helmet.anchor.set("head");
 
-    glow = renderer.createEffect("fiskheroes:glowerlay");
-    glow.includeEffects(cape.effect);
-    glow.color.set(0xF9DA15);
 }
 
 function initAnimations(renderer) {
@@ -100,30 +101,28 @@ function initAnimations(renderer) {
         data.load(Math.max(entity.getInterpolatedData("fiskheroes:aiming_timer"), entity.getData("fiskheroes:beam_charging") ? Math.min(charge * 3, 1) : Math.max(charge * 5 - 4, 0)));
     });
 
-    addAnimation(renderer, "red_hood.HELMET", "dhhp:remove_helmet")
+    addAnimation(renderer, "fate.HELMET", "dhhp:remove_helmet")
         .setData((entity, data) => {
             var f = 1 - entity.getInterpolatedData("dhhp:dyn/helmet_timer");
             data.load(f < 1 ? f : 0);
         });
 
-    utils.addFlightAnimation(renderer, "fate.FLIGHT", "fiskheroes:flight/levitate.anim.json", (entity, data) => {
-        data.load(entity.getInterpolatedData("fiskheroes:flight_timer"));
-    })
+    utils.addFlightAnimation(renderer, "mysterio.FLIGHT", "fiskheroes:flight/default.anim.json");
+    utils.addHoverAnimation(renderer, "mysterio.HOVER", "fiskheroes:flight/idle/default");
+
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm && renderLayer == "HELMET") {
         var f = entity.getInterpolatedData("fiskheroes:flight_timer");
         var timer = entity.getInterpolatedData("dhhp:dyn/helmet_timer");
-
-        glow.opacity = 1 - timer;
-        glow.render();
-
         if (1 - timer) {
+            helmet.opacity = 0.5 + timer / 2;
             helmet.render();
         }
 
-        cape.effect.length = entity.is("DISPLAY") ? 24 : entity.getInterpolatedData("dhhp:dyn/helmet_timer") * 24;
+        cape.effect.length = timer ? Math.max(timer - 0.5, 0) * 44 : entity.as("DISPLAY").getDisplayType() != "HOLOGRAM" ? 26 : 26;
+
         cape.render({
             "wind": timer < 1 ? timer : 1 + 0.3 * f,
             "windFactor": 1 - 0.7 * f,

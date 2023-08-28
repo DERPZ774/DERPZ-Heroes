@@ -15,40 +15,40 @@
             "trigger": "fiskheroes:tick",
             "minSuccessCount": 36000,
             "description": {
-                "translate": "Wear a golden helmet for 36000 ticks whilst in the end"
+                "translate": "Wear a golden helmet renamed to 'Nabu' for 36000 ticks whilst in the end"
             },
             "condition": {
                 "variables": {
                     "tick": "PLAYER_TICKING"
                 },
-                "check": "tick.getWornHelmet().name() == 'minecraft:golden_helmet' && tick.world().getDimension() == 1"
+                "check": "tick.getWornHelmet().name() == 'minecraft:golden_helmet' && tick.world().getDimension() == 1 && tick.getWornHelmet().displayName() == 'Nabu'"
             }
         },
         "temple": {
             "trigger": "fiskheroes:location",
             "description": {
-                "translate": "Wear a golden helmet and visit an externity nexus"
+                "translate": "Wear a golden helmet renamed to 'Nabu' and visit an externity nexus"
             },
             "condition": {
                 "variables": {
                     "location": "LOCATION_PLAYER_IS_IN",
                     "player": "PLAYER_IN_LOCATION"
                 },
-                "check": "location.getStructure() == 'eternity_nexus' && player.getWornHelmet().name() == 'minecraft:golden_helmet'"
+                "check": "location.getStructure() == 'eternity_nexus' && player.getWornHelmet().name() == 'minecraft:golden_helmet' && player.getWornHelmet().displayName() == 'Nabu'"
             }
         },
         "order": {
             "trigger": "fiskheroes:entity_killed_by_player",
             "minSuccessCount": 150,
             "description": {
-                "translate": "Wear a golden helmet and keep order by killing 150 zombies"
+                "translate": "Wear a golden helmet renamed to 'Nabu' and keep order by killing 150 zombies"
             },
             "condition": {
                 "variables": {
                     "player": "PLAYER_KILLING",
                     "entity": "ENTITY_KILLED"
                 },
-                "check": "entity.getName() == 'Zombie' && player.getWornHelmet().name() == 'minecraft:golden_helmet'"
+                "check": "entity.getName() == 'Zombie' && player.getWornHelmet().name() == 'minecraft:golden_helmet' && player.getWornHelmet().displayName() == 'Nabu'"
             }
         }
     }
