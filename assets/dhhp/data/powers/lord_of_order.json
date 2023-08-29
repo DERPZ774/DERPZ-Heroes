@@ -23,6 +23,17 @@
                 "ENABLE": "dhhp:fate_transform"
             }
         },
+        "fiskheroes:transformation|spell_book": {
+            "key": "ACTIVATE_SPELLBOOK",
+            "transformation": {
+                "toggleData": "dhhp:dyn/fate_book",
+                "timerData": "dhhp:dyn/fate_book_timer",
+                "time": 5
+            },
+            "soundEvents": {
+                "ENABLE": "dhhp:fate_transform"
+            }
+        },
         "fiskheroes:cooldown|melee_cooldown": {
             "cooldown": {
                 "toggleData": "dhhp:dyn/fate_melee",

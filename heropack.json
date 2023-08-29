@@ -163,7 +163,10 @@
         "fate_melee": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "fate_melee_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
         "fate_melee_cooldown": { "type": "FLOAT", "resetWithoutSuit": true },
-        "fate_powerset": { "type": "BYTE", "resetWithoutSuit": true }
+        "fate_powerset": { "type": "BYTE", "resetWithoutSuit": true },
+        "fate_book": { "type": "BOOLEAN", "resetWithoutSuit": true },
+        "selected_pwr": { "type": "BOOLEAN", "resetWithoutSuit": true },
+        "fate_book_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true }
 
     },
     "damageTypes": {
