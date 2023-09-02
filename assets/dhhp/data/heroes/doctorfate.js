@@ -16,15 +16,17 @@ function init(hero) {
     hero.addKeyBindFunc("func_CYCLE_POWERSET1", cyclePowerKey1, "Cycle Powerset Melee (1/3)", 2);
     hero.addKeyBindFunc("func_CYCLE_POWERSET2", cyclePowerKey1, "Cycle Powerset Support (2/3)", 2);
     hero.addKeyBindFunc("func_CYCLE_POWERSET3", cyclePowerKey1, "Cycle Powerset Defensive (3/3)", 2);
-
     hero.addKeyBindFunc("func_SELECT_PWR", selectPower, "Select Powerset", 3);
-
 
     //powerset one
     hero.addKeyBind("TELEPORT", "Teleport", 1);
     hero.addKeyBind("ENERGY_PROJECTION", "Nabus Wraith", 2);
     hero.addKeyBind("SPELL_MENU", "Spell Wheel", 3);
     hero.addKeyBind("MELEE_FORM", "Enhance Combat", 4);
+
+    //powerset two 
+    hero.addKeyBind("CHARGED_BEAM", "Empower Spell", 1);
+
 
     hero.setTierOverride(entity => entity.getData("dhhp:dyn/helmet") ? 10 : 0);
     hero.setAttributeProfile(getAttributeProfile);
@@ -60,6 +62,8 @@ function getAttributeProfile(entity) {
 
 function isModifierEnabled(entity, modifier) {
     var fate = entity.getData("dhhp:dyn/helmet_timer") == 1;
+    var powerset = entity.getData("dhhp:dyn/fate_powerset");
+
     var book = entity.getData("dhhp:dyn/fate_book");
     var boostFlight = entity.isSprinting() && entity.getData("fiskheroes:flying");
 
@@ -69,9 +73,9 @@ function isModifierEnabled(entity, modifier) {
     }
     switch (modifier.id()) {
         case "offensive_spells":
-            return !entity.isSneaking();
+            return powerset == 1;
         case "defensive_spells":
-            return entity.isSneaking();
+            return powerset == 3;
     }
 
     return true;
@@ -83,14 +87,7 @@ function isKeyBindEnabled(entity, keyBind) {
     var selected = entity.getData("dhhp:dyn/selected_pwr");
 
     switch (keyBind) {
-        case "TELEPORT":
-            return powerset == 1 && !book && selected;
-        case "SPELL_MENU":
-            return powerset == 1 && !book && selected;
-        case "ENERGY_PROJECTION":
-            return powerset == 1 && !book && selected;
-        case "MELEE_FORM":
-            return powerset == 1 && !book && selected;
+        //cycle system
         case "func_CYCLE_POWERSET":
             return book;
         case "func_CYCLE_POWERSET1":
@@ -103,6 +100,20 @@ function isKeyBindEnabled(entity, keyBind) {
             return book && powerset > 0;
         case "ACTIVATE_SPELLBOOK":
             return !book;
+
+            //first powerset
+        case "TELEPORT":
+            return powerset == 1 && !book && selected;
+        case "SPELL_MENU":
+            return powerset == 1 && !book && selected || powerset == 3 && !book && selected;
+        case "ENERGY_PROJECTION":
+            return powerset == 1 && !book && selected;
+        case "MELEE_FORM":
+            return powerset == 1 && !book && selected;
+
+            //second powerset    
+        case "CHARGED_BEAM":
+            return powerset == 2 && !book && selected;
         default:
             return true;
     }
@@ -120,7 +131,6 @@ function cyclePowerKey1(player, manager) {
 }
 
 function selectPower(player, manager) {
-    var powerset = player.getData("dhhp:dyn/fate_powerset");
     manager.setData(player, "dhhp:dyn/fate_book", false);
     manager.setData(player, "dhhp:dyn/selected_pwr", true);
 

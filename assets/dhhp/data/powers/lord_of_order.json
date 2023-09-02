@@ -153,6 +153,77 @@
         },
         "fiskheroes:fire_immunity": {},
         "fiskheroes:water_breathing": {},
+        "fiskheroes:charged_beam|heal_beam_tier1": {
+            "damageProfile": {
+                "damage": 0.000001,
+                "properties": {
+                    "REDUCE_KNOCKBACK": 1.0,
+                    "EFFECTS": [{
+                            "id": "minecraft:regeneration",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "fiskheroes:space_breathing",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:fire_resistance",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:haste",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:night_vision",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:resistance",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:saturation",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:speed",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:strength",
+                            "duration": 100,
+                            "amplifier": 0
+                        },
+                        {
+                            "id": "minecraft:water_breathing",
+                            "duration": 100,
+                            "amplifier": 0
+                        }
+                    ]
+                }
+            },
+            "chargeTime": 20,
+            "duration": 70,
+            "cooldownTime": 35,
+            "range": 32.0,
+            "radius": 0.15,
+            "soundEvents": {
+                "SHOOT": [
+                    "fiskheroes:manta_beam_start",
+                    "fiskheroes:manta_beam_loop",
+                    "fiskheroes:heat_vision"
+                ]
+            }
+        },
         "fiskheroes:controlled_flight": {
             "speed": 0.08,
             "boostSpeed": 0.12,
