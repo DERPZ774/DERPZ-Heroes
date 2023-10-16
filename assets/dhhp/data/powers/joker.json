@@ -1,0 +1,37 @@
+{
+    "name": "Clown Prince of Crime",
+    "modifiers": {
+        "fiskheroes:charged_beam": {
+            "damageProfile": {
+                "damage": 2.0,
+                "properties": {
+                    "REDUCE_KNOCKBACK": 1.0,
+                    "EFFECTS": [{
+                            "id": "minecraft:poison",
+                            "duration": 100,
+                            "amplifier": 0
+                        }
+                    ]
+                }
+            },
+            "chargeTime": 20,
+            "duration": 70,
+            "cooldownTime": 35,
+            "range": 32.0,
+            "radius": 0.15,
+            "soundEvents": {
+                "SHOOT": [
+                    "fiskheroes:manta_beam_start",
+                    "fiskheroes:manta_beam_loop",
+                    "fiskheroes:heat_vision"
+                ]
+            }
+        }
+    },
+    "hud": [{
+        "type": "CIRCLE",
+        "color": "fiskheroes:charged_beam",
+        "data": "fiskheroes:beam_charge"
+    }
+]
+}
