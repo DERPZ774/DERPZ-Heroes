@@ -232,6 +232,25 @@
                 "ENABLE": ["fiskheroes:flight_loop", "fiskheroes:flight_cape_loop"],
                 "BOOST": "fiskheroes:flight_boost"
             }
+        },
+        "fiskheroes:telekinesis": {
+            "telekinesis": {
+                "crushMelons": true,
+                "crushThrowables": true,
+                "squeezeChickens": true,
+                "explodeCreepers": true,
+                "destroyInanimates": true
+            },
+            "canGrab": {
+                "mobs": true,
+                "items": true,
+                "projectiles": true,
+                "inanimates": true
+            },
+            "range": 10.0,
+            "soundEvents": {
+                "GRAB": ["fiskheroes:telekinesis_start", "fiskheroes:energy_projection"]
+            }
         }
     },
     "hud": [{

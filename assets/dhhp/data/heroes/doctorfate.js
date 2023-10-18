@@ -26,6 +26,10 @@ function init(hero) {
 
     //powerset two 
     hero.addKeyBind("CHARGED_BEAM", "Empower Spell", 1);
+    hero.addKeyBind("TELEKINESIS", "key.telekinesis", 2);
+
+    //powerset three
+    hero.addKeyBind("SHIELD", "Shield", 1);
 
 
     hero.setTierOverride(entity => entity.getData("dhhp:dyn/helmet") ? 10 : 0);
@@ -70,6 +74,8 @@ function isModifierEnabled(entity, modifier) {
     switch (modifier.name()) {
         case "fiskheroes:controlled_flight":
             return fate;
+        case "fiskheroes:shield":
+            return fate && !boostFlight;
     }
     switch (modifier.id()) {
         case "offensive_spells":
@@ -85,6 +91,8 @@ function isKeyBindEnabled(entity, keyBind) {
     var powerset = entity.getData("dhhp:dyn/fate_powerset");
     var book = entity.getData("dhhp:dyn/fate_book");
     var selected = entity.getData("dhhp:dyn/selected_pwr");
+    var boostFlight = entity.isSprinting() && entity.getData("fiskheroes:flying");
+
 
     switch (keyBind) {
         //cycle system
@@ -114,6 +122,12 @@ function isKeyBindEnabled(entity, keyBind) {
             //second powerset    
         case "CHARGED_BEAM":
             return powerset == 2 && !book && selected;
+        case "TELEKINESIS":
+            return powerset == 2 && !book && selected;
+
+            //third powerset
+        case "SHIELD":
+            return powerset == 3 && !book && selected && !boostFlight;
         default:
             return true;
     }
@@ -157,7 +171,6 @@ Telekinesis to hold people down
 Defense
 shield
 Knockback spells
-lot of immunities with the removal of regen
 
 Nabuu takeover
 you could have it so you can merge all 3 modes and start like flying with ankhs spinning around you and shit then all your keybinds become those scrambled letters
