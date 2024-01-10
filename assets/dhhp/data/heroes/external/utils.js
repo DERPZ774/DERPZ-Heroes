@@ -49,21 +49,22 @@ function flight_booster_tick(entity, manager) {
 }
 
 function moon_teleport_tick(entity, manager, moon) {
-    var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
+    // var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
     var x = entity.posX();
     var y = entity.posY();
     var z = entity.posZ();
     var dim = entity.world().getDimension();
     if (y >= moon) {
-        manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(x, y, z, dim + 1));
+        manager.setData(entity, "fiskheroes:teleport_dest", manager.newCoords(x, y, z, dim + 1));
         manager.setData(entity, "fiskheroes:teleport_delay", 1);
+        PackLoader.printChat("Space test!")
 
     }
     if (entity.world().getDimension() == 2595 && !entity.getData("dhhp:dyn/teleport")) {
         manager.setData(entity, "dhhp:dyn/teleport", true);
     }
     if (entity.world().getDimension() == 0 && entity.getData("dhhp:dyn/teleport")) {
-        manager.setData(entity, "fiskheroes:teleport_dest", new DimensionalCoords(Math.floor(entity.posX()), SafeY(entity), Math.floor(entity.posZ()), 0));
+        manager.setData(entity, "fiskheroes:teleport_dest", manager.newCoords(Math.floor(entity.posX()), SafeY(entity), Math.floor(entity.posZ()), 0));
         manager.setData(entity, "fiskheroes:teleport_delay", 1);
         manager.setData(entity, "dhhp:dyn/teleport", false);
     }

@@ -1,4 +1,3 @@
-var DimensionalCoords = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
 var utils = implement("dhhp:external/utils");
 
 function init(hero) {

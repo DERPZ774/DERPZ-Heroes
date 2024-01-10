@@ -1,4 +1,4 @@
-var DC = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
+// var DC = Java.type('com.fiskmods.heroes.common.DimensionalCoords');
 
 function extractCoords(input) {
     var sections = input.split(" ");
@@ -79,11 +79,11 @@ function init(hero) {
          */
         if (entity.getData("dhhp:dyn/boolean")) {
             if (entity.world().getDimension() == 2595) {
-                manager.setData(entity, "fiskheroes:teleport_dest", new DC(Math.floor(entity.posX()), Math.floor(entity.posY()), Math.floor(entity.posZ()), 0));
+                manager.setData(entity, "fiskheroes:teleport_dest", manager.newCoords(Math.floor(entity.posX()), Math.floor(entity.posY()), Math.floor(entity.posZ()), 0));
                 manager.setData(entity, "fiskheroes:teleport_delay", 1);
             }
             if (entity.world().getDimension() == 0) {
-                manager.setData(entity, "fiskheroes:teleport_dest", new DC(Math.floor(entity.posX()), SafeY(entity), Math.floor(entity.posZ()), 0));
+                manager.setData(entity, "fiskheroes:teleport_dest", manager.newCoords(Math.floor(entity.posX()), SafeY(entity), Math.floor(entity.posZ()), 0));
                 manager.setData(entity, "fiskheroes:teleport_delay", 1);
                 manager.setData(entity, "dhhp:dyn/boolean", false);
             }
@@ -101,7 +101,7 @@ function init(hero) {
 function functionTeleport(player, manager) {
     var dest = extractDest(player);
     var dim = player.world().getDimension();
-    manager.setData(player, "fiskheroes:teleport_dest", new DC(dest.x, dest.y + 1, dest.z, dim));
+    manager.setData(player, "fiskheroes:teleport_dest", manager.newCoords(dest.x, dest.y + 1, dest.z, dim));
     manager.setData(player, "fiskheroes:teleport_delay", 1);
     manager.setDataWithNotify(player, "fiskheroes:shape_shifting_to", null);
     manager.setDataWithNotify(player, "fiskheroes:shape_shift_timer", 1);

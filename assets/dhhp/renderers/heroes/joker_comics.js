@@ -3,9 +3,9 @@ loadTextures({
     "layer1": "dhhp:dc/joker_layer1",
     "layer2": "dhhp:dc/joker_layer2",
     "layer2_chest": "dhhp:dc/joker_layer2_chest",
-	"chest": "dhhp:dc/joker_chest",
+    "chest": "dhhp:dc/joker_chest",
     "blade": "fiskheroes:agent_liberty_blade",
-	"tailcoat": "dhhp:dc/joker_tailcoat"
+    "tailcoat": "dhhp:dc/joker_tailcoat"
 });
 
 var capes = implement("fiskheroes:external/capes");
@@ -27,11 +27,13 @@ function init(renderer) {
 
 function initEffects(renderer) {
     var physics = renderer.createResource("CAPE_PHYSICS", null);
-    physics.maxFlare = 0.4;
+    physics.maxFlare = 0.1;
+    physics.weight = 2.0;
     tailcoat = capes.createDefault(renderer, 20, "fiskheroes:cape_default.mesh.json", physics);
     tailcoat.effect.texture.set("tailcoat");
     tailcoat.effect.width = 8;
-	
+    tailcoat.effect.setOffset(0.0, 11.0, -0.05);
+
     blade = renderer.createEffect("fiskheroes:shield");
     blade.texture.set("blade");
     blade.anchor.set("rightArm");
