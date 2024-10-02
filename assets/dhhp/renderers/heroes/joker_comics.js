@@ -9,6 +9,7 @@ loadTextures({
 });
 
 var capes = implement("fiskheroes:external/capes");
+var utils = implement("fiskheroes:external/utils");
 var blade;
 var tailcoat;
 
@@ -28,7 +29,7 @@ function init(renderer) {
 function initEffects(renderer) {
     var physics = renderer.createResource("CAPE_PHYSICS", null);
     physics.maxFlare = 0.1;
-    physics.weight = 2.0;
+    physics.weight = 1.8;
     tailcoat = capes.createDefault(renderer, 20, "fiskheroes:cape_default.mesh.json", physics);
     tailcoat.effect.texture.set("tailcoat");
     tailcoat.effect.width = 8;
@@ -37,6 +38,11 @@ function initEffects(renderer) {
     blade = renderer.createEffect("fiskheroes:shield");
     blade.texture.set("blade");
     blade.anchor.set("rightArm");
+
+
+    utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:water_beam", "body", 0x38FE03, [
+        { "firstPerson": [2.2, 0.0, 2.0], "offset": [2.9, 1.4, -4.0], "size": [0.2, 0.2] },
+    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {

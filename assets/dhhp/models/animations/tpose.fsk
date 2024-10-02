@@ -1,3 +1,7 @@
 {rightArm_rotZ} @ {data} -> 90'
 
 {leftArm_rotZ} @ {data} -> -90'
+
+{rightLeg_rotZ} @ {data} -> 90'
+
+{leftLeg_rotZ} @ {data} -> -90'

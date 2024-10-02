@@ -19,12 +19,12 @@ function init(hero) {
     hero.addAttributeProfile("BLADE", bladeProfile);
     hero.setAttributeProfile(getProfile);
     hero.setDamageProfile(getProfile);
-    hero.addDamageProfile("BLADE", {"types": {"SHARP": 1.0}});
+    hero.addDamageProfile("BLADE", { "types": { "SHARP": 1.0 } });
 }
 
 function bladeProfile(profile) {
     profile.inheritDefaults();
-    profile.addAttribute("PUNCH_DAMAGE", 7.0, 0);
+    profile.addAttribute("PUNCH_DAMAGE", 6.0, 0);
 }
 
 function getProfile(entity) {
