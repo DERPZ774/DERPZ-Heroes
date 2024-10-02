@@ -1,6 +1,5 @@
-var domain = "dhhp";
 var utils = implement("dhhp:external/utils");
-var shadowDome = implement(domain + ":external/ppg_boost");
+var team = implement("dhhp:external/ppg_boost");
 
 function init(hero) {
     hero.setName("Buttercup");
@@ -16,6 +15,8 @@ function init(hero) {
     hero.addAttribute("PUNCH_DAMAGE", 7.5, 0);
     hero.addAttribute("KNOCKBACK", 1.75, 0);
     hero.addAttribute("IMPACT_DAMAGE", 0.25, 1);
+    hero.addAttribute("SPRINT_SPEED", 0.15, 1);
+
 
     hero.addKeyBind("HEAT_VISION", "Heat Vision", 1);
     hero.addKeyBind("GROUND_SMASH", "key.groundSmash", 2);
@@ -28,23 +29,26 @@ function init(hero) {
     hero.setDefaultScale(0.47);
 
     hero.setTickHandler((entity, manager) => {
-        if (!entity.getData(domain + ":dyn/boolean")) {
-            manager.setData(entity, "fiskheroes:lightsout", true);
-            manager.setData(entity, domain + ":dyn/float", 0);
-            manager.setData(entity, domain + ":dyn/boolean", true);
-        }
-
-        shadowDome.checkBoost(entity, manager, "dhhp:buttercup");
-
+        team.checkBoost(entity, manager, "dhhp:buttercup");
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
     });
     hero.setAttributeProfile(getAttributeProfile);
-    hero.addAttributeProfile("BOOST", profile => {
+    hero.addAttributeProfile("BOOST_HALF", profile => {
         profile.inheritDefaults();
-        profile.addAttribute("FALL_RESISTANCE", 1, 1);
-        profile.addAttribute("JUMP_HEIGHT", 2, 0);
-        profile.addAttribute("PUNCH_DAMAGE", 6, 0);
-        profile.addAttribute("SPRINT_SPEED", 1, 0);
+        profile.addAttribute("PUNCH_DAMAGE", 8.5, 0);
+        profile.addAttribute("SPRINT_SPEED", 0.30, 1);
+        profile.addAttribute("IMPACT_DAMAGE", 0.50, 1);
+        profile.addAttribute("KNOCKBACK", 2, 0);
+        profile.addAttribute("BASE_SPEED_LEVELS", 4.0, 0);
+    });
+
+    hero.addAttributeProfile("BOOST_FULL", profile => {
+        profile.inheritDefaults();
+        profile.addAttribute("PUNCH_DAMAGE", 9.5, 0);
+        profile.addAttribute("SPRINT_SPEED", 0.45, 1);
+        profile.addAttribute("IMPACT_DAMAGE", 0.75, 1);
+        profile.addAttribute("KNOCKBACK", 2.5, 0);
+        profile.addAttribute("BASE_SPEED_LEVELS", 5.0, 0);
     });
 }
 
@@ -70,7 +74,9 @@ function isKeyBindEnabled(entity, keyBind) {
 }
 
 function getAttributeProfile(entity) {
-    if (entity.getData(domain + ":dyn/statboost")) {
-        return "BOOST"
+    if (entity.getData("dhhp:dyn/statboost1") && !entity.getData("dhhp:dyn/statboost2") && !entity.getData("dhhp:dyn/statboost") || entity.getData("dhhp:dyn/statboost2") && !entity.getData("dhhp:dyn/statboost1") && !entity.getData("dhhp:dyn/statboost")) {
+        return "BOOST_HALF"
+    } else if (entity.getData("dhhp:dyn/statboost")) {
+        return "BOOST_FULL"
     }
 }

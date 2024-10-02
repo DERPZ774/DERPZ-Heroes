@@ -16,11 +16,6 @@
                 "time": 0
             }
         },
-        "fiskheroes:shadowdome": {
-            "chargeTime": 0,
-            "duration": 1,
-            "radius": 50
-        },
         "fiskheroes:super_speed": {
             "canUseTreadmill": false,
             "canUseTachyons": false,
