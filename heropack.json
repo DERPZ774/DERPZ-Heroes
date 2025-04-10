@@ -4,7 +4,7 @@
     "domain": "dhhp",
     "description": "Version: \u00A7l\u00A762.5.0\u00A7r By: \u00A7l\u00A7bDERPZ774",
     "packFormat": 1,
-    "minVersion": "2.3.0",
+    "minVersion": "2.4.0",
     "sounds": {
         "download": {
             "repository": "DERPZ774/Sounds",
@@ -104,10 +104,6 @@
     "dataVars": {
         "helmet": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "helmet_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
-        "rock": "BOOLEAN",
-        "rock_timer": "FLOAT_INTERP",
-        "mjonir": "BOOLEAN",
-        "mjonir_timer": "FLOAT_INTERP",
         "dna_shield": "BOOLEAN",
         "dna_shield_timer": "FLOAT_INTERP",
         "dna_shield_cooldown": "FLOAT",
@@ -121,13 +117,6 @@
         "power_cooldown": "FLOAT",
         "invisibility_cooldown": "FLOAT",
         "punch_cooldown": "FLOAT",
-        "water": "BOOLEAN",
-        "water_timer": "FLOAT_INTERP",
-        "water_cooldown": "FLOAT",
-        "water_weapon": "BYTE",
-        "water_weapon_timer_on": "FLOAT_INTERP",
-        "water_weapon_toggle": "BOOLEAN",
-        "water_weapon_timer": "FLOAT_INTERP",
         "jump": "BOOLEAN",
         "double_jump": "BOOLEAN",
         "jump_timer": "FLOAT_INTERP",
@@ -166,7 +155,10 @@
         "fate_powerset": { "type": "BYTE", "resetWithoutSuit": true },
         "fate_book": { "type": "BOOLEAN", "resetWithoutSuit": true },
         "selected_pwr": { "type": "BOOLEAN", "resetWithoutSuit": true },
-        "fate_book_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true }
+        "fate_book_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": true },
+        "adrenaline_timer": { "type": "FLOAT_INTERP", "resetWithoutSuit": false },
+        "adrenaline_cooldown": { "type": "FLOAT", "resetWithoutSuit": false },
+        "adrenaline": { "type": "BOOLEAN", "resetWithoutSuit": true }
 
     },
     "damageTypes": {
@@ -174,12 +166,6 @@
         "KRYPTONITE": "Kryptonite"
     },
     "alts": {
-        "dhhp:thor_mcu": {
-            "rgb": {
-                "name": "\u00A74R\u00A7aG\u00A79B\u00A7r",
-                "vanity": "achievement.fiskheroes.secret"
-            }
-        },
         "dhhp:blossom": {
             "rgb": {
                 "name": "\u00A74R\u00A7aG\u00A79B\u00A7r",

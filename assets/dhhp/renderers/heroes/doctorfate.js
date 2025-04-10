@@ -11,7 +11,7 @@ loadTextures({
 
 var utils = implement("fiskheroes:external/utils");
 var capes = implement("fiskheroes:external/capes");
-var fate = implement("dhhp:external/fate")
+var fate = implement("dhhp:external/fate");
 
 var cape;
 var physics;

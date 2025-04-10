@@ -13,7 +13,11 @@
             "potionEffects": [
                 9,
                 19,
-                20
+                20,
+                18,
+                2,
+                15,
+                7
             ]
         },
         "fiskheroes:projectile_immunity": {},
@@ -56,6 +60,21 @@
             "damageType": "SOUND",
             "factor": 4.0
         },
+        "fiskheroes:transformation": {
+            "transformation": {
+                "toggleData": "dhhp:dyn/adrenaline",
+                "timerData": "dhhp:dyn/adrenaline_timer",
+                "time": 0
+            }
+        },
+        "fiskheroes:cooldown|adrenaline": {
+            "cooldown": {
+                "toggleData": "dhhp:dyn/adrenaline",
+                "cooldownData": "dhhp:dyn/adrenaline_cooldown",
+                "duration": 200,
+                "recovery": 0.1
+            }
+        },
         "fiskheroes:cooldown|cooldown": {
             "cooldown": {
                 "toggleData": "entity.isSneaking() && !entity.getData('fiskheroes:moving') && entity.onGround",
@@ -64,5 +83,10 @@
                 "recovery": 1
             }
         }
-    }
+    },
+    "hud": [{
+        "type": "PROGRESS",
+        "texture": "fiskheroes:textures/gui/bars/nanite_transformation.png",
+        "data": "dhhp:dyn/adrenaline_cooldown"
+    }]
 }

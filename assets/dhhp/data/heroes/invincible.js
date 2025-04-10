@@ -29,6 +29,15 @@ function init(hero) {
 
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
+        //add stat changes
+
+        if (!entity.getData("dhhp:dyn/adrenaline") && entity.getHealth() < 4 && entity.getData("dhhp:dyn/adrenaline_cooldown") == 0) {
+            manager.setData(entity, "dhhp:dyn/adrenaline", true);
+        } 
+         if (entity.getData("dhhp:dyn/adrenaline_cooldown") == 1) {
+            manager.setData(entity, "dhhp:dyn/adrenaline", false);
+        }
+
     });
 }
 
