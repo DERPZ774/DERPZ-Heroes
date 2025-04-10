@@ -25,11 +25,13 @@ function init(hero) {
 
     hero.setModifierEnabled(isModifierEnabled);
     hero.setHasProperty((entity, property) => property == "BREATHE_SPACE");
+    hero.setAttributeProfile(entity => entity.getData("dhhp:dyn/adrenaline") ? "ADRENALINE" : null);
+    hero.addAttributeProfile("ADRENALINE", adrenalineProfile);
+
     hero.setKeyBindEnabled(isKeyBindEnabled);
 
     hero.setTickHandler((entity, manager) => {
         utils.all_tick(entity, manager, "dhhp:hero.landing", 1000);
-        //add stat changes
 
         if (!entity.getData("dhhp:dyn/adrenaline") && entity.getHealth() < 4 && entity.getData("dhhp:dyn/adrenaline_cooldown") == 0) {
             manager.setData(entity, "dhhp:dyn/adrenaline", true);
@@ -39,6 +41,13 @@ function init(hero) {
         }
 
     });
+}
+
+function adrenalineProfile(profile) {
+    profile.inheritDefaults();
+    profile.addAttribute("SPRINT_SPEED", 0.65, 1);
+    profile.addAttribute("PUNCH_DAMAGE", 12, 0);
+    profile.addAttribute("KNOCKBACK", 3, 0);
 }
 
 function isModifierEnabled(entity, modifier) {
