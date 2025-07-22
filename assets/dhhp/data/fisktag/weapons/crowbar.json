@@ -1,0 +1,7 @@
+{
+  "name": "Joker's Crowbar",
+  "holdingPose": "SINGLE",
+  "melee": {
+    "attackDamage": 6
+  }
+}

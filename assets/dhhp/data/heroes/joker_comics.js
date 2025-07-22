@@ -8,25 +8,11 @@ function init(hero) {
     hero.setLeggings("item.superhero_armor.piece.pants");
     hero.setBoots("Shoes");
 
-    hero.addPowers("fiskheroes:retractable_blade", "dhhp:joker");
+    hero.addPrimaryEquipment("fisktag:weapon{WeaponType:dhhp:crowbar}", true, item => item.nbt().getString("WeaponType") == 'dhhp:crowbar');
+    hero.addPowers("dhhp:joker");
     hero.addAttribute("PUNCH_DAMAGE", 4.0, 0);
     hero.addAttribute("WEAPON_DAMAGE", 1.0, 0);
     hero.addAttribute("FALL_RESISTANCE", 2.5, 0);
 
-    hero.addKeyBind("BLADE", "key.blade", 1);
-    hero.addKeyBind("CHARGED_BEAM", "Acid Flower", 2);
-
-    hero.addAttributeProfile("BLADE", bladeProfile);
-    hero.setAttributeProfile(getProfile);
-    hero.setDamageProfile(getProfile);
-    hero.addDamageProfile("BLADE", { "types": { "SHARP": 1.0 } });
-}
-
-function bladeProfile(profile) {
-    profile.inheritDefaults();
-    profile.addAttribute("PUNCH_DAMAGE", 6.0, 0);
-}
-
-function getProfile(entity) {
-    return entity.getData("fiskheroes:blade") ? "BLADE" : null;
+    hero.addKeyBind("CHARGED_BEAM", "Acid Flower", 1);
 }

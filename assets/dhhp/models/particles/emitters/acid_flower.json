@@ -1,0 +1,16 @@
+{
+  "particles": [
+    {
+      "type": "ENERGY_SMOKE",
+      "anchor": "body",
+      "amount": 1,
+      "offset": {
+            "tp": [-2.4, 0.8, -2.5],
+            "fp": [-2.9, 2.0, 0.0]
+        },
+      "randOffset": [0.06, 0.06, 0.0],
+      "motion": [0.0, 1.0, 0.0],
+      "lockFPYaw": true
+    }
+  ]
+}

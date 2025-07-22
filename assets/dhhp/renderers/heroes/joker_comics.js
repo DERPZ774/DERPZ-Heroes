@@ -4,7 +4,6 @@ loadTextures({
     "layer2": "dhhp:dc/joker_layer2",
     "layer2_chest": "dhhp:dc/joker_layer2_chest",
     "chest": "dhhp:dc/joker_chest",
-    "blade": "fiskheroes:agent_liberty_blade",
     "tailcoat": "dhhp:dc/joker_tailcoat"
 });
 
@@ -34,25 +33,19 @@ function initEffects(renderer) {
     tailcoat.effect.texture.set("tailcoat");
     tailcoat.effect.width = 8;
     tailcoat.effect.setOffset(0.0, 11.0, -0.05);
-
-    blade = renderer.createEffect("fiskheroes:shield");
-    blade.texture.set("blade");
-    blade.anchor.set("rightArm");
-
+    utils.bindParticles(renderer, "dhhp:acid_flower").setCondition(entity => entity.getData("fiskheroes:beam_charging") && entity.getData("fiskheroes:beam_charge") < 1 || entity.getData("fiskheroes:beam_shooting") > 0);
 
     utils.bindBeam(renderer, "fiskheroes:charged_beam", "dhhp:water_beam", "body", 0x38FE03, [
-        { "firstPerson": [2.2, 0.0, 2.0], "offset": [2.9, 1.4, -4.0], "size": [0.2, 0.2] },
-    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "fiskheroes:impact_charged_beam"));
+        { "firstPerson": [0, 0.0, 0.0], "offset": [0, 0, 0.0], "size": [0, 0] },
+    ]).setParticles(renderer.createResource("PARTICLE_EMITTER", "dhhp:acid_flower_impact"));
+}
+
+function initAnimations(renderer) {
+    parent.initAnimations(renderer);
+    renderer.removeCustomAnimation("basic.CHARGED_BEAM");
 }
 
 function render(entity, renderLayer, isFirstPersonArm) {
-    if (renderLayer == "CHESTPLATE") {
-        blade.unfold = entity.getInterpolatedData("fiskheroes:blade_timer");
-
-        var f = Math.min(blade.unfold * 5, 1);
-        blade.setOffset(2.9 + 0.1 * f, 6.0 + 3.0 * f, 0.0);
-        blade.render();
-    }
     if (!isFirstPersonArm && renderLayer == "CHESTPLATE") {
         tailcoat.render(entity);
     }

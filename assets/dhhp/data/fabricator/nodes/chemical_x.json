@@ -19,7 +19,7 @@
                 "variables": {
                     "item": "ITEM_BEING_CONSUMED"
                 },
-                "check": "item.displayName() == 'Potion of Harming'"
+                "check": "item.name() == 'minecraft:potion' && (item.damage() == 8268 || item.damage() == 8236)"
             }
         }
     }

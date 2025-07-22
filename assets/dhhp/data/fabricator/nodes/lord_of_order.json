@@ -27,7 +27,7 @@
         "temple": {
             "trigger": "fiskheroes:location",
             "description": {
-                "translate": "Wear a golden helmet renamed to 'Nabu' and visit an externity nexus"
+                "translate": "Wear a golden helmet renamed to 'Nabu' and visit an eternity nexus"
             },
             "condition": {
                 "variables": {

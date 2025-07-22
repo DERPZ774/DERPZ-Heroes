@@ -16,7 +16,7 @@
             "chargeTime": 20,
             "duration": 20,
             "cooldownTime": 40,
-            "range": 12.0,
+            "range": 4.0,
             "radius": 0.15,
             "soundEvents": {
                 "SHOOT": [
