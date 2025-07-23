@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:other/invincible_layer1",
-    "layer2": "dhhp:other/invincible_layer2"
+    "layer1": "dhhp:invincible/invincible_layer1",
+    "layer2": "dhhp:invincible/invincible_layer2"
 });
 
 var flight = implement("dhhp:external/flight");
