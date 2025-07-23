@@ -9,7 +9,6 @@ loadTextures({
 
 var capes = implement("fiskheroes:external/capes");
 var utils = implement("fiskheroes:external/utils");
-var blade;
 var tailcoat;
 
 function init(renderer) {
