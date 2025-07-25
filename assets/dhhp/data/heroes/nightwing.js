@@ -1,6 +1,7 @@
 function init(hero) {
     hero.setName("Nightwing");
     hero.setTier(5);
+    hero.setVersion("Comics");
 
     hero.setHelmet("Mask");
     hero.setChestplate("item.superhero_armor.piece.chestpiece");

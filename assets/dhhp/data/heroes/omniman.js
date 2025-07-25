@@ -1,7 +1,7 @@
 var utils = implement("dhhp:external/utils");
 
 function init(hero) {
-    hero.setName("Omniman");
+    hero.setName("Omni-Man");
     hero.setVersion("Invincible");
     hero.setTier(8);
 
@@ -53,3 +53,4 @@ function isKeyBindEnabled(entity, keyBind) {
             return true;
     }
 }
+//bloodied system

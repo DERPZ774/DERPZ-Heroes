@@ -1,7 +1,8 @@
 function init(hero) {
-    hero.setName("Scarlet-Spider");
+    hero.setName("Scarlet Spider/Kaine");
     hero.setTier(7);
-    
+    hero.setVersion("Comics");
+
     hero.setHelmet("item.superhero_armor.piece.mask");
     hero.setChestplate("item.superhero_armor.piece.chestpiece");
     hero.setLeggings("item.superhero_armor.piece.pants");

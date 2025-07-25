@@ -1,0 +1,28 @@
+{
+    "display": {
+    "name": "Mark I made a steak",
+        "description": "Yes :(",
+      "icon": {
+      "item": "minecraft:cooked_beef"
+    }
+    },
+    "requirements": [
+    ],
+    "price": {
+    "XP_LEVELS": 10
+    },
+    "criteria": {
+        "steak": {
+        "trigger": "fiskheroes:item_smelted",
+        "description": {
+            "translate": "Make a Steak"
+        },
+        "condition": {
+            "variables": {
+            "item": "ITEM_BEING_SMELTED"
+            },
+            "check": "item.name() == 'minecraft:cooked_beef'"
+        }
+        }
+    }
+}

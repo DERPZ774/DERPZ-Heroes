@@ -2,6 +2,8 @@ function init(hero) {
     hero.setName("Red Hood");
     hero.setTier(6);
 
+    hero.setVersion("Comics");
+
     hero.setHelmet("Mask");
     hero.setChestplate("Jacket");
     hero.setLeggings("item.superhero_armor.piece.pants");

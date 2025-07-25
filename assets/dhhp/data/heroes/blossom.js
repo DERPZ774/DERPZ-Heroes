@@ -3,7 +3,7 @@ var team = implement("dhhp:external/ppg_boost");
 
 function init(hero) {
     hero.setName("Blossom");
-    hero.setVersion("PowerPuff Girls");
+    hero.setVersion("The Powerpuff Girls");
     hero.setTier(7);
 
     hero.setHelmet("Head");
@@ -85,3 +85,5 @@ function getAttributeProfile(entity) {
         return "BOOST_FULL"
     }
 }
+
+//should the ppg have a sprint sound?
