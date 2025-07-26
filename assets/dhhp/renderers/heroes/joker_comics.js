@@ -1,10 +1,10 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:dc/joker_layer1",
-    "layer2": "dhhp:dc/joker_layer2",
-    "layer2_chest": "dhhp:dc/joker_layer2_chest",
-    "chest": "dhhp:dc/joker_chest",
-    "tailcoat": "dhhp:dc/joker_tailcoat"
+    "layer1": "dhhp:joker_layer1",
+    "layer2": "dhhp:joker_layer2",
+    "layer2_chest": "dhhp:joker_layer2_chest",
+    "chest": "dhhp:joker_chest",
+    "tailcoat": "dhhp:joker_tailcoat"
 });
 
 var capes = implement("fiskheroes:external/capes");

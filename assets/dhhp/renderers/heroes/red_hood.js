@@ -1,11 +1,11 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:dc/red_hood_layer1",
-    "layer2": "dhhp:dc/red_hood_layer2",
-    "lights": "dhhp:dc/red_hood_lights",
-    "gun": "dhhp:dc/desert_eagle_red_hood",
-    "helmet": "dhhp:dc/red_hood_helmet",
-    "mask": "dhhp:dc/red_hood_mask_layer1"
+    "layer1": "dhhp:red_hood_layer1",
+    "layer2": "dhhp:red_hood_layer2",
+    "lights": "dhhp:red_hood_lights",
+    "gun": "dhhp:desert_eagle_red_hood",
+    "helmet": "dhhp:red_hood_helmet",
+    "mask": "dhhp:red_hood_mask_layer1"
 });
 
 var utils = implement("fiskheroes:external/utils");

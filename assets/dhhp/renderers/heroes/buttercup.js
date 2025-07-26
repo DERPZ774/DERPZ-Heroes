@@ -1,6 +1,6 @@
 extend("dhhp:powerpuff_base");
 loadTextures({
-    "texture": "dhhp:other/buttercup"
+    "texture": "dhhp:ppg/buttercup"
 });
 
 function initEffects(renderer) {

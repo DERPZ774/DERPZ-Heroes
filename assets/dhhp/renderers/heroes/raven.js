@@ -1,8 +1,8 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:dc/raven/raven_layer1",
-    "layer2": "dhhp:dc/raven/raven_layer2",
-    "cape": "dhhp:dc/raven/raven_cape1"
+    "layer1": "dhhp:raven/raven_layer1",
+    "layer2": "dhhp:raven/raven_layer2",
+    "cape": "dhhp:raven/raven_cape1"
 });
 
 var cape;

@@ -1,12 +1,12 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:dc/redx_layer1",
-    "layer2": "dhhp:dc/redx_layer2",
-    "eyes": "dhhp:dc/redx_eyes",
-    "cape": "dhhp:dc/redx_cape",
-    "x_small": "dhhp:dc/redx_x_small",
-    "x_big": "dhhp:dc/redx_x_big",
-    "x_shield": "dhhp:dc/redx_x_shield"
+    "layer1": "dhhp:redx_layer1",
+    "layer2": "dhhp:redx_layer2",
+    "eyes": "dhhp:redx_eyes",
+    "cape": "dhhp:redx_cape",
+    "x_small": "dhhp:redx_x_small",
+    "x_big": "dhhp:redx_x_big",
+    "x_shield": "dhhp:redx_x_shield"
 
 });
 

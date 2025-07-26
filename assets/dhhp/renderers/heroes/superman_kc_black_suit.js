@@ -1,10 +1,10 @@
 extend("dhhp:superman_kc");
 loadTextures({
-    "layer1": "dhhp:dc/superman_zod_layer1",
-    "boots": "dhhp:dc/superman_zod_boots",
-    "pants": "dhhp:dc/superman_zod_pants",
+    "layer1": "dhhp:superman_zod_layer1",
+    "boots": "dhhp:superman_zod_boots",
+    "pants": "dhhp:superman_zod_pants",
     "cape": "dhhp:other/blank",
-    "suit": "dhhp:dc/superman_zod_suit"
+    "suit": "dhhp:superman_zod_suit"
 });
 
 function init(renderer) {

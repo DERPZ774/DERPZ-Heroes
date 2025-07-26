@@ -1,8 +1,8 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:dc/superboy_layer1",
-    "layer2": "dhhp:dc/superboy_layer2",
-    "shield": "dhhp:dc/superboy_patch"
+    "layer1": "dhhp:superboy_layer1",
+    "layer2": "dhhp:superboy_layer2",
+    "shield": "dhhp:superboy_patch"
 });
 
 var utils = implement("fiskheroes:external/utils");

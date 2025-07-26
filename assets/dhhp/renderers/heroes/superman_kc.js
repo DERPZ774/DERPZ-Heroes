@@ -1,8 +1,8 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:dc/superman_layer1",
-    "layer2": "dhhp:dc/superman_layer2",
-    "cape": "dhhp:dc/superman_cape"
+    "layer1": "dhhp:superman_layer1",
+    "layer2": "dhhp:superman_layer2",
+    "cape": "dhhp:superman_cape"
 });
 
 var cape;

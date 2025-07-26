@@ -1,7 +1,7 @@
 extend("dhhp:blossom");
 loadTextures({
-    "rgb": "dhhp:other/blossom_rgb.tx.json",
-    "texture": "dhhp:other/blossom"
+    "rgb": "dhhp:ppg/blossom_rgb.tx.json",
+    "texture": "dhhp:ppg/blossom"
 });
 
 

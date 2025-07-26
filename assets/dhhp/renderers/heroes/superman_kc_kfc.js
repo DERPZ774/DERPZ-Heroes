@@ -1,10 +1,10 @@
 extend("dhhp:superman_kc");
 loadTextures({
-    "layer1": "dhhp:dc/superman_kfc_layer1",
-    "boots": "dhhp:dc/superman_kfc_boots",
-    "pants": "dhhp:dc/superman_kfc_pants",
-    "cape": "dhhp:dc/superman_kfc_cape",
-    "suit": "dhhp:dc/superman_kfc_suit"
+    "layer1": "dhhp:superman_kfc_layer1",
+    "boots": "dhhp:superman_kfc_boots",
+    "pants": "dhhp:superman_kfc_pants",
+    "cape": "dhhp:superman_kfc_cape",
+    "suit": "dhhp:superman_kfc_suit"
 });
 
 var chicken;

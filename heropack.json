@@ -196,13 +196,24 @@
             }
         },
         "dhhp:omniman": {
-            "moustache": {
-                "name": "Moustache"
+            "animated": {
+                "name": "Animated"
+            }
+        },
+        "dhhp:atom_eve": {
+            "animated": {
+                "name": "Animated"
             }
         },
         "dhhp:invincible": {
             "blue": {
                 "name": "Blue Suit"
+            },
+            "animated": {
+                "name": "Animated"
+            },
+            "blue_animated": {
+                "name": "Blue Suit, Animated"
             }
         },
         "dhhp:red_hood": {

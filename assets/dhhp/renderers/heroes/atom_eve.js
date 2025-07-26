@@ -2,10 +2,7 @@ extend("fiskheroes:hero_basic");
 loadTextures({
     "layer1": "dhhp:other/atom_eve/atom_eve_layer1",
     "boots": "dhhp:other/atom_eve/atom_eve_boots",
-    "chest": "dhhp:other/atom_eve/atom_eve_chest",
-    "mask": "dhhp:other/atom_eve/atom_eve_mask",
     "cape": "dhhp:other/atom_eve/atom_eve_cape",
-    "cape_hair": "dhhp:other/atom_eve/atom_eve_cape_hair",
     "suit": "dhhp:other/atom_eve/atom_eve_suit.tx.json",
     "base": "dhhp:other/atom_eve/atom_eve_base"
 });
@@ -28,16 +25,9 @@ function init(renderer) {
             return timer == 0 ? "mask" : timer < 1 ? "suit" : "base";
         }
 
-        if (renderLayer == "CHESTPLATE") {
-            return entity.getWornHelmet().suitType() == $SUIT_NAME ? "layer1" : "chest";
-        }
-        if (renderLayer == "HELMET") {
-            return entity.getWornChestplate().suitType() == $SUIT_NAME ? "layer1" : "mask";
-        }
         return renderLayer == "BOOTS" ? "boots" : "layer1";
     });
 
-    renderer.showModel("HELMET", "head", "headwear", "body");
     renderer.showModel("CHESTPLATE", "body", "rightArm", "leftArm", "rightLeg", "leftLeg");
 }
 
@@ -60,7 +50,7 @@ function initEffects(renderer) {
         physics.flutterSpeed = f * 0.4;
     });
 
-    cape = capes.create(renderer, 12, "fiskheroes:cape_default.mesh.json");
+    cape = capes.create(renderer, 10, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
 
     chest = renderer.createEffect("fiskheroes:chest");
@@ -105,7 +95,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm) {
         if (renderLayer == "CHESTPLATE") {
             var f = entity.getInterpolatedData("fiskheroes:flight_timer");
-            cape.effect.length = entity.is("DISPLAY") ? 12 : entity.getInterpolatedData("dhhp:dyn/atom_timer") * 12;
+            cape.effect.length = entity.is("DISPLAY") ? 14 : entity.getInterpolatedData("dhhp:dyn/atom_timer") * 14;
             cape.render({
                 "wind": 1 + 0.3 * f,
                 "windFactor": 1 - 0.7 * f,

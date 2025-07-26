@@ -1,4 +1,4 @@
 extend("dhhp:buttercup");
 loadTextures({
-    "rgb": "dhhp:other/buttercup_rgb.tx.json"
+    "rgb": "dhhp:ppg/buttercup_rgb.tx.json"
 });

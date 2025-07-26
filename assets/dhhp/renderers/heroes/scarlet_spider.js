@@ -1,8 +1,8 @@
 extend("fiskheroes:spider_man_base");
 loadTextures({
-    "layer1": "dhhp:marvel/scarlet_spider_layer1",
-    "layer2": "dhhp:marvel/scarlet_spider_layer2",
-    "bone": "dhhp:marvel/bone_blade"
+    "layer1": "dhhp:scarlet_spider_layer1",
+    "layer2": "dhhp:scarlet_spider_layer2",
+    "bone": "dhhp:bone_blade"
 });
 
 var blade;

@@ -1,7 +1,0 @@
-{
-    "inputs": [
-        "fiskheroes:flight/header",
-        "dhhp:flight/aqualad_hover",
-        "dhhp:flight/boost/aqualad_boost"
-    ]
-}

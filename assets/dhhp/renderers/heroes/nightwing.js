@@ -1,11 +1,11 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:dc/nightwing_layer1",
-    "layer2": "dhhp:dc/nightwing_layer2",
-    "lights": "dhhp:dc/nightwing_eyes",
-    "escrima": "dhhp:dc/nightwing_escrima",
-    "escrima2": "dhhp:dc/nightwing_escrima2",
-    "escrima_lights": "dhhp:dc/nightwing_escrima_lights"
+    "layer1": "dhhp:nightwing_layer1",
+    "layer2": "dhhp:nightwing_layer2",
+    "lights": "dhhp:nightwing_eyes",
+    "escrima": "dhhp:nightwing_escrima",
+    "escrima2": "dhhp:nightwing_escrima2",
+    "escrima_lights": "dhhp:nightwing_escrima_lights"
 });
 
 var utils = implement("fiskheroes:external/utils");

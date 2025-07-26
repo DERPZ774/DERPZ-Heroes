@@ -1,7 +1,0 @@
-{
-    "inputs": [
-        "dhhp:flight/header",
-        "dhhp:flight/raven_hover",
-        "dhhp:flight/raven_boost"
-    ]
-}

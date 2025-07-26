@@ -1,7 +1,7 @@
 extend("dhhp:powerpuff_base");
 loadTextures({
-    "texture": "dhhp:other/blossom",
-    "cape": "dhhp:other/blossom_hair"
+    "texture": "dhhp:ppg/blossom",
+    "cape": "dhhp:ppg/blossom_hair"
 });
 
 var cape;

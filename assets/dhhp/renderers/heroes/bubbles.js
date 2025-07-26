@@ -1,6 +1,6 @@
 extend("dhhp:powerpuff_base");
 loadTextures({
-    "texture": "dhhp:other/bubbles"
+    "texture": "dhhp:ppg/bubbles"
 });
 
 function initEffects(renderer) {

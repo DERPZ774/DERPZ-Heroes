@@ -1,4 +1,4 @@
 extend("dhhp:bubbles");
 loadTextures({
-    "rgb": "dhhp:other/bubbles_rgb.tx.json"
+    "rgb": "dhhp:ppg/bubbles_rgb.tx.json"
 });

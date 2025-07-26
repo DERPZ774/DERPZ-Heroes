@@ -1,0 +1,20 @@
+{
+    "texture": {
+        "in": "dhhp:doctor_fate/doctor_fate_base",
+        "transform": [{
+            "operation": "XOR",
+            "supply": "dhhp:xor/doctor_fate_suit_<TIMER>"
+        }],
+        "out": "dhhp:doctor_fate/generated/doctor_fate_suit_<TIMER>"
+    },
+    "getters": {
+        "TIMER": {
+            "key": "Math.ceil(24 * Math.max(entity.getData('dhhp:dyn/helmet_timer') - 0.5, 0)) | 0",
+            "values": {
+                "min": 0,
+                "max": 24
+            }
+        }
+    },
+    "isDynamic": true
+}
