@@ -1,7 +1,7 @@
 extend("dhhp:invincible"); //invincible_omni_layer1
 loadTextures({
-    "layer1": "dhhp:other/invincible_omni_layer1",
-    "cape": "dhhp:other/invincible_omni"
+    "layer1": "dhhp:invincible/invincible_omni_layer1",
+    "cape": "dhhp:invincible/invincible_omni"
 });
 
 var cape;

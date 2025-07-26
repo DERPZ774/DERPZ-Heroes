@@ -1,9 +1,9 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:other/omniman_layer1",
-    "layer2": "dhhp:other/omniman_layer2",
-    "cape": "dhhp:other/omniman_cape",
-    "buns": "dhhp:other/buns_omniman"
+    "layer1": "dhhp:omniman/omniman_layer1",
+    "layer2": "dhhp:omniman/omniman_layer2",
+    "cape": "dhhp:omniman/omniman_cape",
+    "buns": "dhhp:omniman/buns_omniman"
 });
 
 var cape;

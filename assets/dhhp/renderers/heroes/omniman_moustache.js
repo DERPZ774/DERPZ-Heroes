@@ -1,6 +1,6 @@
 extend("dhhp:omniman");
 loadTextures({
-    "layer1": "dhhp:other/omniman_stache_layer1",
+    "layer1": "dhhp:omniman/omniman_stache_layer1",
 });
 
 function init(renderer) {

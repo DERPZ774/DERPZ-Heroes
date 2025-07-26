@@ -3,7 +3,7 @@ loadTextures({
     "layer1": "dhhp:superman_zod_layer1",
     "boots": "dhhp:superman_zod_boots",
     "pants": "dhhp:superman_zod_pants",
-    "cape": "dhhp:other/blank",
+    "cape": "dhhp:null",
     "suit": "dhhp:superman_zod_suit"
 });
 

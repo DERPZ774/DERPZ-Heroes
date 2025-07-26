@@ -1,6 +1,6 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "blank": "dhhp:other/blank"
+    "blank": "dhhp:null"
 });
 
 var utils = implement("fiskheroes:external/utils");

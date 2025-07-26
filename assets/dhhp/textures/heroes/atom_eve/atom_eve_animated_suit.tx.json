@@ -1,11 +1,11 @@
 {
     "texture": {
-        "in": "dhhp:invincible/atom_eve/atom_eve_animated_base",
+        "in": "dhhp:atom_eve/atom_eve_animated_base",
         "transform": [{
             "operation": "XOR",
-            "supply": "dhhp:other/atom_eve/xor/atom_xor_<TIMER>"
+            "supply": "dhhp:atom_eve/xor/atom_xor_<TIMER>"
         }],
-        "out": "dhhp:other/atom_eve/generated/atom_xor_<TIMER>"
+        "out": "dhhp:atom_eve/generated/atom_xor_<TIMER>"
     },
     "getters": {
         "TIMER": {

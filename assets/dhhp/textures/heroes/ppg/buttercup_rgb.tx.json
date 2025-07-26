@@ -1,6 +1,6 @@
 {
     "texture": {
-        "in": "dhhp:other/buttercup_rgb",
+        "in": "dhhp:ppg/buttercup_rgb",
         "transform": [{
             "operation": "HUE",
             "supply": "<TIMER>"

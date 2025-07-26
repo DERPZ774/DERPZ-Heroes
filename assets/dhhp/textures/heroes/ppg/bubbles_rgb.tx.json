@@ -1,6 +1,6 @@
 {
     "texture": {
-        "in": "dhhp:other/bubbles_rgb",
+        "in": "dhhp:ppg/bubbles_rgb",
         "transform": [{
             "operation": "HUE",
             "supply": "<TIMER>"

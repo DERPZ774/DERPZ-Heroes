@@ -3,7 +3,7 @@
         "in": "dhhp:doctor_fate/doctor_fate_base",
         "transform": [{
             "operation": "XOR",
-            "supply": "dhhp:xor/doctor_fate_suit_<TIMER>"
+            "supply": "dhhp:doctor_fate/xor/doctor_fate_suit_<TIMER>"
         }],
         "out": "dhhp:doctor_fate/generated/doctor_fate_suit_<TIMER>"
     },

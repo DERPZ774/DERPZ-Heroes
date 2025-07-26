@@ -1,6 +1,6 @@
 {
     "texture": {
-        "in": "dhhp:other/blossom_rgb",
+        "in": "dhhp:ppg/blossom_rgb",
         "transform": [{
             "operation": "HUE",
             "supply": "<TIMER>"

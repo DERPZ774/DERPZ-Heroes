@@ -1,7 +1,7 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:other/thragg_layer1",
-    "layer2": "dhhp:other/thragg_layer2"
+    "layer1": "dhhp:thragg_layer1",
+    "layer2": "dhhp:thragg_layer2"
 });
 
 var utils = implement("fiskheroes:external/utils");

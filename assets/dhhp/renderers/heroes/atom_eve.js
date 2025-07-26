@@ -1,10 +1,10 @@
 extend("fiskheroes:hero_basic");
 loadTextures({
-    "layer1": "dhhp:other/atom_eve/atom_eve_layer1",
-    "boots": "dhhp:other/atom_eve/atom_eve_boots",
-    "cape": "dhhp:other/atom_eve/atom_eve_cape",
-    "suit": "dhhp:other/atom_eve/atom_eve_suit.tx.json",
-    "base": "dhhp:other/atom_eve/atom_eve_base"
+    "layer1": "dhhp:atom_eve/atom_eve_layer1",
+    "boots": "dhhp:atom_eve/atom_eve_boots",
+    "cape": "dhhp:atom_eve/atom_eve_cape",
+    "suit": "dhhp:atom_eve/atom_eve_suit.tx.json",
+    "base": "dhhp:atom_eve/atom_eve_base"
 });
 
 var flight = implement("dhhp:external/flight");
