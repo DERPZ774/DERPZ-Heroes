@@ -1,0 +1,60 @@
+TBD 3.0
+
+----------------------------------------------------------------------------------------------------
+
+Additions :
+
+-Added The Joker (Comics)
+-Added a Blue Suit alt for Invicible
+-Added Colonel Sanders
+-Added a "Mark I made a steak" node to omniman
+
+----------------------------------------------------------------------------------------------------
+
+Changes :
+The Powerpuff Girls :
+-Rewrote and fixed the Powerpuff Girls team buff system
+-Changed Blossom's hair to be a hair-cape
+-Changed the version to be more accurate
+
+Invincible : 
+-Added adrenaline system for invincible
+-Changed the skin to be more accurate
+
+Omni-Man : 
+-Changed the name to be more accurate
+-Changed the skin to be more accurate
+-Added Invincible to his node requirements
+
+Atom Eve : 
+-Changed the skin to be more accurate
+
+Red Hood : 
+-Changed the name to be more accurate
+-Changed the skin to be more accurate
+-Changed the version to Comics
+
+Scarlet Spider :
+-Changed the version to Comics
+-Changed the name to be more accurate
+-Changed the skin to be more accurate
+
+Superboy :
+-Changed the version to Comics
+-Changed the skin to be more accurate
+
+Red X :
+-Changed the version to Teen Titans
+-Changed the skin to be more accurate
+
+Nightwing :
+-Changed the version to Comics
+-Changed the skin to be more accurate
+
+Superman :
+-Removed and remapped to be Colonel Sanders
+
+Other changes :
+-Added a changelog to the heropack files
+-Deleted several unused assets improving load times
+-Fixed the missing texture errors

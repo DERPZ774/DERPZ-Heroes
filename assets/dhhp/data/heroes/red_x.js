@@ -1,6 +1,7 @@
 function init(hero) {
     hero.setName("Red X");
     hero.setTier(5);
+    hero.setVersion("Teen Titans");
 
     hero.setHelmet("Mask");
     hero.setChestplate("item.superhero_armor.piece.chestpiece");

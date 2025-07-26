@@ -3,7 +3,7 @@ var team = implement("dhhp:external/ppg_boost");
 
 function init(hero) {
     hero.setName("Bubbles");
-    hero.setVersion("PowerPuff Girls");
+    hero.setVersion("The Powerpuff Girls");
     hero.setTier(7);
 
     hero.setHelmet("Head");

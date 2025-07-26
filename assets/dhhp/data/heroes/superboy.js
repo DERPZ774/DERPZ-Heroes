@@ -2,7 +2,7 @@ var utils = implement("dhhp:external/utils");
 
 function init(hero) {
     hero.setName("Superboy");
-    hero.setVersion("Young Justice");
+    hero.setVersion("Comics");
     hero.setAliases("SB");
     hero.setTier(8);
 

@@ -4,6 +4,8 @@ function init(hero) {
 
     hero.setHelmet("Helmet");
 
+    hero.setVersion("Injustice");
+
     hero.addPowers("dhhp:lord_of_order");
     hero.addAttribute("PUNCH_DAMAGE", 11, 0);
     hero.addAttribute("SPRINT_SPEED", 0.4, 1);
@@ -13,7 +15,7 @@ function init(hero) {
     //spellbook system
     hero.addKeyBind("ACTIVATE_SPELLBOOK", "Open SpellBook", 5);
     hero.addKeyBindFunc("func_CYCLE_POWERSET", cyclePowerKey, "Cycle Powerset", 2);
-    hero.addKeyBindFunc("func_CYCLE_POWERSET1", cyclePowerKey1, "Cycle Powerset Melee (1/3)", 2);
+    hero.addKeyBindFunc("func_CYCLE_POWERSET1", cyclePowerKey1, "Cycle Powerset Offensive (1/3)", 2);
     hero.addKeyBindFunc("func_CYCLE_POWERSET2", cyclePowerKey1, "Cycle Powerset Support (2/3)", 2);
     hero.addKeyBindFunc("func_CYCLE_POWERSET3", cyclePowerKey1, "Cycle Powerset Defensive (3/3)", 2);
     hero.addKeyBindFunc("func_SELECT_PWR", selectPower, "Select Powerset", 3);
@@ -178,3 +180,5 @@ then you glow gold and start growing in size
 then bam nabu on a timer for a short time
 the nabu takeover should happen randomly but only if the suit is max augments
 */
+
+//REMOVE THE SELECT KEYBIND JUST KEEP CYCLE
