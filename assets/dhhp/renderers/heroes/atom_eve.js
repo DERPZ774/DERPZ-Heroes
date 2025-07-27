@@ -52,6 +52,7 @@ function initEffects(renderer) {
 
     cape = capes.create(renderer, 10, "fiskheroes:cape_default.mesh.json");
     cape.effect.texture.set("cape");
+    cape.effect.width = 14;
 
     chest = renderer.createEffect("fiskheroes:chest");
     chest.setExtrude(1).setYOffset(1);
@@ -95,7 +96,7 @@ function render(entity, renderLayer, isFirstPersonArm) {
     if (!isFirstPersonArm) {
         if (renderLayer == "CHESTPLATE") {
             var f = entity.getInterpolatedData("fiskheroes:flight_timer");
-            cape.effect.length = entity.is("DISPLAY") ? 14 : entity.getInterpolatedData("dhhp:dyn/atom_timer") * 14;
+            cape.effect.length = entity.is("DISPLAY") ? 12 : entity.getInterpolatedData("dhhp:dyn/atom_timer") * 12;
             cape.render({
                 "wind": 1 + 0.3 * f,
                 "windFactor": 1 - 0.7 * f,
@@ -103,11 +104,11 @@ function render(entity, renderLayer, isFirstPersonArm) {
                 "flare": physics.getFlare(entity)
             });
             chest.render();
-            if (entity.getEquipmentInSlot(4).nbt().getString('HeroType') == 'dhhp:atom_eve') {
-                cape.effect.texture.set("cape_hair");
-            } else {
-                cape.effect.texture.set("cape");
-            }
+            // if (entity.getEquipmentInSlot(4).nbt().getString('HeroType') == 'dhhp:atom_eve') {
+            //     cape.effect.texture.set("cape_hair");
+            // } else {
+            //     cape.effect.texture.set("cape");
+            // }
         }
     }
 }
